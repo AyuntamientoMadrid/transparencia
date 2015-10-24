@@ -53,7 +53,11 @@
   }
    
   .description{
-     .show-more {
+    .show-more-height{
+      height: 100px;
+      overflow:hidden;
+    }
+    .show-more {
       position:relative;
       cursor: pointer;
       border:1px solid transparent;
@@ -64,11 +68,7 @@
       &:hover{
         border:1px solid $link;
       }
-     } 
-     .show-more-height{
-      height: 100px;
-      overflow:hidden;  
-    }
+    } 
   }
 
 
