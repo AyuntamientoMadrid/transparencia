@@ -1,0 +1,68 @@
+// Table of Contents
+//
+// 01. Fonts
+// 02. Colors
+// 03. Forms
+// 04. Alerts
+// 05. Responsive
+//
+
+// 01. Fonts
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$font-family-sans-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$line-height: rem-calc(24);
+
+// 02. Colors
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$body:              #E9E9E9;
+$background:        #EDEFF0;
+$border:            #DEE0E3;
+$brand:             #0077B9;
+
+$text:              #222222;
+$text-medium:       #999999;
+$text-light:        #CCCCCC;
+
+$link:              #2895F1;
+$link-hover:        #2178BF;
+
+// 03. Forms
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$input-bg:          #F8F8F8;
+
+// 04. Alerts
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$success-bg:        #DFF0D8;
+$success-border:    #D6E9C6;
+$success-color:     #3C763D;
+
+$info-bg:           #D9EDF7;
+$info-border:       #BCE8F1;
+$info-color:        #31708F;
+
+$warning-bg:        #FCF8E3;
+$warning-border:    #FAEBCC;
+$warning-color:     #8A6D3B;
+
+$alert-bg:          #F2DEDE;
+$alert-border:      #EBCCD1;
+$alert-color:       #A94442;
+
+// 05. Responsive
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$small:             em-calc(480);
+$small-breakpoint:  em-calc(640);
+$medium-breakpoint: em-calc(1024);
+$large-breakpoint:  em-calc(1440);
+$xlarge-breakpoint: em-calc(1920);
+
+$small-range:   (0, $small-breakpoint);
+$medium-range:  ($small-breakpoint  + em-calc(1), $medium-breakpoint);
+$large-range:   ($medium-breakpoint + em-calc(1), $large-breakpoint);
+$xlarge-range:  ($large-breakpoint  + em-calc(1), $xlarge-breakpoint);
+$xxlarge-range: ($xlarge-breakpoint + em-calc(1), em-calc(99999999));

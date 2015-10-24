@@ -1,0 +1,60 @@
+// Table of Contents
+//
+// 01. Sidebar Left
+// 02. Center
+// 03. Right
+
+
+.program-accomplishment{    
+  // 01. Sidebar Left
+  // - - - - - - - - - - - - - - - - - - - - - - - - -
+  .sidebar_left{
+    a{
+      display: block;
+      position: relative;
+      margin-bottom: 10px;
+      padding: 11px;
+      line-height: 1.1em;
+      font-size: 0.9em;
+      border-bottom: 2px solid $text-light;
+      &.active{   
+        border:1px solid $link;
+        color: darken($text, 20%); 
+      }
+    }
+  }
+
+  // 02. Center
+  // - - - - - - - - - - - - - - - - - - - - - - - - -
+  .center{
+    a{
+      display: block;
+      position: relative;
+      margin-bottom:10px;
+      padding: 11px;
+      font-size: 1.2em;
+      &.active{
+        border:1px solid $link;
+        color: darken($text, 20%);
+      }
+      span{
+        font-size: 0.8em;
+        color:$text;
+        display: block;
+      }
+    }
+  }
+   // 03. Right
+  // - - - - - - - - - - - - - - - - - - - - - - - - -
+  .sidebar_right{
+    h4{
+      font-size: 1em;
+       &.made{
+        color:green;
+      }
+      &.pending{
+        color:$alert-color;
+      }
+    }
+  }
+}
