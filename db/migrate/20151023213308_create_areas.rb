@@ -1,6 +1,6 @@
 class CreateAreas < ActiveRecord::Migration
   def change
-    create_table :areasa do |t|
+    create_table :areas do |t|
       t.string :name
     end
   end
