@@ -13,14 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require init-foundation
+//= require program-accomplishment
 //= require turbolinks
 //= require trix
-//= require_tree .
-
-$(function(){
-  $(document).foundation();
-    $(".show-more").click(function () {
-      $(this).text() == "Leer menos" ? $(this).text("Leer más") : $(this).text("Leer menos");
-      $(".text").toggleClass("show-more-height");
-    });
-});
+//= require_tree
