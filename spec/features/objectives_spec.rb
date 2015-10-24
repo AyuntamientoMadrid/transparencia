@@ -48,6 +48,22 @@ feature 'Objectives' do
     expect(page).to have_content "Cumplido: No"
 
     expect(page).to have_content "El objetivo se ha actualizado correctamente."
+  end  
+
+
+  scenario 'cannot be updated' do  
+    visit edit_objective_path(objective)      
+    
+    expect(find("#objective_accomplished")).to be_checked
+
+    fill_in 'objective_title', with: ''
+    fill_in 'objective_description', with: 'edit descripcion'
+    uncheck 'Cumplido'
+    click_on('Actualizar')
+
+    expect(page).to have_content "no puede estar en blanco"
+    expect(page).to have_content "Hubo un error durante la actualización. Revise el formulario."
   end   
+
 
 end
