@@ -30,7 +30,7 @@ Se ofrecerá un servicio eficaz que facilite a la ciudadanía el ejercicio del d
 Se trata de que individualmente los ciudadanos puedan hacer propuestas en el ámbito de las competencias del ayuntamiento, de que sus conciudadanos puedan apoyar esas propuestas, y de que si estas obtienen los apoyos necesarios sean llevadas a la práctica.
 También se trata de que una parte significativa de las decisiones de Gobierno sea sometida a consulta de la ciudadanía; lo que incluye, entre otros, temas tales como transporte público, sostenibilidad, o líneas estratégicas de urbanismo; decisión sobre el gasto que se va a hacer con una parte del presupuesto; el contenido que deben tener determinadas normativas; o prioridades de actuación municipal.
 Por otra parte, se incentivará la participación ciudadana en aspectos relativos al voluntariado; se pretende que el número de voluntarios (que actualmente asciende a 10 000) se incremente todo los años, así como el tipo de actividades en las que colaboran, y que el voluntariado se integre como un elemento más que caracterice el ejercicio responsable de la ciudadanía.",
-	directives: "- Que los ciudadanos puedan hacer propuestas, que sus conciudadanos puedan apoyar esas propuestas, y que si estas tienen el apoyo necesario sean llevadas a la práctica por el Gobierno Municipal. - Que una parte significativa de las decisiones de Gobierno sea sometida a consulta de la ciudadanía. - Implicar a la ciudadanía en los asuntos públicos, al objeto de su participación voluntaria y altruista en diversas tareas de carácter social. - Crear nuevas fórmulas de innovación social que puedan implantarse en la organización municipal para la mejora de los servicios públicos o la organización social. - "
+	directives: "- Que los ciudadanos puedan hacer propuestas, que sus conciudadanos puedan apoyar esas propuestas, y que si estas tienen el apoyo necesario sean llevadas a la práctica por el Gobierno Municipal. - Que una parte significativa de las decisiones de Gobierno sea sometida a consulta de la ciudadanía. - Implicar a la ciudadanía en los asuntos públicos, al objeto de su participación voluntaria y altruista en diversas tareas de carácter social. - Crear nuevas fórmulas de innovación social que puedan implantarse en la organización municipal para la mejora de los servicios públicos o la organización social."
   }
 ])
 
@@ -48,13 +48,13 @@ El Ayuntamiento de Madrid se propone aprobar una norma de transparencia que incl
 Para conseguir elaborar esta lista se contará con la ayuda de los propios trabajadores del Ayuntamiento que serán consultados a través de la intranet y de los ciudadanos que podrán aportar ideas sobre qué tipo de información creen que debería encontrase en el portal. Por último esta información se irá completando con los datos que los ciudadanos vayan solicitando a través de sus solicitudes de acceso a la información. 
 El objetivo de esta mejora es no solo la publicación de un mayor volumen de información sino también la publicación de esta información en formatos que la hagan más accesible y fácil de entender para los ciudadanos.",
     order: 2,
-    accomplished: true,
+    accomplished: false,
     department: Department.where(name:"Dirección General de Transparencia")
   },  
   { title: "Desarrollo de un nuevo Portal de Datos Abiertos",
   	description: "El Ayuntamiento tiene como objetivo compartir todos los datos que tienen en su poder en formatos abiertos y fomentar su reutilización por parte de la sociedad. El objetivo por tanto es doble, por un lado se trabajará en el desarrollo de una nuevo Portal de Datos Abiertos aumentando la cantidad y la calidad en la publicación de datos, y por otro lado se abrirán canales de colaboración para promover las aplicaciones y los usos que resulten de la reutilización de los datos.",
     order: 3,
-    accomplished: true,
+    accomplished: false,
     department: Department.where(name:"Dirección General de Transparencia")
   },  
   { title: "Transparencia de la contratación y subvenciones públicas",
@@ -62,7 +62,7 @@ El objetivo de esta mejora es no solo la publicación de un mayor volumen de inf
 En España la publicidad que se hace de los contratos se limita en muchas ocasiones a publicar información sobre los pliegos del contrato y el adjudicatario final del mismo y su oferta. Sin embargo esto hoy en día se considera insuficiente ya que para que pueda existir realmente una rendición de cuentas es necesario poder comprobar si de todas las ofertas que se recibieron para una concurso público se eligió la más adecuada. Por eso desde el Ayuntamiento de Madrid se propone crear una web donde poder encontrar todos los detalles que afectan a la contratación pública  desde los pliegos y condiciones de contratación, las ofertas que se presentan a cada concurso, los criterios de selección hasta la decisión final, superando las funcionalidades, información y forma de acceso del actual Perfil del contratante.
 A través de la sede electrónica se puede realizar un seguimiento muy vinculado a su solicitud (Gestiones y Trámites - Ayudas y subvenciones) de las subvenciones y ayudas públicas convocadas por el Ayuntamiento de Madrid. Sin embargo no existe información centralizada de las subvenciones concedidas incluyendo las bases reguladoras, convocatoria, programa y crédito presupuestario al que se imputan, objeto o finalidad de la subvención, identificación de los beneficiarios, e importe de las subvenciones otorgadas. Se elaborará un nuevo espacio que facilite el acceso a toda esta información de las subvenciones y ayudas municipales. Estos nuevos espacios que se van a crear incluirá toda la información en formatos reutilizables e incluirá un buscador que permita encontrar información por diferentes criterios.",
     order: 4,
-    accomplished: true,
+    accomplished: false,
     department: Department.where(name:"Dirección General de Transparencia")
   },  
   { title: "Sistema único de gestión de licencias municipales",
@@ -119,6 +119,55 @@ Se elaborará un barómetro a través de los datos procedentes de los avisos y l
     order: 10,
     accomplished: true,
     department: Department.where(name:"Dirección General de Transparencia")
+  },  
+  { title: "Propuestas Ciudadanas",
+    description: "Se establecerá un sistema para que cualquier persona pueda presentar propuestas, y que éstas se concreten en una iniciativa política aprobada por el Ayuntamiento si consiguen el apoyo suficiente de la ciudadanía. 
+Las propuestas se presentarán en el Portal de Gobierno Abierto, ya sea directamente a través de la web, o presencialmente a través de cualquiera de las Oficinas de Atención al Ciudadano",
+    order: 1,
+    accomplished: true,
+    department: Department.where(name:"Dirección General de Participación Ciudadana")
+  },  
+  { title: "Consulta Ciudadana de actuaciones gubernamentales.",
+    description: "Creación de un sistema de participación ciudadana basado principalmente en Internet, pero que también admita la participación presencial y la accesibilidad universal, para que una parte significativa de las decisiones de Gobierno sea sometida a consulta de la ciudadanía.
+Se gestionará este procedimiento al amparo del artículo 23 del Reglamento de participación Ciudadana y se establecerá contacto sistemático con las distintas áreas de Gobierno para que puedan someterse a la ciudadanía las decisiones más significativas de su actuación política.",
+    order: 2,
+    accomplished: true,
+    department: Department.where(name:"Dirección General de Participación Ciudadana")
+  },  
+  { title: "Presupuestos Participativos",
+    description: "Parte del presupuesto municipal será gestionado mediante presupuestos participativos por la ciudadanía de manera directa, a través de una sección específica de la plataforma de Gobierno Abierto. Dicha sección no sólo está destinada a la mera gestión sino a mostrar y corresponsabilizar a los habitantes de los distritos de las inversiones y necesidades en sus entornos de proximidad, y a la ciudadanía en general del uso de los recursos públicos.",
+    order: 3,
+    accomplished: true,
+    department: Department.where(name:"Dirección General de Participación Ciudadana")
+  },  
+  { title: "Co-Gobierno Ciudadano",
+    description: "Permitirá a la ciudadanía decidir, en colaboración con el ayuntamiento, los Objetivos Prioritarios del gobierno municipal.
+La ciudadanía podrá proponer Objetivos Prioritarios nuevos a través de la Plataforma de Participación Ciudadana, utilizando un mecanismo de recogida de propuestas y apoyos equivalente al usado para las Propuestas Ciudadanas. Las propuestas que tengan más apoyos se unirán a una serie de propuestas elegidas por el gobierno municipal.
+El total de propuestas (las elaboradas por la ciudadanía y las elaboradas por el gobierno) serán presentadas a la ciudadanía de nuevo, para que puedan presentar sus apoyos dentro de esta lista final, teniendo en cuenta el orden de prioridades. El resultado será una lista ordenada de manera colectiva estableciendo por lo tanto los Objetivos Prioritarios del gobierno municipal.",
+    order: 4,
+    accomplished: false,
+    department: Department.where(name:"Dirección General de Participación Ciudadana")
+  },  
+  { title: "Legislación colaborativa",
+    description: "Se pondrá a disposición de toda la ciudadanía un portal digital enfocado a crear legislación de manera colaborativa y transparente entre ciudadanos e instituciones. 
+Los ciudadanos podrán debatir de manera abierta y libre la legislación a abordar. Se invitará a este debate a expertos e implicados, que serán propuestos por la ciudadanía y la institución, y que una vez incluidos podrán proponer dinámicas de debate y consulta ciudadana. Con la información obtenida en éste primer paso se redactará el texto legislativo por parte de los expertos e implicados seleccionados, que a su vez será revisado y comentado por los mismos agentes, produciendo modificaciones en él hasta que se alcance un grado de satisfacción suficiente por parte de los ciudadanos. 
+Todas las fases del proceso serán transparentes, y será la propia ciudadanía la que marque el camino a seguir en todo momento, seleccionando las intervenciones más relevantes de los debates, los expertos e implicados que finalmente participen en él, y las modificaciones más relevantes sobre el texto final.",
+    order: 5,
+    accomplished: false,
+    department: Department.where(name:"Dirección General de Participación Ciudadana")
+  },  
+  { title: "Voluntariado: ejercicio responsable de la ciudadanía",
+    description: "Se incentivará la participación ciudadana en aspectos relativos al voluntariado; se pretende que el número de voluntarios (que actualmente asciende a 10 000) se incremente todos los años en un 10%, así como el tipo de actividades en las que colaboran, y que el voluntariado se integre como un elemento más, que caracterice el ejercicio responsable de la ciudadanía.",
+    order: 6,
+    accomplished: false,
+    department: Department.where(name:"Dirección General de Participación Ciudadana")
+  },  
+  { title: "Innovación en la mejora de los servicios públicos o la organización social",
+    description: "Se busca crear espacios de generación de ideas que contribuyan a resolver las necesidades de la ciudad y de sus ciudadanos, y la conexión con espacios de este tipo ya existentes. Los espacios estarán participados tanto por la ciudadanía como por los trabajadores municipales, y estarán enfocados en innovación social y digital.
+Para ello se contará con la colaboración de la entidad municipal Madrid Destino, Cultura, Turismo y Negocio, a través de Medialab – Prado; así como con otras instituciones punteras en innovación social.",
+    order: 7,
+    accomplished: true,
+    department: Department.where(name:"Dirección General de Participación Ciudadana")
   }
 
 ])
