@@ -31,7 +31,7 @@ bin/rspec
 
 En estos momentos se está realizando un hackathon. Los desarrollos de esta página están centrados en las issues:
 
-https://github.com/AyuntamientoMadrid/participacion/issues
+https://github.com/AyuntamientoMadrid/transparencia/issues
 
 Si te interesa trabajar o contribuir en alguna, añade un comentario.
 
