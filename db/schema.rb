@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20151023214033) do
   create_table "objectives", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
-    t.boolean "accomplished"
+    t.boolean "accomplished",  default: false
     t.integer "order"
     t.integer "department_id"
   end

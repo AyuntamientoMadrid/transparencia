@@ -15,7 +15,6 @@ FactoryGirl.define do
     sequence(:order) { |n| n }
     description   'Objective description'
     department
-    accomplished true
   end
 
 end

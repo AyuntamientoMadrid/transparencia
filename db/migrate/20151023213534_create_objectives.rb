@@ -3,7 +3,7 @@ class CreateObjectives < ActiveRecord::Migration
     create_table :objectives do |t|
       t.string :title
       t.text :description
-      t.boolean :accomplished
+      t.boolean :accomplished, default: false
       t.integer :order
     end
   end

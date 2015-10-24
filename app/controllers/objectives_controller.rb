@@ -1,5 +1,5 @@
 class ObjectivesController < ApplicationController
-  before_filter :set_objective
+  before_action :set_objective
   
   def show
   end

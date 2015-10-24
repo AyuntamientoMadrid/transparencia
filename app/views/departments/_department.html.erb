@@ -16,21 +16,21 @@
   <ul class="no-bullet made">
     <h4>Realizadas</h4>
     <% @department.objectives.accomplished.order(:order).each do |objective| %>
-    <%= content_tag_for :li, objective do %>
-      <%= link_to "", edit_objective_path(objective), class: 'tiny icon-edit' %>
-      <i class="icon-check"></i>
-    <%= link_to objective.title, objective_path(objective) %>
-    <% end %>
+      <%= content_tag_for :li, objective do %>
+        <%= link_to "", edit_objective_path(objective), class: 'tiny icon-edit' %>
+        <i class="icon-check"></i>
+        <%= link_to objective.title, objective_path(objective) %>
+      <% end %>
     <% end %>
   </ul>
   <ul class="no-bullet pending">
     <h4>Pendientes</h4>
     <% @department.objectives.not_accomplished.order(:order).each do |objective| %>
-    <%= content_tag_for :li, objective do %>
-      <%= link_to " ", edit_objective_path(objective), class: 'tiny icon-edit' %>
-      <i class="icon-check"></i>
-      <%= link_to objective.title, objective_path(objective) %>   
-    <% end %>
+      <%= content_tag_for :li, objective do %>
+        <%= link_to " ", edit_objective_path(objective), class: 'tiny icon-edit' %>
+        <i class="icon-check"></i>
+        <%= link_to objective.title, objective_path(objective) %>   
+      <% end %>
     <% end %>
   </ul>
 </div>
