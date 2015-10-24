@@ -16,4 +16,5 @@
 //= require init-foundation
 //= require program-accomplishment
 //= require turbolinks
-//= require_tree .
+//= require trix
+//= require_tree
