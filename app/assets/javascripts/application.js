@@ -13,14 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require init-foundation
+//= require program-accomplishment
 //= require turbolinks
 //= require_tree .
-
-$(function(){
-  $(document).foundation();
-  $('.show-more').click(function() {        
-    $.each($('.description'), function( index, description ) {
-      $(description).toggle();
-    });
-  })   
-});

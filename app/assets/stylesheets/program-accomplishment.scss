@@ -1,12 +1,18 @@
 // Table of Contents
 //
+// 00. Color 
 // 01. Column Left
 // 02. Column Center
 // 03. Column Right
 // 04. Common class
 
-.program-accomplishment{
-  // 01. Sidebar Left
+// 00. Color
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+.text-success{color:$success-color;}
+.text-danger{color:$alert-color;}
+
+.program-accomplishment{    
+  // 01. Column Left
   // - - - - - - - - - - - - - - - - - - - - - - - - -
   .column_left{
     strong{
@@ -15,7 +21,6 @@
       display: block;
     }
     a{
-      
       span{
         display: inline-block;
         margin-right: 20px;
@@ -23,7 +28,7 @@
     }
   }
 
-  // 02. Center
+  // 02. Column center
   // - - - - - - - - - - - - - - - - - - - - - - - - -
   .column_center{
     h2{
@@ -38,7 +43,7 @@
       }
     }
   }
-   // 03. Right
+   // 03. Column right
   // - - - - - - - - - - - - - - - - - - - - - - - - -
   .column_right{
     h4{font-size: 1em;}
@@ -121,10 +126,5 @@
         color: darken($text, 20%);
       }
     }
-  }
-  // 05. objectives
-  // - - - - - - - - - - - - - - - - - - - - - - - - - 
-  .wrapper{ 
-    .objectives{border:2px solid red;}
   }
 }
