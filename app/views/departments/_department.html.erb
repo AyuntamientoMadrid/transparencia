@@ -1,0 +1,30 @@
+<div class="sidebar_right">
+  <h2><small><%= @department.name %></small></h2>
+  <div><%= @department.description  %></div>
+  <%= link_to "Leer más", nil %>
+  <hr>
+  <h2><small>Directrices de legislatura (objectivos politicos)</small></h2>
+  <%= @department.directives.html_safe %>
+  <hr>
+  <h2><small>Actuaciones clave</small></h2>
+  <ul class="no-bullet made">
+    <h4>Realizadas</h4>
+    <% @department.objectives.accomplished.order(:order).each do |objective| %>
+      <%= content_tag_for :li, objective do %>
+        <i class="icon-check"></i>
+        <%= link_to objective.title, objective_path(objective) %>
+        <%= link_to "Editar", edit_objective_path(objective) %>
+      <% end %>
+    <% end %>
+  </ul>
+  <ul class="no-bullet pending">
+    <h4>Pendientes</h4>
+    <% @department.objectives.not_accomplished.order(:order).each do |objective| %>
+      <%= content_tag_for :li, objective do %>
+        <i class="icon-check"></i>
+        <%= link_to objective.title, objective_path(objective) %>
+        <%= link_to "Editar", edit_objective_path(objective) %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

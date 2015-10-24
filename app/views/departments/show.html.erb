@@ -1,18 +1,18 @@
-<h1><%= @department.area.name %></h1>
-
-<h2><%= @department.name %></h2>
-
-<p><%= @department.description %></p>
-
-<h2>Directrices</h2>
-<p><%= @department.directives.html_safe %></p>
-
-<h2>Objetivos</h2>
-<ul class="objectives">
-  <% @department.objectives.order(:order).each do |objective| %>
-    <%= content_tag_for :li, objective do %>
-      <%= link_to objective.title, objective_path(objective) %>
-      <%= link_to "Editar", edit_objective_path(objective) %>
-    <% end %>
-  <% end %>
-</ul>
+<div class="program-accomplishment row">
+  <div class="large-3 columns">
+    <div class="sidebar_left">
+      <%= render 'areas/menu' %>
+    </div>
+  </div>
+  <div class="large-4 columns">
+    <h2><small><%= @area.name %></small></h2>
+    <div class ="center">
+      <%= render 'departments/menu' %>
+    </div>    
+  </div>
+  <div class="large-5 columns">
+    <div class="sidebar_right">
+      <%= render @department %>
+    </div>  
+  </div>
+</div>

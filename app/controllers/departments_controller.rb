@@ -8,6 +8,9 @@ class DepartmentsController < ApplicationController
 
   def show
     @department = Department.find(params[:id])
+    @areas = Area.all
+    @area = @department.area
+    @departments = @area.departments
   end
 
 end

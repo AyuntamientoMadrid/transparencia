@@ -15,12 +15,11 @@ feature 'Department' do
     expect(page).to have_content department.name
     expect(page).to have_content department.description
     expect(page).to have_content department.directives
-
-    within first('.objectives') do      
-      department.objectives.each do |objective|
-        expect(page).to have_css("a[href='#{objective_path(objective)}']", text: objective.title)
-      end
+    
+    department.objectives.each do |objective|
+      expect(page).to have_css("a[href='#{objective_path(objective)}']", text: objective.title)
     end
+
   end
   
 end
