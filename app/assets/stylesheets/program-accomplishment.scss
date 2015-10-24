@@ -3,12 +3,18 @@
 // 01. Sidebar Left
 // 02. Center
 // 03. Right
+// 03. Mix
 
 
 .program-accomplishment{    
   // 01. Sidebar Left
   // - - - - - - - - - - - - - - - - - - - - - - - - -
   .sidebar_left{
+    strong{
+      padding: 10px;
+      margin-top: 1.2em;
+      display: block;
+    }
     a{
       display: block;
       position: relative;
@@ -17,10 +23,7 @@
       line-height: 1.1em;
       font-size: 0.9em;
       border-bottom: 2px solid $text-light;
-      &.active{   
-        border:1px solid $link;
-        color: darken($text, 20%); 
-      }
+       
     }
   }
 
@@ -33,10 +36,6 @@
       margin-bottom:10px;
       padding: 11px;
       font-size: 1.2em;
-      &.active{
-        border:1px solid $link;
-        color: darken($text, 20%);
-      }
       span{
         font-size: 0.8em;
         color:$text;
@@ -54,6 +53,30 @@
       }
       &.pending{
         color:$alert-color;
+      }
+    }
+  }
+  // 04. Mix
+  // - - - - - - - - - - - - - - - - - - - - - - - - -
+  .sidebar_left, .center{
+    a{
+      &.active{   
+        border:1px solid $link;
+        color: darken($text, 20%); 
+        i{ background: lighten($link, 30%); }
+      }
+      i{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;    
+        width: 2em;
+        text-indent: 2.2%;
+
+      }
+        &.active{
+        border:1px solid $link;
+        color: darken($text, 20%);
       }
     }
   }
