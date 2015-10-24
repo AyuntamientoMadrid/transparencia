@@ -1,0 +1,7 @@
+<h1><%= @objective.department.area.name %></h1>
+<h2><%= @objective.department.name %></h2>
+<h3><%= @objective.title %></h3>
+<p><%= @objective.description %></p>
+<p>Cumplido: <%= @objective.accomplished? ? "Sí" : "No" %></p>
+
+<%= link_to "Editar", edit_objective_path(@objective)%>

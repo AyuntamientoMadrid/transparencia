@@ -35,6 +35,7 @@ group :development, :test do
   gem 'launchy'
   gem 'quiet_assets'
   gem 'i18n-tasks'
+  gem 'database_cleaner'
 end
 
 group :test do
