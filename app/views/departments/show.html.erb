@@ -12,6 +12,7 @@
   <% @department.objectives.order(:order).each do |objective| %>
     <%= content_tag_for :li, objective do %>
       <%= link_to objective.title, objective_path(objective) %>
+      <%= link_to "Editar", edit_objective_path(objective) %>
     <% end %>
   <% end %>
 </ul>
