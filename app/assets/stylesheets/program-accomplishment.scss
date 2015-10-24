@@ -49,9 +49,29 @@
        li{
         i{color:$alert-color;}
       }
-    }
-    
+    } 
   }
+   
+  .description{
+    .show-more-height{
+      height: 100px;
+      overflow:hidden;
+    }
+    .show-more {
+      position:relative;
+      cursor: pointer;
+      border:1px solid transparent;
+      display: inline-block;
+      color:$link;
+      margin-top:5px;
+      padding: 5px;
+      &:hover{
+        border:1px solid $link;
+      }
+    } 
+  }
+
+
   // 04. Same class
   // - - - - - - - - - - - - - - - - - - - - - - - - -  
   .sidebar_left, .center{
