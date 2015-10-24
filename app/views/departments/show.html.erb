@@ -1,0 +1,17 @@
+<h1><%= @department.area.name %></h1>
+
+<h2><%= @department.name %></h2>
+
+<p><%= @department.description %></p>
+
+<h2>Directrices</h2>
+<p><%= @department.directives %></p>
+
+<h2>Objetivos</h2>
+<ul class="objectives">
+  <% @department.objectives.order(:order).each do |objective| %>
+    <%= content_tag_for :li, objective do %>
+      <%= link_to objective.title, objective_path(objective) %>
+    <% end %>
+  <% end %>
+</ul>

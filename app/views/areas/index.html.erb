@@ -1,0 +1,14 @@
+<ul class="areas">
+  <% @areas.each do |area| %>
+    <%= content_tag_for :li, area do %>
+      <%= area.name %>
+      <% area.departments.each do |department| %>
+        <ul class="departments">
+          <%= content_tag_for :li, department do %>
+            <%= link_to department.name, department_path(department) %>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
