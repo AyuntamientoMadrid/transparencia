@@ -3,8 +3,7 @@
 // 01. Sidebar Left
 // 02. Center
 // 03. Right
-// 03. Mix
-
+// 04. Same class
 
 .program-accomplishment{    
   // 01. Sidebar Left
@@ -28,7 +27,6 @@
   // - - - - - - - - - - - - - - - - - - - - - - - - -
   .center{
     a{
-      
       span{
         font-size: 0.8em;
         color:$text;
@@ -54,7 +52,7 @@
     }
     
   }
-  // 04. Mix
+  // 04. Same class
   // - - - - - - - - - - - - - - - - - - - - - - - - -  
   .sidebar_left, .center{
     a{
@@ -64,11 +62,20 @@
       padding: 11px;
       line-height: 1.1em;
       border:1px solid transparent;
-      &:hover{ border:1px solid $link;  }
+      &:hover{ border:1px solid $link; }
       &.active{   
         border:1px solid $link;
         color: darken($text, 20%); 
-        i{ background: lighten($link, 30%); }
+        i{
+          background: lighten($link, 30%);
+          &:before{
+            -ms-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+            top:45%;
+            left:2%;
+          }
+        }
       }
       i{
         position: absolute;
