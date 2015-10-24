@@ -7,7 +7,6 @@ feature 'Objectives' do
   let!(:objective)   { create(:objective, department: department) }
 
   scenario 'Show' do
-
     visit objective_path(objective)
 
     expect(page).to have_content objective.department.area.name
@@ -15,10 +14,9 @@ feature 'Objectives' do
     expect(page).to have_content objective.title
     expect(page).to have_content objective.description
     expect(page).to have_content "Cumplido: Sí"
-   
   end
 
-  scenario 'Edit' do  
+  scenario 'Edit', js: true do  
     visit edit_objective_path(objective)
 
     expect(page).to have_content objective.department.area.name
@@ -27,27 +25,30 @@ feature 'Objectives' do
 
     within ('.edit_objective') do
       expect(page).to have_selector("#objective_title", objective.title )
-      expect(page).to have_selector("#objective_description", objective.description )
+
       expect(page).to have_selector("#objective_accomplished", "Cumplido" )
+      expect(find("trix-editor")).to have_content(objective.description)
       expect(find("#objective_accomplished")).to be_checked
     end
-  end 
+  end
 
-  scenario 'Update objective' do  
+  scenario 'Update objective', js: true do  
+    Capybara.ignore_hidden_elements = false
     visit edit_objective_path(objective)      
     
     expect(find("#objective_accomplished")).to be_checked
 
     fill_in 'objective_title', with: 'edit titulo'
-    fill_in 'objective_description', with: 'edit descripcion'
+    find("#objective_description_trix_input_objective_1").set("edit description")
     uncheck 'Cumplido'
     click_on('Actualizar')
 
     expect(page).to have_content "edit titulo"
-    expect(page).to have_content "edit descripcion"
+    expect(page).to have_content "edit description"
     expect(page).to have_content "Cumplido: No"
 
     expect(page).to have_content "El objetivo se ha actualizado correctamente."
+    Capybara.ignore_hidden_elements = true
   end   
 
 end
