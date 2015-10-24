@@ -1,9 +1,10 @@
+<%= link_to "Editar", edit_objective_path(@objective)%>
 <div class="objectives row">
   <div class="large-9 columns"> 
     <h2><small><%= @objective.department.area.name %></small></h2>
     <h3><small><%= @objective.department.name %></small></h3>
     <h1><small><%= @objective.title %></small></h1>
-    <p><%= @objective.description %></p>
+    <p><%= @objective.description.html_safe %></p>
     <strong class="<%= @objective.accomplished? ? "text-success" : "text-danger" %>">
       Cumplido: <%= @objective.accomplished? ? "Sí" : "No" %>
     </strong>
