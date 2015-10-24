@@ -43,7 +43,8 @@
       }
     }
   }
-   // 03. Column right
+
+  // 03. Column right
   // - - - - - - - - - - - - - - - - - - - - - - - - -
   .column_right{
     h4{font-size: 1em;}
@@ -60,14 +61,11 @@
       }
     } 
   }
-   
   .description{
     &.small{
-       
       height: 60px;
       overflow: hidden; 
     }
-    
     .show-more {
       position:relative;
       cursor: pointer;
@@ -81,7 +79,6 @@
       }
     } 
   }
-
 
   // 04. Same class
   // - - - - - - - - - - - - - - - - - - - - - - - - -  
