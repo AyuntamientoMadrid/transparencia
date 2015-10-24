@@ -1,5 +1,6 @@
 #Area de Gobierno
-Area.create([
+areas = 
+[
   { name: "Equidad, Derechos Sociales y Empleo" }, 
   { name: "Coordinación Territorial y Asociaciones" }, 
   { name: "Portavoz, Coordinación Junta de Gobierno y Relaciones con el Pleno" }, 
@@ -9,10 +10,14 @@ Area.create([
   { name: "Desarrollo Urbano Sostenible" }, 
   { name: "Medio Ambiente y Movilidad" }, 
   { name: "Cultura y Deportes" }
-])
+]
+areas.each do |area|
+  Area.find_or_create_by(area)
+end
 
 #Dirección general, organismos, consorcios, empresas
-Department.create([
+departments =
+[
   { name: "Dirección General de Transparencia",
     area: Area.find_by(name: "Participación Ciudadana, Transparencia y Gobierno Abierto" ),
     description: "El Ayuntamiento de Madrid a través del Área de Gobierno de Participación Ciudadana, Transparencia y Gobierno Abierto se ha marcado como objetivo para los próximos cuatro años poner a la ciudad de Madrid al frente de las ciudades más avanzadas en transparencia. Para conseguirlo se ha trazado un plan que incluye la adopción e implementación de una batería de medidas en materia de transparencia. 
@@ -32,10 +37,14 @@ También se trata de que una parte significativa de las decisiones de Gobierno s
 Por otra parte, se incentivará la participación ciudadana en aspectos relativos al voluntariado; se pretende que el número de voluntarios (que actualmente asciende a 10 000) se incremente todo los años, así como el tipo de actividades en las que colaboran, y que el voluntariado se integre como un elemento más que caracterice el ejercicio responsable de la ciudadanía.",
 	directives: "<ol><li>Que los ciudadanos puedan hacer propuestas, que sus conciudadanos puedan apoyar esas propuestas, y que si estas tienen el apoyo necesario sean llevadas a la práctica por el Gobierno Municipal.</li><li>Que una parte significativa de las decisiones de Gobierno sea sometida a consulta de la ciudadanía.</li><li>Implicar a la ciudadanía en los asuntos públicos, al objeto de su participación voluntaria y altruista en diversas tareas de carácter social.</li><li>Crear nuevas fórmulas de innovación social que puedan implantarse en la organización municipal para la mejora de los servicios públicos o la organización social.</li></ol>"
   }
-])
+]
+departments.each do |department|
+  Department.find_or_create_by(department)
+end
 
 #Acciones Clave
-Objective.create([
+objectives =
+[
   { title: "Aprobación de una ordenanza de transparencia",
   	description: "Este ayuntamiento cree en la transparencia como medio para conseguir objetivos claves para el desarrollo de la democracia. En la práctica, el derecho de acceso a la información tiene un efecto disuasorio y preventivo sobre la corrupción. Además tiene un impacto directo sobre los derechos democráticos más esenciales como es el derecho a la participación, desde su concepción más básica como es votar en las elecciones, el derecho a una prensa libre e independiente o sobre todo nuestro derecho a obtener o a exigir una rendición de cuentas completa de lo público.
 El Ayuntamiento de Madrid se propone aprobar una norma de transparencia que incluya los principios más avanzados en esta materia y que incluya la obligación de las instituciones públicas hacer pública, reactiva o proactivamente, toda la información, registrada, archivada, elaborada, recibida o en posesión de las autoridades públicas sea cual sea el formato. Se trata de explicar todo lo que afecte a una decisión sobre lo público: qué se hace, quién lo hace, por qué se hace, cómo se hace y cuánto cuesta. Además esta información debe ser publicada en formatos abiertos que la hagan más accesible y reutilizable por cualquiera.",
@@ -169,5 +178,7 @@ Para ello se contará con la colaboración de la entidad municipal Madrid Destin
     accomplished: true,
     department: Department.find_by(name:"Dirección General de Participación Ciudadana")
   }
-
-])
+]
+objectives.each do |objective|
+  Objective.find_or_create_by(objective)
+end
