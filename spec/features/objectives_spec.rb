@@ -45,9 +45,9 @@ feature 'Objectives' do
 
     expect(page).to have_content "edit titulo"
     expect(page).to have_content "edit descripcion"
-    expect(find("#objective_accomplished")).not_to be_checked
+    expect(page).to have_content "Cumplido: No"
 
     expect(page).to have_content "El objetivo se ha actualizado correctamente."
   end   
-  
+
 end
