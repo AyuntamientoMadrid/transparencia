@@ -1,7 +1,15 @@
-<h1><%= @objective.department.area.name %></h1>
-<h2><%= @objective.department.name %></h2>
-<h3><%= @objective.title %></h3>
-<p><%= @objective.description %></p>
-<p>Cumplido: <%= @objective.accomplished? ? "Sí" : "No" %></p>
+<div class="objectives row">
+  <div class="large-9 columns"> 
+    <h1><small><%= @objective.department.area.name %></small></h1>
+    <h2><%= @objective.department.name %></h2>
+    <h3><%= @objective.title %></h3>
+    <p><%= @objective.description %></p>
+    <p>Cumplido: <%= @objective.accomplished? ? "Sí" : "No" %></p>
+    <%= link_to "Editar", edit_objective_path(@objective), class: 'button tiny' %> 
+  </div>
+  <div class="large-3 columns">
+    Sidebar
+  </div>
+</div>
 
-<%= link_to "Editar", edit_objective_path(@objective)%>
+ 

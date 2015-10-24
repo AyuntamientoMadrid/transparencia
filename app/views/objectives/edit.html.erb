@@ -1,5 +1,8 @@
-<h1><%= @objective.department.area.name %></h1>
-<h2><%= @objective.department.name %></h2>
-<h3><%= @objective.title %></h3>
-
-<%= render 'form' %>
+<div class="objectives-edit row">
+  <div class="large-12 columns">
+    <h1><small><%= @objective.department.area.name %></small></h1>
+    <h2><small><%= @objective.department.name %><small></h2>
+    <h3><small><%= @objective.title %><small></h3>
+    <%= render 'form' %>
+  </div>
+</div>

@@ -18,8 +18,9 @@
 
 $(function(){
   $(document).foundation();
-    $(".show-more").click(function () {
-      $(this).text() == "Leer menos" ? $(this).text("Leer más") : $(this).text("Leer menos");
-      $(".text").toggleClass("show-more-height");
+  $('.show-more').click(function() {        
+    $.each($('.description'), function( index, description ) {
+      $(description).toggle();
     });
+  })   
 });

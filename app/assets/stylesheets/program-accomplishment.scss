@@ -1,14 +1,14 @@
 // Table of Contents
 //
-// 01. Sidebar Left
-// 02. Center
-// 03. Right
-// 04. Same class
+// 01. Column Left
+// 02. Column Center
+// 03. Column Right
+// 04. Common class
 
-.program-accomplishment{    
+.program-accomplishment{
   // 01. Sidebar Left
   // - - - - - - - - - - - - - - - - - - - - - - - - -
-  .sidebar_left{
+  .column_left{
     strong{
       padding: 10px;
       margin-top: 1.2em;
@@ -25,18 +25,22 @@
 
   // 02. Center
   // - - - - - - - - - - - - - - - - - - - - - - - - -
-  .center{
+  .column_center{
+    h2{
+      line-height: 0.8em;
+    }
     a{
       span{
         font-size: 0.8em;
         color:$text;
         display: block;
+        margin-right: 20px;
       }
     }
   }
    // 03. Right
   // - - - - - - - - - - - - - - - - - - - - - - - - -
-  .sidebar_right{
+  .column_right{
     h4{font-size: 1em;}
     .made{
       h4{color:green;}
@@ -53,10 +57,12 @@
   }
    
   .description{
-    .show-more-height{
-      height: 100px;
-      overflow:hidden;
+    &.small{
+       
+      height: 60px;
+      overflow: hidden; 
     }
+    
     .show-more {
       position:relative;
       cursor: pointer;
@@ -74,7 +80,7 @@
 
   // 04. Same class
   // - - - - - - - - - - - - - - - - - - - - - - - - -  
-  .sidebar_left, .center{
+  .column_left, .column_center{
     a{
       display: block;
       position: relative;
@@ -115,5 +121,10 @@
         color: darken($text, 20%);
       }
     }
+  }
+  // 05. objectives
+  // - - - - - - - - - - - - - - - - - - - - - - - - - 
+  .wrapper{ 
+    .objectives{border:2px solid red;}
   }
 }

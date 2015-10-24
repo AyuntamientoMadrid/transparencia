@@ -1,7 +1,12 @@
-<div class="sidebar_right">
+<div class="column_right">
   <h2><small><%= @department.name %></small></h2>
-  <div><%= @department.description  %></div>
-  <%= link_to "Leer más", nil %>
+  <div class="description small">
+    <%= @department.description.truncate(300)  %>
+  </div>
+  <div class="description full hide">
+    <%= @department.description %>
+  </div>
+  <%= link_to "Leer más", "#", class: 'show-more' %>
   <hr>
   <h2><small>Directrices de legislatura (objectivos politicos)</small></h2>
   <%= @department.directives.html_safe %>
