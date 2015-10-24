@@ -1,0 +1,6 @@
+<strong>¿Que buscas?</strong>
+<% @areas.each do |area| %>
+  <%= content_tag_for :li, area do %>
+    <%= link_to area.name, area_departments_path(area) %>
+  <% end %>
+<% end %>   
