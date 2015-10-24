@@ -1,2 +1,38 @@
 en:
   transparency: "Transparency"
+  menu: "Menu"
+  layouts:
+    header:
+      participation: "Participation"
+      transparency: "Transparency"
+      opendata: "Opendata"
+      logo: "Madrid"
+      open_gov: "Open goverment"
+      highlights: "Highlights"
+      declarations: "Declarations"
+      contracts: "Contracts"
+      grants: "Grants"
+      budgets: "Budgets"
+    footer:
+      description: "This portal use %{consul}, is %{open_source}. Madrid, for the whole world."
+      open_source: "software libre"
+      open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
+      consul: "Consul application"
+      consul_url: "https://github.com/ayuntamientomadrid"
+      copyright: "Ayuntamiento de Madrid, %{year}"
+      participation_title: "Participation"
+      participation_text: Decide what should be the city of Madrid you want.
+      transparency_title: Transparency
+      transparency_text: Get any information on the City of Madrid.
+      open_data_title:  Open Data
+      open_data_text: "All City Council data are yours."
+      contact_us: "For technical support contact us"
+      privacy: "Privacy Policy"
+      conditions: "Terms of use"
+      more_info: "More information"
+      accessibility: "Accessibility"
+  social:
+    twitter: "Twitter"
+    facebook: "Facebook"
+    blog: "Blog"
+    youtube: "YouTube"

@@ -1,0 +1,73 @@
+<footer>
+  <div class="row-full">
+    <div class="row">
+
+      <div class="small-12 large-4 column">
+        <h3 class="logo">
+          <%= link_to t("layouts.header.open_gov", open: "#{t('layouts.header.open')}").html_safe %>
+        </h3>
+
+        <p>
+          <%= t("layouts.footer.description",
+            open_source: link_to(t("layouts.footer.open_source"), t("layouts.footer.open_source_url"), target: "blank"),
+            consul:  link_to(t("layouts.footer.consul"), t("layouts.footer.consul_url"), target: "blank")).html_safe
+          %>
+          <%= t("layouts.footer.contact_us") %>
+          <%= mail_to "web.gobiernoabierto@madrid.es" %>
+        </p>
+      </div>
+
+      <div class="footer-sections small-12 large-8 column">
+        <div class="small-12 medium-4 column">
+          <h4>
+            <%= link_to t("layouts.footer.participation_title"), root_path %>
+          </h4>
+          <p><%= t("layouts.footer.participation_text") %></p>
+        </div>
+
+        <div class="small-12 medium-4 column">
+          <h4>
+            <%= link_to t("layouts.footer.transparency_title"), "/transparency" %>
+          </h4>
+          <p><%= t("layouts.footer.transparency_text") %></p>
+        </div>
+
+        <div class="small-12 medium-4 column">
+          <h4>
+            <%= link_to t("layouts.footer.open_data_title"), "/opendata" %>
+          </h4>
+          <p><%= t("layouts.footer.open_data_text") %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subfooter row">
+      <div class="small-12 medium-10 column">
+        <%= t("layouts.footer.copyright", year: Time.now.year) %>&nbsp;|&nbsp;
+        <%= link_to t("layouts.footer.more_info"), "#" %>&nbsp;|&nbsp;
+        <%= link_to t("layouts.footer.privacy"), "#" %>&nbsp;|&nbsp;
+        <%= link_to t("layouts.footer.conditions"), "#" %>&nbsp;|&nbsp;
+        <%= link_to t("layouts.footer.accessibility"), "#" %>
+      </div>
+
+      <div class="small-12 medium-2 column social">
+        <%= link_to "https://twitter.com/abriendomadrid", target: "_blank", title: t("social.twitter") do %>
+          <span class="sr-only"><%= t("social.twitter") %></span>
+          <i class="icon-twitter"></i>
+        <% end %>
+        <%= link_to "https://www.facebook.com/Abriendo-Madrid-1475577616080350/", target: "_blank", title: t("social.facebook") do %>
+          <span class="sr-only"><%= t("social.facebook") %></span>
+          <i class="icon-facebook"></i>
+        <% end %>
+        <%= link_to "/blog", target: "_blank", title: t("social.blog") do %>
+          <span class="sr-only"><%= t("social.blog") %></span>
+          <i class="icon-blog"></i>
+        <% end %>
+        <%= link_to "https://www.youtube.com/channel/UCFmaChI9quIY7lwHplnacfg", target: "_blank", title: t("social.youtube") do %>
+          <span class="sr-only"><%= t("social.youtube") %></span>
+          <i class="icon-youtube"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</footer>
