@@ -1,0 +1,6 @@
+<%= form_for @objective do |f| %>
+  <%= f.text_field :title, label: "Título" %>
+  <%= f.text_area :description, label: "Description" %>
+  <%= f.check_box :accomplished, label: "Cumplido" %>
+  <%= f.submit "Actualizar"%>
+<% end %>

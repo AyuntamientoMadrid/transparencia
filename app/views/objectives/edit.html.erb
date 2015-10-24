@@ -1,14 +1,5 @@
 <h1><%= @objective.department.area.name %></h1>
 <h2><%= @objective.department.name %></h2>
 <h3><%= @objective.title %></h3>
-<%= form_for @objective do |f| %>
 
-  <%= f.text_field :title  %>
-
-  <%= f.text_area :description %>
-
-  <%= f.check_box :accomplished, label: "Cumplido" %>
-
-  <%= f.submit %>
-
-<% end %>
+<%= render 'form' %>
