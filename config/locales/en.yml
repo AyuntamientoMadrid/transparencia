@@ -1,23 +1,38 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  transparency: "Transparency"
+  menu: "Menu"
+  layouts:
+    header:
+      participation: "Participation"
+      transparency: "Transparency"
+      opendata: "Opendata"
+      logo: "Madrid"
+      open_gov: "Open goverment"
+      highlights: "Highlights"
+      declarations: "Declarations"
+      contracts: "Contracts"
+      grants: "Grants"
+      budgets: "Budgets"
+    footer:
+      description: "This portal use %{consul}, is %{open_source}. Madrid, for the whole world."
+      open_source: "software libre"
+      open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
+      consul: "Consul application"
+      consul_url: "https://github.com/ayuntamientomadrid"
+      copyright: "Ayuntamiento de Madrid, %{year}"
+      participation_title: "Participation"
+      participation_text: Decide what should be the city of Madrid you want.
+      transparency_title: Transparency
+      transparency_text: Get any information on the City of Madrid.
+      open_data_title:  Open Data
+      open_data_text: "All City Council data are yours."
+      contact_us: "For technical support contact us"
+      privacy: "Privacy Policy"
+      conditions: "Terms of use"
+      more_info: "More information"
+      accessibility: "Accessibility"
+  social:
+    twitter: "Twitter"
+    facebook: "Facebook"
+    blog: "Blog"
+    youtube: "YouTube"
