@@ -1,0 +1,7 @@
+<% @departments.each do |department| %>
+  <%= link_to department_path(department), class: active_class(@department, department) do %>
+    <%= department.name %>
+    <span><%= department.description.truncate(100) %></span>
+    <i class="icon-angle-right"></i>
+  <% end %>
+<% end %>  

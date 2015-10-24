@@ -1,0 +1,36 @@
+<div class="column_right">
+  <h2><small><%= @department.name %></small></h2>
+  <div class="description">
+    <%= @department.description.truncate(300)  %>
+  </div>
+  <div class="description hide">
+    <%= @department.description %>
+  </div>
+  <br>
+  <%= link_to "Leer más", "#", class: 'show-more tiny button' %>
+  <hr>
+  <h2><small>Directrices de legislatura (objectivos politicos)</small></h2>
+  <%= @department.directives.html_safe %>
+  <hr>
+  <h2><small>Actuaciones clave</small></h2>
+  <ul class="no-bullet made">
+    <h4>Realizadas</h4>
+    <% @department.objectives.accomplished.order(:order).each do |objective| %>
+      <%= content_tag_for :li, objective do %>
+        <%= link_to "", edit_objective_path(objective), class: 'tiny icon-edit' %>
+        <i class="icon-check"></i>
+        <%= link_to objective.title, objective_path(objective) %>
+      <% end %>
+    <% end %>
+  </ul>
+  <ul class="no-bullet pending">
+    <h4>Pendientes</h4>
+    <% @department.objectives.not_accomplished.order(:order).each do |objective| %>
+      <%= content_tag_for :li, objective do %>
+        <%= link_to " ", edit_objective_path(objective), class: 'tiny icon-edit' %>
+        <i class="icon-check"></i>
+        <%= link_to objective.title, objective_path(objective) %>   
+      <% end %>
+    <% end %>
+  </ul>
+</div>

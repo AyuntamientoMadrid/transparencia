@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require init-foundation
+//= require program-accomplishment
 //= require turbolinks
-//= require_tree .
-
-$(function(){ $(document).foundation(); });
+//= require trix
+//= require_tree

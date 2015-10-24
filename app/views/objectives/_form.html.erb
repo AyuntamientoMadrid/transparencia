@@ -1,0 +1,6 @@
+<%= form_for @objective do |f| %>
+  <%= f.text_field :title, label: "Título" %>
+  <%= f.trix_editor :description, label: "Description" %>
+  <%= f.check_box :accomplished, label: "Cumplido" %>
+  <%= f.submit "Actualizar", class: "tiny button success" %>
+<% end %>

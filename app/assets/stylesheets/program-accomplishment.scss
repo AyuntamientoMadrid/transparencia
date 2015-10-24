@@ -1,0 +1,127 @@
+// Table of Contents
+//
+// 00. Color 
+// 01. Column Left
+// 02. Column Center
+// 03. Column Right
+// 04. Common class
+
+// 00. Color
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+.text-success{color:$success-color;}
+.text-danger{color:$alert-color;}
+
+.program-accomplishment{    
+  // 01. Column Left
+  // - - - - - - - - - - - - - - - - - - - - - - - - -
+  .column_left{
+    strong{
+      padding: 10px;
+      margin-top: 1.2em;
+      display: block;
+    }
+    a{
+      span{
+        display: inline-block;
+        margin-right: 20px;
+      } 
+    }
+  }
+
+  // 02. Column center
+  // - - - - - - - - - - - - - - - - - - - - - - - - -
+  .column_center{
+    h2{
+      line-height: 0.8em;
+    }
+    a{
+      span{
+        font-size: 0.8em;
+        color:$text;
+        display: block;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  // 03. Column right
+  // - - - - - - - - - - - - - - - - - - - - - - - - -
+  .column_right{
+    h4{font-size: 1em;}
+    .made{
+      h4{color:green;}
+      li{
+        i{color:green;}
+      }
+    }
+    .pending{
+      h4{color:$alert-color;}
+       li{
+        i{color:$alert-color;}
+      }
+    } 
+  }
+  .description{
+    &.small{
+      height: 60px;
+      overflow: hidden; 
+    }
+    .show-more {
+      position:relative;
+      cursor: pointer;
+      border:1px solid transparent;
+      display: inline-block;
+      color:$link;
+      margin-top:5px;
+      padding: 5px;
+      &:hover{
+        border:1px solid $link;
+      }
+    } 
+  }
+
+  // 04. Same class
+  // - - - - - - - - - - - - - - - - - - - - - - - - -  
+  .column_left, .column_center{
+    a{
+      display: block;
+      position: relative;
+      margin-bottom: 10px;
+      padding: 11px;
+      line-height: 1.1em;
+      border:1px solid transparent;
+      &:hover{ border:1px solid $link; }
+      &.active{   
+        border:1px solid $link;
+        color: darken($text, 20%); 
+        i{
+          background: lighten($link, 30%);
+          &:before{
+            -ms-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+            top:45%;
+            left:2%;
+          }
+        }
+      }
+      i{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;    
+        width: 2em;
+        &:before{
+          right:0;
+          left: 6px;
+          position: absolute;
+          top: 37%;
+        }
+      }
+        &.active{
+        border:1px solid $link;
+        color: darken($text, 20%);
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ feature 'Home' do
 
   scenario 'Welcome' do
     visit root_path
-    expect(page).to have_content "Transparency"
+    expect(page).to have_content "Transparencia"
   end
 
 end
