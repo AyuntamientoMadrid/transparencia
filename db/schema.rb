@@ -35,4 +35,5 @@ ActiveRecord::Schema.define(version: 20151023214033) do
     t.integer "department_id"
   end
 
+
 end
