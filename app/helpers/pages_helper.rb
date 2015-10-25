@@ -28,4 +28,16 @@ module PagesHelper
     prefix
   end
 
+
+
+  def title_helper(selected, section)
+    title = ''
+    if selected.present?
+      title = selected.title if selected.level == 1 && section == 2
+      title = selected.parent.title if selected.parent.present? && selected.level == 2 && section == 2
+      title = selected.title if selected.level == 2 && section == 3
+    end
+    title
+  end
+
 end
