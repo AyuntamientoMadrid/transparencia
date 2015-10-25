@@ -1,17 +1,29 @@
-<div class="program-accomplishment row">
+<div class="pages">
+  <div class="small-12">
+    <ul class="breadcrumbs small-9">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li class="unavailable"><a href="#">Gene Splicing</a></li>
+      <li class="current"><a href="#">Cloning</a></li>
+    </ul>
+    <%= link_to "Add content", '#', class: 'small-2 button tiny'  %>
+  </div>
+   
   <div class="large-3 columns">
-    <div class="column_left">
-      <%= render 'pages/sections/section1' %>
+    <div class="areas column_left">
+        <%= render 'pages/sections/section1' %>     
     </div>
   </div>
+
   <div class="large-4 columns">
-    <div class ="column_center">
+    <div class="column_center">
       <%= render 'pages/sections/section2' %>
-    </div>    
+    </div>
   </div>
-  <div class="large-5 columns">
+
+  <div class="large-5 columns"> 
     <div class="column_right">
-      <%= render 'pages/sections/section3' %>
-    </div>  
+       <%= render 'pages/sections/section3' %>
+    </div>
   </div>
 </div>
