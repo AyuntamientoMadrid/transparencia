@@ -5,4 +5,9 @@ class Page < ActiveRecord::Base
   def level
     self.parent.present? ? self.parent.level + 1 : 1
   end
+
+  def childs
+  	Page.all.where(parent_id: self.id)
+  end
+
 end
