@@ -184,43 +184,38 @@ objectives.each do |objective|
 end
 
 
-pages = 
-[
+Page.create([
   { title: "Información institucional y organizativa" },
-  { title: "Agendas públicas de los concejales", parent_id: Pages.find_by(title: "Información institucional y organizativa") },
-  { title: "Agendas públicas de los concejales", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia/Informacion-institucional-y-organizativa/Agendas-publicas-de-los-concejales/Agendas-publicas-de-los-concejales?vgnextfmt=default&vgnextchannel=481f003fec17e410VgnVCM1000000b205a0aRCRD&idioma=es", parent_id: Pages.find_by(title: "Agendas públicas de los concejales") },
-  { title: "El Pleno", parent_id: Pages.find_by(title: "Información institucional y organizativa") },
-  { title: "Corporación actual", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/El-Pleno/Composicion/Corporacion-actual/Corporacion-actual?vgnextfmt=default&vgnextoid=05c4684e57a03110VgnVCM1000000b205a0aRCRD&vgnextchannel=f2b2f3334ed72210VgnVCM2000000c205a0aRCRD", parent_id: Pages.find_by(title: "El Pleno") },
-  { title: "Actividad parlamentaria", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia/Informacion-institucional-y-organizativa/El-Pleno/Actividad-parlamentaria?vgnextfmt=default&vgnextchannel=cc075b62270a7310VgnVCM1000000b205a0aRCRD", parent_id: Pages.find_by(title: "El Pleno") },
-  { title: "Actividad parlamentaria / Actvidades del pleno y comisiones", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/El-Pleno/Actividad-del-Pleno-y-las-Comisiones?vgnextfmt=default&vgnextchannel=fa9e1f2f2b40e210VgnVCM2000000c205a0aRCRD", parent_id: Pages.find_by(title:"Actividad parlamentaria") },
-  { title: "Actividad parlamentaria / Informes de la actividad parlamentaria", link: "http://www.madrid.es/UnidadesDescentralizadas/UDCPleno/CentroDocumentacion/InformesPresidencia/ActividadParlamentaria_2014.pdf", parent_id: Pages.find_by(title:"Actividad parlamentaria") },
-  { title: "Grupos políticos", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia/Informacion-institucional-y-organizativa/El-Pleno/Grupos-Politicos?vgnextfmt=default&vgnextchannel=fc6df1ec4b0c7310VgnVCM2000000c205a0aRCRD", parent_id: Pages.find_by(title: "El Pleno") },
-  { title: "Grupos políticos/ Grupos políticos", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/Ayuntamiento/Grupos-Politicos?vgnextfmt=default&vgnextchannel=8b0f85bb12734310VgnVCM2000000c205a0aRCRD", parent_id: Pages.find_by(title: "Grupos políticos") },
-  { title: "Grupos políticos/ Cuentas de los grupos políticos", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/El-Pleno/Centro-de-documentacion/Cuentas-de-los-Grupos-Politicos?vgnextfmt=default&vgnextchannel=aaeceab16a80c410VgnVCM1000000b205a0aRCRD", parent_id: Pages.find_by(title: "Grupos políticos") },
-  { title: "Retransmisiones del Pleno", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/Ayuntamiento/El-Pleno/Retransmisiones-del-Pleno?vgnextfmt=default&vgnextchannel=b309d9ea9c8c5310VgnVCM100000171f5a0aRCRD", parent_id: Pages.find_by(title: "El Pleno") },
-  { title: "La Junta de Gobierno", parent_id: Pages.find_by(title: "Información institucional y organizativa") },
-  { title: "Composición y datos biográficos de sus miembros", parent_id: Pages.find_by(title: "La Junta de Gobierno") },
-  { title: "Ruedas de prensa", parent_id: Pages.find_by(title: "La Junta de Gobierno") },
-  { title: "Distritos", parent_id: Pages.find_by(title: "Información institucional y organizativa") },
-  { title: "Composición de las Juntas municipales de Distrito", parent_id: Pages.find_by(title: "Distritos") },
-  { title: "Actas Plenos", parent_id: Pages.find_by(title: "Distritos") },
-  { title: "Consejos Territoriales", parent_id: Pages.find_by(title: "Distritos") },
-  { title: "Retribuciones de la Alcaldesa, altos cargos, directivos y personal eventual", parent_id: Pages.find_by(title: "Información institucional y organizativa") },
-  { title: "Personal y retribuciones", parent_id: Pages.find_by(title: "Personal y retribuciones") },
-  { title: "Indemnizaciones de altos cargos, directivos y eventuales tras el cese de su cargo" , parent_id: Pages.find_by(title: "Distritos") },
-  { title: "Retribuciones de Alcaldesa, concejales, cargos directivos y personal eventual" , parent_id: Pages.find_by(title: "Distritos") },
-  { title: "Empresas del Ayuntamiento de Madrid. Personal y retribuciones: Presupuesto inicial 2015", parent_id: Pages.find_by(title: "Distritos") },
+  { title: "Agendas públicas de los concejales", parent_id: Page.find_by(title: "Información institucional y organizativa") },
+  { title: "Agendas públicas de los concejales", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia/Informacion-institucional-y-organizativa/Agendas-publicas-de-los-concejales/Agendas-publicas-de-los-concejales?vgnextfmt=default&vgnextchannel=481f003fec17e410VgnVCM1000000b205a0aRCRD&idioma=es", parent_id: Page.find_by(title: "Agendas públicas de los concejales") },
+  { title: "El Pleno", parent_id: Page.find_by(title: "Información institucional y organizativa") },
+  { title: "Corporación actual", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/El-Pleno/Composicion/Corporacion-actual/Corporacion-actual?vgnextfmt=default&vgnextoid=05c4684e57a03110VgnVCM1000000b205a0aRCRD&vgnextchannel=f2b2f3334ed72210VgnVCM2000000c205a0aRCRD", parent_id: Page.find_by(title: "El Pleno") },
+  { title: "Actividad parlamentaria", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia/Informacion-institucional-y-organizativa/El-Pleno/Actividad-parlamentaria?vgnextfmt=default&vgnextchannel=cc075b62270a7310VgnVCM1000000b205a0aRCRD", parent_id: Page.find_by(title: "El Pleno") },
+  { title: "Actividad parlamentaria / Actvidades del pleno y comisiones", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/El-Pleno/Actividad-del-Pleno-y-las-Comisiones?vgnextfmt=default&vgnextchannel=fa9e1f2f2b40e210VgnVCM2000000c205a0aRCRD", parent_id: Page.find_by(title:"Actividad parlamentaria") },
+  { title: "Actividad parlamentaria / Informes de la actividad parlamentaria", link: "http://www.madrid.es/UnidadesDescentralizadas/UDCPleno/CentroDocumentacion/InformesPresidencia/ActividadParlamentaria_2014.pdf", parent_id: Page.find_by(title:"Actividad parlamentaria") },
+  { title: "Grupos políticos", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia/Informacion-institucional-y-organizativa/El-Pleno/Grupos-Politicos?vgnextfmt=default&vgnextchannel=fc6df1ec4b0c7310VgnVCM2000000c205a0aRCRD", parent_id: Page.find_by(title: "El Pleno") },
+  { title: "Grupos políticos/ Grupos políticos", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/Ayuntamiento/Grupos-Politicos?vgnextfmt=default&vgnextchannel=8b0f85bb12734310VgnVCM2000000c205a0aRCRD", parent_id: Page.find_by(title: "Grupos políticos") },
+  { title: "Grupos políticos/ Cuentas de los grupos políticos", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/El-Pleno/Centro-de-documentacion/Cuentas-de-los-Grupos-Politicos?vgnextfmt=default&vgnextchannel=aaeceab16a80c410VgnVCM1000000b205a0aRCRD", parent_id: Page.find_by(title: "Grupos políticos") },
+  { title: "Retransmisiones del Pleno", link: "http://www.madrid.es/portales/munimadrid/es/Inicio/Ayuntamiento/El-Pleno/Retransmisiones-del-Pleno?vgnextfmt=default&vgnextchannel=b309d9ea9c8c5310VgnVCM100000171f5a0aRCRD", parent_id: Page.find_by(title: "El Pleno") },
+  { title: "La Junta de Gobierno", parent_id: Page.find_by(title: "Información institucional y organizativa") },
+  { title: "Composición y datos biográficos de sus miembros", parent_id: Page.find_by(title: "La Junta de Gobierno") },
+  { title: "Ruedas de prensa", parent_id: Page.find_by(title: "La Junta de Gobierno") },
+  { title: "Distritos", parent_id: Page.find_by(title: "Información institucional y organizativa") },
+  { title: "Composición de las Juntas municipales de Distrito", parent_id: Page.find_by(title: "Distritos") },
+  { title: "Actas Plenos", parent_id: Page.find_by(title: "Distritos") },
+  { title: "Consejos Territoriales", parent_id: Page.find_by(title: "Distritos") },
+  { title: "Retribuciones de la Alcaldesa, altos cargos, directivos y personal eventual", parent_id: Page.find_by(title: "Información institucional y organizativa") },
+  { title: "Personal y retribuciones", parent_id: Page.find_by(title: "Personal y retribuciones") },
+  { title: "Indemnizaciones de altos cargos, directivos y eventuales tras el cese de su cargo" , parent_id: Page.find_by(title: "Distritos") },
+  { title: "Retribuciones de Alcaldesa, concejales, cargos directivos y personal eventual" , parent_id: Page.find_by(title: "Distritos") },
+  { title: "Empresas del Ayuntamiento de Madrid. Personal y retribuciones: Presupuesto inicial 2015", parent_id: Page.find_by(title: "Distritos") },
   { title: "Planificación y Evaluación" },
-  { title: "Sistema de Gestión Estratégica", parent_id: Pages.find_by(title: "Planificación y Evaluación") },
-  { title: "Mapa  estratégico 2011-2015" , parent_id: Pages.find_by(title: "Sistema de Gestión Estratégica") },
-  { title: "Evolución indicadores estratégicos" , parent_id: Pages.find_by(title: "Sistema de Gestión Estratégica") },
-  { title: "Acceso directo al Sistema de Información SIGE", parent_id: Pages.find_by(title: "Sistema de Gestión Estratégica") },
-  { title: "Sistema de Gestión Operativa", parent_id: Pages.find_by(title: "Planificación y Evaluación") }, 
-  { title: "Programa Operativo de Gobierno 2011-2015" , parent_id: Pages.find_by(title: "Sistema de Gestión Operativa") }, 
-  { title: "Evaluación del Programa Operativo de Gobierno" , parent_id: Pages.find_by(title: "Sistema de Gestión Operativa") }, 
-  { title: "Acceso directo al Sistema de Información POG", parent_id: Pages.find_by(title: "Sistema de Gestión Operativa") }
-]
-pages.each do |page|
-  Page.find_or_create_by(page)
-end
-
+  { title: "Sistema de Gestión Estratégica", parent_id: Page.find_by(title: "Planificación y Evaluación") },
+  { title: "Mapa  estratégico 2011-2015" , parent_id: Page.find_by(title: "Sistema de Gestión Estratégica") },
+  { title: "Evolución indicadores estratégicos" , parent_id: Page.find_by(title: "Sistema de Gestión Estratégica") },
+  { title: "Acceso directo al Sistema de Información SIGE", parent_id: Page.find_by(title: "Sistema de Gestión Estratégica") },
+  { title: "Sistema de Gestión Operativa", parent_id: Page.find_by(title: "Planificación y Evaluación") }, 
+  { title: "Programa Operativo de Gobierno 2011-2015" , parent_id: Page.find_by(title: "Sistema de Gestión Operativa") }, 
+  { title: "Evaluación del Programa Operativo de Gobierno" , parent_id: Page.find_by(title: "Sistema de Gestión Operativa") }, 
+  { title: "Acceso directo al Sistema de Información POG", parent_id: Page.find_by(title: "Sistema de Gestión Operativa") }
+])
