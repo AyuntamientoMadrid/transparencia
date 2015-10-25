@@ -19,6 +19,11 @@
 .p-action:hover { background: #D27D01; color: #fff; }
 
 
+/* Section Block */
+.p-block { padding: 60px 0; border-bottom: solid 1px #d5d5d5; }
+	.p-block h1 { font-size: 44px; font-weight: 400; margin-bottom: 40px; }
+
+
 /**
 * Enquiry Index
 *
@@ -30,7 +35,7 @@
 .p-header h1{
 	text-align: left;
 	font-size: 44px;
-	font-weight: 300;
+	font-weight: 400;
 	color: #fff;
 	margin: 0 0 16px;
 }
@@ -53,6 +58,15 @@
 		position: relative;
 		background: #fff;
 		border-radius: 4px;
+	}
+
+	.p-search .icon-search {
+		font-size: 24px;
+		color: #d5d5d5;
+		position: absolute;
+		left: 12px;
+		top: 8px;
+		pointer-events: none;
 	}
 
 	.p-search input {
@@ -90,9 +104,38 @@
 		bottom: 0;
 	}
 
+/* Block How */
+.p-block-how h1 { text-align: center; }
 
+	/* How list */
+	.p-how-list { counter-reset: section; list-style: none; }
+		.p-how-list li { text-align: left; position: relative; }
+			.p-how-list li:before {
+				counter-increment: section;
+				content: counter(section);
+				float: left;
+				width: 56px;
+				height: 56px;
+				background-color: #EC8C00;
+				font-size: 36px;
+				line-height: 56px;
+				text-align: center;
+				color: #fff;
+				border-radius: 56px;
+				margin-right: 16px;
+			}
 
-
+			.p-how-list-inner { overflow: hidden; }
+				.p-how-list h2 {
+					font-size: 24px;
+					line-height: 1.2em;
+					color: #262631;
+				}
+				.p-how-list p {
+					font-size: 18px;
+					line-height: 1.4em;
+					color: #9a9a9a;
+				}
 
 
 
