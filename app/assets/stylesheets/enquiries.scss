@@ -21,9 +21,30 @@
 .p-action:hover { background: #D27D01; color: #fff; }
 .p-action:active { background: #D27D01; color: #fff; }
 
+.p-action.--small { font-size: 18px; padding: 8px 16px; }
+
 .p-action.--secondary { background: #C784E9; font-size: 18px; padding: 8px 16px; }
 .p-action.--secondary:hover { background: #B175D0; }
 .p-action.--secondary:active { background: #B175D0; }
+
+
+/* Social actions */
+.twitter, .facebook {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 8px 16px;
+	border-radius: 6px;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+}
+.twitter:hover, .facebook:hover,
+.twitter:active, .facebook:active { color: #fff; }
+
+.twitter { background: #5EB5FF; }
+.twitter:hover { background: #489AE0; }
+.facebook { background:#5064B7; }
+.facebook:hover { background:#36499A; }
 
 
 /* Header */
@@ -98,9 +119,11 @@
 		vertical-align: middle;
 		text-align: center;
 	}
+		.p-files li i { color: #55479A; margin-top: 1px; display: inline-block; vertical-align: middle; }
 		.p-files li button i { color: #A69ECC; margin-top: 1px; display: inline-block; }
 
-	.p-files li span {
+	.p-files li span,
+	.p-files li a {
 		color: #fff;
 		display: inline-block;
 		vertical-align: middle;
@@ -313,12 +336,132 @@
 		.p-form .row .column:last-child { padding-right: 0; }
 
 
+/**
+* Enquiry Detail
+*
+*/
+.page-enquiries-detail .p-header h1,
+.page-enquiries-detail .p-header p { text-align: center; }
+
+.page-enquiries-detail .p-header p { font-size: 18px; font-weight: bold; text-transform: uppercase; padding-bottom: 60px; }
 
 
+/* Detail container */
+.p-detail-container {
+	position: relative;
+	background-color: #fff;
+	border-radius: 6px;
+	margin-top: -60px;
+	border: solid 1px #d5d5d5;
+	margin-bottom: 60px;
+}
+
+.p-detail-container .p-form { padding: 32px 32px 0; }
+
+/* Messages */
+.p-detail-messages { padding: 0; }
+	.p-detail-message { padding: 32px; border-bottom: solid 1px #d5d5d5; }
+	.p-detail-message em {
+		font-size: 18px;
+		font-weight: bold;
+		font-style: normal;
+		text-transform: uppercase;
+		color: #135F94;
+		display: block;
+		margin-bottom: 24px;
+	}
+	.p-detail-message em span { display: block; font-style: italic; font-weight: bold; }
+
+	.p-detail-message p { font-size: 18px; line-height: 1.4em; color: #666; }
+		.p-detail-message a { color: #EC8C00; text-decoration: underline; }
+
+	/* Response style */
+	.p-detail-message.--response { background-color: #F6F8EB; }
+		.p-detail-message.--response em { color: #3E4327; }
 
 
+/* Aside metadata */
+.p-detail-meta {
+	border-left: solid 1px #d5d5d5;
+	background-color: #F8FBFE;
+	position: static;
+	border-radius: 0 6px 6px 0;
+	padding: 0;
+}
+	.p-detail-meta:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		width: 33.333%;
+		border-radius: 0 6px 6px 0;
+		border-left: solid 1px #d5d5d5;
+		background-color: #F8FBFE;
+	}
+	.p-detail-meta .p-detail-meta-list { position: relative; z-index: 2; }
 
 
+/* Aside metadata list */
+.p-detail-meta-list { margin: 0; padding: 0 32px; overflow: hidden; }
+
+.p-detail-meta-item { border-bottom: 1px solid #d5d5d5; list-style: none; padding: 20px 0; }
+.p-detail-meta-item > h1{
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+	color:#135F94;
+	margin-bottom: 16px;
+}
+
+/* User */
+.p-detail-meta-item.--user img[src=""] { background: #d5d5d5; }
+.p-detail-meta-item.--user img {
+	width: 48px;
+	height: 48px;
+	border-radius: 48px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 12px 0 0;
+}
+.p-detail-meta-item.--user p {
+	font-size: 18px;
+	line-height: 1.3em;
+	color: #135F94;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+}
 
 
+/* Response time */
+.p-detail-meta-item.--time p { font-weight: 300; font-size: 44px; color: #EC8C00; margin: 0; }
 
+/* Response attachment */
+.p-detail-meta-item.--response .p-files li { background-color: #F6F8EB; border: solid 1px #d5d5d5; }
+	.p-detail-meta-item.--response .p-files li a { color: #63674E; }
+	.p-detail-meta-item.--response .p-files i { color: #63674E; }
+
+/* Suscribe */
+.p-detail-meta-item.--suscribe em {
+	color: #C784E9;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-style: normal;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Share */
+.p-detail-meta-item.--share .facebook,
+.p-detail-meta-item.--share .twitter {
+	display: block;
+	width: auto;
+	margin-bottom: 12px;
+}
+
+/* Related */
+.p-detail-meta-item.--related ul { margin: 0; }
+	.p-detail-meta-item.--related li { list-style: none; margin: 0 0 16px; }
