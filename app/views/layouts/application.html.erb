@@ -13,8 +13,10 @@
     <%= render 'layouts/header' %>
     <div class="wrapper">
       <%= render 'shared/notice' %>
-      <br>
-      <%= yield %>
+      <div class="row">
+        <br>
+        <%= yield %>
+      </div>
       <div class="push"></div>
     </div>
     <div class="footer">
