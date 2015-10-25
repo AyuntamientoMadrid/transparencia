@@ -1,0 +1,193 @@
+/**
+* Enquiry Common
+*
+*/
+
+/* Action */
+.p-action {
+	font-size: 18px;
+	line-height: 1.2em;
+	text-align: center;
+	border-radius: 28px;
+	text-decoration: none;
+	color: #fff;
+	background: #EC8C00;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 16px 32px;
+ }
+.p-action:hover { background: #D27D01; color: #fff; }
+.p-action:active { background: #D27D01; color: #fff; }
+
+.p-action.--secondary { background: #C784E9; font-size: 18px; padding: 8px 16px; }
+.p-action.--secondary:hover { background: #B175D0; }
+.p-action.--secondary:active { background: #B175D0; }
+
+
+/* Section Block */
+.p-block { padding: 60px 0; border-bottom: solid 1px #d5d5d5; }
+	.p-block h1 { font-size: 44px; font-weight: 400; margin-bottom: 40px; }
+
+
+/* Enquiries item */
+.p-enquiry-item {
+	padding: 16px;
+	border: solid 1px #d5d5d5;
+	border-radius: 6px;
+	background: #fff;
+}
+.p-enquiry-item.--answered em  { color: #69C768; }
+.p-enquiry-item.--rejected em { color: #E98484; }
+
+	.p-enquiry-item em {
+		font-size: 14px;
+		font-style: normal;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: #9a9a9a;
+		margin-bottom: 12px;
+	}
+	.p-enquiry-item h1 { font-size: 24px; line-height: 1.2em; font-weight: normal; color: #132D54; margin: 0; }
+		.p-enquiry-item h1 a { color: #132D54; text-decoration: none; }
+		.p-enquiry-item h1 a:hover { text-decoration: underline; }
+
+	.p-enquiry-item-action { padding-top: 16px; margin: 16px 0 0; border-top: solid 1px #d5d5d5; }
+		.p-enquiry-item .p-enquiry-item-action em { display: inline-block; vertical-align: middle; color: #C784E9; margin: 0 0 0 8px; }
+
+
+/**
+* Enquiry Index
+*
+*/
+
+
+/* Main header */
+.p-header { background: #135F94; padding: 52px 0; }
+	.p-header-claim h1{
+		text-align: left;
+		font-size: 44px;
+		font-weight: 400;
+		color: #fff;
+		margin: 0 0 16px;
+	}
+	.p-header-claim p {
+		font-size: 24px;
+		line-height: 1.4em;
+		color: #fff;
+		opacity: 0.6;
+		margin: 0 0 24px;
+	}
+
+	.p-header-featured { border-left: solid 1px rgba(0, 0, 0, 0.2); }
+		.p-header .p-enquiry-item { border: none; margin-left: 24px; }
+
+
+/* Search Bar */
+.p-search { background: #0C4369; text-align: center; }
+	.p-search-inner {
+		padding: 0;
+		margin: 12px auto;
+		display: block;
+		border: none;
+		position: relative;
+		background: #fff;
+		border-radius: 4px;
+	}
+
+	.p-search .icon-search {
+		font-size: 24px;
+		color: #d5d5d5;
+		position: absolute;
+		left: 12px;
+		top: 8px;
+		pointer-events: none;
+	}
+
+	.p-search input {
+		width: 100%;
+		height: 50px;
+		padding-right: 92px;
+		font-size: 18px;
+		line-height: 1.2em;
+		color: #9a9a9a;
+		text-align: center;
+		background-color: transparent;
+		margin-bottom: 0;
+		border: none;
+		outline: none;
+		box-shadow: none;
+		border-radius: 4px;
+	 }
+	.p-search button {
+		font-size: 16px;
+		line-height: 1em;
+		text-transform: uppercase;
+		color: #135F94;
+		font-weight: bold;
+		text-align: center;
+		border: none;
+		border-left: solid 1px #d5d5d5;
+		border-radius: 0 4px 4px 0;
+		background: transparent;
+		cursor: pointer;
+		padding: 0 12px;
+		margin: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+
+
+/* Block How */
+.p-block-how h1 { text-align: center; }
+
+	/* How list */
+	.p-how-list { counter-reset: section; list-style: none; }
+		.p-how-list li { text-align: left; position: relative; }
+			.p-how-list li:before {
+				counter-increment: section;
+				content: counter(section);
+				float: left;
+				width: 56px;
+				height: 56px;
+				background-color: #EC8C00;
+				font-size: 36px;
+				line-height: 56px;
+				text-align: center;
+				color: #fff;
+				border-radius: 56px;
+				margin-right: 16px;
+			}
+
+			.p-how-list-inner { overflow: hidden; }
+				.p-how-list h2 {
+					font-size: 24px;
+					line-height: 1.2em;
+					color: #262631;
+				}
+				.p-how-list p {
+					font-size: 18px;
+					line-height: 1.4em;
+					color: #9a9a9a;
+				}
+
+/* Block featured */
+.p-block-featured ul { font-size: 0; }
+	.p-block-featured li { list-style: none; display: inline-block; vertical-align: top; }
+		.p-block-featured .p-enquiry-item { margin: 0 20px 20px 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
