@@ -1,0 +1,8 @@
+<% @pages_section3.each do |page| %>
+  <%= content_tag_for :div, page do %>
+    <%= link_to pages_path(selected: page.id), class: active_class(@page, page) do %>
+      <span><%= page.title %></span>
+      <i class="icon-angle-right"></i>
+    <% end %>    
+  <% end %>
+<% end %>
