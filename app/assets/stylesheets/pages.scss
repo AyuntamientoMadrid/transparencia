@@ -6,7 +6,7 @@
   .column_right{
     .indent{padding-left: 20px;}
   }
-  .column_left, .column_center{
+  .column_left, .column_center,.column_right{
     @extend .area_link;
   }
   .breadcrumbs{display: inline-block;}
