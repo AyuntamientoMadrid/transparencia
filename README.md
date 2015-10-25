@@ -10,6 +10,7 @@ Prerequisitos: git, Ruby 2.2.3, la gema bundler y PostgreSQL (9.4 o superior).
 git clone https://github.com/AyuntamientoMadrid/transparencia.git
 cd transparencia
 bundle install
+cp config/secrets.yml.example config/secrets.yml
 cp config/database.yml.example config/database.yml
 bin/rake db:setup
 RAILS_ENV=test bin/rake db:setup
