@@ -1,5 +1,5 @@
 <%= form_for @page do |f| %>
-  <%= f.select :parent, [["opcion 1"], ["opcion 2"]] %>
+  <%= f.select :parent_id, pages_options_for_select %>
   <%= f.text_field :title, label: "Título" %>
   <%= f.text_field :subtitle, label: "Sub título" %>
   <%= f.text_field :link, label: "Enlace externo" %>
