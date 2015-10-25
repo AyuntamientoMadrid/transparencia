@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :departments, only: [:show]
   resources :objectives, only: [:show, :edit, :update]
+  resources :pages
 
   get "designs/enquiry_index", to: "designs#enquiry_index"
   get "designs/enquiry_form", to: "designs#enquiry_form"
