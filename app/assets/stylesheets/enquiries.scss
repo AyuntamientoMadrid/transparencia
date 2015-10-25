@@ -1,0 +1,111 @@
+/**
+* Enquiry Common
+*
+*/
+
+/* Action */
+.p-action {
+	font-size: 18px;
+	line-height: 1.2em;
+	text-align: center;
+	border-radius: 28px;
+	text-decoration: none;
+	color: #fff;
+	background: #EC8C00;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 16px 32px;
+ }
+.p-action:hover { background: #D27D01; color: #fff; }
+
+
+/**
+* Enquiry Index
+*
+*/
+
+
+/* Main header */
+.p-header { background: #135F94; padding: 52px 0; }
+.p-header h1{
+	text-align: left;
+	font-size: 44px;
+	font-weight: 300;
+	color: #fff;
+	margin: 0 0 16px;
+}
+.p-header p {
+	font-size: 24px;
+	line-height: 1.4em;
+	color: #fff;
+	opacity: 0.6;
+	margin: 0 0 24px;
+}
+
+
+/* Search Bar */
+.p-search { background: #0C4369; text-align: center; }
+	.p-search-inner {
+		padding: 0;
+		margin: 12px auto;
+		display: block;
+		border: none;
+		position: relative;
+		background: #fff;
+		border-radius: 4px;
+	}
+
+	.p-search input {
+		width: 100%;
+		height: 50px;
+		padding-right: 92px;
+		font-size: 18px;
+		line-height: 1.2em;
+		color: #9a9a9a;
+		text-align: center;
+		background-color: transparent;
+		margin-bottom: 0;
+		border: none;
+		outline: none;
+		box-shadow: none;
+		border-radius: 4px;
+	 }
+	.p-search button {
+		font-size: 16px;
+		line-height: 1em;
+		text-transform: uppercase;
+		color: #135F94;
+		font-weight: bold;
+		text-align: center;
+		border: none;
+		border-left: solid 1px #d5d5d5;
+		border-radius: 0 4px 4px 0;
+		background: transparent;
+		cursor: pointer;
+		padding: 0 12px;
+		margin: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
