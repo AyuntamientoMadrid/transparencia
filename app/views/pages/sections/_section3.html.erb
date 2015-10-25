@@ -2,20 +2,23 @@
 <% @pages_section3.each do |page| %>
   <%= content_tag_for :div, page do %>
     <% if page.link.present? && page.link != '' %>
+      <%= link_to '', edit_page_path(page), class: 'icon-edit has-tip', data: {tooltip: true}, title: "edit" %>
       <%= link_to page.link, target: "_blank" do %>
         <span><%= page.title %></span>
         <i class="icon-angle-right"></i>
       <% end %> 
-    <% else %> 
+    <% else %>
+      <%= link_to '', edit_page_path(page), class: 'icon-edit has-tip', data: {tooltip: true}, title: "edit" %> 
       <%= link_to page_path(page) do %>
         <span><%= page.title %></span>
         <i class="icon-angle-right"></i>
       <% end %>
     <% end %>
   <% end %>
-  <% unless page.childs.empty? %>
-    <% page.childs.each do |child| %>
-      <%= content_tag_for :div, child do %>
+  <% unless page.pages.empty? %>
+    <% page.pages.each do |child| %>
+      <%= content_tag_for :div, child, class: "bimbumbam" do %>
+        <%= link_to '', edit_page_path(page), class: 'icon-edit has-tip', data: {tooltip: true}, title: "edit" %>
         <%= link_to (child.link || page_path(child)), target: (child.link.present? ? "_blank" : "_self") do %>
           <span><%= child.title %></span>
           <i class="icon-angle-right"></i>

@@ -1,14 +1,9 @@
 <div class="pages">
-  <div class="small-12">
-    <ul class="breadcrumbs small-9">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Features</a></li>
-      <li class="unavailable"><a href="#">Gene Splicing</a></li>
-      <li class="current"><a href="#">Cloning</a></li>
-    </ul>
-    <%= link_to "Add content", '#', class: 'small-2 button tiny'  %>
+  <div class="row">
+    <div class="small-2 small-push-10 columns">
+      <%= link_to "Añadir contenido", new_page_path, class: 'button tiny'  %>
+    </div>
   </div>
-   
   <div class="large-3 columns">
     <div class="areas column_left">
         <%= render 'pages/sections/section1' %>     

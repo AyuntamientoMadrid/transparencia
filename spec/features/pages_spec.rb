@@ -31,7 +31,7 @@ feature 'Pages' do
       expect(page).to have_content page2.title
       expect(page).to have_selector(".column_left .page", count: 1)
       expect(page).to have_selector(".column_center .page", count: 1)    
-      expect(page).to have_selector(".column_right .page", count: 1)    
+      expect(page).to have_selector(".column_right .page", count: 2)    
     end    
 
   end
