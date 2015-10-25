@@ -1,1 +1,51 @@
-fake content!
+<div class="pages">
+  <div class="small-12">
+    <ul class="breadcrumbs small-9">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li class="unavailable"><a href="#">Gene Splicing</a></li>
+      <li class="current"><a href="#">Cloning</a></li>
+    </ul>
+    <%= link_to "Add content", '#', class: 'small-2 button tiny'  %>
+  </div>
+   
+  <div class="large-3 columns">
+    <div class="areas column_left">
+      <%= render 'pages/menu' %>      
+    </div>
+  </div>
+
+  <div class="large-4 columns">
+    <div class="column_center">
+      <h2><small>Title</small> </h2>
+      <a class="" href="/departments/1">
+        Dirección General de Transparencia
+        <span>El Ayuntamiento de Madrid a través del Área de Gobierno de Participación Ciudadana, Transparencia...</span>
+        <i class="icon-angle-right"></i>
+      </a> 
+      <a class="active" href="/departments/2">
+        Dirección General de Participación Ciudadana
+        <span>La participación ciudadana en la adopción de decisiones públicas ha sido uno de los ejes del prog...</span>
+        <i class="icon-angle-right"></i>
+      </a>  
+    </div>
+  </div>
+
+  <div class="large-5 columns"> 
+    <div class="column_right">
+      <%= content_tag(:ul, class: 'no-bullet') do %>
+       <h2><small>Dirección General de Participación Ciudadana</small></h2>
+        <%= content_tag(:li) do %>
+          <%= link_to "Link", '#'  %> 
+        <% end %>
+      <% end %>
+
+      <%= content_tag(:ul, class: 'no-bullet indent') do %>
+       <h3><small>Otro title</small></h3>
+        <%= content_tag(:li) do %>
+          <%= link_to "Link", '#'  %> 
+        <% end %>
+      <% end %> 
+    </div>
+  </div>
+</div>

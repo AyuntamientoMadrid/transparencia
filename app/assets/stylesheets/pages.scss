@@ -1,0 +1,14 @@
+.pages{ 
+  @extend .column;
+  @extend .column_left;  
+  @extend .column_center;  
+  @extend .column_right; 
+  .column_right{
+    .indent{padding-left: 20px;}
+  }
+  .column_left, .column_center{
+    @extend .area_link;
+  }
+  .breadcrumbs{display: inline-block;}
+  .button{float: right;}
+}
