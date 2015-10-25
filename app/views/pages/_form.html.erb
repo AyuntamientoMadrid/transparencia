@@ -1,0 +1,8 @@
+<%= form_for @page do |f| %>
+  <%= f.select :parent, [["opcion 1"], ["opcion 2"]] %>
+  <%= f.text_field :title, label: "Título" %>
+  <%= f.text_field :subtitle, label: "Sub título" %>
+  <%= f.text_field :link, label: "Enlace externo" %>
+  <%= f.trix_editor :content, label: "Contenido" %>
+  <%= f.submit "Guardar", class: "tiny button success" %>
+<% end %>
