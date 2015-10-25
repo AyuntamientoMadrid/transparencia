@@ -10,17 +10,19 @@ module PagesHelper
   end
 
   def options(page, options)
-    options << ["#{prefix(page)}#{page.title}", page.id]
+    options << ["#{prefix(page.level)}#{page.title}", page.id]
     return options if page.pages.empty?
-    page.pages.each do |child|   
-      options = options(child, options)
+    if page.level <= 2
+      page.pages.each do |child|   
+        options = options(child, options)
+      end
     end
     options
   end
 
-  def prefix(page)
+  def prefix(level)
     prefix = ""
-    (page.level - 1).times do |level|
+    (level - 1).times do |level|
       prefix += "--"
     end
     prefix
