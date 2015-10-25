@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_selected
-  before_action :set_page, :only => [:edit, :update]
+  before_action :set_page, :only => [:edit, :update, :show]
 
   def index
     @pages_section1 = Page.where(parent_id: nil)

@@ -9,6 +9,28 @@
   .column_left, .column_center,.column_right{
     @extend .area_link;
   }
-  .breadcrumbs{display: inline-block;}
-  .button{float: right;}
+  .area_link{
+    span{
+    padding-left: 20px;
+    font-size: 1.2em;
+    color:$link;
+    }
+    .description{
+      font-size: 0.8em;
+      color:$text;
+    }
+    .icon-edit{
+      display: inline-block;
+      position: absolute;
+      z-index: 2;
+      border: none;
+      &:hover{
+        border: none;
+        color: $link-hover;
+      }
+    }
+  }
+}
+.show{
+  text-align: justify;
 }
