@@ -5,4 +5,5 @@ class Page < ActiveRecord::Base
   def level
     self.parent.present? ? self.parent.level + 1 : 1
   end
+  
 end

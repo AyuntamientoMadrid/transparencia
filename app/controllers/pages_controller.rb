@@ -29,8 +29,8 @@ class PagesController < ApplicationController
   end
 
   def create
-    page = Page.new(page_params)
-    if page.save
+    @page = Page.new(page_params)
+    if @page.save
       redirect_to pages_path(selected: @page.parent), notice: "Se ha añadido contenido correctamente"
     else
       flash.now[:alert] = "Hubo un error al guardar el contenido, revise el formulario"

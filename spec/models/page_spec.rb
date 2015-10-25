@@ -18,15 +18,15 @@ feature Page do
       expect(page1.level).to eq(1)
     end
 
-    it 'should return 1 for root nodes' do
+    it 'should return 2 for root nodes' do
       expect(page2.level).to eq(2)
     end 
 
-    it 'should return 1 for root nodes' do
+    it 'should return 3 for root nodes' do
       expect(page3.level).to eq(3)
     end 
 
-    it 'should return 1 for root nodes' do
+    it 'should return 4 for root nodes' do
       expect(page4.level).to eq(4)
     end             
   end 
