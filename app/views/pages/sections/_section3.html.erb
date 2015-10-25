@@ -17,7 +17,7 @@
   <% end %>
   <% unless page.pages.empty? %>
     <% page.pages.each do |child| %>
-      <%= content_tag_for :div, child, class: "bimbumbam" do %>
+      <%= content_tag_for :div, child, class: "four_level" do %>
         <%= link_to '', edit_page_path(page), class: 'icon-edit has-tip', data: {tooltip: true}, title: "edit" %>
         <%= link_to (child.link || page_path(child)), target: (child.link.present? ? "_blank" : "_self") do %>
           <span><%= child.title %></span>
