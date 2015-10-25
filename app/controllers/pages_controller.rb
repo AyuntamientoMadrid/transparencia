@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
     if @selected.present? && @selected.level == 2
       @pages_section2 = Page.where(parent_id: @selected.parent.id)
-      @pages_section3 = Page.where(parent_id: @selected.id)      
+      @pages_section3 = Page.where(parent_id: @selected.id)
     end
   end
 
