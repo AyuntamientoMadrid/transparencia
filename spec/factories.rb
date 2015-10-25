@@ -17,4 +17,8 @@ FactoryGirl.define do
     department
   end
 
+  factory :page do
+    sequence(:title) { |n| "Page title #{n}" }
+  end
+
 end
