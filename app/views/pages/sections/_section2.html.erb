@@ -1,8 +1,4 @@
-<%
-  title = @selected.title if @selected.present? && @selected.level == 1
-  title = @selected.parent.title if @selected.parent.present? && @selected.level == 2
- %>
-<h2><small><%= title %></small></h2>
+<h2><small><%= title_helper(@selected, 2) %></small></h2>
 <% @pages_section2.each do |page| %>
   <%= content_tag_for :div, page do %>
     <%= link_to '', edit_page_path(page), class: 'icon-edit has-tip', data: {tooltip: true}, title: "edit" %>

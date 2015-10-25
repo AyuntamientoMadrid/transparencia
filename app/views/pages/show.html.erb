@@ -2,9 +2,10 @@
   <div class="large-9 columns"> 
     <h1><small><%= @page.title %></small></h1>
     <h2><small><%= @page.subtitle %></small></h2>
-    <%= @page.content.html_safe  %> 
+    <%= @page.content.html_safe if @page.content.present? %> 
     <br>
     <%= link_to "Editar", edit_page_path(@page), class: 'button tiny' %> 
+    <%= link_to "Atrás", edit_page_path(@page), class: 'button tiny' %> 
   </div>
   <div class="large-3 columns"></div>
 </div>
