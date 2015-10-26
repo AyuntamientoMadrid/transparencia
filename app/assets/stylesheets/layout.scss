@@ -5,6 +5,7 @@
 // 03. Global styles
 // 04. Header
 // 05. Footer
+// 06. Social
 //
 
 // 01. Variables
@@ -15,39 +16,22 @@
 // 02. Mixins
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-@mixin back {
-  color: $text-light;
-  font-size: rem-calc(13);
-  line-height: $line-height;
-}
-
 @mixin logo {
+  color: white;
+  font-family: 'Lato' !important;
+  font-size: rem-calc(24);
+  font-weight: lighter;
+  line-height: rem-calc(48);
 
-  a {
-    color: white;
-    font-family: 'Lato' !important;
-    font-size: rem-calc(20);
-    font-weight: lighter;
-    line-height: rem-calc(96);
-    padding-left: rem-calc(6);
-
-    span {
-      opacity: .5;
-
-      &.logo-site {
-        font-size: rem-calc(16);
-        font-weight: lighter;
-        opacity: 1;
-        vertical-align: top;
-      }
-    }
+  img {
+    height: 48px;
+    width: 48px;
 
     @media (min-width: $small-breakpoint) {
-      font-size: rem-calc(28);
-
-      span {
-        font-size: rem-calc(20);
-      }
+      height: 80px;
+      margin-right: rem-calc(12);
+      margin-top: 0;
+      width: 80px;
     }
   }
 }
@@ -67,14 +51,9 @@ html, body {
 body {
   background: white;
   font-family: $font-family-sans-serif;
-  font-size: rem-calc(13);
+  font-size: rem-calc(14);
   font-weight: normal;
   text-rendering: optimizeLegibility;
-
-  &::selection, ::-moz-selection {
-    background: $brand !important;
-    color: white !important;
-  }
 }
 
 .row {
@@ -83,18 +62,14 @@ body {
 
 .wrapper {
   min-height: 100%;
-  margin: 0 auto rem-calc(-288);
+  margin: 0 auto rem-calc(-280);
   height: auto !important;
   height: 100%;
 }
 
-.wrap {
-  background: white;
-}
-
 .footer, .push {
   clear: both;
-  min-height: rem-calc(288);
+  min-height: rem-calc(280);
 }
 
 .footer {
@@ -117,70 +92,6 @@ body {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 header {
-  color: $text;
-
-  h1 {
-    color: #888;
-    font-size: rem-calc(36);
-    font-weight: bolder;
-    line-height: $line-height*2;
-    margin: rem-calc(24) 0;
-    padding: 0;
-  }
-
-  h2 {
-    color: white;
-    font-size: rem-calc(16);
-    font-weight: normal;
-    line-height: rem-calc(30);
-  }
-
-  .button {
-    background: white;
-    color: $brand;
-    font-family: inherit;
-    font-size: rem-calc(16);
-    margin-top: 0;
-
-    &.see-more {
-      width: 100%;
-
-      @media (min-width: $small-breakpoint) {
-        width: auto;
-      }
-    }
-  }
-
-  .icon-home-big {
-    color: white;
-    font-size: rem-calc(300);
-    line-height: rem-calc(300);
-    opacity: .75;
-  }
-
-  .icon-home-small {
-    color: white;
-    font-size: rem-calc(100);
-    opacity: .75;
-    position: absolute;
-    right: rem-calc(24);
-  }
-
-  .selected {
-    border-top: 2px solid $brand;
-    padding-top: rem-calc(5);
-  }
-
-  .locale {
-    float: none;
-    height: rem-calc(48);
-    padding-top: rem-calc(3);
-    text-align: center;
-
-    @media (min-width: $small-breakpoint) {
-      float: left;
-    }
-  }
 
   .external-links {
     float: none;
@@ -204,83 +115,23 @@ header {
 }
 
 .contain-to-grid {
-  background: #005EA5;
+  background: $brand;
 }
 
 .top-bar {
-  background: #005EA5;
-  color: white;
+  background: $brand;
   max-width: 1170px !important;
+  min-height: rem-calc(48);
   padding: 0 rem-calc(12);
 
   @media (min-width: $small-breakpoint) {
     height: auto;
+    padding: 0;
   }
 
   .name {
-    height: rem-calc(48);
-
     a {
-      color: white;
-      font-family: 'Lato';
-      font-size: rem-calc(16);
-      font-weight: lighter;
-      line-height: $line-height*2;
-
-      span {
-        *display: inline; /* IE */
-        opacity: .5;
-
-        &.logo-site {
-          *display: inline; /* IE */
-          font-size: rem-calc(14);
-          opacity: 1;
-        }
-      }
-
-      @media (min-width: $small-breakpoint) {
-        font-size: rem-calc(24);
-        line-height: rem-calc(80);
-
-        span, span.logo-site {
-          font-size: rem-calc(16);
-        }
-      }
-
-      @media (min-width: $medium-breakpoint) {
-        font-size: rem-calc(30);
-        line-height: $line-height*4;
-
-        span, span.logo-site {
-          font-size: rem-calc(20);
-        }
-      }
-
-      img {
-        height: 40px;
-        width: 40px;
-
-        @media (min-width: $small-breakpoint) {
-          margin-top: rem-calc(24);
-        }
-
-        @media (min-width: $medium-breakpoint) {
-          height: 80px;
-          margin-right: rem-calc(12);
-          margin-top: 0;
-          width: 80px;
-        }
-      }
-    }
-  }
-
-  &.expanded .title-area {
-    background: none;
-  }
-
-  @media screen\0 {
-    .title-area {
-      min-width: rem-calc(475);
+      @include logo;
     }
   }
 
@@ -300,17 +151,23 @@ header {
     }
   }
 
-  &.expanded .toggle-topbar a {
-    color: #FFF;
-  }
+  &.expanded {
 
-  &.expanded .toggle-topbar a span::after {
-    box-shadow: 0 0 0 1px #FFF, 0 7px 0 1px #FFF, 0 14px 0 1px #FFF;
+    .title-area {
+      background: none;
+    }
+
+    .toggle-topbar a {
+      color: #FFF;
+
+      span::after {
+        box-shadow: 0 0 0 1px #FFF, 0 7px 0 1px #FFF, 0 14px 0 1px #FFF;
+      }
+    }
   }
 }
 
 .top-bar-section {
-  clear: both;
 
   a {
     color: white;
@@ -321,36 +178,7 @@ header {
     text-align: left;
 
     @media (min-width: $small-breakpoint) {
-      margin-left: rem-calc(12);
-      margin-right: rem-calc(36);
-    }
-
-    &:after {
-      color: $border;
-      content: "|";
-      padding: 0 rem-calc(12);
-
-      @media (min-width: $small-breakpoint) {
-        content: none;
-        padding: 0;
-      }
-    }
-
-    &:last-child:after {
-      content: none;
-    }
-
-    &:hover {
-      color: $link;
-    }
-
-    &.active {
-      color: $brand;
-
-      @media (min-width: $small-breakpoint) {
-        border-bottom: 2px solid $brand;
-        line-height: rem-calc(24);
-      }
+      margin: 0 rem-calc(24);
     }
   }
 
@@ -359,86 +187,38 @@ header {
 
     li {
       background: none;
-    }
-  }
 
-  ul li > a {
-    font-size: rem-calc(14);
-
-    &.button {
-      border-radius: 0;
-      line-height: $line-height*1.5;
-      text-align: left;
-      background: none;
-      padding-left: rem-calc(6);
-    }
-
-    @media (min-width: $small-breakpoint) {
-      &.button {
-        background: $brand;
-        border-radius: rem-calc(3);
-        line-height: rem-calc(15);
-        margin-top: rem-calc(24);
-        padding-left: rem-calc(15);
-        text-align: center;
-      }
-    }
-  }
-
-  ul li > a {
-    font-size: rem-calc(14);
-  }
-
-  ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
-    background-color: #007095 !important;
-  }
-
-  ul li, ul li:hover:not(.has-form) > a:not(.button) {
-    padding: 0;
-
-    @media (min-width: $small-breakpoint) {
-      background: none;
-      border: 0;
-      padding: 0;
-    }
-  }
-
-  ul {
-    margin-left: rem-calc(12);
-
-    @media (min-width: $small-breakpoint) {
-      margin-left: 0;
-    }
-
-    li:not(.has-form) a:not(.button) {
-      background: none;
-      color: white;
-      padding: 0;
-
-      &:hover {
+      &:not(.has-form) a:not(.button) {
         background: none;
         color: white;
-        text-decoration: underline;
-        transition: text-decoration 275ms;
-      }
-    }
+        font-size: rem-calc(16);
+        line-height: rem-calc(48);
+        padding: 0;
+        text-align: center;
 
-    li.active:not(.has-form) a:not(.button) {
-      background: none;
-      height: rem-calc(96);
-      line-height: $line-height*4;
+        @media (min-width: $small-breakpoint) {
+          line-height: rem-calc(80);
+        }
+
+        &:hover {
+          background: none;
+          color: $text-light;
+          text-decoration: underline;
+        }
+
+        &.selected {
+          background: white;
+          color: $brand;
+        }
+      }
     }
   }
 }
 
 .top-links {
-  background: #0B0C0C;
+  background: $dark;
   color: white;
   font-size: rem-calc(14);
-
-  .row {
-    padding: 0 rem-calc(12);
-  }
 
   a {
     color: white;
@@ -449,72 +229,12 @@ header {
   }
 }
 
-.subnavigation-container {
-  border-bottom: 2px solid #E0E0E0;
-  margin-top: rem-calc(12);
-  padding-bottom: rem-calc(12);
-}
-
-.subnavigation {
-  background: white;
-  clear: both;
-
-  @media (min-width: $small-breakpoint) {
-    & > .column {
-      padding-left: 0;
-    }
-  }
-
-  a {
-    color: $text;
-    display: inline-block;
-    font-size: rem-calc(14);
-    font-weight: bold;
-    line-height: $line-height;
-    position: relative;
-    text-align: left;
-
-    @media (min-width: $small-breakpoint) {
-      margin-left: rem-calc(12);
-      margin-right: rem-calc(36);
-    }
-
-    &:after {
-      color: $border;
-      content: "|";
-      padding: 0 rem-calc(12);
-
-      @media (min-width: $small-breakpoint) {
-        content: none;
-        padding: 0;
-      }
-    }
-
-    &:last-child:after {
-      content: none;
-    }
-
-    &:hover {
-      color: $link;
-    }
-
-    &.active {
-      color: $brand;
-
-      @media (min-width: $small-breakpoint) {
-        border-bottom: 2px solid $brand;
-        line-height: rem-calc(24);
-      }
-    }
-  }
-}
-
 // 05. Footer
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 footer {
   color: #171819;
-  padding: rem-calc(48) 0;
+  padding-top: rem-calc(24);
 
   .logo {
     @include logo;
@@ -563,6 +283,9 @@ footer {
   padding-top: rem-calc(12);
 }
 
+// 06. Social
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
 .social {
   margin-top: rem-calc(24);
   text-align: center;
@@ -580,7 +303,7 @@ footer {
     vertical-align: middle;
 
     &:hover {
-      opacity: .5;
+      color: $text-light;
       text-decoration: none;
     }
 
