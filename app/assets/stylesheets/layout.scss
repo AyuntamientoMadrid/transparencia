@@ -50,10 +50,18 @@ html, body {
 
 body {
   background: white;
+  color: $text;
   font-family: $font-family-sans-serif;
   font-size: rem-calc(14);
   font-weight: normal;
   text-rendering: optimizeLegibility;
+}
+
+p {
+  color: $text;
+  font-family: $font-family-sans-serif;
+  font-size: rem-calc(14);
+  line-height: $line-height;
 }
 
 .row {
