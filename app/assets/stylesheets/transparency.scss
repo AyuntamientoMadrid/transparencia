@@ -10,30 +10,8 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .browse-panes {
-  margin-top: rem-calc(48);
-
-  h1, h2, h3 {
-    font-weight: bold;
-    line-height: rem-calc(24);
-  }
-
-  h1 {
-    font-size: rem-calc(24);
-  }
-
-  h2 {
-    font-size: rem-calc(20);
-  }
-
-  h3 {
-    font-size: rem-calc(16);
-  }
 
   .text {
-
-    h1, h2, h3 {
-      padding-left: 0;
-    }
 
     ol, ul, li, p {
       font-size: rem-calc(14);

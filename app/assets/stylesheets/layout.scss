@@ -57,11 +57,42 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+h1, h2, h3 {
+  font-weight: bold;
+  line-height: rem-calc(24);
+}
+
+h1 {
+  font-size: rem-calc(24);
+}
+
+h2 {
+  font-size: rem-calc(20);
+}
+
+h3 {
+  font-size: rem-calc(16);
+}
+
 p {
   color: $text;
   font-family: $font-family-sans-serif;
   font-size: rem-calc(14);
   line-height: $line-height;
+}
+
+a {
+  color: $link;
+
+  &:hover {
+    color: $link-hover;
+  }
+}
+
+.button {
+  background: $brand;
+  font-size: rem-calc(14);
+  font-family: $font-family-sans-serif !important;
 }
 
 .row {
@@ -73,6 +104,23 @@ p {
   margin: 0 auto rem-calc(-280);
   height: auto !important;
   height: 100%;
+}
+
+.breadcrumbs {
+  background: none;
+  border: 0;
+  margin: rem-calc(24) 0;
+
+  & > * {
+    font-size: rem-calc(14);
+    text-transform: none;
+  }
+
+  a {
+    color: $link;
+    text-decoration: underline;
+  }
+
 }
 
 .footer, .push {
@@ -110,16 +158,6 @@ header {
       float: right;
     }
   }
-
-  .search-form {
-    padding-top: rem-calc(14);
-
-    .postfix {
-      background: $brand;
-      border: 0;
-      color: white;
-    }
-  }
 }
 
 .contain-to-grid {
@@ -138,6 +176,11 @@ header {
   }
 
   .name {
+
+    @media (min-width: $small-breakpoint) {
+      margin-left: rem-calc(12);
+    }
+
     a {
       @include logo;
     }
@@ -234,6 +277,14 @@ header {
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+.intro {
+  padding-top: rem-calc(24);
+
+  .button {
+    background: $dark;
   }
 }
 
