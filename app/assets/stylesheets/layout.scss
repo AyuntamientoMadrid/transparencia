@@ -6,7 +6,9 @@
 // 04. Header
 // 05. Footer
 // 06. Social
+// 07. Alerts
 //
+
 
 // 01. Variables
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -142,6 +144,11 @@ a {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.sidebar {
+  border-top: 6px solid $brand;
+  padding-top: rem-calc(12);
 }
 
 // 04. Header
@@ -374,4 +381,65 @@ footer {
       margin-right: 0;
     }
   }
+}
+
+// 07. Alerts
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.alert-box {
+
+  &.success {
+    background-color: $success-bg;
+    border-color: $success-border;
+    color: $success-color;
+  }
+
+  &.info {
+    background-color: $info-bg;
+    border-color: $info-border;
+    color: $info-color;
+  }
+
+  &.warning {
+    background-color: $warning-bg;
+    border-color: $warning-border;
+    color: $warning-color;
+
+    a {
+      color: $warning-color;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+  &.alert {
+    background-color: $alert-bg;
+    border-color: $alert-border;
+    color: $alert-color;
+  }
+
+  .close {
+    text-decoration: none !important;
+  }
+}
+
+span.error, small.error {
+  background: $alert-bg;
+  color: $alert-color;
+}
+
+.error small.error {
+  background: $alert-bg;
+  color: $alert-color;
+  display: inline-block;
+  margin: 0 rem-calc(6);
+}
+
+label.error, label.error a {
+  color: $alert-color;
+}
+
+.alert-messages {
+  background-color: white;
+  padding-top: rem-calc(24);
 }

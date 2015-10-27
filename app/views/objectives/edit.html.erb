@@ -1,8 +1,14 @@
-<div class="objectives-edit row">
-  <div class="large-12 columns">
-    <h1><small><%= @objective.department.area.name %></small></h1>
-    <h2><small><%= @objective.department.name %></small></h2>
-    <h3><small><%= @objective.title %></small></h3>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to "Inicio", root_path %>
+  </li>
+</nav>
+
+<div class="objectives">
+  <div class="small-12 columns">
+    <h1><%= @objective.title %></h1>
+    <h2><%= @objective.department.name %></h2>
+    <h3><%= @objective.department.area.name %></h3>
     <%= render 'form' %>
   </div>
 </div>

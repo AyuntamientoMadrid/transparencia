@@ -1,7 +1,7 @@
 // Table of Contents
 //
 // 01. Browse panes
-// 02.
+// 02. Objectives
 // 03.
 // 04.
 // 05.
@@ -99,36 +99,16 @@
   }
 }
 
-.text-success {
-  color: $success-color;
-}
+// 02. Objectives
+// - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.text-danger {
-  color: $alert-color;
-}
+.objectives {
 
-.objectives{
-
-  h2 {
-    line-height: 0px;
-  }
-
-  h1 {
-    line-height: 1em;
-  }
-
-  p {
-    text-align: justify;
-  }
-
-  strong {
-    display: block;
-  }
-
-  a {
-    margin-top:20px;
+  h3 {
+    color: $text-medium;
   }
 }
+
 
 // 04. Area Link
 // - - - - - - - - - - - - - - - - - - - - - - - - -
