@@ -1,6 +1,6 @@
 # Transparencia
 
-Bienvenidos al repositorio de la nueva página de transparencia de Madrid
+Bienvenidos al repositorio de la nueva página de transparencia de Madrid.
 
 ## Configuración para desarrollo y tests
 
