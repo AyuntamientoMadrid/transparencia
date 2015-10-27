@@ -13,10 +13,10 @@ feature 'Objectives' do
     expect(page).to have_content objective.department.name
     expect(page).to have_content objective.title
     expect(page).to have_content objective.description
-    expect(page).to have_content "Cumplido: No"
+    expect(page).to have_content "Este objetivo está pendiente de cumplir."
   end
 
-  scenario 'Edit', js: true do  
+  scenario 'Edit', js: true do
     visit edit_objective_path(objective)
 
     expect(page).to have_content objective.department.area.name
@@ -32,10 +32,10 @@ feature 'Objectives' do
     end
   end
 
-  scenario 'Update objective', js: true do  
+  scenario 'Update objective', js: true do
     Capybara.ignore_hidden_elements = false
-    visit edit_objective_path(objective)      
-    
+    visit edit_objective_path(objective)
+
     expect(find("#objective_accomplished")).to_not be_checked
 
     fill_in 'objective_title', with: 'edit titulo'
@@ -45,17 +45,17 @@ feature 'Objectives' do
 
     expect(page).to have_content "edit titulo"
     expect(page).to have_content "edit description"
-    expect(page).to have_content "Cumplido: No"
+    expect(page).to have_content "Este objetivo está pendiente de cumplir."
 
     expect(page).to have_content "El objetivo se ha actualizado correctamente."
     Capybara.ignore_hidden_elements = true
-  end  
+  end
 
 
-  scenario 'error messages', js: true do  
+  scenario 'error messages', js: true do
     Capybara.ignore_hidden_elements = false
-    visit edit_objective_path(objective)      
-    
+    visit edit_objective_path(objective)
+
     expect(find("#objective_accomplished")).to_not be_checked
 
     fill_in 'objective_title', with: ''
@@ -66,6 +66,6 @@ feature 'Objectives' do
     expect(page).to have_content "no puede estar en blanco"
     expect(page).to have_content "Hubo un error durante la actualización. Revise el formulario."
     Capybara.ignore_hidden_elements = true
-  end   
+  end
 
 end
