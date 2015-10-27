@@ -4,10 +4,6 @@ feature Page do
 
   let!(:page)  { build(:page) }
 
-  it 'should be valid' do
-    expect(page).to be_valid
-  end
-
   describe "content" do
 
     before do
@@ -28,7 +24,7 @@ feature Page do
       page.link = "badlink"
     end
 
-    it 'should return error with malformed external link' do
+    it 'should not be valid with wrong link url' do
       expect(page).not_to be_valid
       expect(page.errors).to include (:link)
       expect(page.errors.messages[:link]).to include ("el enlace introducido no es válido")
@@ -39,7 +35,7 @@ feature Page do
     let!(:page1)  { create(:page) }
     let!(:page2)  { create(:page, parent: page1) }
     let!(:page3)  { create(:page, parent: page2) }
-    let!(:page4)  { create(:page, parent: page3) }
+    let!(:page4)  { create(:page, parent: page3, link: "http://www.external-link.com") }
 
     it 'should return 1 for root nodes' do
       expect(page1.level).to eq(1)

@@ -1,24 +1,28 @@
 <div class="pages">
   <div class="row">
     <div class="small-2 small-push-10 columns">
-      <%= link_to "Añadir contenido", new_page_path, class: 'button tiny'  %>
+      <%= link_to "Añadir contenido", new_page_path, class: 'button tiny' %>
     </div>
   </div>
+
   <div class="large-3 columns">
     <div class="areas column_left">
-        <%= render 'pages/sections/section1' %>     
+      <h2><small>¿Que buscas?</small></h2>
+      <%= render @pages_section1 %>
     </div>
   </div>
 
   <div class="large-4 columns">
     <div class="column_center">
-      <%= render 'pages/sections/section2' %>
+      <h2><small><%= title_helper(@selected, 2) %></small></h2>
+      <%= render @pages_section2 %>
     </div>
   </div>
 
   <div class="large-5 columns"> 
     <div class="column_right">
-       <%= render 'pages/sections/section3' %>
+      <h2><small><%= title_helper(@selected, 3) %></small></h2>
+      <%= render @pages_section3 %>
     </div>
   </div>
 </div>
