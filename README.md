@@ -1,6 +1,6 @@
-# transparencia
+# Transparencia
 
-Bienvenidos al repositorio de la nueva página de transparencia de Madrid.rb
+Bienvenidos al repositorio de la nueva página de transparencia de Madrid
 
 ## Configuración para desarrollo y tests
 
@@ -38,7 +38,7 @@ Si te interesa trabajar o contribuir en alguna, añade un comentario.
 
 También puedes contactar a alguno de los responsables técnicos:
 
-* Raimon García ([@voodoorai2000](https://twitter.com/voodoorai2000))
+* Raimond García ([@voodoorai2000](https://twitter.com/voodoorai2000))
 * Enrique García ([@otikik](https://twitter.com/otikik))
 * Juanjo Bazán ([@xuanxu](https://twitter.com/xuanxu))
 * Alberto García ([@decabeza](https://twitter.com/decabeza))
