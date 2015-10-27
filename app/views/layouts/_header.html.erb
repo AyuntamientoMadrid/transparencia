@@ -2,9 +2,24 @@
   <section class="top-links show-for-medium-up">
     <div class="row">
       <div class="external-links">
-        <%= link_to t("layouts.header.participation"), "#" %>&nbsp;|
-        <%= link_to t("layouts.header.transparency"), root_path, class: "selected" %>&nbsp;|
-        <%= link_to t("layouts.header.opendata"), "#" %>
+        <div class="social inline-block">
+            <%= link_to "https://twitter.com/abriendomadrid", target: "_blank", title: t("social.twitter") do %>
+              <span class="sr-only"><%= t("social.twitter") %></span>
+              <i class="icon-twitter"></i>
+            <% end %>
+            <%= link_to "https://www.facebook.com/Abriendo-Madrid-1475577616080350/", target: "_blank", title: t("social.facebook") do %>
+              <span class="sr-only"><%= t("social.facebook") %></span>
+              <i class="icon-facebook"></i>
+            <% end %>
+            <%= link_to "/blog", target: "_blank", title: t("social.blog") do %>
+              <span class="sr-only"><%= t("social.blog") %></span>
+              <i class="icon-blog"></i>
+            <% end %>
+            <%= link_to "https://www.youtube.com/channel/UCFmaChI9quIY7lwHplnacfg", target: "_blank", title: t("social.youtube") do %>
+              <span class="sr-only"><%= t("social.youtube") %></span>
+              <i class="icon-youtube"></i>
+            <% end %>
+          </div>
       </div>
     </div>
   </section>
@@ -15,20 +30,17 @@
         <li class="toggle-topbar menu-icon"><a href="#"><span><%= t("menu")%></span></a></li>
         <li class="name">
           <%= link_to root_path do %>
-            <%= image_tag('header_logo_madrid.png', class: 'show-for-medium-up left', size: '80x80', alt: t("layouts.header.logo")) %>
-            <%= t("layouts.header.open_gov", open: "#{t('layouts.header.open')}").html_safe %> <span>|</span>
-                <%= t("layouts.header.transparency") %>
+            <%= image_tag('header_logo_madrid.png', size: '80x80', alt: t("layouts.header.logo")) %>
+            <%= t("layouts.header.open_gov", open: "#{t('layouts.header.open')}").html_safe %>
           <% end %>
         </li>
       </ul>
 
       <section class="top-bar-section">
-        <ul class="left">
-          <li><%= link_to t("layouts.header.highlights"), "#" %></li>
-          <li><%= link_to t("layouts.header.declarations"), "#" %></li>
-          <li><%= link_to t("layouts.header.contracts"), "#" %></li>
-          <li><%= link_to t("layouts.header.grants"), "#" %></li>
-          <li><%= link_to t("layouts.header.budgets"), "#" %></li>
+        <ul class="right">
+          <li><%= link_to t("layouts.header.participation"), "#" %></li>
+          <li><%= link_to t("layouts.header.transparency"), root_path, class: "selected" %></li>
+          <li><%= link_to t("layouts.header.opendata"), "#" %></li>
         </ul>
       </section>
     </nav>
