@@ -8,6 +8,33 @@ feature Page do
     expect(page).to be_valid
   end
 
+  describe "content" do
+
+    before do
+      page.link = "http://www.external-link.com"
+      page.content = "Lorem ipsum"
+    end
+
+    it 'should return error when both filled' do
+      expect(page).not_to be_valid
+      expect(page.errors).to include (:link)
+      expect(page.errors.messages[:link]).to include ("no puede crear una página que contenga un enlace externo y contentido. Rellene sólo uno de los dos campos.")
+    end
+  end
+
+  describe "link" do
+
+    before do
+      page.link = "badlink"
+    end
+
+    it 'should return error with malformed external link' do
+      expect(page).not_to be_valid
+      expect(page.errors).to include (:link)
+      expect(page.errors.messages[:link]).to include ("el enlace introducido no es válido")
+    end
+  end  
+
   describe "level" do
     let!(:page1)  { create(:page) }
     let!(:page2)  { create(:page, parent: page1) }
