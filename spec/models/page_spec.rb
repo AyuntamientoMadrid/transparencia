@@ -4,7 +4,7 @@ feature Page do
 
   let!(:page)  { build(:page) }
 
-  describe "content" do
+  describe "link_xor_content" do
 
     before do
       page.link = "http://www.external-link.com"
