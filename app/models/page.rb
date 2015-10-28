@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
     with: URI::regexp(%w(http https)), 
     message: "el enlace introducido no es válido", 
     allow_blank: true
-  validate :link_xor_content 
+  validate :link_or_content 
   
   def level
     self.depth + 1
@@ -24,7 +24,7 @@ class Page < ActiveRecord::Base
     self.content.present?
   end
 
-  def link_xor_content
+  def link_or_content
     if self.link.present? && self.content.present?
       errors.add(:link, "no puede crear una página que contenga un enlace externo y contenido. Rellene sólo uno de los dos campos.")
     end
