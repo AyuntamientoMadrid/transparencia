@@ -59,7 +59,7 @@ feature 'Pages' do
 
       click_on "Guardar"
 
-      expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
+      expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
     end    
   end
 
@@ -87,7 +87,7 @@ feature 'Pages' do
 
       click_on "Guardar"
 
-      expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
+      expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
     end    
   end  
 
@@ -116,7 +116,7 @@ feature 'Pages' do
 
       click_on "Guardar"
 
-      expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
+      expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
     end    
   end
 
@@ -148,7 +148,7 @@ feature 'Pages' do
 
       click_on "Guardar"
 
-      expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
+      expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
     end    
   end     
 

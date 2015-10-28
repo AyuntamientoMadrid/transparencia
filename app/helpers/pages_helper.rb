@@ -1,10 +1,10 @@
 module PagesHelper
 
-  def title_helper(page)
+  def page_title_helper(page)
     page.depth == 0 ? "¿Qué buscas?" : page.parent.title
   end
 
-  def column_helper(depth)
+  def page_column_helper(depth)
     if depth == 0
       "column_left"
     elsif depth == 1
@@ -40,7 +40,7 @@ module PagesHelper
     (0..2).each do |depth|
       unless depths.include?(depth)
         content +="<div class=\"large-#{depth + 3} columns\">
-          <div class=\"#{column_helper(depth)}\">
+          <div class=\"#{page_column_helper(depth)}\">
           </div>
         </div>"
       end
