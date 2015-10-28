@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   before_action :set_page, :only => [:index_by_id, :edit, :update, :show]
-  before_action :set_options, :only => [:new, :edit]
 
   def index
     @pages = Page.roots.arrange_as_array({:order => 'title'})
@@ -52,10 +51,6 @@ class PagesController < ApplicationController
 
     def set_page
       @page = Page.find(params[:id]) if params[:id].present?
-    end
-
-    def set_options
-      @options = Page.arrange_as_array({:order => 'title'}, Page.roots.first.root.possible_parents)      
     end
 
 end
