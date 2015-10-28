@@ -31,6 +31,9 @@ es:
       conditions: "Condiciones de uso"
       more_info: "Más información"
       accessibility: "Accesibilidad"
+  areas:
+    menu:
+      title: "¿Qué buscas?"
   social:
     twitter: "Twitter"
     facebook: "Facebook"

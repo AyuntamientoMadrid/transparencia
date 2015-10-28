@@ -1,1 +1,89 @@
-enquiry_form.html.erb
+<section class="page-enquiries page-enquiries-form">
+
+	<header class="p-header row-full">
+		<div class="p-header-claim row">
+			<h1>Rellena tu solicitud</h1>
+			<p>Recuerda que puedes hacer tu petición de forma totalmente anónima</p>
+		</div>
+	</header>
+
+	<section class="row-full">
+		<div class="p-form-wrapper large-5">
+			<section class="p-message">
+				<p>Si realizas la solicitud de manera anónima no podrás reclamar de manera oficial una respuesta del Ayuntamiento de Madrid.</p>
+				<p>Te recomendamos que lo hagas usando tus datos de solicitante</p>
+				<label>
+					<input type="checkbox">
+					<span>Quiero rellenar la solicitud anónimamente</span>
+				</label>
+			</section>
+
+			<form class="p-form">
+				<fieldset>
+					<legend>Datos del solicitante</legend>
+
+					<p class="row">
+						<label class="small-12 large-8 column">
+							<input type="text" placeholder="Nombre y apellidos">
+						</label>
+						<label class="small-12 large-4 column">
+							<input type="text" placeholder="DNI">
+						</label>
+					</p>
+					<label>
+						<input type="text" placeholder="E-mail">
+					</label>
+					<p class="row">
+						<label class="p-form-select small-12 large-4 column">
+							<select>
+								<option>País de origen</option>
+								<option>Portugal</option>
+								<option>Irlanda</option>
+								<option>Grecia</option>
+								<option>España</option>
+							</select>
+						</label>
+						<label class="small-12 large-8 column">
+							<input type="text" placeholder="Domicilio">
+						</label>
+					</p>
+				</fieldset>
+
+				<fieldset>
+					<legend>Información de la solicitud</legend>
+					<label>
+						<textarea placeholder="Motivación de la solicitud" rows="2"></textarea>
+					</label>
+					<label>
+						<textarea placeholder="Cuerpo de la solicitud" rows="8"></textarea>
+					</label>
+					<label class="p-form-file">
+						<span>Docuementación adjunta <strong>Seleccionar</strong></span>
+						<input type="file">
+					</label>
+					<ul class="p-files">
+						<li>
+							<button><i class="icon-x"></i></button>
+							<span>fichero1.pdf</span>
+						</li>
+						<li>
+							<button><i class="icon-x"></i></button>
+							<span>fichero2.pdf</span>
+						</li>
+					</ul>
+				</fieldset>
+
+				<fieldset>
+					<legend>Verificación en envío</legend>
+					<div>CAPTCHA</div>
+					<label>
+						<input type="text" placeholder="Introduce el texto de la imagen">
+					</label>
+					<button class="p-action" type="submit">Enviar solicitud</button>
+				</fieldset>
+			</form>
+
+		</div>
+	</section>
+
+</section>

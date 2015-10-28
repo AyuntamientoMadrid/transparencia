@@ -1,9 +1,12 @@
-<strong>¿Que buscas?</strong>
-<% @areas.each do |area| %>
-  <%= content_tag_for :div, area do %>
-    <%= link_to area_departments_path(area), class: active_class(@area, area) do %>
-      <span><%= area.name %></span>
-      <i class="icon-angle-right"></i>
-    <% end %>    
-  <% end %>
-<% end %>   
+<div class="menu">
+  <h1><%= t("areas.menu.title") %></h1>
+  <ul>
+    <% @areas.each do |area| %>
+      <%= content_tag_for :li, area do %>
+        <%= link_to area_departments_path(area), class: active_class(@area, area) do %>
+          <%= area.name %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

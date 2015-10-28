@@ -1,13 +1,25 @@
-<div class="objectives row">
-  <div class="large-9 columns"> 
-    <h2><small><%= @objective.department.area.name %></small></h2>
-    <h3><small><%= @objective.department.name %></small></h3>
-    <h1><small><%= @objective.title %></small></h1>
-    <p><%= @objective.description.html_safe %></p>
-    <strong class="<%= @objective.accomplished? ? "text-success" : "text-danger" %>">
-      Cumplido: <%= @objective.accomplished? ? "Sí" : "No" %>
-    </strong>
-    <%= link_to "Editar", edit_objective_path(@objective), class: 'button tiny' %> 
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to "Inicio", root_path %>
+  </li>
+</nav>
+
+<div class="objectives small-12 medium-9 column">
+  <%= link_to "Editar", edit_objective_path(@objective), class: 'button radius small right' %>
+  <h1><%= @objective.title %></h1>
+  <h2><%= @objective.department.name %></h2>
+  <h3><%= @objective.department.area.name %></h3>
+  <hr>
+  <div class="alert-box radius <%= @objective.accomplished? ? "success" : "info" %>">
+    <%= @objective.accomplished? ?
+      "Este obejtivo ha sido cumplido." :
+      "Este objetivo está pendiente de cumplir."
+    %>
   </div>
-  <div class="large-3 columns"></div>
+  <p><%= @objective.description.html_safe %></p>
+</div>
+
+<div class="sidebar small-12 medium-3 columns">
+  <h2>¿Cuándo se ha cumplido un objetivo?</h2>
+  <p>Aquí una breve explicación de cuando consideramos que un objetivo ha sido cumplido.</p>
 </div>
