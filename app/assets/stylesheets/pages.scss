@@ -1,3 +1,4 @@
+
 .pages{ 
   @extend .column;
   @extend .column_left;  
@@ -11,6 +12,11 @@
   }
   .column_left, .column_center,.column_right{
     @extend .area_link;
+  }
+  .page{
+    a.disabled {
+      span{color: #aaa;}      
+    }    
   }
   .area_link{
     span{

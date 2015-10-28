@@ -16,4 +16,10 @@ module PagesHelper
     end
   end
 
+  def page_warning_class(current_page)
+    if current_page.present?
+      !current_page.has_children? && !current_page.is_page? ? "disabled" : ""
+    end
+  end  
+
 end

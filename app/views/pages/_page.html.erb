@@ -12,7 +12,7 @@
       <i class="icon-angle-right"></i>
     <% end %>
   <% else %>  
-    <%= link_to index_by_id_page_path(page), class: page_active_class(@page, page) do %>
+    <%= link_to index_by_id_page_path(page), class: "#{page_active_class(@page, page)} #{page_warning_class(page)}" do %>
       <span><%= page.title %></span>
       <i class="icon-angle-right"></i>
     <% end %>
