@@ -18,6 +18,20 @@ feature Page do
     end
   end
 
+  describe "shpold have link or content on depth 3 nodes" do
+
+    let!(:page1)  { create(:page) }
+    let!(:page2)  { create(:page, parent: page1) }
+    let!(:page3)  { create(:page, parent: page2) }
+    let!(:page4)  { build(:page, parent: page3) }
+
+    it 'should return error when both filled' do
+      expect(page4).not_to be_valid
+      expect(page4.errors).to include (:link)
+      expect(page4.errors.messages[:link]).to include ("tiene que añadir un enlace externo o contenido a la página. Rellene uno de los dos campos.")
+    end
+  end
+
   describe "link" do
 
     before do

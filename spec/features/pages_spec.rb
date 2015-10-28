@@ -39,16 +39,116 @@ feature 'Pages' do
 
   end
 
-  describe "new" do
-    skip
+  describe "new level 1 node" do
+
+    scenario "should allow to create a level 1 page" do
+      visit new_page_path
+
+      fill_in "Título", with: "Título nivel 1"
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Se ha añadido una nueva página correctamente."
+      expect(page).to have_content "Título nivel 1"
+    end
+
+    scenario "should show validation error when invalid page" do
+      visit new_page_path
+
+      fill_in "Título", with: ""
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
+    end    
   end
 
+  describe "new level 2 node" do
+
+    let!(:page1)  { create(:page) }
+
+    scenario "should allow to create a level 2 page" do
+      visit new_page_path
+
+      select page1.title, from: "Página padre"
+      fill_in "Título", with: "Título nivel 2"
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Se ha añadido una nueva página correctamente."
+      expect(page).to have_content "Título nivel 2"
+    end
+
+    scenario "should show validation error when invalid page" do
+      visit new_page_path
+
+      select page1.title, from: "Página padre"
+      fill_in "Título", with: ""
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
+    end    
+  end  
+
+  describe "new level 3 node" do
+
+    let!(:page1)  { create(:page) }
+    let!(:page2)  { create(:page, parent: page1) }
+
+    scenario "should allow to create a level 3 page" do
+      skip "Error desconocido"
+      visit new_page_path
+
+      select page2.title, from: "Página padre"
+      fill_in "Título", with: "Título nivel 3"
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Se ha añadido una nueva página correctamente."
+      expect(page).to have_content "Título nivel 3"
+    end
+
+    scenario "should show validation error when invalid page" do
+      skip "Error desconocido"
+      visit new_page_path
+
+      select page2.title, from: "Página padre"
+      fill_in "Título", with: ""
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
+    end    
+  end   
+
   describe "edit" do
-    skip
+    let!(:page1)  { create(:page) }
+    let!(:page2)  { create(:page, parent: page1, link: "https://google.com") }
+
+    scenario "should allow to edit pages" do
+      visit edit_page_path(page1)
+
+      expect(find('#page_title').value).to eq(page1.title)
+      expect(find('#page_link').value).to eq(page1.link)
+    end   
+
   end
 
   describe "update" do
-    skip
+    let!(:page1)  { create(:page) }
+    let!(:page2)  { create(:page, parent: page1) }
+
+    scenario "should allow to update pages" do
+      visit edit_page_path(page1)
+
+      fill_in "Título", with: "Título actualizado"
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Se ha modificado la página correctamente."
+      expect(page).to have_content "Título actualizado"
+    end  
   end
 
 end

@@ -9,7 +9,7 @@ class Page < ActiveRecord::Base
   validate :link_xor_content 
   
   def level
-    self.parent.present? ? self.parent.level + 1 : 1
+    self.depth + 1
   end
 
   def is_page?
