@@ -40,12 +40,15 @@ feature 'Pages' do
   end
 
   describe "new" do
+    skip
   end
 
   describe "edit" do
+    skip
   end
 
   describe "update" do
+    skip
   end
 
 end
