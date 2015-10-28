@@ -36,7 +36,7 @@ class Page < ActiveRecord::Base
 
   def self.arrange_as_array(options={}, hash=nil)
     hash ||= arrange(options)
-
+    
     arr = []
     hash.each do |node, children|
       arr << node

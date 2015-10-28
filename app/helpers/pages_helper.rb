@@ -16,10 +16,18 @@ module PagesHelper
     end
   end
 
-  def page_warning_class(current_page)
-    if current_page.present?
-      !current_page.has_children? && !current_page.is_page? ? "disabled" : ""
-    end
+  def page_warning_class(page)
+    !page.has_children? && !page.is_page? ? "disabled" : ""
   end  
+
+  def link_to_page(page, &block)
+    options = {}
+    options[:target] = page.link? ? "_blank" : "_self"
+    options[:class] = "#{page_active_class(@page, page)} #{page_warning_class(page)}"
+    link = page.link? ? page.link : page_path(page)
+    link_to link, options do
+      block.call
+    end
+  end
 
 end
