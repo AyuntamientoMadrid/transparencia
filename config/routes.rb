@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   get "designs/enquiry_form", to: "designs#enquiry_form"
   get "designs/enquiry_show", to: "designs#enquiry_show"
 
+  namespace :admin do
+    root to: "dashboard#index"
+  end
+
 end

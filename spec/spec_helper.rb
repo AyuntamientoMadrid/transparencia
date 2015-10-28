@@ -1,9 +1,11 @@
 require 'factory_girl_rails'
 require 'database_cleaner'
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
 
 RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
+  config.include CommonActions, :type => :feature
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -24,6 +26,6 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
-  end  
+  end
 
 end

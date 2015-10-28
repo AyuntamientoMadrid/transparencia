@@ -1,5 +1,5 @@
 # Traducciones adicionales en https://github.com/plataformatec/devise/wiki/I18n
- 
+
 es:
   devise:
     confirmations:
@@ -7,15 +7,16 @@ es:
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
       send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
     failure:
-      already_authenticated: "Ya has iniciado sesión."
-      inactive: "Tu cuenta aún no ha sido activada."
-      invalid: "%{authentication_keys} o contraseña inválidos."
-      locked: "Tu cuenta ha sido bloqueada."
-      last_attempt: "Tienes un último intento antes de que tu cuenta sea bloqueada."
-      not_found_in_database: "%{authentication_keys} o contraseña inválidos."
-      timeout: "Tu sesión ha expirado, por favor inicia sesión nuevamente para continuar."
-      unauthenticated: "Necesitas iniciar sesión o registrarte para continuar."
-      unconfirmed: "Debes confirmar tu cuenta para continuar."
+      administrator:
+        already_authenticated: "Ya has iniciado sesión."
+        inactive: "Tu cuenta aún no ha sido activada."
+        invalid: "%{authentication_keys} o contraseña inválidos."
+        locked: "Tu cuenta ha sido bloqueada."
+        last_attempt: "Tienes un último intento antes de que tu cuenta sea bloqueada."
+        not_found_in_database: "%{authentication_keys} o contraseña inválidos."
+        timeout: "Tu sesión ha expirado, por favor inicia sesión nuevamente para continuar."
+        unauthenticated: "Necesitas iniciar sesión o registrarte para continuar."
+        unconfirmed: "Debes confirmar tu cuenta para continuar."
     mailer:
       confirmation_instructions:
         subject: "Instrucciones de confirmación"

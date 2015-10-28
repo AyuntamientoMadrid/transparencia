@@ -1,6 +1,12 @@
 FactoryGirl.define do
+
+  factory :administrator do
+    sequence(:email) { |n| "admin#{n}@madrid.es" }
+    password         '12345678'
+  end
+
   factory :area do
-    sequence(:name) { |n| "Area#{n}" } 
+    sequence(:name) { |n| "Area#{n}" }
   end
 
   factory :department do
