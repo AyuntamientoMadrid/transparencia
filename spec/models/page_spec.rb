@@ -14,7 +14,7 @@ feature Page do
     it 'should return error when both filled' do
       expect(page).not_to be_valid
       expect(page.errors).to include (:link)
-      expect(page.errors.messages[:link]).to include ("no puede crear una página que contenga un enlace externo y contentido. Rellene sólo uno de los dos campos.")
+      expect(page.errors.messages[:link]).to include ("no puede crear una página que contenga un enlace externo y contenido. Rellene sólo uno de los dos campos.")
     end
   end
 

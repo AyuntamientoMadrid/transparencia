@@ -26,7 +26,11 @@ class Page < ActiveRecord::Base
 
   def link_xor_content
     if self.link.present? && self.content.present?
-      errors.add(:link, "no puede crear una página que contenga un enlace externo y contentido. Rellene sólo uno de los dos campos.")
+      errors.add(:link, "no puede crear una página que contenga un enlace externo y contenido. Rellene sólo uno de los dos campos.")
+    end
+
+    if self.depth == 3 && self.link.blank? && self.content.blank?
+      errors.add(:link, "tiene que añadir un enlace externo o contenido a la página. Rellene uno de los dos campos.")
     end
   end
 

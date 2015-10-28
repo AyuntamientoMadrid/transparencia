@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
     if @page.save
-      redirect_to pages_path(selected: @page.parent), notice: "Se ha añadido contenido correctamente"
+      redirect_to index_by_id_page_path(@page), notice: "Se ha añadido contenido correctamente"
     else
       flash.now[:alert] = "Hubo un error al guardar el contenido, revise el formulario"
       render :new
@@ -37,7 +37,7 @@ class PagesController < ApplicationController
 
   def update
     if @page.update(page_params)
-      redirect_to pages_path(selected: @page.parent), notice: "Se modificó el contenido correctamente."
+      redirect_to index_by_id_page_path(@page), notice: "Se modificó el contenido correctamente."
     else
       flash.now[:alert] = "Hubo un error a guardar el contenido. Revise el formulario."
       render :edit

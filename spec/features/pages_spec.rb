@@ -7,7 +7,7 @@ feature 'Pages' do
     let!(:page1)  { create(:page) }
     let!(:page2)  { create(:page, parent: page1) }
     let!(:page3)  { create(:page, parent: page2) }
-    let!(:page4)  { create(:page, parent: page3) }
+    let!(:page4)  { create(:page, parent: page3, link: "http:/google.com") }
 
     scenario "should show first level nodes when no page selected" do
       visit pages_path
