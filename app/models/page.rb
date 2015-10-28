@@ -17,11 +17,11 @@ class Page < ActiveRecord::Base
   end
 
   def is_link?
-    !self.link.blank?
+    self.link.present?
   end
   
   def is_content?
-    !self.content.blank?
+    self.content.present?
   end
 
   def link_xor_content
