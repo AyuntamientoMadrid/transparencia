@@ -1,8 +1,9 @@
 <%= form_for @page do |f| %>
-  <%= f.select :parent_id, pages_options_for_select %>
+  <%= f.collection_select :parent_id, Page.arrange_as_array({:order => 'title'}, @page.possible_parents) , :id, :name_for_selects, :include_blank => true, label: 'Página padre' %>
   <%= f.text_field :title, label: "Título" %>
-  <%= f.text_field :subtitle, label: "Sub título" %>
+  <%= f.text_field :subtitle, label: "Subtítulo" %>
   <%= f.text_field :link, label: "Enlace externo" %>
+  <%= f.label(:content, "Contenido") %>
   <%= f.trix_editor :content, label: "Contenido" %>
   <br>
   <%= f.submit "Guardar", class: "tiny button success" %>

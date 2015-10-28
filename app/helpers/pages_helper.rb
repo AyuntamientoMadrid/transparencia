@@ -1,43 +1,51 @@
 module PagesHelper
 
-  def pages_options_for_select
-    pages = Page.where(parent_id: nil).order(:title)
-    options = []
-    pages.each do |page|      
-      options = options(page, options)
-    end   
-    options
+  def page_title_helper(page)
+    page.depth == 0 ? "¿Qué buscas?" : page.parent.title
   end
 
-  def options(page, options)
-    options << ["#{prefix(page.level)}#{page.title}", page.id]
-    return options if page.pages.empty?
-    if page.level <= 2
-      page.pages.each do |child|   
-        options = options(child, options)
+  def page_column_helper(depth)
+    if depth == 0
+      "column_left"
+    elsif depth == 1
+      "column_center"
+    else
+      "column_right"
+    end
+  end
+
+  def page_active_class(current_page, page)
+    if current_page.present?
+      ( page == current_page || current_page.ancestors.include?(page) ) ? "active" : ""
+    end
+  end
+
+  def page_disabled_class(page)
+    !page.has_children? && !page.is_page? ? "disabled" : ""
+  end  
+
+  def link_to_page(page, &block)
+    options = {}
+    options[:target] = page.link? ? "_blank" : "_self"
+    options[:class] = "#{page_active_class(@page, page)} #{page_disabled_class(page)}"
+    link = page.link? ? page.link : page_path(page)
+    link_to link, options do
+      block.call
+    end
+  end
+
+  def empty_sections_placeholders(pages)
+    content = ""
+    depths = pages.collect{|p| p.depth }
+    (0..2).each do |depth|
+      unless depths.include?(depth)
+        content +="<div class=\"large-#{depth + 3} columns\">
+          <div class=\"#{page_column_helper(depth)}\">
+          </div>
+        </div>"
       end
     end
-    options
-  end
-
-  def prefix(level)
-    prefix = ""
-    (level - 1).times do |level|
-      prefix += "--"
-    end
-    prefix
-  end
-
-
-
-  def title_helper(selected, section)
-    title = ''
-    if selected.present?
-      title = selected.title if selected.level == 1 && section == 2
-      title = selected.parent.title if selected.parent.present? && selected.level == 2 && section == 2
-      title = selected.title if selected.level == 2 && section == 3
-    end
-    title
+    content.html_safe
   end
 
 end

@@ -1,0 +1,6 @@
+<div class="large-<%= page.depth + 3 %> columns">
+  <div class="<%= page_column_helper(page.depth) %>">
+    <h2><small><%= page_title_helper(page) %></small></h2>
+    <%= render page.siblings %>
+  </div>
+</div>

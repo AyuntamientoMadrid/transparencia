@@ -1,23 +1,16 @@
 class PagesController < ApplicationController
-  before_action :set_selected
   before_action :set_page, :only => [:edit, :update, :show]
 
   def index
-    @pages_section1 = Page.where(parent_id: nil)
-    @pages_section2 = []
-    @pages_section3 = []
-
-    if @selected.present? && @selected.level == 1
-      @pages_section2 = Page.where(parent_id: @selected.id)
-    end
-
-    if @selected.present? && @selected.level == 2
-      @pages_section2 = Page.where(parent_id: @selected.parent.id)
-      @pages_section3 = Page.where(parent_id: @selected.id)
-    end
+    @pages_path = [Page.roots.first]
   end
 
   def show
+    if @page.has_children?
+      @pages_path = @page.path
+      @pages_path << @page.children.first if @page.depth <=1
+      render :index 
+    end
   end
 
   def new
@@ -25,40 +18,35 @@ class PagesController < ApplicationController
   end
 
   def edit
-    
   end
 
   def create
     @page = Page.new(page_params)
     if @page.save
-      redirect_to pages_path(selected: @page.parent), notice: "Se ha añadido contenido correctamente"
+      redirect_to page_path(@page.depth < 3 ? @page : @page.parent ), notice: "Se ha añadido una nueva página correctamente."
     else
-      flash.now[:alert] = "Hubo un error al guardar el contenido, revise el formulario"
+      flash.now[:alert] = "Hubo un error al guardar la página, revise el formulario."
       render :new
     end
   end
 
   def update
     if @page.update(page_params)
-      redirect_to pages_path(selected: @page.parent), notice: "Se modificó el contenido correctamente."
+      redirect_to page_path(@page), notice: "Se ha modificado la página correctamente."
     else
-      flash.now[:alert] = "Hubo un error a guardar el contenido. Revise el formulario."
+      flash.now[:alert] = "Hubo un error a guardar la página. Revise el formulario."
       render :edit
     end
   end
 
   private
 
-    def set_selected
-      @selected = Page.find(params[:selected]) if params[:selected].present?
+    def page_params
+      params.require(:page).permit(:title, :subtitle, :content, :link, :parent_id)
     end
 
     def set_page
-      @page = Page.find(params[:id])
-    end
-
-    def page_params
-      params.require(:page).permit(:title, :subtitle, :content, :side_content, :link, :parent_id)
+      @page = Page.find(params[:id]) if params[:id].present?
     end
 
 end
