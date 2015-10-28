@@ -34,7 +34,7 @@ class Page < ActiveRecord::Base
     end
   end
 
-  def self.arrange_as_array(options={}, hash=nil)                                                                                                                                                            
+  def self.arrange_as_array(options={}, hash=nil)
     hash ||= arrange(options)
 
     arr = []
