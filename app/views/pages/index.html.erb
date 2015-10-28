@@ -1,28 +1,17 @@
 <div class="pages">
-  <div class="row">
+
+  <div class="row header">
     <div class="small-2 small-push-10 columns">
-      <%= link_to "Añadir contenido", new_page_path, class: 'button tiny' %>
+      <%= link_to "Añadir nueva página", new_page_path, class: 'button tiny' %>
     </div>
   </div>
 
-  <div class="large-3 columns">
-    <div class="column_left">
-      <h2><small>¿Que buscas?</small></h2>
-      <%= render @pages.select{|p| p.depth == 0} %>
-    </div>
+  <div class="row ">
+    <% @pages_path.each do |page| %>
+      <%= render 'pages/section', page: page %>
+    <% end %>
+
+    <%= empty_sections_placeholders(@pages_path) %>
   </div>
 
-  <div class="large-4 columns">
-    <div class="column_center">
-      <h2><small><%= title_helper(@page, 0) %></small></h2>
-      <%= render @pages.select{|p| p.depth == 1} %>
-    </div>
-  </div>
-
-  <div class="large-5 columns"> 
-    <div class="column_right">
-      <h2><small><%= title_helper(@page, 1) %></small></h2>
-      <%= render @pages.select{|p| p.depth >= 2} %>
-    </div>
-  </div>
 </div>

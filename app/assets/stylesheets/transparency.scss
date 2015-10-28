@@ -4,7 +4,7 @@
 // 02. Objectives
 // 03.
 // 04.
-// 05.
+// 05. Pages
 
 // 01. Browse panes
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -157,7 +157,20 @@
   }
 }
 
+// 05. Pages
+// - - - - - - - - - - - - - - - - - - - - - - - - -
 .pages{
+  .row.header{
+    padding: 20px 0px;
+    .button{
+      margin: 0px;
+    }
+  }
+  .page{
+    a.disabled {
+      span{color: #aaa;}      
+    }    
+  }
   .column_right{
     .indent{padding-left: 20px;}
     .level4{
@@ -167,16 +180,11 @@
   .column_left, .column_center,.column_right{
     @extend .area_link;
   }
-  .page{
-    a.disabled {
-      span{color: #aaa;}      
-    }    
-  }
   .area_link{
     span{
-    padding-left: 20px;
-    font-size: 1.2em;
-    color:$link;
+      padding-left: 20px;
+      font-size: 1.2em;
+      color:$link;
     }
     .description{
       font-size: 0.8em;

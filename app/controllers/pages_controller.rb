@@ -2,13 +2,15 @@ class PagesController < ApplicationController
   before_action :set_page, :only => [:index_by_id, :edit, :update, :show]
 
   def index
-    @pages = Page.roots.arrange_as_array({:order => 'title'})
+    @pages_path = [Page.where(ancestry: nil).first]
   end
 
   def show
     @page = Page.find(params[:id])
     if @page.has_children?
-      set_pages
+      @pages_path = @page.path
+      @pages_path << @page.children.first if @page.has_children? && @page.depth <=1
+
       render :index 
     end
   end
@@ -47,14 +49,6 @@ class PagesController < ApplicationController
 
     def set_page
       @page = Page.find(params[:id]) if params[:id].present?
-    end
-
-    def set_pages
-      @pages = []
-      @page.path.each do |path_member|
-        @pages += path_member.siblings.arrange_as_array({:order => 'title'})
-      end
-      @pages += @page.children.arrange_as_array({:order => 'title'}) if @page.has_children?      
     end
 
 end
