@@ -97,10 +97,9 @@ feature 'Pages' do
     let!(:page2)  { create(:page, parent: page1) }
 
     scenario "should allow to create a level 3 page" do
-      skip "Error desconocido"
       visit new_page_path
 
-      select page2.title, from: "Página padre"
+      select page2.name_for_selects, from: "Página padre"
       fill_in "Título", with: "Título nivel 3"
 
       click_on "Guardar"
@@ -110,17 +109,48 @@ feature 'Pages' do
     end
 
     scenario "should show validation error when invalid page" do
-      skip "Error desconocido"
       visit new_page_path
 
-      select page2.title, from: "Página padre"
+      select page2.name_for_selects, from: "Página padre"
       fill_in "Título", with: ""
 
       click_on "Guardar"
 
       expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
     end    
-  end   
+  end
+
+  describe "new level 4 node" do
+
+    let!(:page1)  { create(:page) }
+    let!(:page2)  { create(:page, parent: page1) }
+    let!(:page3)  { create(:page, parent: page2) }
+
+    scenario "should has to be external link or content" do
+      visit new_page_path
+
+      select page3.name_for_selects, from: "Página padre"
+      fill_in "Título", with: "Título nivel 4"
+
+      fill_in "Enlace externo", with: "http://example.net"
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Se ha añadido una nueva página correctamente."
+      expect(page).to have_content "Título nivel 4"
+    end
+
+    scenario "should show validation error when invalid page" do
+      visit new_page_path
+
+      select page3.name_for_selects, from: "Página padre"
+      fill_in "Título", with: "Titulo nivel 4"
+
+      click_on "Guardar"
+
+      expect(page).to have_content "Hubo un error al guardar el contenido, revise el formulario."
+    end    
+  end     
 
   describe "edit" do
     let!(:page1)  { create(:page) }
@@ -151,4 +181,13 @@ feature 'Pages' do
     end  
   end
 
+end
+
+def save_and_open_page
+  dir = "#{Rails.root}/tmp/cache/capybara"
+  file = "#{dir}/#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.png"
+  FileUtils.mkdir_p dir
+  page.driver.render file
+  wait_until { File.exists?(file) }
+  system "open #{file}"
 end
