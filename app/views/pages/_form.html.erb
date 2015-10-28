@@ -1,5 +1,5 @@
 <%= form_for @page do |f| %>
-  <%= f.select :parent_id, pages_options_for_select, label: "Padre" %>
+  <%= f.collection_select :parent_id, Page.arrange_as_array({:order => 'title'}, @page.possible_parents) , :id, :name_for_selects, :include_blank => true %>
   <%= f.text_field :title, label: "Título" %>
   <%= f.text_field :subtitle, label: "Sub título" %>
   <%= f.text_field :link, label: "Enlace externo" %>

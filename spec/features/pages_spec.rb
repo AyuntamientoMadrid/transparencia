@@ -17,7 +17,8 @@ feature 'Pages' do
     end
 
     scenario "should show first level nodes when page selected" do
-      visit pages_path(selected: page1.id)
+      visit pages_path
+      click_on page1.title
 
       expect(page).to have_content page1.title
       expect(page).to have_selector(".column_left .page", count: 1)
@@ -25,7 +26,9 @@ feature 'Pages' do
     end
 
     scenario "should show first and second level nodes when first level page is selected" do
-      visit pages_path(selected: page2.id)
+      visit pages_path
+      click_on page1.title
+      click_on page2.title
 
       expect(page).to have_content page1.title
       expect(page).to have_content page2.title

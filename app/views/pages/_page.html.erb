@@ -12,13 +12,13 @@
       <i class="icon-angle-right"></i>
     <% end %>
   <% else %>  
-    <%= link_to pages_path(selected: page.id), class: active_class(@selected.try(:parent) || @selected, page) do %>
+    <%= link_to index_by_id_page_path(page), class: page_active_class(@page, page) do %>
       <span><%= page.title %></span>
       <i class="icon-angle-right"></i>
     <% end %>
   <% end %>
 <% end %>
 
-<% if page.level== 3 && !page.pages.empty? %>
-  <%= render page.pages %>
+<% if page.depth == 2 && page.has_children? %>
+  <%= render page.children %>
 <% end %>

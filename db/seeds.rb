@@ -226,5 +226,6 @@ pages.each do |page|
     page.delete(:parent_title)
   end
   page = Page.create(page)
-  page.update(parent: Page.find_by(title: parent_title)) if parent_title.present?
+  page.parent = Page.find_by(title: parent_title) if parent_title.present?
+  page.save
 end

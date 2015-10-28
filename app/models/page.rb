@@ -1,6 +1,5 @@
 class Page < ActiveRecord::Base
-  belongs_to :parent, class_name: "Page", foreign_key: "parent_id"
-  has_many :pages, class_name: "Page", foreign_key: "parent_id"
+  has_ancestry
 
   validates_presence_of :title
   validates_format_of :link, 
@@ -30,5 +29,25 @@ class Page < ActiveRecord::Base
       errors.add(:link, "no puede crear una página que contenga un enlace externo y contentido. Rellene sólo uno de los dos campos.")
     end
   end
+
+  def self.arrange_as_array(options={}, hash=nil)                                                                                                                                                            
+    hash ||= arrange(options)
+
+    arr = []
+    hash.each do |node, children|
+      arr << node
+      arr += arrange_as_array(options, children) unless children.nil?
+    end
+    arr
+  end
+
+  def name_for_selects
+    "#{'--' * depth} #{title}"
+  end
+
+  def possible_parents
+    parents = Page.arrange_as_array(:order => 'title')
+    return new_record? ? parents : parents - subtree
+  end  
 
 end

@@ -1,20 +1,18 @@
 class PagesController < ApplicationController
-  before_action :set_selected
-  before_action :set_page, :only => [:edit, :update, :show]
+  before_action :set_page, :only => [:index_by_id, :edit, :update, :show]
+  before_action :set_options, :only => [:new, :edit]
 
   def index
-    @pages_section1 = Page.where(parent_id: nil)
-    @pages_section2 = []
-    @pages_section3 = []
+    @pages = Page.roots.arrange_as_array({:order => 'title'})
+  end
 
-    if @selected.present? && @selected.level == 1
-      @pages_section2 = Page.where(parent_id: @selected.id)
+  def index_by_id
+    @pages = []
+    @page.path.each do |path_member|
+      @pages += path_member.siblings.arrange_as_array({:order => 'title'})
     end
-
-    if @selected.present? && @selected.level == 2
-      @pages_section2 = Page.where(parent_id: @selected.parent.id)
-      @pages_section3 = Page.where(parent_id: @selected.id)
-    end
+    @pages += @page.children.arrange_as_array({:order => 'title'}) if @page.has_children?
+    render :index
   end
 
   def show
@@ -25,7 +23,6 @@ class PagesController < ApplicationController
   end
 
   def edit
-    
   end
 
   def create
@@ -49,16 +46,16 @@ class PagesController < ApplicationController
 
   private
 
-    def set_selected
-      @selected = Page.find(params[:selected]) if params[:selected].present?
+    def page_params
+      params.require(:page).permit(:title, :subtitle, :content, :link, :parent_id)
     end
 
     def set_page
-      @page = Page.find(params[:id])
+      @page = Page.find(params[:id]) if params[:id].present?
     end
 
-    def page_params
-      params.require(:page).permit(:title, :subtitle, :content, :side_content, :link, :parent_id)
+    def set_options
+      @options = Page.arrange_as_array({:order => 'title'}, Page.roots.first.root.possible_parents)      
     end
 
 end
