@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="small-12 column">
+    <ul>
+      <% @people.each do |person| %>
+        <li><%= link_to person.name, person_path(1) %></li>
+      <% end %>
+    </ul>
+</div>
