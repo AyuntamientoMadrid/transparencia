@@ -1,6 +1,7 @@
 es:
   transparency: "Transparencia"
   menu: "Menú"
+  home: "Inicio"
   layouts:
     header:
       participation: "Participación"
@@ -79,3 +80,28 @@ es:
       header:
         one: No se pudo guardar este/a %{model} porque se encontró 1 error
         other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  people:
+    title: "Concejales"
+    responsibility: "Responsabilidad actual"
+    declarations: "Declaración de bienes"
+    biography: "Biografía"
+    diary: "Agenda"
+    contact: "Contacto"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

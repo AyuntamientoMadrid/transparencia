@@ -61,26 +61,6 @@ body {
 
 h1, h2, h3 {
   font-weight: bold;
-  line-height: rem-calc(24);
-}
-
-h1 {
-  font-size: rem-calc(24);
-}
-
-h2 {
-  font-size: rem-calc(20);
-}
-
-h3 {
-  font-size: rem-calc(16);
-}
-
-p {
-  color: $text;
-  font-family: $font-family-sans-serif;
-  font-size: rem-calc(14);
-  line-height: $line-height;
 }
 
 a {
@@ -111,7 +91,7 @@ a {
 .breadcrumbs {
   background: none;
   border: 0;
-  margin: rem-calc(24) 0;
+  margin: rem-calc(12) 0;
 
   & > * {
     font-size: rem-calc(14);

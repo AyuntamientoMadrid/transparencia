@@ -1,15 +1,55 @@
 // Table of Contents
 //
-// 01. Browse panes
-// 02. Objectives
-// 03.
-// 04.
+// 01. Home
+// 02. Browse panes
+// 03. Objectives
+// 04. People
 // 05. Pages
 
-// 01. Browse panes
+// 01. Home
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.areas {
+
+  h2 {
+    font-size: rem-calc(18);
+    line-height: rem-calc(24);
+    margin-bottom: 0;
+  }
+
+  p {
+    font-size: rem-calc(14);
+  }
+}
+
+// 02. Browse panes
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .browse-panes {
+
+  h1, h2, h3 {
+    font-weight: bold;
+    line-height: rem-calc(24);
+  }
+
+  h1 {
+    font-size: rem-calc(24);
+  }
+
+  h2 {
+    font-size: rem-calc(20);
+  }
+
+  h3 {
+    font-size: rem-calc(16);
+  }
+
+  p {
+    color: $text;
+    font-family: $font-family-sans-serif;
+    font-size: rem-calc(14);
+    line-height: $line-height;
+  }
 
   .text {
 
@@ -99,7 +139,7 @@
   }
 }
 
-// 02. Objectives
+// 03. Objectives
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .objectives {
@@ -109,6 +149,84 @@
   }
 }
 
+// 04. People
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.people {
+
+}
+
+.people-list {
+  border-top: rem-calc(6) solid $brand;
+  margin-left: 0;
+  padding-top: rem-calc(24);
+
+  li {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: rem-calc(24);
+  }
+
+  h3 {
+    font-size: rem-calc(20);
+    line-height: rem-calc(24);
+    margin-bottom: 0;
+  }
+
+  p {
+    color: #6F777B;
+    font-size: rem-calc(14);
+  }
+}
+
+.people-affiliation {
+  background: $brand;
+  border-top-left-radius: rem-calc(12);
+  bottom: 0;
+  color: white;
+  font-size: rem-calc(12);
+  padding: rem-calc(3) rem-calc(6);
+  position: absolute;
+  right: 0;
+}
+
+.people-photo {
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+}
+
+.people-info {
+  clear: both;
+  margin-bottom: rem-calc(24);
+}
+
+.role {
+  color: #6F777B;
+  font-size: rem-calc(24);
+  margin-bottom: 0;
+}
+
+.tabs.vertical {
+  border-right: 1px solid $border;
+  margin-right: rem-calc(24);
+}
+
+.tabs dd.active > a, .tabs .tab-title.active > a {
+  background: $brand;
+  color: white;
+}
+
+.tabs dd > a, .tabs .tab-title > a {
+  background: white;
+  color: $brand;
+}
+
+.tabs-content > .content {
+  padding: 0;
+}
 
 // 04. Area Link
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -168,8 +286,8 @@
   }
   .page{
     a.disabled {
-      span{color: #aaa;}      
-    }    
+      span{color: #aaa;}
+    }
   }
   .column_right{
     .indent{padding-left: 20px;}
