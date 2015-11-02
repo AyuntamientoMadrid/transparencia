@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :departments, only: [:show]
   resources :objectives, only: [:show, :edit, :update]
   resources :pages
+  resources :people, only: [:index, :show]
 
   get "designs/enquiry_index", to: "designs#enquiry_index"
   get "designs/enquiry_form", to: "designs#enquiry_form"

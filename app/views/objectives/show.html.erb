@@ -1,6 +1,6 @@
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
   <li role="menuitem">
-    <%= link_to "Inicio", root_path %>
+    <%= link_to t("home"), root_path %>
   </li>
 </nav>
 
@@ -12,7 +12,7 @@
   <hr>
   <div class="alert-box radius <%= @objective.accomplished? ? "success" : "info" %>">
     <%= @objective.accomplished? ?
-      "Este obejtivo ha sido cumplido." :
+      "Este objetivo ha sido cumplido." :
       "Este objetivo está pendiente de cumplir."
     %>
   </div>
