@@ -10,69 +10,43 @@
   </li>
 </nav>
 
-<div class="small-12 column">
-
-  <div class="people-info">
-    <div class="row">
-      <div class="small-12 medium-3 column">
-        <div class="people-photo"><%= image_tag "people_example.jpg" %></div>
-      </div>
-      <div class="small-12 medium-9 column">
-        <h1><%= @person.name %></h1>
-        <p class="role"><%= @person.role %></p>
+<section class="people-card">
+  <div class="small-12 column">
+    <div class="people-info">
+      <div class="row">
+        <div class="small-12 medium-3 column">
+          <div class="people-photo"><%= image_tag "people_example.jpg" %></div>
+        </div>
+        <div class="small-12 medium-9 column">
+          <div class="right">
+            <%= image_tag ("logo_ahora_madrid.png"), alt: "Ahora Madrid", size: "150x75" %>
+          </div>
+          <h1><%= @person.name %></h1>
+          <p class="role"><%= @person.role %></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <ul class="tabs vertical" data-tab role="tablist">
-    <li class="tab-title active" role="presentation">
-      <a href="#panel2-1" role="tab" tabindex="0" aria-selected="true" aria-controls="panel2-1">
-        <%= t("people.responsibility") %>
-      </a>
-    </li>
-    <li class="tab-title" role="presentation">
-      <a href="#panel2-2" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-2">
-        <%= t("people.declarations") %>
-      </a>
-    </li>
-    <li class="tab-title" role="presentation">
-      <a href="#panel2-3" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-3">
-        <%= t("people.biography") %>
-      </a>
-    </li>
-    <li class="tab-title" role="presentation">
-      <a href="#panel2-4" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-4">
-        <%= t("people.diary") %>
-      </a>
-    </li>
-    <li class="tab-title" role="presentation">
-      <a href="#panel2-5" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-5">
-        <%= t("people.contact") %>
-      </a>
-    </li>
-  </ul>
-
-  <div class="tabs-content">
-    <section role="tabpanel" aria-hidden="false" class="content active" id="panel2-1">
-      <h2><%= t("people.responsibility") %></h2>
-    </section>
-
-    <section role="tabpanel" aria-hidden="true" class="content" id="panel2-2">
-      <h2><%= t("people.declarations") %></h2>
-    </section>
-
-    <section role="tabpanel" aria-hidden="true" class="content" id="panel2-3">
-      <h2><%= t("people.biography") %></h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </section>
-
-    <section role="tabpanel" aria-hidden="true" class="content" id="panel2-4">
-      <h2><%= t("people.diary") %></h2>
-    </section>
-
-    <section role="tabpanel" aria-hidden="true" class="content" id="panel2-5">
-      <h2><%= t("people.contact") %></h2>
-    </section>
+  <div class="small-12 medium-3 column">
+    <ul class="side-nav" role="navigation">
+      <li role="menuitem" class="active"><a href="#" title="<%= t("people.responsibility") %>"><%= t("people.responsibility") %></a></li>
+      <li role="menuitem"><a href="#" title="<%= t("people.declarations") %>"><%= t("people.declarations") %></a></li>
+      <li role="menuitem"><a href="#" title="<%= t("people.biography") %>"><%= t("people.biography") %></a></li>
+      <li role="menuitem"><a href="#" title="<%= t("people.diary") %>"><%= t("people.diary") %></a></li>
+      <li role="menuitem"><a href="#" title="<%= t("people.contact") %>"><%= t("people.contact") %></a></li>
+    </ul>
   </div>
-</div>
+
+  <div class="small-12 medium-9 column">
+    <%= render 'responsibility' %>
+
+    <%= render 'declarations' %>
+
+    <%= render 'biography' %>
+
+    <%= render 'diary' %>
+
+    <%= render 'contact' %>
+  </div>
+</section>
