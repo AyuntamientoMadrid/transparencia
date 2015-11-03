@@ -5,6 +5,7 @@
 // 03. Objectives
 // 04. People
 // 05. Pages
+//
 
 // 01. Home
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -226,6 +227,75 @@
 
 .tabs-content > .content {
   padding: 0;
+}
+
+.side-nav li a:not(.button) {
+  color: $link;
+
+  &:hover {
+    color: $link-hover;
+  }
+}
+
+.side-nav li {
+
+  &:hover {
+    background: #DEE0E2;
+  }
+}
+
+.side-nav li.active {
+  background: $brand;
+  color: white;
+
+  & > a:first-child:not(.button), a {
+    background: $brand;
+    color: white;
+  }
+}
+
+.side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
+  background: none;
+  color: $brand;
+}
+
+.people-card {
+
+  h2 {
+    border-bottom: rem-calc(6) solid $brand;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+
+    tr td {
+      border: 1px solid #DDDDDD;
+    }
+
+    @media screen and (max-width: 640px) {
+      overflow-x: auto;
+      display: block;
+    }
+
+    caption {
+      color: $brand;
+      font-size: rem-calc(19);
+      font-weight: normal;
+      padding: rem-calc(12) 0;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    th {
+      background: #E1E8E8;
+    }
+  }
+
+  .responsibility-list {
+    margin-top: rem-calc(24);
+  }
 }
 
 // 04. Area Link
