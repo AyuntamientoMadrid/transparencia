@@ -1,11 +1,16 @@
-<div class="show">
-  <div class="large-9 columns"> 
-    <h1><small><%= @page.title %></small></h1>
-    <h2><small><%= @page.subtitle %></small></h2>
-    <%= @page.content.html_safe if @page.content.present? %> 
-    <br>
-    <%= link_to "Editar", edit_page_path(@page), class: 'button tiny' %> 
-    <%= link_to "Atrás", :back, class: 'button tiny' %> 
-  </div>
-  <div class="large-3 columns"></div>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to t("home"), pages_path %>
+  </li>
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <%= @page.title %>
+  </li>
+</nav>
+
+<%= link_to t("pages.edit"), edit_page_path(@page), class: 'button radius small right' %>
+
+<div class="small-12 medium-9 columns">
+  <h1><%= @page.title %></h1>
+  <h2><%= @page.subtitle %></h2>
+  <%= @page.content.html_safe if @page.content.present? %>
 </div>

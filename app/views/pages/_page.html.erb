@@ -1,12 +1,11 @@
-<%= content_tag_for :div, page, class: "level#{page.level}" do %>
+<%= content_tag_for :li, page, class: "level#{page.level}" do %>
 
-  <%= link_to '', edit_page_path(page), class: 'icon-edit has-tip', data: {tooltip: true}, title: "edit" %> 
+  <%#= link_to '', edit_page_path(page), class: 'icon-edit has-tip', data: {tooltip: true}, title: "edit" %>
 
   <%= link_to_page(page) do %>
     <span><%= page.title %></span>
-    <i class="icon-angle-right"></i>
   <% end %>
-  
+
 <% end %>
 
 <% if page.depth == 2 && page.has_children? %>

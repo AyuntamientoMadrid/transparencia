@@ -1,6 +1,15 @@
-<div class="large-<%= page.depth + 3 %> columns">
+<div class="small-12 medium-<%= page.depth + 3 %> column">
+
   <div class="<%= page_column_helper(page.depth) %>">
-    <h2><small><%= page_title_helper(page) %></small></h2>
-    <%= render page.siblings %>
+
+    <div class="menu">
+      <h1><%= page_title_helper(page) %></h1>
+
+      <ul>
+        <%= render page.siblings %>
+      </ul>
+    </div>
   </div>
+
 </div>
+

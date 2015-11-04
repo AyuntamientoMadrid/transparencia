@@ -2,6 +2,17 @@ es:
   transparency: "Transparencia"
   menu: "Menú"
   home: "Inicio"
+  index:
+    title: "Bienvenidos al Portal de Transparencia"
+    intro: "El mejor lugar para encontrar toda la información del Ayuntamiento de Madrid"
+    search_placeholder: "Buscar..."
+    search_submit: "Buscar"
+    objectives: "Cumplimiento de programa"
+    objectives_text: "Dividido por las Áreas de Gobierno que componen el Ayuntamiento."
+    people: "Concejales"
+    people_text: "Cconoce a los 57 Concejales de la Corporación actual del pleno."
+    info: "Información"
+    info_text: "Toda la información de tu Ayuntamiento."
   layouts:
     header:
       participation: "Participación"
@@ -87,3 +98,7 @@ es:
     biography: "Biografía"
     diary: "Agenda"
     contact: "Contacto"
+  pages:
+    title: "¿Qué buscas?"
+    edit: "Editar"
+    create: "Añadir nueva página"

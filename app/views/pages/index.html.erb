@@ -1,17 +1,15 @@
 <div class="pages">
 
-  <div class="row header">
-    <div class="small-2 small-push-10 columns">
-      <%= link_to "Añadir nueva página", new_page_path, class: 'button tiny' %>
-    </div>
+  <div class="row">
+    <%= link_to t("pages.create"), new_page_path, class: 'button radius small right' %>
   </div>
 
-  <div class="row ">
+  <div class="browse-panes row ">
+
     <% @pages_path.each do |page| %>
       <%= render 'pages/section', page: page %>
     <% end %>
 
     <%= empty_sections_placeholders(@pages_path) %>
   </div>
-
 </div>
