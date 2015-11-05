@@ -1,15 +1,18 @@
-<div class="pages">
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <%= link_to t("home"), pages_path %>
+  </li>
+</nav>
 
-  <div class="row">
-    <%= link_to t("pages.create"), new_page_path, class: 'button radius small right' %>
-  </div>
+<div class="row">
+  <%= link_to t("pages.create"), new_page_path, class: 'button radius small right' %>
+</div>
 
-  <div class="browse-panes row ">
+<div class="browse-panes row ">
 
-    <% @pages_path.each do |page| %>
-      <%= render 'pages/section', page: page %>
-    <% end %>
+  <% @pages_path.each do |page| %>
+    <%= render 'pages/section', page: page %>
+  <% end %>
 
-    <%= empty_sections_placeholders(@pages_path) %>
-  </div>
+  <%= empty_sections_placeholders(@pages_path) %>
 </div>
