@@ -5,6 +5,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 require 'spec_helper'
 require 'rspec/rails'
+require 'devise'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
@@ -18,6 +19,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
+  config.include Devise::TestHelpers, :type => :controller
 end
 
 Capybara.javascript_driver = :poltergeist
