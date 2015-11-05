@@ -107,6 +107,8 @@ GEM
     geocoder (1.2.11)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    groupdate (2.5.0)
+      activesupport (>= 3)
     highline (1.7.8)
     i18n (0.7.0)
     i18n-tasks (0.8.7)
@@ -266,6 +268,7 @@ DEPENDENCIES
   foundation-rails
   foundation_rails_helper
   fuubar
+  groupdate
   i18n-tasks
   jbuilder (~> 2.0)
   jquery-rails
