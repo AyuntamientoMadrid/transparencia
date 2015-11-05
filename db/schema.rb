@@ -57,16 +57,6 @@ ActiveRecord::Schema.define(version: 20151103162827) do
     t.integer "area_id"
   end
 
-  create_table "enquiries", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.text     "body"
-    t.datetime "resolved_at"
-    t.text     "answer"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "objectives", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
