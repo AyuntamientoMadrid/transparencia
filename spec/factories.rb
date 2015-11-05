@@ -1,3 +1,5 @@
+require 'securerandom'
+
 FactoryGirl.define do
 
   factory :administrator do
@@ -25,6 +27,17 @@ FactoryGirl.define do
 
   factory :page do
     sequence(:title)  { |n| "Page title #{n}" }
+  end
+
+  factory :ahoy_event, :class => Ahoy::Event do
+    id { SecureRandom.uuid }
+    time DateTime.now
+    sequence(:name) {|n| "Event #{n} type"}
+  end
+
+  factory :visit  do
+    id { SecureRandom.uuid }
+    started_at DateTime.now
   end
 
 end

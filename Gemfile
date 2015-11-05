@@ -23,6 +23,8 @@ gem 'foundation_rails_helper'
 gem 'trix'
 gem 'ancestry'
 gem 'devise'
+gem 'ahoy_matey'
+gem 'groupdate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

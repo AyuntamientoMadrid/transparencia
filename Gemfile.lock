@@ -37,12 +37,23 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    ahoy_matey (1.2.1)
+      addressable
+      browser (>= 0.4.0)
+      errbase
+      geocoder
+      rails
+      referer-parser (>= 0.3.0)
+      request_store
+      user_agent_parser
+      uuidtools
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
     arel (6.0.3)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    browser (1.0.1)
     builder (3.2.2)
     byebug (6.0.2)
     capybara (2.5.0)
@@ -73,6 +84,7 @@ GEM
       json
       thread
       thread_safe
+    errbase (0.0.3)
     erubis (2.7.0)
     execjs (2.6.0)
     factory_girl (4.5.0)
@@ -92,8 +104,11 @@ GEM
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
+    geocoder (1.2.11)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    groupdate (2.5.0)
+      activesupport (>= 3)
     highline (1.7.8)
     i18n (0.7.0)
     i18n-tasks (0.8.7)
@@ -163,6 +178,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     ref (2.0.0)
+    referer-parser (0.3.0)
+    request_store (1.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rspec (3.3.0)
@@ -221,6 +238,8 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    user_agent_parser (2.3.0)
+    uuidtools (2.1.5)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -238,6 +257,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ahoy_matey
   ancestry
   byebug
   capybara
@@ -248,6 +268,7 @@ DEPENDENCIES
   foundation-rails
   foundation_rails_helper
   fuubar
+  groupdate
   i18n-tasks
   jbuilder (~> 2.0)
   jquery-rails

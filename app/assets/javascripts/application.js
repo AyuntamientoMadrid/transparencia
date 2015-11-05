@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require app
 //= require jquery
 //= require jquery_ujs
 //= require foundation
@@ -17,4 +18,4 @@
 //= require program-accomplishment
 //= require turbolinks
 //= require trix
-//= require_tree
+//= require ahoy
