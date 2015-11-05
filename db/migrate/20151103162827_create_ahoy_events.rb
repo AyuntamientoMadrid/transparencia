@@ -9,7 +9,7 @@ class CreateAhoyEvents < ActiveRecord::Migration
       # add t.string :user_type if polymorphic
 
       t.string :name
-      t.json :properties
+      t.jsonb :properties
       t.timestamp :time
     end
 
