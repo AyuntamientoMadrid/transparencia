@@ -6,11 +6,11 @@ module PagesHelper
 
   def page_column_helper(depth)
     if depth == 0
-      "column_left"
+      ""
     elsif depth == 1
-      "column_center"
+      "pane-second"
     else
-      "column_right"
+      "pane-third"
     end
   end
 
