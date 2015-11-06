@@ -21,8 +21,8 @@ feature 'Pages' do
       click_on page1.title
 
       expect(page).to have_content page1.title
-      expect(page).to have_selector(".column_left .page", count: 1)
-      expect(page).to have_selector(".column_center .page", count: 1)      
+      expect(page).to have_selector(".page", count: 2)
+      expect(page).to have_selector(".pane-second .page", count: 1)
     end
 
     scenario "should show first and second level nodes when first level page is selected" do
@@ -32,10 +32,10 @@ feature 'Pages' do
 
       expect(page).to have_content page1.title
       expect(page).to have_content page2.title
-      expect(page).to have_selector(".column_left .page", count: 1)
-      expect(page).to have_selector(".column_center .page", count: 1)    
-      expect(page).to have_selector(".column_right .page", count: 2)    
-    end    
+      expect(page).to have_selector(".page", count: 4)
+      expect(page).to have_selector(".pane-second .page", count: 1)
+      expect(page).to have_selector(".pane-third .page", count: 2)
+    end
 
   end
 
@@ -60,7 +60,7 @@ feature 'Pages' do
       click_on "Guardar"
 
       expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
-    end    
+    end
   end
 
   describe "new level 2 node" do
@@ -88,8 +88,8 @@ feature 'Pages' do
       click_on "Guardar"
 
       expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
-    end    
-  end  
+    end
+  end
 
   describe "new level 3 node" do
 
@@ -117,7 +117,7 @@ feature 'Pages' do
       click_on "Guardar"
 
       expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
-    end    
+    end
   end
 
   describe "new level 4 node" do
@@ -149,8 +149,8 @@ feature 'Pages' do
       click_on "Guardar"
 
       expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
-    end    
-  end     
+    end
+  end
 
   describe "edit" do
     let!(:page1)  { create(:page) }
@@ -161,7 +161,7 @@ feature 'Pages' do
 
       expect(find('#page_title').value).to eq(page1.title)
       expect(find('#page_link').value).to eq(page1.link)
-    end   
+    end
 
   end
 
@@ -178,7 +178,7 @@ feature 'Pages' do
 
       expect(page).to have_content "Se ha modificado la página correctamente."
       expect(page).to have_content "Título actualizado"
-    end  
+    end
   end
 
 end

@@ -39,7 +39,7 @@ module PagesHelper
     depths = pages.collect{|p| p.depth }
     (0..2).each do |depth|
       unless depths.include?(depth)
-        content +="<div class=\"pane-third medium-#{depth + 3} columns\">
+        content +="<div class=\"medium-#{depth + 3} columns\">
           <div class=\"#{page_column_helper(depth)}\">
           </div>
         </div>"
