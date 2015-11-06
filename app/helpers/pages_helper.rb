@@ -6,11 +6,11 @@ module PagesHelper
 
   def page_column_helper(depth)
     if depth == 0
-      "column_left"
+      ""
     elsif depth == 1
-      "column_center"
+      "pane-second"
     else
-      "column_right"
+      "pane-third"
     end
   end
 
@@ -22,7 +22,7 @@ module PagesHelper
 
   def page_disabled_class(page)
     !page.has_children? && !page.is_page? ? "disabled" : ""
-  end  
+  end
 
   def link_to_page(page, &block)
     options = {}
@@ -39,7 +39,7 @@ module PagesHelper
     depths = pages.collect{|p| p.depth }
     (0..2).each do |depth|
       unless depths.include?(depth)
-        content +="<div class=\"large-#{depth + 3} columns\">
+        content +="<div class=\"medium-#{depth + 3} columns\">
           <div class=\"#{page_column_helper(depth)}\">
           </div>
         </div>"

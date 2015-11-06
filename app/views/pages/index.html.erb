@@ -1,17 +1,19 @@
-<div class="pages">
+<%= link_to t("pages.create"), new_page_path, class: 'button radius small right margin-top' %>
 
-  <div class="row header">
-    <div class="small-2 small-push-10 columns">
-      <%= link_to "Añadir nueva página", new_page_path, class: 'button tiny' %>
-    </div>
-  </div>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to t("home"), root_path %>
+  </li>
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    ¿Qué buscas?
+  </li>
+</nav>
 
-  <div class="row ">
-    <% @pages_path.each do |page| %>
-      <%= render 'pages/section', page: page %>
-    <% end %>
+<div class="browse-panes row ">
 
-    <%= empty_sections_placeholders(@pages_path) %>
-  </div>
+  <% @pages_path.each do |page| %>
+    <%= render 'pages/section', page: page %>
+  <% end %>
 
+  <%= empty_sections_placeholders(@pages_path) %>
 </div>
