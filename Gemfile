@@ -30,8 +30,11 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'dalli'
 gem 'rollbar', '~> 2.6.3'
 gem 'newrelic_rpm', '~> 3.14'
+
 # For rake db:danger:truncate
 gem 'database_cleaner'
+
+gem 'pg_search'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
