@@ -134,6 +134,11 @@ a {
   margin-top: rem-calc(24);
 }
 
+.highlight {
+  background: $highlight;
+  padding: rem-calc(12);
+}
+
 // 04. Header
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -275,6 +280,10 @@ header {
 
   .button {
     background: $dark;
+  }
+
+  input[type="text"], input[type="submit"] {
+    height: rem-calc(48);
   }
 }
 
