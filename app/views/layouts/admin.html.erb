@@ -7,7 +7,12 @@
     <div class="wrapper">
       <%= render 'shared/notice' %>
       <div class="row">
-        <%= yield %>
+        <div class="small-12 medium-3 column">
+          <%= render 'admin/menu' %>
+        </div>
+        <div class="admin-content small-12 medium-9 column">
+          <%= yield %>
+        </div>
       </div>
       <div class="push"></div>
     </div>
