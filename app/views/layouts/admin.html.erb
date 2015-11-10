@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%= render 'layouts/head' %>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="wrapper">
+      <%= render 'shared/notice' %>
+      <div class="row">
+        <div class="small-12 medium-3 column">
+          <%= render 'admin/menu' %>
+        </div>
+        <div class="admin-content small-12 medium-9 column">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div class="footer">
+      <%= render 'layouts/footer' %>
+    </div>
+  </body>
+</html>
