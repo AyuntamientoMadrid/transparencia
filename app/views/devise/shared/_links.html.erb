@@ -1,3 +1,5 @@
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Olvidaste tu contraseña?", new_password_path(resource_name) %><br />
-<% end -%>
+<div class="text-center">
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+    <%= link_to t('devise.admin.password_forgotten'), new_password_path(resource_name) %><br />
+  <% end -%>
+</div>

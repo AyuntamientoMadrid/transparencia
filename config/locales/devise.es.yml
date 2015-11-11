@@ -2,6 +2,11 @@
 
 es:
   devise:
+    admin:
+      title: "Acceso para administradores"
+      submit: "Entrar"
+      password_forgotten: "¿Olvidaste tu contraseña?"
+      remember_me_label: "Recordarme"
     confirmations:
       confirmed: "Tu cuenta ha sido confirmada."
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
