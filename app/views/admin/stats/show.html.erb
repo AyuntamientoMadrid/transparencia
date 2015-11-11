@@ -6,12 +6,12 @@
     <div class="small-12 column">
       <h1>Estadísticas</h1>
 
-      <div class="small-12 medium-6 left">
+      <div class="small-12 column">
         <h2>Visitas</h2>
         <%= visits_chart_tag id: "visits" %>
       </div>
 
-      <div class="small-12 medium-6 left">
+      <div class="small-12 column">
         <h2>Todos los eventos</h2>
         <%= events_chart_tag @event_types.keys, id: 'combined' %>
       </div>

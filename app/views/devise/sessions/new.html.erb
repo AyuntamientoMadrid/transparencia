@@ -1,23 +1,28 @@
-<h2>Acceso para administradores</h2>
+<div class="row">
+  <div class="small-12 medium-6 small-centered column margin">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.email_field :email, autofocus: true %>
+    <h2><%= t('devise.admin.title') %></h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me, label: t('devise.admin.remember_me_label') %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit t('devise.admin.submit'), class: "button radius expand" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Entrar" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

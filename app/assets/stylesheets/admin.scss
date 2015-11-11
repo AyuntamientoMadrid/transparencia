@@ -119,27 +119,29 @@ body.admin {
       display: inline-block;
       font-size: rem-calc(24);
       padding-right: rem-calc(24);
-      padding-top: rem-calc(4);
       padding-left: 12px\9 !important;
       padding-right: 12px\9 !important;
+      vertical-align: middle;
     }
 
     li {
-      background: #2E343F;
-      border-bottom: 1px solid #292f39;
-      border-top: 1px solid #353c49;
+      background: white;
+      border-bottom: 1px solid $border;
       margin: 0;
       outline: 0;
 
       &:first-child {
-        background: #2B3139;
-        color: rgba(255,255,255,0.3);
-        padding: rem-calc(24) rem-calc(12);
+        background: $dark;
+        padding: rem-calc(6) rem-calc(12);
         text-transform: uppercase;
+
+        a:not(.button) {
+          color: white;
+        }
       }
 
       &.active{
-        background: #373D47;
+        background: $brand;
 
         a:not(.button) {
           color: white;
@@ -148,13 +150,13 @@ body.admin {
     }
 
     li a:not(.button) {
-      color: rgba(255,255,255,0.3);
+      color: $link;
       line-height: rem-calc(48);
       padding-left: rem-calc(12);
       vertical-align: top;
 
       &:hover {
-        color: white;
+        color: $link-hover;
       }
     }
   }
