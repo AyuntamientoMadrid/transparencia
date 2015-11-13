@@ -18,9 +18,9 @@
         <li>
           <div class="people-photo">
             <%= image_tag "people_example.jpg" %>
-            <span class="people-affiliation"><%= person.affiliation %></span>
+            <span class="people-affiliation"><%= person.party.name %></span>
           </div>
-          <h3><%= link_to person.name, person_path(1) %></h3>
+          <h3><%= link_to person.name, person %></h3>
           <p><%= person.role %></p>
         </li>
       <% end %>

@@ -19,7 +19,7 @@
         </div>
         <div class="small-12 medium-9 column">
           <div class="right">
-            <%= image_tag ("logo_ahora_madrid.png"), alt: "Ahora Madrid", size: "150x75" %>
+            <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
           </div>
           <h1><%= @person.name %></h1>
           <p class="role"><%= @person.role %></p>
@@ -39,11 +39,14 @@
   </div>
 
   <div class="small-12 medium-9 column">
-    <%= render 'responsibility' %>
+
+    <h2><%= t("people.responsibility") %></h2>
+    <%= @person.functions.try(:html_safe) %>
 
     <%= render 'declarations' %>
 
-    <%= render 'biography' %>
+    <h2><%= t("people.biography") %></h2>
+    <%= @person.biography.try(:html_safe) %>
 
     <%= render 'diary' %>
 
