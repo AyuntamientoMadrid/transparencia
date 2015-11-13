@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103162827) do
+ActiveRecord::Schema.define(version: 20151113155123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "administrators", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,6 +51,13 @@ ActiveRecord::Schema.define(version: 20151103162827) do
     t.string "name"
   end
 
+  create_table "assets_declarations", force: :cascade do |t|
+    t.integer  "person_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.hstore   "data"
+  end
+
   create_table "departments", force: :cascade do |t|
     t.string  "name"
     t.text    "description"
@@ -76,6 +84,20 @@ ActiveRecord::Schema.define(version: 20151103162827) do
   end
 
   add_index "pages", ["ancestry"], name: "index_pages_on_ancestry", using: :btree
+
+  create_table "parties", force: :cascade do |t|
+    t.string "name"
+    t.string "logo"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.integer "party_id"
+    t.string  "name"
+    t.string  "email"
+    t.string  "gender"
+    t.string  "role"
+    t.float   "salary"
+  end
 
   create_table "visits", id: :uuid, default: nil, force: :cascade do |t|
     t.uuid     "visitor_id"
