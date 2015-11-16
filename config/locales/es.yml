@@ -106,3 +106,6 @@ es:
     title: "¿Qué buscas?"
     edit: "Editar"
     create: "Añadir nueva página"
+  date:
+    formats:
+      default: "%d/%m/%Y"
