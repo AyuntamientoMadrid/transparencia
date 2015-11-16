@@ -2,7 +2,7 @@ require 'database_cleaner'
 
 DatabaseCleaner.clean_with :truncation
 
-# Administradores
+# Administrators
 Administrator.create!(email: 'admin@madrid.es', password: '12345678')
 
 # Parties
@@ -27,7 +27,67 @@ Person.create!(party: Party.first, email: 'person1@madrid.es', name: 'Manuela Ca
 Person.create!(party: Party.first, email: 'person2@madrid.es', name: 'Pablo Soto', gender: "male", role: "Concejal", salary: 1000)
 Person.create!(party: Party.first, email: 'person3@madrid.es', name: 'Pablo Soto 2', gender: "male", role: "Concejal", salary: 1000)
 
-#Area de Gobierno
+# Asset declarations
+AssetsDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), data: {
+  real_estate_properties: [{
+    kind: "Rústico",
+    type: "Pleno dominio",
+    description: "Vivienda",
+    share: 100,
+    tax_value: 1313,
+    area: 112,
+    purchase_date: Date.new(1990,1,1),
+  }],
+  account_deposits: [{
+    kind: "Libreta de ahorro",
+    banking_entity: "BBVA",
+    balance: 234566
+  }],
+  other_assets: [{
+    kind: "Acciones y participaciones",
+    description: "Bonos del estado",
+    amount: 3000,
+    purchase_date: Date.new(2015,1,1)
+  }],
+  vehicles: [{
+    kind: "Vehículo propio",
+    model: "SEAT Ibiza",
+    purchase_date: Date.new(2013,1,1)
+  }],
+  other_personal_properties: [{
+    kind: "Electrodoméstico",
+    description: "Robot doméstico Roomba",
+    purchase_date: Date.new(2014,5,6)
+  }],
+  debts: [{
+    kind: "Hipoteca",
+    description: "De piso en calle Cuenca, 25",
+    amount: 34000
+  }]
+})
+
+# Activities declarations
+ActivitiesDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), data: {
+  public_activities: [{
+    entity: "Hospital de Santa Marta",
+    post: "Consejera",
+    start_date: Date.new(1990,1,1)
+  }],
+  private_activities: [{
+    kind: "Actividades mercantileso industriales",
+    description: "Consejera de grupo TWR",
+    entity: "TWR",
+    post: "Consejera",
+    start_date: Date.new(1990,1,1)
+  }],
+  other_activities: [{
+    description: "Actividad pública",
+    start_date: Date.new(1990,1,1),
+    end_date: Date.new(1990,1,1)
+  }]
+})
+
+# Government Areas
 areas =
 [
   { name: "Equidad, Derechos Sociales y Empleo" },
