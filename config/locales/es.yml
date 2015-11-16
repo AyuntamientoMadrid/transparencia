@@ -97,7 +97,8 @@ es:
   people:
     title: "Concejales"
     responsibility: "Responsabilidad actual"
-    declarations: "Declaración de bienes"
+    assets_declarations: "Declaración de bienes"
+    activities_declarations: "Declaración de actividades"
     biography: "Biografía"
     diary: "Agenda"
     contact: "Contacto"
