@@ -1,4 +1,4 @@
-class AssetDeclaration < ActiveRecord::Base
+class AssetsDeclaration < ActiveRecord::Base
 
   belongs_to :person
 
