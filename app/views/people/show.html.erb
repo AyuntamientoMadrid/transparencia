@@ -31,9 +31,10 @@
   <div class="small-12 medium-3 column">
     <ul class="side-nav" role="navigation">
       <li role="menuitem" class="active"><a href="#" title="<%= t("people.responsibility") %>"><%= t("people.responsibility") %></a></li>
-      <li role="menuitem"><a href="#" title="<%= t("people.declarations") %>"><%= t("people.declarations") %></a></li>
       <li role="menuitem"><a href="#" title="<%= t("people.biography") %>"><%= t("people.biography") %></a></li>
       <li role="menuitem"><a href="#" title="<%= t("people.diary") %>"><%= t("people.diary") %></a></li>
+      <li role="menuitem"><a href="#" title="<%= t("people.assets_declarations") %>"><%= t("people.assets_declarations") %></a></li>
+      <li role="menuitem"><a href="#" title="<%= t("people.activities_declarations") %>"><%= t("people.activities_declarations") %></a></li>
       <li role="menuitem"><a href="#" title="<%= t("people.contact") %>"><%= t("people.contact") %></a></li>
     </ul>
   </div>
@@ -43,12 +44,14 @@
     <h2><%= t("people.responsibility") %></h2>
     <%= @person.functions.try(:html_safe) %>
 
-    <%= render 'declarations' %>
-
     <h2><%= t("people.biography") %></h2>
     <%= @person.biography.try(:html_safe) %>
 
     <%= render 'diary' %>
+
+    <%= render 'assets_declarations' %>
+
+    <%= render 'activities_declarations' %>
 
     <%= render 'contact' %>
   </div>

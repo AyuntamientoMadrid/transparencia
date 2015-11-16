@@ -1,0 +1,125 @@
+<h2><%= t("people.assets_declarations") %></h2>
+
+<h4>Período:
+  <%= @person.most_recent_assets_declaration.start_date.strftime('%Y-%m') %>
+  –
+  <%= @person.most_recent_assets_declaration.end_date.strftime('%Y-%m') if @person.most_recent_assets_declaration.end_date %>
+</h4>
+
+<table>
+  <caption>1) Patrimonio Inmobiliario</caption>
+  <thead>
+    <tr>
+      <th scope="col">Clase</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Participación (%)</th>
+      <th scope="col">Valor catastral (&euro;)</th>
+      <th scope="col">Superficie (m<sup>2</sup>)</th>
+      <th scope="col">Fecha adquisición</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rústico</td>
+      <td>Pleno dominio</td>
+      <td>Vivienda</td>
+      <td>100</td>
+      <td>13131</td>
+      <td>112</td>
+      <td>1/1/90</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>2) Depósitos en cuenta</caption>
+  <thead>
+    <tr>
+      <th scope="col">Clase</th>
+      <th scope="col">Entidad de depósito</th>
+      <th scope="col">Saldo medio anual o valor (&euro;)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Libreta de ahorro</td>
+      <td>BBVA</td>
+      <td>234566</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>3) Otro patrimonio inmobiliario</caption>
+  <thead>
+    <tr>
+      <th scope="col">Clase</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Número, cuantía o valor en euros</th>
+      <th scope="col">Fecha adquisición</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Acciones y participaciones</td>
+      <td>Bonos del estado</td>
+      <td>3000</td>
+      <td>1/1/15</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>4) Vehículos</caption>
+  <thead>
+    <tr>
+      <th scope="col">Clase</th>
+      <th scope="col">Marca y modelo</th>
+      <th scope="col">Fecha adquisición</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Vehículo propio</td>
+      <td>SEAT Ibiza</td>
+      <td>1/1/13</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>5) Otros Bienes Muebles</caption>
+  <thead>
+    <tr>
+      <th scope="col">Clase</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Fecha adquisición</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>6) Deudas</caption>
+  <thead>
+    <tr>
+      <th scope="col">Clase</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Importe (&euro;)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+  </tbody>
+</table>

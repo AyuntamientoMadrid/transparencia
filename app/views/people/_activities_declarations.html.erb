@@ -1,0 +1,69 @@
+<h2><%= t("people.activities_declarations") %></h2>
+
+<h4>Período:
+  <%= @person.most_recent_activities_declaration.start_date.strftime('%Y-%m') %>
+  –
+  <%= @person.most_recent_activities_declaration.end_date.strftime('%Y-%m') if @person.most_recent_activities_declaration.end_date %>
+</h4>
+
+<table>
+  <caption>1) Puestos de trabajo, cargos o actividades en el sector público</caption>
+  <thead>
+    <tr>
+      <th scope="col">Entidad</th>
+      <th scope="col">Cargo o categoría</th>
+      <th scope="col">Fecha inicio</th>
+      <th scope="col">Fecha cese</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>2) Actividades privadas por cuenta propia o ajena </caption>
+  <thead>
+    <tr>
+      <th scope="col">Clase</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Entidad/Colegio profesional</th>
+      <th scope="col">Cargo o categoría</th>
+      <th scope="col">Fecha inicio</th>
+      <th scope="col">Fecha cese</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>3) Otras actividades y/o supuestos de posible incompatibilidad</caption>
+  <thead>
+    <tr>
+      <th scope="col">Descripción</th>
+      <th scope="col">Fecha inicio</th>
+      <th scope="col">Fecha cese</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+  </tbody>
+</table>
