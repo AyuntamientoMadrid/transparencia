@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20151116144317) do
 
   create_table "activities_declarations", force: :cascade do |t|
     t.integer  "person_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.json     "data"
   end
 
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20151116144317) do
 
   create_table "assets_declarations", force: :cascade do |t|
     t.integer  "person_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.json     "data"
   end
 
