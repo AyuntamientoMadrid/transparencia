@@ -4,7 +4,7 @@ class CreateAssetsDeclaration < ActiveRecord::Migration
       t.references :person
       t.datetime :start_date
       t.datetime :end_date
-      t.hstore :data
+      t.json :data
     end
   end
 end

@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20151113174237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
 
   create_table "administrators", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -55,7 +54,7 @@ ActiveRecord::Schema.define(version: 20151113174237) do
     t.integer  "person_id"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.hstore   "data"
+    t.json     "data"
   end
 
   create_table "departments", force: :cascade do |t|
