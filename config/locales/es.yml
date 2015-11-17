@@ -24,7 +24,8 @@ es:
       logo: "Madrid"
       open_gov: "Gobierno abierto"
       highlights: "Portada"
-      declarations: "Declaración de bienes"
+      assets_declarations: "Declaración de bienes"
+      activities_declarations: "Declaración de actividades"
       contracts: "Contratos"
       grants: "Subvenciones"
       budgets: "Presupuestos"
@@ -97,7 +98,8 @@ es:
   people:
     title: "Concejales"
     responsibility: "Responsabilidad actual"
-    declarations: "Declaración de bienes"
+    assets_declarations: "Declaración de bienes"
+    activities_declarations: "Declaración de actividades"
     biography: "Biografía"
     diary: "Agenda"
     contact: "Contacto"
@@ -105,3 +107,6 @@ es:
     title: "¿Qué buscas?"
     edit: "Editar"
     create: "Añadir nueva página"
+  date:
+    formats:
+      default: "%d/%m/%Y"

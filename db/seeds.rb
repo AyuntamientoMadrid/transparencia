@@ -1,7 +1,93 @@
-# Administradores
+require 'database_cleaner'
+
+DatabaseCleaner.clean_with :truncation
+
+# Administrators
 Administrator.create!(email: 'admin@madrid.es', password: '12345678')
 
-#Area de Gobierno
+# Parties
+Party.create!(name: "Ahora Madrid", logo: "logo_ahora_madrid.png")
+
+# People
+Person.create!(party: Party.first, email: 'person1@madrid.es', name: 'Manuela Carmena', gender: "female", role: "Alcaldesa", salary: 1000, biography: %{
+<p>Es magistrada y jueza. En 1965 se licenció en Derecho y poco después fundó el despacho laboralista de Atocha (Madrid), donde, en 1977, un atentado de la extrema derecha provocó la muerte de varios de sus compañeros y una gran consternación en toda España.</p>
+
+<p>Defensora de los obreros y detenidos durante la dictadura franquista, ha sido también vocal del Consejo General del Poder Judicial y delegada para el País Vasco, jueza decana de Madrid y jueza de Vigilancia Penitenciaria. Ha representado a España en el Grupo de Trabajo contra las Detenciones Arbitrarias de la ONU.</p>
+
+<p>En 2008 fue distinguida con el Premio Manuel de Irujo. En 2010 se jubiló y poco después se "desjubiló", desarrollando una importante labor en relación con las víctimas de abusos policiales, en la comisión dependiente de la Dirección de Derechos Humanos del Departamento de Justicia del Gobierno vasco. Ha sido también relatora de Naciones Unidas.</p>
+}, functions: %{
+<ul>
+  <li>Concejal de Ahora Madrid</li>
+  <li>Miembro de la Junta de Gobierno</li>
+  <li>Delegado del Área de Participación Ciudadana, Transparencia y Gobierno Abierto</li>
+  <li>Miembro de la Comisión Permanente Especial de Sugerencias y Reclamaciones</li>
+  <li>Miembro de la Comisión Permanente Ordinaria de Participación Ciudadana, Transparencia y Gobierno Abierto</li>
+</ul>
+})
+Person.create!(party: Party.first, email: 'person2@madrid.es', name: 'Pablo Soto', gender: "male", role: "Concejal", salary: 1000)
+Person.create!(party: Party.first, email: 'person3@madrid.es', name: 'Pablo Soto 2', gender: "male", role: "Concejal", salary: 1000)
+
+# Asset declarations
+AssetsDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), data: {
+  real_estate_properties: [{
+    kind: "Rústico",
+    type: "Pleno dominio",
+    description: "Vivienda",
+    share: 100,
+    tax_value: 1313,
+    area: 112,
+    purchase_date: Date.new(1990,1,1),
+  }],
+  account_deposits: [{
+    kind: "Libreta de ahorro",
+    banking_entity: "BBVA",
+    balance: 234566
+  }],
+  other_assets: [{
+    kind: "Acciones y participaciones",
+    description: "Bonos del estado",
+    amount: 3000,
+    purchase_date: Date.new(2015,1,1)
+  }],
+  vehicles: [{
+    kind: "Vehículo propio",
+    model: "SEAT Ibiza",
+    purchase_date: Date.new(2013,1,1)
+  }],
+  other_personal_properties: [{
+    kind: "Electrodoméstico",
+    description: "Robot doméstico Roomba",
+    purchase_date: Date.new(2014,5,6)
+  }],
+  debts: [{
+    kind: "Hipoteca",
+    description: "De piso en calle Cuenca, 25",
+    amount: 34000
+  }]
+})
+
+# Activities declarations
+ActivitiesDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), data: {
+  public_activities: [{
+    entity: "Hospital de Santa Marta",
+    post: "Consejera",
+    start_date: Date.new(1990,1,1)
+  }],
+  private_activities: [{
+    kind: "Actividades mercantileso industriales",
+    description: "Consejera de grupo TWR",
+    entity: "TWR",
+    post: "Consejera",
+    start_date: Date.new(1990,1,1)
+  }],
+  other_activities: [{
+    description: "Actividad pública",
+    start_date: Date.new(1990,1,1),
+    end_date: Date.new(1990,1,1)
+  }]
+})
+
+# Government Areas
 areas =
 [
   { name: "Equidad, Derechos Sociales y Empleo" },

@@ -1,0 +1,79 @@
+<h2 data-magellan-destination="activities_declarations"><%= t("people.activities_declarations") %></h2>
+<a name="activities_declarations"></a>
+
+<% @person.activities_declarations.each do |declaration| %>
+
+  <h4>Período:
+    <%= format_date(declaration.start_date) %>
+    –
+    <%= format_date(declaration.end_date) %>
+  </h4>
+
+  <table>
+    <caption>1) Puestos de trabajo, cargos o actividades en el sector público</caption>
+    <thead>
+      <tr>
+        <th scope="col">Entidad</th>
+        <th scope="col">Cargo o categoría</th>
+        <th scope="col">Fecha inicio</th>
+        <th scope="col">Fecha cese</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% declaration.public_activities.each do |activity| %>
+        <tr>
+          <td><%= activity.entity %></td>
+          <td><%= activity.post %></td>
+          <td><%= format_date activity.start_date %></td>
+          <td><%= format_date activity.end_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>2) Actividades privadas por cuenta propia o ajena </caption>
+    <thead>
+      <tr>
+        <th scope="col">Clase</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Entidad/Colegio profesional</th>
+        <th scope="col">Cargo o categoría</th>
+        <th scope="col">Fecha inicio</th>
+        <th scope="col">Fecha cese</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% declaration.private_activities.each do |activity| %>
+        <tr>
+          <td><%= activity.kind %></td>
+          <td><%= activity.description %></td>
+          <td><%= activity.entity %></td>
+          <td><%= activity.post %></td>
+          <td><%= format_date activity.start_date %></td>
+          <td><%= format_date activity.end_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>3) Otras actividades y/o supuestos de posible incompatibilidad</caption>
+    <thead>
+      <tr>
+        <th scope="col">Descripción</th>
+        <th scope="col">Fecha inicio</th>
+        <th scope="col">Fecha cese</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% declaration.other_activities.each do |activity| %>
+        <tr>
+          <td><%= activity.description %></td>
+          <td><%= format_date activity.start_date %></td>
+          <td><%= format_date activity.end_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
