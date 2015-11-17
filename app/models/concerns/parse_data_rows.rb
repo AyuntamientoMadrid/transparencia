@@ -1,6 +1,6 @@
 require 'ostruct'
 
-module HasDataRows
+module ParseDataRows
 
   def parse_data_rows(collection_name)
     self.data[collection_name].collect{ |row| parse_data_row(row) }
