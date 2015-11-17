@@ -144,6 +144,15 @@ a {
   padding: rem-calc(12);
 }
 
+.fixed-left-sidebar {
+
+  @media (min-width: $small-breakpoint) {
+    min-width: 0;
+    position: fixed;
+    width: 25%;
+  }
+}
+
 // 04. Header
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
