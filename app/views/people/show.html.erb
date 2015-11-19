@@ -10,22 +10,23 @@
   </li>
 </nav>
 
-<section class="people-card relative">
+<section class="people-card row">
 
-  <div data-magellan-expedition class="fixed-left-sidebar medium-3 column">
-    <div class="people-photo"><%= image_tag "people_example.jpg" %></div>
-
-    <ul class="side-nav" role="navigation">
-      <li role="menuitem" data-magellan-arrival="responsibility"><a href="#responsibility" title="<%= t("people.responsibility") %>"><%= t("people.responsibility") %></a></li>
-      <li role="menuitem" data-magellan-arrival="biography"><a href="#biography" title="<%= t("people.biography") %>"><%= t("people.biography") %></a></li>
-      <li role="menuitem" data-magellan-arrival="diary"><a href="#diary" title="<%= t("people.diary") %>"><%= t("people.diary") %></a></li>
-      <li role="menuitem" data-magellan-arrival="assets_declarations"><a href="#assets_declarations" title="<%= t("people.assets_declarations") %>"><%= t("people.assets_declarations") %></a></li>
-      <li role="menuitem" data-magellan-arrival="activities_declarations"><a href="#activities_declarations" title="<%= t("people.activities_declarations") %>"><%= t("people.activities_declarations") %></a></li>
-      <li role="menuitem" data-magellan-arrival="contact"><a href="#contact" title="<%= t("people.contact") %>"><%= t("people.contact") %></a></li>
-    </ul>
+  <div class="show-for-medium-up">
+    <div data-magellan-expedition="fixed" class="fixed-left-sidebar">
+      <%= render 'menu' %>
+    </div>
   </div>
 
-  <div class="small-12 medium-9 medium-offset-3 column">
+  <div class="small-12 medium-3 column">
+    <div class="show-for-small">
+      <div data-magellan-expedition>
+        <%= render 'menu' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="small-12 medium-9 column">
     <div class="people-info">
       <div class="right">
         <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
@@ -34,12 +35,12 @@
       <p class="role"><%= @person.role %></p>
     </div>
 
-    <h2 data-magellan-destination="responsibility"><%= t("people.responsibility") %></h2>
-    <a name="responsibility"></a>
+    <a name="responsibility" data-magellan-destination="responsibility"></a>
+    <h2><%= t("people.responsibility") %></h2>
     <%= @person.functions.try(:html_safe) %>
 
-    <h2 data-magellan-destination="biography"><%= t("people.biography") %></h2>
-    <a name="biography"></a>
+    <a name="biography" data-magellan-destination="biography"></a>
+    <h2><%= t("people.biography") %></h2>
     <%= @person.biography.try(:html_safe) %>
 
     <%= render 'diary' %>
