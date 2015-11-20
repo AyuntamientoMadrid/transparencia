@@ -144,12 +144,17 @@ a {
   padding: rem-calc(12);
 }
 
+.relative {
+  position: relative;
+}
+
 .fixed-left-sidebar {
-  left: rem-calc(20);
-  max-width: rem-calc(280);
+  &.fixed {
+    left: auto !important;
+    max-width: rem-calc(270);
+    width: 24%;
+  }
   min-width: 0;
-  position: absolute;
-  width: 25%;
 }
 
 // 04. Header

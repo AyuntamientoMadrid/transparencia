@@ -261,10 +261,6 @@
 }
 
 .people-card {
-  border-left: 1px solid $border;
-  margin-left: rem-calc(-36) !important;
-  padding-left: rem-calc(36);
-
   @media (min-width: $small-breakpoint) {
     padding-bottom: rem-calc(288);
   }
@@ -304,6 +300,7 @@
   .responsibility-list {
     margin-top: rem-calc(24);
   }
+
 }
 
 // 05. Pages

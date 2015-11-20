@@ -12,13 +12,13 @@
 
 <section class="people-card row">
 
-  <div class="show-for-medium-up">
-    <div data-magellan-expedition="fixed" class="fixed-left-sidebar">
-      <%= render 'menu' %>
+  <div class="small-12 medium-3 column">
+    <div class="show-for-medium-up relative">
+      <div data-magellan-expedition="fixed" class="fixed-left-sidebar">
+        <%= render 'menu' %>
+      </div>
     </div>
-  </div>
 
-  <div class="small-12 column">
     <div class="show-for-small">
       <div data-magellan-expedition>
         <%= render 'menu' %>
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <div class="small-12 column">
+  <div class="small-12 medium-9 column">
     <div class="people-info">
       <div class="right">
         <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
