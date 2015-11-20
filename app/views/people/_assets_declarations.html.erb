@@ -1,141 +1,147 @@
-<h2 data-magellan-destination="assets_declarations"><%= t("people.assets_declarations") %></h2>
-<a name="assets_declarations"></a>
+<a name="assets_declarations" data-magellan-destination="assets_declarations"></a>
+<h2><%= t("people.assets_declarations") %></h2>
 
 <% @person.assets_declarations.each do |declaration| %>
 
-  <h4>Período:
-    <%= format_date(declaration.start_date) %>
-    –
-    <%= format_date(declaration.end_date) %>
-  </h4>
+  <ul class="tabs margin-top" data-tab>
+    <li class="tab-title active">
+      <a href="#period1">
+        <%= format_date(declaration.start_date) %> - <%= format_date(declaration.end_date) %>
+      </a>
+    </li>
+  </ul>
 
-  <table>
-    <caption>1) Patrimonio Inmobiliario</caption>
-    <thead>
-      <tr>
-        <th scope="col">Clase</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Participación (%)</th>
-        <th scope="col">Valor catastral (&euro;)</th>
-        <th scope="col">Superficie (m<sup>2</sup>)</th>
-        <th scope="col">Fecha adquisición</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% declaration.real_estate_properties.each do |property| %>
-        <tr>
-          <td><%= property.kind %></td>
-          <td><%= property.type %></td>
-          <td><%= property.description %></td>
-          <td><%= property.share %></td>
-          <td><%= property.tax_value %></td>
-          <td><%= property.area %></td>
-          <td><%= format_date(property.purchase_date) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="tabs-content">
+    <div class="content active" id="period1">
+      <table>
+        <caption>1) Patrimonio Inmobiliario</caption>
+        <thead>
+          <tr>
+            <th scope="col">Clase</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Participación (%)</th>
+            <th scope="col">Valor catastral (&euro;)</th>
+            <th scope="col">Superficie (m<sup>2</sup>)</th>
+            <th scope="col">Fecha adquisición</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% declaration.real_estate_properties.each do |property| %>
+            <tr>
+              <td><%= property.kind %></td>
+              <td><%= property.type %></td>
+              <td><%= property.description %></td>
+              <td><%= property.share %></td>
+              <td><%= property.tax_value %></td>
+              <td><%= property.area %></td>
+              <td><%= format_date(property.purchase_date) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <table>
-    <caption>2) Depósitos en cuenta</caption>
-    <thead>
-      <tr>
-        <th scope="col">Clase</th>
-        <th scope="col">Entidad de depósito</th>
-        <th scope="col">Saldo medio anual o valor (&euro;)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% declaration.account_deposits.each do |deposit| %>
-        <tr>
-          <td><%= deposit.kind %></td>
-          <td><%= deposit.banking_entity %></td>
-          <td><%= deposit.balance %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+      <table>
+        <caption>2) Depósitos en cuenta</caption>
+        <thead>
+          <tr>
+            <th scope="col">Clase</th>
+            <th scope="col">Entidad de depósito</th>
+            <th scope="col">Saldo medio anual o valor (&euro;)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% declaration.account_deposits.each do |deposit| %>
+            <tr>
+              <td><%= deposit.kind %></td>
+              <td><%= deposit.banking_entity %></td>
+              <td><%= deposit.balance %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <table>
-    <caption>3) Otro patrimonio inmobiliario</caption>
-    <thead>
-      <tr>
-        <th scope="col">Clase</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Número, cuantía o valor en euros</th>
-        <th scope="col">Fecha adquisición</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% declaration.other_assets.each do |asset| %>
-        <tr>
-          <td><%= asset.kind %></td>
-          <td><%= asset.description %></td>
-          <td><%= asset.amount %></td>
-          <td><%= format_date(asset.purchase_date) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+      <table>
+        <caption>3) Otro patrimonio inmobiliario</caption>
+        <thead>
+          <tr>
+            <th scope="col">Clase</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Número, cuantía o valor en euros</th>
+            <th scope="col">Fecha adquisición</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% declaration.other_assets.each do |asset| %>
+            <tr>
+              <td><%= asset.kind %></td>
+              <td><%= asset.description %></td>
+              <td><%= asset.amount %></td>
+              <td><%= format_date(asset.purchase_date) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <table>
-    <caption>4) Vehículos</caption>
-    <thead>
-      <tr>
-        <th scope="col">Clase</th>
-        <th scope="col">Marca y modelo</th>
-        <th scope="col">Fecha adquisición</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% declaration.vehicles.each do |vehicle| %>
-        <tr>
-          <td><%= vehicle.kind %></td>
-          <td><%= vehicle.model %></td>
-          <td><%= format_date(vehicle.purchase_date) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+      <table>
+        <caption>4) Vehículos</caption>
+        <thead>
+          <tr>
+            <th scope="col">Clase</th>
+            <th scope="col">Marca y modelo</th>
+            <th scope="col">Fecha adquisición</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% declaration.vehicles.each do |vehicle| %>
+            <tr>
+              <td><%= vehicle.kind %></td>
+              <td><%= vehicle.model %></td>
+              <td><%= format_date(vehicle.purchase_date) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <table>
-    <caption>5) Otros Bienes Muebles</caption>
-    <thead>
-      <tr>
-        <th scope="col">Clase</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Fecha adquisición</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% declaration.other_personal_properties.each do |property| %>
-        <tr>
-          <td><%= property.kind %></td>
-          <td><%= property.description %></td>
-          <td><%= l(property.purchase_date) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+      <table>
+        <caption>5) Otros Bienes Muebles</caption>
+        <thead>
+          <tr>
+            <th scope="col">Clase</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha adquisición</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% declaration.other_personal_properties.each do |property| %>
+            <tr>
+              <td><%= property.kind %></td>
+              <td><%= property.description %></td>
+              <td><%= l(property.purchase_date) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <table>
-    <caption>6) Deudas</caption>
-    <thead>
-      <tr>
-        <th scope="col">Clase</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Importe (&euro;)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% declaration.debts.each do |debt| %>
-        <tr>
-          <td><%= debt.kind %></td>
-          <td><%= debt.description %></td>
-          <td><%= debt.amount %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+      <table>
+        <caption>6) Deudas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Clase</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Importe (&euro;)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% declaration.debts.each do |debt| %>
+            <tr>
+              <td><%= debt.kind %></td>
+              <td><%= debt.description %></td>
+              <td><%= debt.amount %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 <% end %>

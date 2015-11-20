@@ -145,12 +145,11 @@ a {
 }
 
 .fixed-left-sidebar {
-
-  @media (min-width: $small-breakpoint) {
-    min-width: 0;
-    position: fixed;
-    width: 25%;
-  }
+  left: rem-calc(20);
+  max-width: rem-calc(280);
+  min-width: 0;
+  position: absolute;
+  width: 25%;
 }
 
 // 04. Header
