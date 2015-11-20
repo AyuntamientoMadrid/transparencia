@@ -1,3 +1,19 @@
 <a name="contact"></a>
 <h2 data-magellan-destination="contact"><%= t("people.contact") %></h2>
 
+<p class="margin-top"><%= t("people.contact_text", person: @person.name ) %></p>
+
+<div class="small-12 medium-6">
+  <form>
+    <label><%= t("people.contact_form.name") %></label>
+    <input type="text" placeholder="<%= t('people.contact_form.name') %>">
+
+    <label><%= t("people.contact_form.email") %></label>
+    <input type="text" placeholder="<%= t('people.contact_form.email') %>">
+
+    <label><%= t("people.contact_form.message") %></label>
+    <textarea rows="6" placeholder="<%= t('people.contact_form.message') %>"></textarea>
+
+    <input type="submit" value="<%= t('people.contact_form.submit') %>" class="button radius">
+  </form>
+</div>
