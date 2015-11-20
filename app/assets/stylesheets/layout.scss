@@ -145,7 +145,8 @@ a {
 }
 
 .fixed-left-sidebar {
-  left: 5px;
+  left: rem-calc(20);
+  max-width: rem-calc(280);
   min-width: 0;
   position: absolute;
   width: 25%;

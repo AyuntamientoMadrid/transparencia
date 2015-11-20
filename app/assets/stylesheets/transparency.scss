@@ -261,6 +261,13 @@
 }
 
 .people-card {
+  border-left: 1px solid $border;
+  margin-left: rem-calc(-36) !important;
+  padding-left: rem-calc(36);
+
+  @media (min-width: $small-breakpoint) {
+    padding-bottom: rem-calc(288);
+  }
 
   h2 {
     border-bottom: rem-calc(6) solid $brand;
