@@ -33,6 +33,7 @@ AssetsDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), 
     kind: "Rústico",
     type: "Pleno dominio",
     description: "Vivienda",
+    municipality: "Madrid",
     share: 100,
     tax_value: 1313,
     area: 112,
@@ -56,13 +57,12 @@ AssetsDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), 
   }],
   other_personal_properties: [{
     kind: "Electrodoméstico",
-    description: "Robot doméstico Roomba",
     purchase_date: Date.new(2014,5,6)
   }],
   debts: [{
     kind: "Hipoteca",
-    description: "De piso en calle Cuenca, 25",
-    amount: 34000
+    amount: 34000,
+    comments: "De piso en calle Cuenca, 25",
   }]
 })
 

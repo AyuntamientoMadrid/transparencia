@@ -18,8 +18,9 @@
         <thead>
           <tr>
             <th scope="col">Clase</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Descripción</th>
+            <th scope="col">Tipo de derecho</th>
+            <th scope="col">Título de adquisición</th>
+            <th scope="col">Municipio</th>
             <th scope="col">Participación (%)</th>
             <th scope="col">Valor catastral (&euro;)</th>
             <th scope="col">Superficie (m<sup>2</sup>)</th>
@@ -32,6 +33,7 @@
               <td><%= property.kind %></td>
               <td><%= property.type %></td>
               <td><%= property.description %></td>
+              <td><%= property.municipality %></td>
               <td><%= property.share %></td>
               <td><%= property.tax_value %></td>
               <td><%= property.area %></td>
@@ -62,7 +64,7 @@
       </table>
 
       <table>
-        <caption>3) Otro patrimonio inmobiliario</caption>
+        <caption>3) Otros depósitos en cuenta</caption>
         <thead>
           <tr>
             <th scope="col">Clase</th>
@@ -108,7 +110,6 @@
         <thead>
           <tr>
             <th scope="col">Clase</th>
-            <th scope="col">Descripción</th>
             <th scope="col">Fecha adquisición</th>
           </tr>
         </thead>
@@ -116,7 +117,6 @@
           <% declaration.other_personal_properties.each do |property| %>
             <tr>
               <td><%= property.kind %></td>
-              <td><%= property.description %></td>
               <td><%= l(property.purchase_date) %></td>
             </tr>
           <% end %>
@@ -128,7 +128,7 @@
         <thead>
           <tr>
             <th scope="col">Clase</th>
-            <th scope="col">Descripción</th>
+            <th scope="col">Observaciones</th>
             <th scope="col">Importe (&euro;)</th>
           </tr>
         </thead>
@@ -136,7 +136,7 @@
           <% declaration.debts.each do |debt| %>
             <tr>
               <td><%= debt.kind %></td>
-              <td><%= debt.description %></td>
+              <td><%= debt.comments %></td>
               <td><%= debt.amount %></td>
             </tr>
           <% end %>
