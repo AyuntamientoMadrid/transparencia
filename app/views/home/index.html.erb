@@ -5,6 +5,7 @@
     <div class="small-12 medium-8">
       <div class="row collapse">
         <div class="small-9 medium-12 large-9 columns">
+          <label class="sr-only"><%= t("index.search_placeholder")%></label>
           <input type="text" name="search" placeholder="<%= t("index.search_placeholder")%>" class="search-form">
         </div>
         <div class="small-3 medium-12 large-3 columns">
@@ -14,23 +15,26 @@
     </div>
   </div>
 </div>
+
 <hr>
+
 <div class="areas">
-  <div class="small-12 medium-4 column">
-    <h2><%= link_to t("index.info"), pages_path %></h2>
+
+  <div class="small-12 medium-6 column">
+    <h2><%= t("index.featured") %></h2>
+
+    <h3><%= link_to t("index.info"), pages_path %></h3>
     <p><%= t("index.info_text") %></p>
-  </div>
-  <div class="small-12 medium-4 column">
-    <h2><%= link_to t("index.people"), people_path %></h2>
+
+    <h3><%= link_to t("index.people"), people_path %></h3>
     <p><%= t("index.people_text") %></p>
-  </div>
-  <div class="small-12 medium-4 column">
-    <h2><%= link_to t("index.objectives"), areas_path %></h2>
+
+    <h3><%= link_to t("index.objectives"), areas_path %></h3>
     <p><%= t("index.objectives_text") %></p>
   </div>
 </div>
 
-<div class="small-12 medium-4 column highlight">
+<div class="small-12 medium-6 text-center column highlight">
   <h2><%= t("index.request") %></h2>
   <p><%= t("index.request_text") %></p>
   <%= link_to t("index.request_button"), "#", class: "button radius" %>
