@@ -2,6 +2,20 @@ require 'securerandom'
 
 FactoryGirl.define do
 
+  factory :person do
+    sequence(:name) { |n| "person#{n}" }
+    sequence(:email) { |n| "person#{n}@madrid.es" }
+    sequence(:gender) { "female" }
+    sequence(:role) { "major" }
+    biography { "biography" }
+    party
+  end
+
+  factory :party do
+    sequence(:name) { |n| "party#{n}" }
+    logo { 'logo.png' }
+  end
+
   factory :administrator do
     sequence(:email) { |n| "admin#{n}@madrid.es" }
     password         '12345678'
