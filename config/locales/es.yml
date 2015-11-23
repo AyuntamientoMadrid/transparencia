@@ -7,6 +7,7 @@ es:
     intro: "El mejor lugar para encontrar toda la información del Ayuntamiento de Madrid."
     search_placeholder: "Buscar..."
     search_submit: "Buscar"
+    featured: "Destacados"
     objectives: "Cumplimiento de programa"
     objectives_text: "Dividido por las Áreas de Gobierno que componen el Ayuntamiento."
     people: "Concejales"
