@@ -1,16 +1,17 @@
 class PeopleController < ApplicationController
 
+  before_action :load_person_and_declarations, only: [:show, :contact]
+
   def index
     @people = Person.all.includes(:party)
   end
 
   def show
-    @person = Person.find(params[:id])
+
     @contact = Contact.new(person: @person)
   end
 
   def contact
-    @person = Person.find(params[:id])
     @contact = Contact.new(contact_params.merge(person: @person))
 
     if @contact.valid?
@@ -27,5 +28,12 @@ class PeopleController < ApplicationController
     def contact_params
       params.require(:contact).permit(:name, :email, :body)
     end
+
+    def load_person_and_declarations
+      @person = Person.find(params[:id])
+      @assets_declarations = @person.assets_declarations.order(:declaration_date)
+      @activities_declarations = @person.activities_declarations.order(:declaration_date)
+    end
+
 
 end

@@ -66,7 +66,22 @@ AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,
   }]
 })
 
+AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2014,1,1), data: {
+  real_estate_properties: [],
+  account_deposits: [],
+  other_assets: [],
+  vehicles: [],
+  other_personal_properties: [],
+  debts: []
+})
+
 # Activities declarations
+ActivitiesDeclaration.create!(person: Person.first, declaration_date: Date.new(2014,1,1), data: {
+  public_activities: [],
+  private_activities: [],
+  other_activities: []
+})
+
 ActivitiesDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,1,1), data: {
   public_activities: [{
     entity: "Hospital de Santa Marta",

@@ -5,4 +5,9 @@ module DateHelper
     I18n.localize(d, format: format)
   end
 
+  def iso_date(d)
+    return "" unless d
+    d.strftime("%Y-%m-%d")
+  end
+
 end
