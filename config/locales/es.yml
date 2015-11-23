@@ -102,14 +102,12 @@ es:
     activities_declarations: "Declaración de actividades"
     biography: "Biografía"
     diary: "Agenda"
-    contact_text: "Envía un mensaje directo a %{person}."
-    contact_form:
-      name: "Nombre y Apellidos"
-      email: "Email"
-      message: "Mensaje"
     contact:
       title: "Contacto"
+      intro: "Envía un mensaje directo a %{person}."
       submit: "Envíar mensaje"
+      success: "Mensaje enviado con éxito"
+      error: "No se pudo enviar el mensaje"
   pages:
     title: "¿Qué buscas?"
     edit: "Editar"
@@ -117,6 +115,11 @@ es:
   date:
     formats:
       default: "%d/%m/%Y"
+  mailer:
+    new_contact:
+      subject: "Mensaje de %{email}"
+      wrote: "%{name} (%{email}) escribió:"
+
   activemodel:
     models:
       contact: Contacto
@@ -125,3 +128,4 @@ es:
         name: Nombre y apellidos
         email: Email
         body: Mensaje
+
