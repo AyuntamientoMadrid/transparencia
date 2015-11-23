@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116144317) do
+ActiveRecord::Schema.define(version: 20151123162423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
   create_table "activities_declarations", force: :cascade do |t|
-    t.integer  "person_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.json     "data"
+    t.integer "person_id"
+    t.date    "declaration_date"
+    t.json    "data"
   end
 
   create_table "administrators", force: :cascade do |t|
@@ -59,10 +58,9 @@ ActiveRecord::Schema.define(version: 20151116144317) do
   end
 
   create_table "assets_declarations", force: :cascade do |t|
-    t.integer  "person_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.json     "data"
+    t.integer "person_id"
+    t.date    "declaration_date"
+    t.json    "data"
   end
 
   create_table "departments", force: :cascade do |t|

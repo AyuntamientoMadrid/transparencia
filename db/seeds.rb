@@ -28,7 +28,7 @@ Person.create!(party: Party.first, email: 'person2@madrid.es', name: 'Pablo Soto
 Person.create!(party: Party.first, email: 'person3@madrid.es', name: 'Pablo Soto 2', gender: "male", role: "Concejal", salary: 1000)
 
 # Asset declarations
-AssetsDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), data: {
+AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,1,1), data: {
   real_estate_properties: [{
     kind: "Rústico",
     type: "Pleno dominio",
@@ -67,7 +67,7 @@ AssetsDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), 
 })
 
 # Activities declarations
-ActivitiesDeclaration.create!(person: Person.first, start_date: Date.new(2015,1,1), data: {
+ActivitiesDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,1,1), data: {
   public_activities: [{
     entity: "Hospital de Santa Marta",
     post: "Consejera",

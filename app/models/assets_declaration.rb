@@ -4,7 +4,7 @@ class AssetsDeclaration < ActiveRecord::Base
 
   belongs_to :person
 
-  validates :start_date, presence: true
+  validates :declaration_date, presence: true
 
   def real_estate_properties
     parse_data_rows('real_estate_properties')

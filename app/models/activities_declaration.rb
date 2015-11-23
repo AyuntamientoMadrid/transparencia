@@ -4,7 +4,7 @@ class ActivitiesDeclaration < ActiveRecord::Base
 
   belongs_to :person
 
-  validates :start_date, presence: true
+  validates :declaration_date, presence: true
 
   def public_activities
     parse_data_rows('public_activities')
