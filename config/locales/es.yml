@@ -102,12 +102,13 @@ es:
     activities_declarations: "Declaración de actividades"
     biography: "Biografía"
     diary: "Agenda"
-    contact: "Contacto"
     contact_text: "Envía un mensaje directo a %{person}."
     contact_form:
       name: "Nombre y Apellidos"
       email: "Email"
       message: "Mensaje"
+    contact:
+      title: "Contacto"
       submit: "Envíar mensaje"
   pages:
     title: "¿Qué buscas?"
