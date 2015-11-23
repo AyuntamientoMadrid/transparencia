@@ -117,3 +117,11 @@ es:
   date:
     formats:
       default: "%d/%m/%Y"
+  activemodel:
+    models:
+      contact: Contacto
+    attributes:
+      contact:
+        name: Nombre y apellidos
+        email: Email
+        body: Mensaje
