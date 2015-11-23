@@ -1,19 +1,29 @@
 <a name="contact"></a>
-<h2 data-magellan-destination="contact"><%= t("people.contact") %></h2>
+<h2 data-magellan-destination="contact"><%= t("people.contact.title") %></h2>
 
-<p class="margin-top"><%= t("people.contact_text", person: @person.name ) %></p>
+<p class="margin-top"><%= t("people.contact.intro", person: @person.name ) %></p>
 
 <div class="small-12 medium-6">
-  <form>
-    <label><%= t("people.contact_form.name") %></label>
-    <input type="text" placeholder="<%= t('people.contact_form.name') %>">
+  <% if contact_notice.present? %>
+    <div id="contact_notice" data-alert class="alert-box success text-center">
+      <%= contact_notice %>
+    </div>
+  <% end %>
 
-    <label><%= t("people.contact_form.email") %></label>
-    <input type="text" placeholder="<%= t('people.contact_form.email') %>">
+  <% if contact_alert.present? %>
+    <div id="contact_alert" data-alert class="alert-box alert text-center">
+      <%= contact_alert %>
+    </div>
+  <% end %>
 
-    <label><%= t("people.contact_form.message") %></label>
-    <textarea rows="6" placeholder="<%= t('people.contact_form.message') %>"></textarea>
+  <%= form_for @contact, method: :post, url: contact_person_path(@person, anchor: :contact) do |f| %>
 
-    <input type="submit" value="<%= t('people.contact_form.submit') %>" class="button radius">
-  </form>
+    <%= f.text_field :name, placeholder: Contact.human_attribute_name(:name) %>
+
+    <%= f.text_field :email, placeholder: Contact.human_attribute_name(:email) %>
+
+    <%= f.text_area :body, placeholder: Contact.human_attribute_name(:body), rows: 6 %>
+
+    <%= f.submit t('people.contact.submit'), id: :send_message %>
+  <% end %>
 </div>
