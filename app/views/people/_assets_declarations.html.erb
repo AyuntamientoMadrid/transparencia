@@ -1,5 +1,5 @@
 <a name="assets_declarations" data-magellan-destination="assets_declarations"></a>
-<h2><%= t("people.assets_declarations") %></h2>
+<h2 class="lead"><%= t("people.assets_declarations") %></h2>
 
 <ul class="tabs" data-tab role="tablist">
   <% @assets_declarations.each_with_index do |declaration, index| %>
@@ -28,7 +28,7 @@
             <th scope="col">Participación (%)</th>
             <th scope="col">Valor catastral (&euro;)</th>
             <th scope="col">Superficie (m<sup>2</sup>)</th>
-            <th scope="col">Fecha adquisición</th>
+            <th scope="col" class="th-small">Fecha adquisición</th>
           </tr>
         </thead>
         <tbody>
@@ -51,9 +51,9 @@
         <caption>2) Depósitos en cuenta</caption>
         <thead>
           <tr>
-            <th scope="col">Clase</th>
+            <th scope="col" class="th-big">Clase</th>
             <th scope="col">Entidad de depósito</th>
-            <th scope="col">Saldo medio anual o valor (&euro;)</th>
+            <th scope="col" class="th-small">Saldo medio anual o valor (&euro;)</th>
           </tr>
         </thead>
         <tbody>
@@ -71,10 +71,10 @@
         <caption>3) Otros depósitos en cuenta</caption>
         <thead>
           <tr>
-            <th scope="col">Clase</th>
-            <th scope="col">Descripción</th>
+            <th scope="col" class="th-big">Clase</th>
+            <th scope="col" class="th-small">Descripción</th>
             <th scope="col">Número, cuantía o valor en euros</th>
-            <th scope="col">Fecha adquisición</th>
+            <th scope="col" class="th-small">Fecha adquisición</th>
           </tr>
         </thead>
         <tbody>
@@ -93,9 +93,9 @@
         <caption>4) Vehículos</caption>
         <thead>
           <tr>
-            <th scope="col">Clase</th>
+            <th scope="col" class="th-big">Clase</th>
             <th scope="col">Marca y modelo</th>
-            <th scope="col">Fecha adquisición</th>
+            <th scope="col" class="th-small">Fecha adquisición</th>
           </tr>
         </thead>
         <tbody>
@@ -114,7 +114,7 @@
         <thead>
           <tr>
             <th scope="col">Clase</th>
-            <th scope="col">Fecha adquisición</th>
+            <th scope="col" class="th-small">Fecha adquisición</th>
           </tr>
         </thead>
         <tbody>
@@ -131,9 +131,9 @@
         <caption>6) Deudas</caption>
         <thead>
           <tr>
-            <th scope="col">Clase</th>
+            <th scope="col" class="th-big">Clase</th>
             <th scope="col">Observaciones</th>
-            <th scope="col">Importe (&euro;)</th>
+            <th scope="col" class="th-small">Importe (&euro;)</th>
           </tr>
         </thead>
         <tbody>

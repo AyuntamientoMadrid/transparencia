@@ -1,24 +1,30 @@
-<div class="intro">
-  <div class="small-12 column">
-    <h1><%= t("index.title") %></h1>
-    <p><%= t("index.intro") %></p>
-    <div class="small-12 medium-8">
-      <div class="row collapse">
-        <div class="small-9 medium-12 large-9 columns">
-          <label class="sr-only"><%= t("index.search_placeholder")%></label>
-          <input type="text" name="search" placeholder="<%= t("index.search_placeholder")%>" class="search-form">
-        </div>
-        <div class="small-3 medium-12 large-3 columns">
-          <input type="submit" class="button postfix" value="<%= t("index.search_submit")%>">
+<%= content_for :jumbo  do %>
+
+  <div class="row-full jumbo">
+    <div class="row">
+      <div class="intro">
+        <div class="small-12 column text-center">
+          <h1><%= t("index.title") %></h1>
+          <p><%= t("index.intro") %></p>
+          <div class="small-12 medium-8 small-centered column">
+            <div class="row collapse">
+              <div class="small-9 medium-12 large-9 columns">
+                <label class="sr-only"><%= t("index.search_placeholder")%></label>
+                <input type="text" name="search" placeholder="<%= t("index.search_placeholder")%>" class="search-form">
+              </div>
+              <div class="small-3 medium-12 large-3 columns">
+                <input type="submit" class="button postfix" value="<%= t("index.search_submit")%>">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<hr>
+<% end  %>
 
-<div class="areas">
+<div class="areas margin-top">
 
   <div class="small-12 medium-6 column">
     <h2><%= t("index.featured") %></h2>
