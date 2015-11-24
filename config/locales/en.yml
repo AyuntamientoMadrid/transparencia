@@ -14,11 +14,11 @@ en:
       grants: "Grants"
       budgets: "Budgets"
     footer:
-      description: "This portal use %{consul}, is %{open_source}. Madrid, for the whole world."
+      description: "This portal uses %{software}, is %{open_source}. Madrid, for the whole world."
       open_source: "software libre"
       open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
-      consul: "Consul application"
-      consul_url: "https://github.com/ayuntamientomadrid"
+      transparency: "the Transparency software from Madrid City Council"
+      transparency_url: "https://github.com/ayuntamientomadrid/transparencia"
       copyright: "Ayuntamiento de Madrid, %{year}"
       participation_title: "Participation"
       participation_text: Decide what should be the city of Madrid you want.
