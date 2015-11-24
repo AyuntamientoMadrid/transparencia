@@ -5,7 +5,7 @@
   <% @activities_declarations.each_with_index do |declaration, index| %>
     <% active = index == @activities_declarations.length - 1 %>
     <li class="tab-title <%= 'active' if active %>">
-      <a href="#activities_declaration_<%= iso_date(declaration.declaration_date) %>"><%= declaration.declaration_date %></a>
+      <a href="#activities_declaration_<%= iso_date(declaration.declaration_date) %>"><%= format_date(declaration.declaration_date) %></a>
     </li>
   <% end %>
 </ul>
@@ -19,13 +19,13 @@
          class="content <%= 'active' if active %>">
 
       <table>
-        <caption>1) Puestos de trabajo, cargos o actividades en el sector público</caption>
+        <caption><%= t('activities_declarations.public_activities.title') %></caption>
         <thead>
           <tr>
-            <th scope="col" class="th-big">Entidad</th>
-            <th scope="col">Cargo o categoría</th>
-            <th scope="col" class="th-small">Fecha inicio</th>
-            <th scope="col" class="th-small">Fecha cese</th>
+            <th scope="col" class="th-big"><%= t('activities_declarations.public_activities.entity') %></th>
+            <th scope="col"><%= t('activities_declarations.public_activities.post') %></th>
+            <th scope="col" class="th-small"><%= t('activities_declarations.public_activities.start_date') %></th>
+            <th scope="col" class="th-small"><%= t('activities_declarations.public_activities.end_date') %></th>
           </tr>
         </thead>
         <tbody>
@@ -41,15 +41,15 @@
       </table>
 
       <table>
-        <caption>2) Actividades privadas por cuenta propia o ajena </caption>
+        <caption><%= t('activities_declarations.private_activities.title') %></caption>
         <thead>
           <tr>
-            <th scope="col">Clase</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Entidad/Colegio profesional</th>
-            <th scope="col">Cargo o categoría</th>
-            <th scope="col" class="th-small">Fecha inicio</th>
-            <th scope="col" class="th-small">Fecha cese</th>
+            <th scope="col"><%= t('activities_declarations.private_activities.kind') %></th>
+            <th scope="col"><%= t('activities_declarations.private_activities.description') %></th>
+            <th scope="col"><%= t('activities_declarations.private_activities.entity') %></th>
+            <th scope="col"><%= t('activities_declarations.private_activities.post') %></th>
+            <th scope="col" class="th-small"><%= t('activities_declarations.private_activities.start_date') %></th>
+            <th scope="col" class="th-small"><%= t('activities_declarations.private_activities.end_date') %></th>
           </tr>
         </thead>
         <tbody>
@@ -67,12 +67,12 @@
       </table>
 
       <table>
-        <caption>3) Otras actividades y/o supuestos de posible incompatibilidad</caption>
+        <caption><%= t('activities_declarations.other_activities.title') %></caption>
         <thead>
           <tr>
-            <th scope="col">Descripción</th>
-            <th scope="col" class="th-small">Fecha inicio</th>
-            <th scope="col" class="th-small">Fecha cese</th>
+            <th scope="col"><%= t('activities_declarations.other_activities.description') %></th>
+            <th scope="col" class="th-small"><%= t('activities_declarations.other_activities.start_date') %></th>
+            <th scope="col" class="th-small"><%= t('activities_declarations.other_activities.end_date') %></th>
           </tr>
         </thead>
         <tbody>

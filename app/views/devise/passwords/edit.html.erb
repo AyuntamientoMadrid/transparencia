@@ -1,4 +1,4 @@
-<h2>Cambia tu contraseña</h2>
+<h2><%= t('devise.mailer.passwords.edit.title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -7,7 +7,7 @@
   <div class="field">
     <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> caracteres como mínimo)</em><br />
+      <em><%= t('devise.mailer.passwords.edit.min_char_length', amount: @minimum_password_length) %></em><br />
     <% end %>
   </div>
 
@@ -16,7 +16,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Cambiar mi contraseña" %>
+    <%= f.submit t('devise.mailer.passwords.edit.submit') %>
   </div>
 <% end %>
 

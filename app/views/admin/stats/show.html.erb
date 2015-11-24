@@ -4,15 +4,15 @@
 <div class="stats row-full">
   <div class="row">
     <div class="small-12 column">
-      <h1>Estadísticas</h1>
+      <h1><%= t('admin.stats.title') %></h1>
 
       <div class="small-12 column">
-        <h2>Visitas</h2>
+        <h2><%= t('admin.stats.visits') %></h2>
         <%= visits_chart_tag id: "visits" %>
       </div>
 
       <div class="small-12 column">
-        <h2>Todos los eventos</h2>
+        <h2><%= t('admin.stats.all_events') %></h2>
         <%= events_chart_tag @event_types.keys, id: 'combined' %>
       </div>
 
