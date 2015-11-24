@@ -3,38 +3,12 @@
 // 01. Browse panes
 // 02. Objectives
 // 03. People
-// 04. Pages
 //
 
 // 01. Browse panes
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .browse-panes {
-  clear: both;
-
-  h1, h2, h3 {
-    font-weight: bold;
-    line-height: rem-calc(24);
-  }
-
-  h1 {
-    font-size: rem-calc(24);
-  }
-
-  h2 {
-    font-size: rem-calc(20);
-  }
-
-  h3 {
-    font-size: rem-calc(16);
-  }
-
-  p {
-    color: $text;
-    font-family: $font-family-sans-serif;
-    font-size: rem-calc(14);
-    line-height: $line-height;
-  }
 
   .text {
 
@@ -137,30 +111,17 @@
 // 03. People
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.people {
-
-}
-
 .people-list {
-  border-top: rem-calc(6) solid $brand;
   margin-left: 0;
-  padding-top: rem-calc(24);
 
   li {
     display: inline-block;
-    list-style-type: none;
     margin-right: rem-calc(24);
-  }
-
-  h3 {
-    font-size: rem-calc(20);
-    line-height: rem-calc(24);
-    margin-bottom: 0;
   }
 
   p {
     color: #6F777B;
-    font-size: rem-calc(14);
+    margin-top: 0;
   }
 }
 
@@ -183,15 +144,10 @@
   }
 }
 
-.people-info {
-  clear: both;
-  margin-bottom: rem-calc(24);
-}
-
 .role {
   color: #6F777B;
   font-size: rem-calc(24);
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .tabs.vertical {
@@ -215,6 +171,7 @@
 
 .side-nav li a:not(.button) {
   color: $link;
+  font-family: $font-sans;
 
   &:hover {
     color: $link-hover;
@@ -222,6 +179,7 @@
 }
 
 .side-nav li {
+  font-size: $base-font-size;
 
   &:hover {
     background: #DEE0E2;
@@ -235,6 +193,7 @@
   & > a:first-child:not(.button), a {
     background: $brand;
     color: white;
+    font-family: $font-sans;
   }
 }
 
@@ -244,51 +203,8 @@
 }
 
 .people-card {
+
   @media (min-width: $small-breakpoint) {
     padding-bottom: rem-calc(288);
   }
-
-  h2 {
-    border-bottom: rem-calc(6) solid $brand;
-  }
-
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-
-    tr td {
-      border: 1px solid #DDDDDD;
-    }
-
-    @media screen and (max-width: 640px) {
-      overflow-x: auto;
-      display: block;
-    }
-
-    caption {
-      color: $brand;
-      font-size: rem-calc(19);
-      font-weight: normal;
-      padding: rem-calc(12) 0;
-      text-align: left;
-      text-transform: uppercase;
-    }
-
-    th {
-      background: #E1E8E8;
-    }
-  }
-
-  .responsibility-list {
-    margin-top: rem-calc(24);
-  }
-
-}
-
-// 04. Pages
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-.pages {
-  margin-top: rem-calc(24);
 }
