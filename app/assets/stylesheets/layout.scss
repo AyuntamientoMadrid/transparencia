@@ -7,6 +7,7 @@
 // 05. Footer
 // 06. Social
 // 07. Alerts
+// 08. Tables
 //
 
 // 01. Variables
@@ -46,26 +47,31 @@
 }
 
 @mixin h1 {
+  font-family: $font-sans;
   font-size: $h1-font-size;
   font-weight: $font-bold;
 }
 
 @mixin h2 {
+  font-family: $font-sans;
   font-size: $h2-font-size;
   font-weight: $font-bold;
 }
 
 @mixin h3 {
+  font-family: $font-sans;
   font-size: $h3-font-size;
   font-weight: $font-bold;
 }
 
 @mixin h4 {
+  font-family: $font-sans;
   font-size: $h4-font-size;
   font-weight: $font-bold;
 }
 
 @mixin h5 {
+  font-family: $font-sans;
   font-size: $h5-font-size;
   font-weight: $font-bold;
 }
@@ -101,6 +107,13 @@ h6 {
   @include h6();
 }
 
+h1, h2, h3, h4, h5, h6 {
+
+  &.lead {
+    border-bottom: rem-calc(6) solid $brand;
+  }
+}
+
 // 03. Global styles
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -116,13 +129,18 @@ html, body {
 body {
   background: white;
   color: $text;
-  font-family: $font-sans;
+  font-family: $font-serif;
   font-size: $base-font-size;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 
+p, ul, table {
+  font-family: $font-serif;
+}
+
 p {
+  color: $text;
   line-height: $base-line-height;
   margin: {
     top: 1em;
@@ -132,10 +150,10 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  font-family: $font-serif;
+  font-family: $font-sans;
   line-height: $heading-line-height;
   margin: {
-    top: rem-calc(24);
+    top: rem-calc(12);
     bottom: rem-calc(6);
   }
 }
@@ -155,10 +173,20 @@ a {
   }
 }
 
+form label {
+  font-size: $base-font-size;
+  font-family: $font-sans;
+  font-weight: bold;
+}
+
+.side-nav {
+  font-family: $font-sans;
+}
+
 .button {
   background: $brand;
-  font-size: $small-font-size;
-  font-family: $font-family-sans-serif !important;
+  font-size: $base-font-size;
+  font-family: $font-sans;
 }
 
 .row {
@@ -397,15 +425,15 @@ header {
   }
 }
 
+.jumbo {
+  background: #E7F2FC;
+
+  h1, p {
+    color: #3D464D;
+  }
+}
+
 .intro {
-
-  @media (min-width: $small-breakpoint) {
-    padding-top: rem-calc(24);
-  }
-
-  .button {
-    background: $dark;
-  }
 
   input[type="text"], input[type="submit"] {
     height: rem-calc(48);
@@ -564,4 +592,44 @@ label.error, label.error a {
 .alert-messages {
   background-color: white;
   padding-top: rem-calc(24);
+}
+
+// 08. Tables
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+
+  th {
+    font-family: $font-sans;
+    font-weight: bold;
+  }
+
+  .th-big {
+    width: 40%;
+  }
+
+  .th-small {
+    width: 20%;
+  }
+
+  tr td {
+    border: 1px solid #DDDDDD;
+  }
+
+  @media screen and (max-width: 640px) {
+    overflow-x: auto;
+    display: block;
+  }
+
+  caption {
+    color: $brand;
+    font-family: $font-sans;
+    font-weight: bold;
+    padding: rem-calc(12) 0;
+    text-align: left;
+    text-transform: uppercase;
+  }
 }

@@ -10,7 +10,7 @@
   </li>
 </nav>
 
-<section class="people-card row">
+<section class="people-card">
 
   <div class="small-12 medium-3 column">
     <div class="show-for-medium-up relative">
@@ -27,20 +27,20 @@
   </div>
 
   <div class="small-12 medium-9 column">
-    <div class="people-info">
-      <div class="right">
-        <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
-      </div>
-      <h1><%= @person.name %></h1>
-      <p class="role"><%= @person.role %></p>
+    <div class="right">
+      <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
     </div>
+    <h1 class="inline-block"><%= @person.name %></h1>
+    <p class="role"><%= @person.role %></p>
 
     <a name="responsibility" data-magellan-destination="responsibility"></a>
-    <h2><%= t("people.responsibility") %></h2>
-    <%= @person.functions.try(:html_safe) %>
+    <h2 class="lead"><%= t("people.responsibility") %></h2>
+    <div class="margin-top">
+      <%= @person.functions.try(:html_safe) %>
+    </div>
 
     <a name="biography" data-magellan-destination="biography"></a>
-    <h2><%= t("people.biography") %></h2>
+    <h2 class="lead"><%= t("people.biography") %></h2>
     <%= @person.biography.try(:html_safe) %>
 
     <%= render 'diary' %>
