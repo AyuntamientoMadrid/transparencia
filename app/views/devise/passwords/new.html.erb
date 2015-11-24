@@ -1,4 +1,4 @@
-<h2>¿Olvidaste tu contraseña?</h2>
+<h2><%= t('devise.passwords.new.title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -8,7 +8,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Enviarme instrucciones de cambio de contraseña" %>
+    <%= f.submit t('devise.passwords.new.submit') %>
   </div>
 <% end %>
 

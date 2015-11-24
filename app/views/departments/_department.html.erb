@@ -8,19 +8,19 @@
   <%= @department.description %>
 </div>
 
-<%= link_to "Leer más", "#", class: 'show-more' %>
+<%= link_to t('shared.read_more'), "#", class: 'show-more' %>
 
 <hr>
 
-<h2>Directrices de legislatura (objectivos politicos)</h2>
+<h2><%= t('departments.directives') %></h2>
 <%= @department.directives.html_safe %>
 
 <hr>
 
-<h2>Actuaciones clave</h2>
+<h2><%= t('departments.key_actions') %></h2>
 
 <ul class="no-bullet made">
-  <h3>Realizadas</h3>
+  <h3><%= t('departments.accomplished') %></h3>
   <% @department.objectives.accomplished.order(:order).each do |objective| %>
     <%= content_tag_for :li, objective do %>
       <i class="icon-check"></i>
@@ -31,7 +31,7 @@
 </ul>
 
 <ul class="no-bullet pending">
-  <h3>Pendientes</h3>
+  <h3><%= t('departments.pending') %></h3>
   <% @department.objectives.not_accomplished.order(:order).each do |objective| %>
     <%= content_tag_for :li, objective do %>
       <i class="icon-x"></i>

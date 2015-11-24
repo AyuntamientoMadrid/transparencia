@@ -1,6 +1,17 @@
 es:
   transparency: "Transparencia"
   home: "Inicio"
+  admin:
+    menu:
+      title: "Administración"
+      stats: "Estadísticas"
+      close_session: "Cerrar sesión"
+    dashboard:
+      title: "Administración"
+    stats:
+      title: "Estadísticas"
+      visits: "Visitas"
+      all_events: "Todos los eventos"
   index:
     title: "Bienvenidos al Portal de Transparencia"
     intro: "El mejor lugar para encontrar toda la información del Ayuntamiento de Madrid."
@@ -41,9 +52,20 @@ es:
       conditions: "Condiciones de uso"
       more_info: "Más información"
       accessibility: "Accesibilidad"
+    mailer:
+      title: "Transparencia"
+      footer: "Ayuntamiento de Madrid"
+  objectives:
+    accomplished: "Este objetivo ha sido cumplido"
+    pending: "Este objetivo está pendiente de cumplir"
   areas:
     menu:
       title: "Áreas de Gobierno"
+  departments:
+    directives: "Directrices de legislatura (objetivos políticos)"
+    key_actions: "Actuaciones clave"
+    accomplished: "Realizadas"
+    pending: "Pendientes"
   social:
     twitter: "Twitter"
     facebook: "Facebook"
@@ -64,19 +86,93 @@ es:
       error: "No se pudo enviar el mensaje"
   pages:
     title: "¿Qué buscas?"
-    edit: "Editar"
+    edit: "Editar contenido"
     create: "Añadir nueva página"
+  activities_declarations:
+    public_activities:
+      title: "1) Puestos de trabajo, cargos o actividades en el sector público"
+      entity: "Entidad"
+      post: "Cargo o categoría"
+      start_date: "Fecha inicio"
+      end_date: "Fecha cese"
+    private_activities:
+      title: "2) Actividades privadas por cuenta propia o ajena"
+      kind: "Clase"
+      description: "Descripción"
+      entity: "Entidad/Colegio profesional"
+      post: "Cargo o categoría"
+      start_date: "Fecha inicio"
+      end_date: "Fecha cese"
+    other_activities:
+      title: "3) Otras actividades y/o supuestos de posible incompatibilidad"
+      description: "Descripción"
+      start_date: "Fecha inicio"
+      end_date: "Fecha cese"
+  assets_declarations:
+    real_estate_properties:
+      title: "1) Patrimonio Inmobiliario"
+      kind: "Clase"
+      type: "Tipo de derecho"
+      description: "Título de adquisición"
+      municipality: "Municipio"
+      share: "Participación"
+      tax_value: "Valor catastral"
+      area: "Superficie"
+      purchase_date: "Fecha adquisición"
+    account_deposits:
+      title: "2) Depósitos en cuenta"
+      kind: "Clase"
+      entity: "Entidad de depósito"
+      balance: "Saldo medio anual o valor en euros"
+    other_assets:
+      title: "3) Otros depósitos en cuenta"
+      kind: "Clase"
+      description: "Descripción"
+      amount: "Número, cuantía o valor en euros"
+      purchase_date: "Fecha adquisición"
+    vehicles:
+      title: "4) Vehículos"
+      kind: "Clase"
+      model: "Marca y Modelo"
+      purchase_date: "Fecha adquisición"
+    other_personal_properties:
+      title: "5) Otros Bienes Muebles"
+      kind: "Clase"
+      purchase_date: "Fecha adquisición"
+    debts:
+      title: "6) Deudas"
+      kind: "Clase"
+      comments: "Observaciones"
+      amount: "Importe"
+
   mailer:
     new_contact:
       subject: "Mensaje de %{email}"
       wrote: "%{name} (%{email}) escribió:"
+  shared:
+    read_more: "Leer más"
+    update: "Actualizar"
+    edit: "Editar"
+    submit: "Enviar"
+    back: "Atrás"
+  activerecord:
+    attributes:
+      objective:
+        title: "Título"
+        description: "Description"
+        accomplished: "Cumplido"
+      page:
+        title: "Título"
+        subtitle: "Subtítulo"
+        link: "Enlace externo"
+        content: "Contenido"
 
   activemodel:
     models:
-      contact: Contacto
+      contact: "Contacto"
     attributes:
       contact:
-        name: Nombre y apellidos
-        email: Email
-        body: Mensaje
+        name: "Nombre y apellidos"
+        email: "Email"
+        body: "Mensaje"
 
