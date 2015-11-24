@@ -261,20 +261,9 @@ header {
     }
 
     .selected {
+      border-bottom: 2px solid white;
+      padding-bottom: rem-calc(2);
       position: relative;
-
-      &:before {
-        top: -8px;
-        left: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        border-top-color: white;
-        border-width: 8px;
-        margin-left: -8px;
-      }
     }
   }
 }
@@ -400,6 +389,7 @@ header {
 
   a {
     color: white;
+    margin: 0 rem-calc(6);
 
     &:hover {
       text-decoration: underline;
@@ -484,7 +474,9 @@ footer {
 
 .social {
   margin-top: rem-calc(24);
+  padding-top: rem-calc(6);
   text-align: center;
+  vertical-align: middle;
 
   @media (min-width: $small-breakpoint) {
     margin-top: 0;
