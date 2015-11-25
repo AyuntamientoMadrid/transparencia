@@ -1,6 +1,17 @@
 en:
   transparency: "Transparency"
   home: "Home"
+  admin:
+    menu:
+      title: "Administration"
+      stats: "Statistics"
+      close_session: "Close session"
+    dashboard:
+      title: "Administration"
+    stats:
+      title: "Statistics"
+      visits: "Visits"
+      all_events: "All the events"
   index:
     title: "Welcome to the transparency portal"
     intro: "The best place to find information about the Madrid Town hall"
@@ -41,9 +52,20 @@ en:
       conditions: "Terms of use"
       more_info: "More information"
       accessibility: "Accessibility"
+    mailer:
+      title: "Transparency"
+      footer: "Madrid Town Hall"
+  objectives:
+    accomplished: "This objective has been accomplished"
+    pending: "This objective has not been accomplished yet"
   areas:
     menu:
       title: "Government areas"
+  departments:
+    directives: "Directives"
+    key_actions: "Key actions"
+    accomplished: "Accomplished"
+    pending: "Pending"
   social:
     twitter: "Twitter"
     facebook: "Facebook"
@@ -64,9 +86,91 @@ en:
       error: "Your message could not be sent"
   pages:
     title: "What are you looking for?"
-    edit: "Edit"
-    create: "Add a new page"
+    edit: "Edit content"
+    create: "Add new page"
+  activities_declarations:
+    public_activities:
+      title: "1) Jobs, posts or activities in the public sector"
+      entity: "Entity"
+      post: "Post or category"
+      start_date: "Start date"
+      end_date: "End date"
+    private_activities:
+      title: "2) Jobs, posts or activities in the private sector"
+      kind: "Class"
+      description: "Description"
+      entity: "Entity/Professional association"
+      post: "Post or category"
+      start_date: "Start date"
+      end_date: "End date"
+    other_activities:
+      title: "3) Other activities which might not be compatible"
+      description: "Description"
+      start_date: "Start date"
+      end_date: "End date"
+  assets_declarations:
+    real_estate_properties:
+      title: "1) Real estate properties"
+      kind: "Class"
+      type: "Kind of ownership"
+      description: "Description"
+      municipality: "Municipality"
+      share: "Share"
+      tax_value: "Tax Value"
+      area: "Area"
+      purchase_date: "Purchase date"
+    account_deposits:
+      title: "2) Account deposits"
+      kind: "Class"
+      entity: "Entity"
+      balance: "Average annual balance or value in euros"
+    other_assets:
+      title: "3) Other account deposits"
+      kind: "Class"
+      description: "Description"
+      amount: "Number, amount or value in euros"
+      purchase_date: "Purchase date"
+    vehicles:
+      title: "4) Vehicles"
+      kind: "Class"
+      model: "Model and Brand"
+      purchase_date: "Purchase date"
+    other_personal_properties:
+      title: "5) Other personal properties"
+      kind: "Class"
+      purchase_date: "Purchase date"
+    debts:
+      title: "6) Debts"
+      kind: "Class"
+      comments: "Comments"
+      amount: "Amount"
   mailer:
     new_contact:
       subject: "Message from %{email}"
       wrote: "%{name} (%{email}) wrote:"
+  shared:
+    read_more: "Read more"
+    update: "Update"
+    edit: "Edit"
+    submit: "Submit"
+    back: "Back"
+  activerecord:
+    attributes:
+      objective:
+        title: "Title"
+        description: "Description"
+        accomplished: "Accomplished"
+      page:
+        title: "Title"
+        subtitle: "Subtitle"
+        link: "External link"
+        content: "Content"
+
+  activemodel:
+    models:
+      contact: "Contact"
+    attributes:
+      contact:
+        name: "Name and surname"
+        email: "Email"
+        body: "Message"

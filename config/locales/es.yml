@@ -144,7 +144,6 @@ es:
       kind: "Clase"
       comments: "Observaciones"
       amount: "Importe"
-
   mailer:
     new_contact:
       subject: "Mensaje de %{email}"
@@ -159,7 +158,7 @@ es:
     attributes:
       objective:
         title: "Título"
-        description: "Description"
+        description: "Descripción"
         accomplished: "Cumplido"
       page:
         title: "Título"
@@ -175,4 +174,3 @@ es:
         name: "Nombre y apellidos"
         email: "Email"
         body: "Mensaje"
-

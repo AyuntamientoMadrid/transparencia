@@ -102,6 +102,7 @@ ignore_missing:
 # - 'simple_form.{error_notification,required}.:'
 ignore_unused:
   - 'activemodel.*'
+  - 'activerecord.*'
   - 'errors.messages.*'
   - '{devise,simple_form}.*'
   - 'people.contact.*'
