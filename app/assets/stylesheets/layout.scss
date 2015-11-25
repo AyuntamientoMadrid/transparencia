@@ -112,6 +112,10 @@ h1, h2, h3, h4, h5, h6 {
   &.lead {
     border-bottom: rem-calc(6) solid $brand;
   }
+
+  &.secondary {
+    color: $text-medium;
+  }
 }
 
 // 03. Global styles
@@ -146,6 +150,10 @@ p {
     top: 1em;
     bottom: 1em;
   }
+}
+
+ol, ul, li, p {
+  font-size: $small-font-size;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -214,7 +222,6 @@ form label {
     color: $link;
     text-decoration: underline;
   }
-
 }
 
 .footer, .push {
@@ -272,6 +279,14 @@ form label {
 
 cite, var, address, dfn {
   font-style: normal;
+}
+
+.success {
+  color: $check;
+}
+
+.pending {
+  color: $text-medium;
 }
 
 // 04. Header

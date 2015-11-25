@@ -19,22 +19,22 @@
 
 <h2>Actuaciones clave</h2>
 
-<ul class="no-bullet made">
+<ul class="no-bullet">
   <h3>Realizadas</h3>
   <% @department.objectives.accomplished.order(:order).each do |objective| %>
     <%= content_tag_for :li, objective do %>
-      <i class="icon-check"></i>
+      <i class="icon-check success"></i>
       <%= link_to objective.title, objective_path(objective) %>
       <%= link_to "", edit_objective_path(objective), class: 'icon-edit' %>
     <% end %>
   <% end %>
 </ul>
 
-<ul class="no-bullet pending">
+<ul class="no-bullet">
   <h3>Pendientes</h3>
   <% @department.objectives.not_accomplished.order(:order).each do |objective| %>
     <%= content_tag_for :li, objective do %>
-      <i class="icon-x"></i>
+      <i class="icon-x pending"></i>
       <%= link_to objective.title, objective_path(objective) %>
       <%= link_to "", edit_objective_path(objective), class: 'icon-edit' %>
     <% end %>
