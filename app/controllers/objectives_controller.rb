@@ -1,6 +1,6 @@
 class ObjectivesController < ApplicationController
   before_action :set_objective
-  
+
   def show
   end
 
@@ -9,12 +9,12 @@ class ObjectivesController < ApplicationController
 
   def update
     if @objective.update(objective_params)
-      redirect_to objective_path(@objective), notice: "El objetivo se ha actualizado correctamente."
+      redirect_to objective_path(@objective), notice: I18n.t("objectives.update_success")
     else
-      flash.now[:alert] = "Hubo un error durante la actualización. Revise el formulario."
+      flash.now[:alert] = I18n.t("objectives.update_error")
       render :edit
     end
-  end  
+  end
 
   private
 

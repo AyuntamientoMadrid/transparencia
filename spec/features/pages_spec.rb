@@ -44,22 +44,22 @@ feature 'Pages' do
     scenario "should allow to create a level 1 page" do
       visit new_page_path
 
-      fill_in "Título", with: "Título nivel 1"
+      fill_in :page_title, with: "level 1"
 
       submit_form
 
-      expect(page).to have_content "Se ha añadido una nueva página correctamente."
-      expect(page).to have_content "Título nivel 1"
+      expect(page).to have_content "Page created successfully"
+      expect(page).to have_content "level 1"
     end
 
     scenario "should show validation error when invalid page" do
       visit new_page_path
 
-      fill_in "Título", with: ""
+      fill_in :page_title, with: ""
 
       submit_form
 
-      expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
+      expect(page).to have_content "There was an error while saving the page, please review"
     end
   end
 
@@ -70,24 +70,24 @@ feature 'Pages' do
     scenario "should allow to create a level 2 page" do
       visit new_page_path
 
-      select page1.title, from: "Página padre"
-      fill_in "Título", with: "Título nivel 2"
+      select page1.title, from: :page_parent_id
+      fill_in :page_title, with: "level 2"
 
       submit_form
 
-      expect(page).to have_content "Se ha añadido una nueva página correctamente."
-      expect(page).to have_content "Título nivel 2"
+      expect(page).to have_content "Page created successfully"
+      expect(page).to have_content "level 2"
     end
 
     scenario "should show validation error when invalid page" do
       visit new_page_path
 
-      select page1.title, from: "Página padre"
-      fill_in "Título", with: ""
+      select page1.title, from: :page_parent_id
+      fill_in :page_title, with: ""
 
       submit_form
 
-      expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
+      expect(page).to have_content "There was an error while saving the page, please review"
     end
   end
 
@@ -99,24 +99,24 @@ feature 'Pages' do
     scenario "should allow to create a level 3 page" do
       visit new_page_path
 
-      select page2.name_for_selects, from: "Página padre"
-      fill_in "Título", with: "Título nivel 3"
+      select page2.name_for_selects, from: :page_parent_id
+      fill_in :page_title, with: "level 3"
 
       submit_form
 
-      expect(page).to have_content "Se ha añadido una nueva página correctamente."
-      expect(page).to have_content "Título nivel 3"
+      expect(page).to have_content "Page created successfully"
+      expect(page).to have_content "level 3"
     end
 
     scenario "should show validation error when invalid page" do
       visit new_page_path
 
-      select page2.name_for_selects, from: "Página padre"
-      fill_in "Título", with: ""
+      select page2.name_for_selects, from: :page_parent_id
+      fill_in :page_title, with: ""
 
       submit_form
 
-      expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
+      expect(page).to have_content "There was an error while saving the page, please review"
     end
   end
 
@@ -129,26 +129,26 @@ feature 'Pages' do
     scenario "should has to be external link or content" do
       visit new_page_path
 
-      select page3.name_for_selects, from: "Página padre"
-      fill_in "Título", with: "Título nivel 4"
+      select page3.name_for_selects, from: :page_parent_id
+      fill_in :page_title, with: "level 4"
 
-      fill_in "Enlace externo", with: "http://example.net"
+      fill_in :page_link, with: "http://example.net"
 
       submit_form
 
-      expect(page).to have_content "Se ha añadido una nueva página correctamente."
-      expect(page).to have_content "Título nivel 4"
+      expect(page).to have_content "Page created successfully"
+      expect(page).to have_content "level 4"
     end
 
     scenario "should show validation error when invalid page" do
       visit new_page_path
 
-      select page3.name_for_selects, from: "Página padre"
-      fill_in "Título", with: "Titulo nivel 4"
+      select page3.name_for_selects, from: :page_parent_id
+      fill_in :page_title, with: "level 4"
 
       submit_form
 
-      expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
+      expect(page).to have_content "There was an error while saving the page, please review"
     end
   end
 
@@ -172,22 +172,13 @@ feature 'Pages' do
     scenario "should allow to update pages" do
       visit edit_page_path(page1)
 
-      fill_in "Título", with: "Título actualizado"
+      fill_in :page_title, with: "updated title"
 
       submit_form
 
-      expect(page).to have_content "Se ha modificado la página correctamente."
-      expect(page).to have_content "Título actualizado"
+      expect(page).to have_content "Page updated successfully"
+      expect(page).to have_content "updated title"
     end
   end
 
-end
-
-def save_and_open_page
-  dir = "#{Rails.root}/tmp/cache/capybara"
-  file = "#{dir}/#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.png"
-  FileUtils.mkdir_p dir
-  page.driver.render file
-  wait_until { File.exists?(file) }
-  system "open #{file}"
 end

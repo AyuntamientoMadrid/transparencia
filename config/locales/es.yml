@@ -58,6 +58,8 @@ es:
   objectives:
     accomplished: "Este objetivo ha sido cumplido"
     pending: "Este objetivo está pendiente de cumplir"
+    update_success: "Objectivo actualizado"
+    update_error: "Hubo un error al actualizar el objetivo. Por favor revise el formulario"
   areas:
     menu:
       title: "Áreas de Gobierno"
@@ -88,6 +90,9 @@ es:
     title: "¿Qué buscas?"
     edit: "Editar contenido"
     create: "Añadir nueva página"
+    update_error: "Hubo un error al guardar la página, revise el formulario"
+    update_success: "Se ha modificado la página correctamente"
+    create_success: "Se ha creado la página correctamente"
   activities_declarations:
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"
@@ -161,6 +166,7 @@ es:
         description: "Descripción"
         accomplished: "Cumplido"
       page:
+        parent: "Padre"
         title: "Título"
         subtitle: "Subtítulo"
         link: "Enlace externo"
