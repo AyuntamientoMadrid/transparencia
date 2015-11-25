@@ -13,7 +13,7 @@ feature 'Objectives' do
     expect(page).to have_content objective.department.name
     expect(page).to have_content objective.title
     expect(page).to have_content objective.description
-    expect(page).to have_content "Este objetivo está pendiente de cumplir."
+    expect(page).to have_content "Este objetivo está pendiente de cumplir"
   end
 
   scenario 'Edit', js: true do
@@ -45,9 +45,9 @@ feature 'Objectives' do
 
     expect(page).to have_content "edit titulo"
     expect(page).to have_content "edit description"
-    expect(page).to have_content "Este objetivo está pendiente de cumplir."
+    expect(page).to have_content "Este objetivo está pendiente de cumplir"
 
-    expect(page).to have_content "El objetivo se ha actualizado correctamente."
+    expect(page).to have_content "El objetivo se ha actualizado correctamente"
     Capybara.ignore_hidden_elements = true
   end
 
@@ -64,7 +64,7 @@ feature 'Objectives' do
     click_on('Actualizar')
 
     expect(page).to have_content "no puede estar en blanco"
-    expect(page).to have_content "Hubo un error durante la actualización. Revise el formulario."
+    expect(page).to have_content "Hubo un error durante la actualización. Revise el formulario"
     Capybara.ignore_hidden_elements = true
   end
 

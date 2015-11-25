@@ -46,7 +46,7 @@ feature 'Pages' do
 
       fill_in "Título", with: "Título nivel 1"
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Se ha añadido una nueva página correctamente."
       expect(page).to have_content "Título nivel 1"
@@ -57,7 +57,7 @@ feature 'Pages' do
 
       fill_in "Título", with: ""
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
     end
@@ -73,7 +73,7 @@ feature 'Pages' do
       select page1.title, from: "Página padre"
       fill_in "Título", with: "Título nivel 2"
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Se ha añadido una nueva página correctamente."
       expect(page).to have_content "Título nivel 2"
@@ -85,7 +85,7 @@ feature 'Pages' do
       select page1.title, from: "Página padre"
       fill_in "Título", with: ""
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
     end
@@ -102,7 +102,7 @@ feature 'Pages' do
       select page2.name_for_selects, from: "Página padre"
       fill_in "Título", with: "Título nivel 3"
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Se ha añadido una nueva página correctamente."
       expect(page).to have_content "Título nivel 3"
@@ -114,7 +114,7 @@ feature 'Pages' do
       select page2.name_for_selects, from: "Página padre"
       fill_in "Título", with: ""
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
     end
@@ -134,7 +134,7 @@ feature 'Pages' do
 
       fill_in "Enlace externo", with: "http://example.net"
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Se ha añadido una nueva página correctamente."
       expect(page).to have_content "Título nivel 4"
@@ -146,7 +146,7 @@ feature 'Pages' do
       select page3.name_for_selects, from: "Página padre"
       fill_in "Título", with: "Titulo nivel 4"
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Hubo un error al guardar la página, revise el formulario."
     end
@@ -174,7 +174,7 @@ feature 'Pages' do
 
       fill_in "Título", with: "Título actualizado"
 
-      click_on "Guardar"
+      submit_form
 
       expect(page).to have_content "Se ha modificado la página correctamente."
       expect(page).to have_content "Título actualizado"
