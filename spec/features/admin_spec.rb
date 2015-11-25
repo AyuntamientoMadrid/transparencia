@@ -4,7 +4,7 @@ feature 'Admin' do
   scenario 'Unregistered user gets a login screen' do
     visit admin_root_path
 
-    expect(page).to have_content "Necesitas iniciar sesión"
+    expect(page).to have_content "You need to sign in or sign up before continuing"
     expect(current_path).to eq(new_administrator_session_path)
   end
 
@@ -13,7 +13,7 @@ feature 'Admin' do
 
     visit admin_root_path
 
-    expect(page).to have_content "Necesitas iniciar sesión"
+    expect(page).to have_content "You need to sign in or sign up before continuing"
     expect(current_path).to eq(new_administrator_session_path)
 
     fill_in(:administrator_email, with: admin.email)
@@ -21,7 +21,7 @@ feature 'Admin' do
 
     submit_form
 
-    expect(page).to have_content "Has iniciado sesión correctamente"
+    expect(page).to have_content "Signed in successfully"
 
     expect(current_path).to eq(admin_root_path)
   end
@@ -31,7 +31,7 @@ feature 'Admin' do
     login_as admin
 
     visit admin_root_path
-    expect(page).to_not have_content "Necesitas iniciar sesión"
+    expect(page).to_not have_content "You need to sign in or sign up before continuing"
     expect(current_path).to eq(admin_root_path)
   end
 end

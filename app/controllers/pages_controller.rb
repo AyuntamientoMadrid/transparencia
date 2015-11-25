@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     if @page.has_children?
       @pages_path = @page.path
       @pages_path << @page.children.first if @page.depth <=1
-      render :index 
+      render :index
     end
   end
 
@@ -23,18 +23,18 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
     if @page.save
-      redirect_to page_path(@page.depth < 3 ? @page : @page.parent ), notice: "Se ha añadido una nueva página correctamente."
+      redirect_to page_path(@page.depth < 3 ? @page : @page.parent ), notice: t('pages.create_success')
     else
-      flash.now[:alert] = "Hubo un error al guardar la página, revise el formulario."
+      flash.now[:alert] = I18n.t('pages.update_error')
       render :new
     end
   end
 
   def update
     if @page.update(page_params)
-      redirect_to page_path(@page), notice: "Se ha modificado la página correctamente."
+      redirect_to page_path(@page), notice: I18n.t('pages.update_success')
     else
-      flash.now[:alert] = "Hubo un error a guardar la página. Revise el formulario."
+      flash.now[:alert] = I18n.t('pages.update_error')
       render :edit
     end
   end

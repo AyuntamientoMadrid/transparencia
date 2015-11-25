@@ -1,6 +1,6 @@
 <%= form_for @objective do |f| %>
-  <%= f.text_field :title, label: "Título" %>
-  <%= f.trix_editor :description, label: "Description" %>
-  <%= f.check_box :accomplished, label: "Cumplido" %>
-  <%= f.submit "Actualizar", class: "button radius success" %>
+  <%= f.text_field :title %>
+  <%= f.trix_editor :description %>
+  <%= f.check_box :accomplished %>
+  <%= f.submit t('shared.update'), class: "button radius success" %>
 <% end %>

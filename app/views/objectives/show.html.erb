@@ -5,21 +5,13 @@
 </nav>
 
 <div class="objectives small-12 medium-9 column">
-  <%= link_to "Editar", edit_objective_path(@objective), class: 'button radius small right' %>
+  <%= link_to t('shared.edit'), edit_objective_path(@objective), class: 'button radius small right' %>
   <h1><%= @objective.title %></h1>
   <h2><%= @objective.department.name %></h2>
   <h3><%= @objective.department.area.name %></h3>
   <hr>
   <div class="alert-box radius <%= @objective.accomplished? ? "success" : "info" %>">
-    <%= @objective.accomplished? ?
-      "Este objetivo ha sido cumplido." :
-      "Este objetivo está pendiente de cumplir."
-    %>
+    <%= @objective.accomplished? ? t('objectives.accomplished') : t('objectives.pending') %>
   </div>
   <p><%= @objective.description.html_safe %></p>
-</div>
-
-<div class="sidebar small-12 medium-3 columns">
-  <h2>¿Cuándo se ha cumplido un objetivo?</h2>
-  <p>Aquí una breve explicación de cuando consideramos que un objetivo ha sido cumplido.</p>
 </div>

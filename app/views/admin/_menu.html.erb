@@ -1,20 +1,20 @@
 <nav class="admin-sidebar">
   <ul id="admin_menu">
     <li>
-      <%= link_to 'Administración', admin_root_path %>
+      <%= link_to t('admin.menu.title'), admin_root_path %>
     </li>
 
     <li <%= "class=active" if controller_name == "stats" %>>
       <%= link_to admin_stats_path do %>
         <i class="icon-stats"></i>
-        Estadísticas
+        <%= t('admin.menu.stats') %>
       <% end %>
     </li>
 
     <li>
       <%= link_to destroy_administrator_session_path, method: 'delete' do %>
         <i class="icon-x"></i>
-        Cerrar sesión
+        <%= t('admin.menu.close_session') %>
       <% end %>
     </li>
   </ul>
