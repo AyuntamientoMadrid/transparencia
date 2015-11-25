@@ -260,6 +260,7 @@ form label {
 
 .highlight {
   background: $highlight;
+  margin: rem-calc(24) 0;
   padding: rem-calc(12);
   padding-top: 0;
 }
@@ -442,6 +443,10 @@ header {
 
 .jumbo {
   background: #E7F2FC;
+
+  @media (min-width: $small-breakpoint) {
+    padding: rem-calc(48) 0;
+  }
 
   h1, p {
     color: #3D464D;
