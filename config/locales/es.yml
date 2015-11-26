@@ -74,11 +74,10 @@ es:
     youtube: "YouTube"
   people:
     title: "Concejales"
-    responsibility: "Responsabilidad actual"
     assets_declarations: "Declaración de bienes"
     activities_declarations: "Declaración de actividades"
-    biography: "Biografía"
     diary: "Agenda"
+    view_diary: "Ver agenda en madrid.es"
     contact:
       title: "Contacto"
       intro: "Envía un mensaje directo a %{person}."
@@ -121,7 +120,6 @@ es:
       municipality: "Municipio"
       share: "Participación"
       tax_value: "Valor catastral"
-      area: "Superficie"
       purchase_date: "Fecha adquisición"
     account_deposits:
       title: "2) Depósitos en cuenta"

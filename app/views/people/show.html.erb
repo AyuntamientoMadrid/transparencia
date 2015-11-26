@@ -32,22 +32,10 @@
     <h1 class="inline-block"><%= @person.name %></h1>
     <p class="role"><%= @person.role %></p>
 
-    <a name="responsibility" data-magellan-destination="responsibility"></a>
-    <h2 class="lead"><%= t("people.responsibility") %></h2>
-    <div class="margin-top">
-      <%= @person.functions.try(:html_safe) %>
-    </div>
-
-    <a name="biography" data-magellan-destination="biography"></a>
-    <h2 class="lead"><%= t("people.biography") %></h2>
-    <%= @person.biography.try(:html_safe) %>
-
     <%= render 'diary' %>
 
     <%= render 'assets_declarations' %>
 
     <%= render 'activities_declarations' %>
-
-    <%= render 'contact' %>
   </div>
 </section>

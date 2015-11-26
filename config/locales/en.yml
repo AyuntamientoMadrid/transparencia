@@ -74,11 +74,10 @@ en:
     youtube: "YouTube"
   people:
     title: "Councillors"
-    responsibility: "Current responsibilities"
     assets_declarations: "Assets declarations"
     activities_declarations: "Activities declarations"
-    biography: "Biography"
     diary: "Diary"
+    view_diary: "View Diary in madrid.es"
     contact:
       title: "Contact"
       intro: "Send a message to %{person}."
@@ -121,7 +120,6 @@ en:
       municipality: "Municipality"
       share: "Share"
       tax_value: "Tax Value"
-      area: "Area"
       purchase_date: "Purchase date"
     account_deposits:
       title: "2) Account deposits"
