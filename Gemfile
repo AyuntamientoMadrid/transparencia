@@ -25,6 +25,7 @@ gem 'ancestry'
 gem 'devise'
 gem 'ahoy_matey'
 gem 'groupdate'
+gem 'unicorn', '~> 5.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,6 +42,12 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'i18n-tasks'
   gem 'database_cleaner'
+
+  gem 'capistrano', '3.4.0',           require: false
+  gem "capistrano-bundler", '1.1.4',   require: false
+  gem "capistrano-rails", '1.1.5',     require: false
+  gem "capistrano-rvm",                require: false
+  gem 'capistrano3-delayed-job', '~> 1.0'
 end
 
 group :test do
