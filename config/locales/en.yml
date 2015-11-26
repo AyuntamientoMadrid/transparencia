@@ -77,6 +77,7 @@ en:
     assets_declarations: "Assets declarations"
     activities_declarations: "Activities declarations"
     diary: "Diary"
+    view_diary: "View Diary in madrid.es"
     contact:
       title: "Contact"
       intro: "Send a message to %{person}."
