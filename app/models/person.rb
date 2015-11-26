@@ -11,6 +11,10 @@ class Person < ActiveRecord::Base
   validates :email,  presence: true
   validates :role,   presence: true
 
+  def profile
+    read_attribute(:profile) || {}
+  end
+
   def studies
     parse_data_rows(profile, :studies)
   end
