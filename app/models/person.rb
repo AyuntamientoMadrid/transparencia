@@ -7,7 +7,6 @@ class Person < ActiveRecord::Base
 
   validates :name,   presence: true
   validates :email,  presence: true
-  validates :gender, presence: true
   validates :role,   presence: true
 
 end
