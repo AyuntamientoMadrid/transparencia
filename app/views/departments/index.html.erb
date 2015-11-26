@@ -10,13 +10,11 @@
   </li>
 </nav>
 
-<div class="browse-panes">
-  <div class="small-12 medium-3 column">
-    <%= render 'areas/menu' %>
-  </div>
+<div class="small-12 medium-3 column">
+  <%= render 'areas/menu' %>
+</div>
 
-  <div class="pane-second small-12 medium-6 column end">
-    <h2><%= @area.name %></h2>
-    <%= render 'departments/menu' %>
-  </div>
+<div class="pane small-12 medium-6 column end">
+  <h2><%= @area.name %></h2>
+  <%= render 'departments/menu' %>
 </div>

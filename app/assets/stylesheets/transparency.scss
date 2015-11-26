@@ -1,114 +1,59 @@
 // Contents
 //
 // 01. Browse panes
-// 02. Objectives
-// 03. People
+// 02. People
 //
 
 // 01. Browse panes
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.browse-panes {
+.menu ul {
+  list-style-type: none;
+  margin-left: 0;
 
-  .text {
+  li {
+    margin: 0 rem-calc(-15);
 
-    ol, ul, li, p {
-      font-size: rem-calc(14);
+    &:hover {
+      background: $highlight;
     }
-  }
 
-  .made i {
-    color: $check;
-  }
+    a {
+      display: block;
+      line-height: rem-calc(24);
+      padding: rem-calc(12) rem-calc(18);
+      position: relative;
 
-  .pending i {
-    color: $text-medium;
-  }
+      p {
+        color: $text;
+      }
 
-  .menu {
+      &.active {
+        background: $brand;
+        color: white;
 
-    ul {
-      margin-left: 0;
-
-      li {
-        font-size: rem-calc(14);
-        list-style-type: none;
-        margin: 0 rem-calc(-15);
-
-        &:hover {
-          background: #DEE0E2;
+        h3, p {
+          color: white;
         }
+      }
 
-        a {
-          display: block;
-          line-height: rem-calc(24);
-          padding: rem-calc(12) rem-calc(18);
-          position: relative;
-
-          &.active {
-            background: $brand;
-            color: white;
-
-            h3, p {
-              color: white;
-            }
-          }
-
-          &:after {
-            content: "c";
-            font-family: "icons" !important;
-            margin-top: -12px;
-            position: absolute;
-            top: 50%;
-            right: 0;
-          }
-
-          p {
-            color: $text;
-          }
-        }
+      &:after {
+        content: "c";
+        font-family: "icons" !important;
+        margin-top: rem-calc(-12)px;
+        position: absolute;
+        top: 50%;
+        right: 0;
       }
     }
   }
 }
 
-.pane-second, .pane-third {
+.pane {
   border-left: 1px solid $border;
 }
 
-.description {
-
-  &.small {
-    height: 60px;
-    overflow: hidden;
-  }
-
-  .show-more {
-    position:relative;
-    cursor: pointer;
-    border:1px solid transparent;
-    display: inline-block;
-    color:$link;
-    margin-top:5px;
-    padding: 5px;
-
-    &:hover {
-      border:1px solid $link;
-    }
-  }
-}
-
-// 02. Objectives
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-.objectives {
-
-  h3 {
-    color: $text-medium;
-  }
-}
-
-// 03. People
+// 02. People
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .people-list {
@@ -120,7 +65,7 @@
   }
 
   p {
-    color: #6F777B;
+    color: $text-medium;
     margin-top: 0;
   }
 }
@@ -145,9 +90,10 @@
 }
 
 .role {
-  color: #6F777B;
+  color: $text-medium;
   font-size: rem-calc(24);
-  margin: 0;
+  margin-bottom: rem-calc(70);
+  margin-top: 0;
 }
 
 .tabs.vertical {
@@ -169,42 +115,31 @@
   padding: 0;
 }
 
-.side-nav li a:not(.button) {
-  color: $link;
-  font-family: $font-sans;
-
-  &:hover {
-    color: $link-hover;
-  }
-}
-
 .side-nav li {
   font-size: $base-font-size;
 
   &:hover {
     background: #DEE0E2;
   }
-}
 
-.side-nav li.active {
-  background: $brand;
-  color: white;
+  a:not(.button) {
+    color: $link;
+    font-family: $font-sans;
 
-  & > a:first-child:not(.button), a {
+    &:hover, &:focus {
+      background: none;
+      color: $link-hover;
+    }
+  }
+
+  &.active {
     background: $brand;
     color: white;
-    font-family: $font-sans;
-  }
-}
 
-.side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
-  background: none;
-  color: $brand;
-}
-
-.people-card {
-
-  @media (min-width: $small-breakpoint) {
-    padding-bottom: rem-calc(288);
+    & > a:first-child:not(.button), a {
+      background: $brand;
+      color: white;
+      font-family: $font-sans;
+    }
   }
 }
