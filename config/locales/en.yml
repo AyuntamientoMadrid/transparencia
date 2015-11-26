@@ -15,9 +15,8 @@ en:
   index:
     title: "Welcome to the transparency portal"
     intro: "The best place to find information about the Madrid Town hall"
-    search_placeholder: "Search..."
-    search_submit: "Search"
-    featured: "Featured"
+    how_it_works: "How this site works?"
+    featured_title: "Opening the City Government"
     objectives: "Objectives"
     objectives_text: "Divided by the Areas which compose el Town hall."
     people: "Councillors"

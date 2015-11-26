@@ -15,8 +15,6 @@ es:
   index:
     title: "Bienvenidos al Portal de Transparencia"
     intro: "El mejor lugar para encontrar toda la información del Ayuntamiento de Madrid."
-    search_placeholder: "Buscar..."
-    search_submit: "Buscar"
     how_it_works: "¿Cómo funciona este Portal?"
     featured_title: "Abrimos tu Ayuntamiento"
     objectives: "Cumplimiento de programa"
