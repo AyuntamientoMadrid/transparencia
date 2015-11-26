@@ -26,6 +26,7 @@ set :use_sudo, false
 
 set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{log tmp public/system public/assets}
+set :symlinks, %w{log tmp public/system public/assets}
 
 set :keep_releases, 5
 
