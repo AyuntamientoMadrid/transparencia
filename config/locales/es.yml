@@ -119,7 +119,6 @@ es:
       municipality: "Municipio"
       share: "Participación"
       tax_value: "Valor catastral"
-      area: "Superficie"
       purchase_date: "Fecha adquisición"
     account_deposits:
       title: "2) Depósitos en cuenta"

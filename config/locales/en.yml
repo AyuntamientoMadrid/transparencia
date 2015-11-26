@@ -119,7 +119,6 @@ en:
       municipality: "Municipality"
       share: "Share"
       tax_value: "Tax Value"
-      area: "Area"
       purchase_date: "Purchase date"
     account_deposits:
       title: "2) Account deposits"

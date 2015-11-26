@@ -27,7 +27,6 @@
             <th scope="col"><%= t("assets_declarations.real_estate_properties.municipality") %></th>
             <th scope="col"><%= t("assets_declarations.real_estate_properties.share") %> (%)</th>
             <th scope="col"><%= t("assets_declarations.real_estate_properties.tax_value") %> (&euro;)</th>
-            <th scope="col"><%= t("assets_declarations.real_estate_properties.area") %> (m<sup>2</sup>)</th>
             <th scope="col" class="th-small"><%= t("assets_declarations.real_estate_properties.purchase_date") %></th>
           </tr>
         </thead>
@@ -40,7 +39,6 @@
               <td><%= property.municipality %></td>
               <td><%= property.share %></td>
               <td><%= property.tax_value %></td>
-              <td><%= property.area %></td>
               <td><%= format_date(property.purchase_date) %></td>
             </tr>
           <% end %>

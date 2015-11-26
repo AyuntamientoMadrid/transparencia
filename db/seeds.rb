@@ -22,7 +22,6 @@ AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,
     municipality: "Madrid",
     share: 100,
     tax_value: 1313,
-    area: 112,
     purchase_date: Date.new(1990,1,1),
   }],
   account_deposits: [{
