@@ -13,19 +13,10 @@ es:
       visits: "Visitas"
       all_events: "Todos los eventos"
   index:
-    title: "Bienvenidos al Portal de Transparencia"
-    intro: "El mejor lugar para encontrar toda la información del Ayuntamiento de Madrid."
-    how_it_works: "¿Cómo funciona este Portal?"
-    featured_title: "Abrimos tu Ayuntamiento"
-    objectives: "Cumplimiento de programa"
-    objectives_text: "Dividido por las Áreas de Gobierno que componen el Ayuntamiento."
-    people: "Perfil de los Concejales"
-    people_text: "Conoce a los 57 Concejales de la Corporación actual del pleno."
-    info: "Información Institucional"
-    info_text: "Toda la información de tu Ayuntamiento."
-    request: "Solicitud de información"
-    request_text: "Solicita información sobre tu Ayuntamiento."
-    request_button: "Solicitar información"
+    title: "Transparencia"
+    under_construction_1: "Estamos trabajando en el nuevo Portal de Transparencia del Ayuntamiento de Madrid, para que no quede ni una esquina del Ayuntamiento que no puedas ver."
+    under_construction_2: "Por ahora puedes visitar el portal que existía hasta ahora:"
+    visit_old_site: "Ir al Portal de Transparencia"
   layouts:
     header:
       participation: "Madrid Decide"
@@ -33,6 +24,7 @@ es:
       opendata: "Datos abiertos"
       logo: "Madrid"
       open_gov: "Gobierno abierto"
+      people: "Declaración de bienes de Concejales"
     footer:
       description: "Este portal usa %{software} que es %{open_source}. De Madrid, para el mundo entero."
       open_source: "software libre"

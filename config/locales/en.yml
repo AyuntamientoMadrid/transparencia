@@ -14,18 +14,9 @@ en:
       all_events: "All the events"
   index:
     title: "Welcome to the transparency portal"
-    intro: "The best place to find information about the Madrid Town hall"
-    how_it_works: "How this site works?"
-    featured_title: "Opening the City Government"
-    objectives: "Objectives"
-    objectives_text: "Divided by the Areas which compose el Town hall."
-    people: "Councillors"
-    people_text: "Meet the 57 current Coundillors."
-    info: "Information"
-    info_text: "All the information about your Town Hall."
-    request: "Request information"
-    request_text: "Make an Information Request to the Town Hall."
-    request_button: "Request information"
+    under_construction_1: "We are working on the new Transparency Portal Madrid City Council."
+    under_construction_2: "For now you can visit the portal that exists so far:"
+    visit_old_site: "Visit Transparency Portal"
   layouts:
     header:
       participation: "Participation"
@@ -33,6 +24,7 @@ en:
       opendata: "Opendata"
       logo: "Madrid"
       open_gov: "Open goverment"
+      people: "Councillors' assets declarations"
     footer:
       description: "This portal uses %{software}, is %{open_source}. Madrid, for the whole world."
       open_source: "software libre"

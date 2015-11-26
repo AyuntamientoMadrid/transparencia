@@ -294,6 +294,7 @@ cite, var, address, dfn {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 header {
+  border-bottom: rem-calc(1) solid $border;
 
   .external-links {
     float: none;
@@ -309,6 +310,10 @@ header {
       padding-bottom: rem-calc(2);
       position: relative;
     }
+  }
+
+  a {
+    font-family: $font-sans;
   }
 }
 
@@ -457,6 +462,61 @@ header {
 
   input[type="text"], input[type="submit"] {
     height: rem-calc(48);
+  }
+}
+
+.subnavigation {
+  background: white;
+  clear: both;
+
+  @media (min-width: $small-breakpoint) {
+    & > .column {
+      padding-left: 0;
+    }
+  }
+
+  a {
+    color: $text;
+    display: inline-block;
+    font-weight: bold;
+    line-height: $line-height*2;
+    position: relative;
+    text-align: left;
+
+    @media (min-width: $small-breakpoint) {
+      line-height: $line-height*3;
+      margin-left: rem-calc(12);
+      margin-right: rem-calc(36);
+      margin-right: 12px\9;
+    }
+
+    &:after {
+      color: $border;
+      content: "|";
+      padding: 0 rem-calc(12);
+
+      @media (min-width: $small-breakpoint) {
+        content: none;
+        padding: 0;
+      }
+    }
+
+    &:last-child:after {
+      content: none;
+    }
+
+    &:hover {
+      color: $link;
+    }
+
+    &.active {
+      color: $brand;
+
+      @media (min-width: $small-breakpoint) {
+        border-bottom: 2px solid $brand;
+        line-height: rem-calc(24);
+      }
+    }
   }
 }
 
