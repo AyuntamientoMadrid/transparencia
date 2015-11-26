@@ -74,10 +74,8 @@ es:
     youtube: "YouTube"
   people:
     title: "Concejales"
-    responsibility: "Responsabilidad actual"
     assets_declarations: "Declaración de bienes"
     activities_declarations: "Declaración de actividades"
-    biography: "Biografía"
     diary: "Agenda"
     contact:
       title: "Contacto"
