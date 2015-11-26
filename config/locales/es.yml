@@ -86,6 +86,49 @@ es:
       submit: "Envíar mensaje"
       success: "Mensaje enviado con éxito"
       error: "No se pudo enviar el mensaje"
+    studies:
+      title: "Titulaciones oficiales"
+      description: "Título"
+      entity: "Centro de expedición"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    courses:
+      title: "Cursos"
+      description: "Nombre"
+      entity: "Nombre del centro"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    languages:
+      title: "Idiomas"
+      name: "Nombre"
+      level: "Nivel"
+    public_jobs:
+      title: "Puestos en la administración"
+      description: "Puesto"
+      entity: "Administración"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    private_jobs:
+      title: "Actividades en el ámbito privado"
+      description: "Cargo/Actividad"
+      entity: "Empresa/ONG"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    political_posts:
+      title: "Cargos políticos"
+      description: "Puesto"
+      entity: "Nombre de la institución"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    publications: "Publicaciones"
+    special_mentions: "Distinciones"
+    activity: "Actividad"
+    other: "Otros"
+
+
+
+
+
   pages:
     title: "¿Qué buscas?"
     edit: "Editar contenido"
