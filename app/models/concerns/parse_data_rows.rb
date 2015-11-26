@@ -3,7 +3,7 @@ require 'ostruct'
 module ParseDataRows
 
   def parse_data_rows(data_hash, collection_name)
-    data_hash[collection_name.to_s].collect{ |row| parse_data_row(row) }
+    (data_hash[collection_name.to_s] || []).collect{ |row| parse_data_row(row) }
   end
 
   def parse_data_row(row)
