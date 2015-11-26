@@ -5,7 +5,6 @@ FactoryGirl.define do
   factory :person do
     sequence(:name) { |n| "person#{n}" }
     sequence(:email) { |n| "person#{n}@madrid.es" }
-    sequence(:gender) { "female" }
     sequence(:role) { "major" }
     biography { "biography" }
     party
