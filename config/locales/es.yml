@@ -15,7 +15,8 @@ es:
   index:
     title: "Transparencia"
     under_construction_1: "Estamos trabajando en el nuevo Portal de Transparencia del Ayuntamiento de Madrid, para que no quede ni una esquina del Ayuntamiento que no puedas ver."
-    under_construction_2: "Por ahora puedes visitar el portal que existía hasta ahora:"
+    under_construction_2: "Por ahora puedes ver la Declaración de bienes de los actuales Concejales o visitar el portal que ya existía."
+    visit_people: "Ver Declaración de bienes de los Concejales"
     visit_old_site: "Ir al Portal de Transparencia"
   layouts:
     header:
