@@ -46,5 +46,4 @@ set(:config_files, %w(
 namespace :deploy do
   after :finishing, 'deploy:cleanup'
   after 'deploy:publishing', 'deploy:restart'
-  after 'deploy:published', 'delayed_job:restart'
 end
