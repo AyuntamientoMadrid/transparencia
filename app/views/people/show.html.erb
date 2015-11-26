@@ -39,9 +39,7 @@
       <%= @person.functions.try(:html_safe) %>
     </div>
 
-    <a name="biography" data-magellan-destination="biography"></a>
-    <h2 class="lead"><%= t("people.biography") %></h2>
-    <%= @person.biography.try(:html_safe) %>
+    <%= render 'profile' %>
 
     <%= render 'diary' %>
 

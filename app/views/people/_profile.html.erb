@@ -1,0 +1,140 @@
+<a description="profile" data-magellan-destination="profile"></a>
+<h2 class="lead"><%= t("people.profile") %></h2>
+
+<table>
+  <caption><%= t("people.studies.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.studies.description") %></th>
+      <th scope="col"><%= t("people.studies.entity") %></th>
+      <th scope="col"><%= t("people.studies.start_year") %></th>
+      <th scope="col"><%= t("people.studies.end_year") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.studies.each do |study| %>
+      <tr>
+        <td><%= study.description %></td>
+        <td><%= study.entity %></td>
+        <td><%= study.start_year %></td>
+        <td><%= study.end_year %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan=4>
+        <%= @person.studies_comment %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption><%= t("people.courses.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.courses.description") %></th>
+      <th scope="col"><%= t("people.courses.entity") %></th>
+      <th scope="col"><%= t("people.courses.start_year") %></th>
+      <th scope="col"><%= t("people.courses.end_year") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.courses.each do |course| %>
+      <tr>
+        <td><%= course.description %></td>
+        <td><%= course.entity %></td>
+        <td><%= course.start_year %></td>
+        <td><%= course.end_year %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan=4>
+        <%= @person.courses_comment %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption><%= t("people.languages.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.languages.name") %></th>
+      <th scope="col"><%= t("people.languages.level") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.languages.each do |language| %>
+      <tr>
+        <td><%= language.name %></td>
+        <td><%= language.level %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <caption><%= t("people.public_jobs.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.public_jobs.description") %></th>
+      <th scope="col"><%= t("people.public_jobs.entity") %></th>
+      <th scope="col"><%= t("people.public_jobs.start_year") %></th>
+      <th scope="col"><%= t("people.public_jobs.end_year") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.public_jobs.each do |job| %>
+      <tr>
+        <td><%= job.description %></td>
+        <td><%= job.entity %></td>
+        <td><%= job.start_year %></td>
+        <td><%= job.end_year %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan=4>
+        <%= @person.public_jobs_comment %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption><%= t("people.political_posts.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.political_posts.description") %></th>
+      <th scope="col"><%= t("people.political_posts.entity") %></th>
+      <th scope="col"><%= t("people.political_posts.start_year") %></th>
+      <th scope="col"><%= t("people.political_posts.end_year") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.political_posts.each do |post| %>
+      <tr>
+        <td><%= post.description %></td>
+        <td><%= post.entity %></td>
+        <td><%= post.start_year %></td>
+        <td><%= post.end_year %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan=4>
+        <%= @person.political_posts_comment %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><%= t("people.publications") %></h3>
+<%= @person.publications %>
+
+<h3><%= t("people.special_mentions") %></h3>
+<%= @person.special_mentions %>
+
+<h3><%= t("people.activity") %></h3>
+<%= @person.activity %>
+
+<h3><%= t("people.other") %></h3>
+<%= @person.other %>
