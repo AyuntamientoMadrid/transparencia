@@ -58,6 +58,7 @@
 
 .people-list {
   margin-left: 0;
+  margin-top: rem-calc(24);
 
   li {
     display: inline-block;
@@ -83,9 +84,12 @@
 
 .people-photo {
   position: relative;
+}
 
-  img {
-    width: 100%;
+.fixed-left-sidebar {
+
+  .people-photo {
+    padding-left: rem-calc(12);
   }
 }
 
