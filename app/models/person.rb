@@ -39,6 +39,14 @@ class Person < ActiveRecord::Base
     profile['public_jobs_comment']
   end
 
+  def private_jobs
+    parse_data_rows(profile, :private_jobs)
+  end
+
+  def private_jobs_comment
+    profile['private_jobs_comment']
+  end
+
   def political_posts
     parse_data_rows(profile, :political_posts)
   end

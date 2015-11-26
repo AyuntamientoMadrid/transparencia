@@ -101,6 +101,33 @@
 </table>
 
 <table>
+  <caption><%= t("people.private_jobs.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.private_jobs.description") %></th>
+      <th scope="col"><%= t("people.private_jobs.entity") %></th>
+      <th scope="col"><%= t("people.private_jobs.start_year") %></th>
+      <th scope="col"><%= t("people.private_jobs.end_year") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.private_jobs.each do |job| %>
+      <tr>
+        <td><%= job.description %></td>
+        <td><%= job.entity %></td>
+        <td><%= job.start_year %></td>
+        <td><%= job.end_year %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan=4>
+        <%= @person.public_jobs_comment %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
   <caption><%= t("people.political_posts.title") %></caption>
   <thead>
     <tr>
