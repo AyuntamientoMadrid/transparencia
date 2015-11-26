@@ -9,23 +9,9 @@ Administrator.create!(email: 'admin@madrid.es', password: '12345678')
 Party.create!(name: "Ahora Madrid", logo: "logo_ahora_madrid.png")
 
 # People
-Person.create!(party: Party.first, email: 'person1@madrid.es', name: 'Manuela Carmena', gender: "female", role: "Alcaldesa", salary: 1000, biography: %{
-<p>Es magistrada y jueza. En 1965 se licenció en Derecho y poco después fundó el despacho laboralista de Atocha (Madrid), donde, en 1977, un atentado de la extrema derecha provocó la muerte de varios de sus compañeros y una gran consternación en toda España.</p>
-
-<p>Defensora de los obreros y detenidos durante la dictadura franquista, ha sido también vocal del Consejo General del Poder Judicial y delegada para el País Vasco, jueza decana de Madrid y jueza de Vigilancia Penitenciaria. Ha representado a España en el Grupo de Trabajo contra las Detenciones Arbitrarias de la ONU.</p>
-
-<p>En 2008 fue distinguida con el Premio Manuel de Irujo. En 2010 se jubiló y poco después se "desjubiló", desarrollando una importante labor en relación con las víctimas de abusos policiales, en la comisión dependiente de la Dirección de Derechos Humanos del Departamento de Justicia del Gobierno vasco. Ha sido también relatora de Naciones Unidas.</p>
-}, functions: %{
-<ul>
-  <li>Concejal de Ahora Madrid</li>
-  <li>Miembro de la Junta de Gobierno</li>
-  <li>Delegado del Área de Participación Ciudadana, Transparencia y Gobierno Abierto</li>
-  <li>Miembro de la Comisión Permanente Especial de Sugerencias y Reclamaciones</li>
-  <li>Miembro de la Comisión Permanente Ordinaria de Participación Ciudadana, Transparencia y Gobierno Abierto</li>
-</ul>
-})
-Person.create!(party: Party.first, email: 'person2@madrid.es', name: 'Pablo Soto', gender: "male", role: "Concejal", salary: 1000)
-Person.create!(party: Party.first, email: 'person3@madrid.es', name: 'Pablo Soto 2', gender: "male", role: "Concejal", salary: 1000)
+Person.create!(party: Party.first, email: 'person1@madrid.es', name: 'Manuela Carmena', role: "Alcaldesa")
+Person.create!(party: Party.first, email: 'person2@madrid.es', name: 'Pablo Soto', role: "Concejal")
+Person.create!(party: Party.first, email: 'person3@madrid.es', name: 'Pablo Soto 2', role: "Concejal")
 
 # Asset declarations
 AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,1,1), data: {
