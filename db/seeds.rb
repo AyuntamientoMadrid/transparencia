@@ -17,31 +17,32 @@ Person.create!(party: Party.first, email: 'person1@madrid.es',
                facebook: "https://www.facebook.com/manuela.carmena.castrillo",
                profile: {
   studies: [{
-    title: "Master", entity: "Universidad de YYY", start_year: 1990, end_year: 1990
+    description: "Master", entity: "Universidad de YYY", start_year: 1990, end_year: 1990
   }],
   studies_comment: "Lorem ipsum dolor sit amet",
 
   courses: [{
-    title: "Curso 1", entity: "Universidad de YYY", start_year: 1995, end_year: 1996
+    description: "Curso 1", entity: "Universidad de YYY", start_year: 1995, end_year: 1996
   }],
   courses_comment: "Lorem ipsum dolor sit amet",
 
-  languages: [
-    english: "Alto"
-  ],
+  languages: [{
+    name: "Inglés",
+    level: "Alto"
+  }],
 
   public_jobs: [{
-    title: "Trabajo 1", entity: "local", start_year: 2000, end_year: 2000
+    description: "Trabajo 1", entity: "local", start_year: 2000, end_year: 2000
   }],
   public_jobs_comment: "Lorem ipsum dolor sit amet",
 
   private_jobs: [{
-    title: "Trabajo 1", entity: "Compañía 1", start_year: 2000, end_year: 2000
+    description: "Trabajo 1", entity: "Compañía 1", start_year: 2000, end_year: 2000
   }],
   private_jobs_comment: "Lorem ipsum dolor sit amet",
 
   political_posts: [{
-    title: "Coordinadora de área", entity: "Partido A", start_year: 2000, end_year: 2000
+    description: "Coordinadora de área", entity: "Partido A", start_year: 2000, end_year: 2000
   }],
   political_posts_comment: "Lorem ipsum dolor sit amet",
 
