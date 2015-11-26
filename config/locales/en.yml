@@ -15,7 +15,8 @@ en:
   index:
     title: "Welcome to the transparency portal"
     under_construction_1: "We are working on the new Transparency Portal Madrid City Council."
-    under_construction_2: "For now you can visit the portal that exists so far:"
+    under_construction_2: "For now you can see Councillors' assets declarations or visit the portal that exists so far."
+    visit_people: "See Councillors' assets declarations"
     visit_old_site: "Visit Transparency Portal"
   layouts:
     header:

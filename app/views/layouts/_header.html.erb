@@ -32,8 +32,7 @@
       <ul class="title-area">
         <li class="name">
           <%= link_to root_path do %>
-            <%= image_tag('header_logo_madrid.png', size: '80x80', alt: t("layouts.header.logo")) %>
-            <%= t("layouts.header.open_gov") %> | <%= t("layouts.header.transparency") %>
+            <%= image_tag('header_logo_madrid.png', size: '80x80', alt: t("layouts.header.logo")) %><%= t("layouts.header.open_gov") %> | <%= t("layouts.header.transparency") %>
           <% end %>
         </li>
       </ul>
@@ -42,8 +41,8 @@
 
   <div class="subnavigation">
     <div class="row">
-      <div class="small-12 column">
-        <%= link_to t("layouts.header.people"), people_path %>
+      <div class="small-12">
+        <%= link_to t("layouts.header.people"), people_path, class: ("active" if current_page?(people_path)) %>
       </div>
     </div>
   </div>

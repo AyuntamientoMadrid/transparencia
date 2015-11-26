@@ -450,7 +450,7 @@ header {
   background: #E7F2FC;
 
   @media (min-width: $small-breakpoint) {
-    padding: rem-calc(48) 0;
+    padding: rem-calc(24) 0;
   }
 
   h1, p {
@@ -470,6 +470,7 @@ header {
   clear: both;
 
   @media (min-width: $small-breakpoint) {
+
     & > .column {
       padding-left: 0;
     }
@@ -484,7 +485,6 @@ header {
     text-align: left;
 
     @media (min-width: $small-breakpoint) {
-      line-height: $line-height*3;
       margin-left: rem-calc(12);
       margin-right: rem-calc(36);
       margin-right: 12px\9;
@@ -514,7 +514,6 @@ header {
 
       @media (min-width: $small-breakpoint) {
         border-bottom: 2px solid $brand;
-        line-height: rem-calc(24);
       }
     }
   }
