@@ -119,7 +119,7 @@
           <% declaration.other_personal_properties.each do |property| %>
             <tr>
               <td><%= property.kind %></td>
-              <td><%= l(property.purchase_date) %></td>
+              <td><%= format_date(property.purchase_date) %></td>
             </tr>
           <% end %>
         </tbody>

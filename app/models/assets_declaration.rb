@@ -62,6 +62,12 @@ class AssetsDeclaration < ActiveRecord::Base
     self.data['vehicles'] << {'kind' => kind, 'model' => model, 'purchase_date' => purchase_date}
   end
 
+  def add_other_personal_property(kind, purchase_date)
+    self.data ||= {}
+    self.data['other_personal_properties'] ||= []
+    self.data['other_personal_properties'] << {'kind' => kind, 'purchase_date' => purchase_date}
+  end
+
   def has_real_estate_property?(kind, type, description, municipality, share, purchase_date, tax_value)
     real_estate_properties.any? do |p|
       p.kind == kind &&
@@ -95,6 +101,13 @@ class AssetsDeclaration < ActiveRecord::Base
       vehicle.kind == kind &&
       vehicle.model == model &&
       vehicle.purchase_date == purchase_date
+    end
+  end
+
+  def has_other_personal_property?(kind, purchase_date)
+    other_personal_properties.any? do |property|
+      property.kind == kind &&
+      property.purchase_date == purchase_date
     end
   end
 
