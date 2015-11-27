@@ -1,4 +1,6 @@
 class Person < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   belongs_to :party
 
@@ -8,5 +10,4 @@ class Person < ActiveRecord::Base
   validates :name,   presence: true
   validates :email,  presence: true
   validates :role,   presence: true
-
 end

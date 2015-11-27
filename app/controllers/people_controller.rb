@@ -7,7 +7,6 @@ class PeopleController < ApplicationController
   end
 
   def show
-
     @contact = Contact.new(person: @person)
   end
 
@@ -30,7 +29,7 @@ class PeopleController < ApplicationController
     end
 
     def load_person_and_declarations
-      @person = Person.find(params[:id])
+      @person = Person.friendly.find(params[:id])
       @assets_declarations = @person.assets_declarations.order(:declaration_date)
       @activities_declarations = @person.activities_declarations.order(:declaration_date)
     end
