@@ -4,8 +4,8 @@ class Person < ActiveRecord::Base
 
   belongs_to :party
 
-  has_many :assets_declarations
-  has_many :activities_declarations
+  has_many :assets_declarations, dependent: :destroy
+  has_many :activities_declarations, dependent: :destroy
 
   validates :name,   presence: true
   validates :email,  presence: true

@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20151127194619) do
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.string "logo"
+    t.string "long_name"
   end
 
   create_table "people", force: :cascade do |t|
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(version: 20151127194619) do
     t.text    "biography"
     t.text    "functions"
     t.string  "diary"
+    t.integer "internal_code"
     t.string  "slug"
   end
 

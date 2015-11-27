@@ -66,17 +66,17 @@
       </table>
 
       <table>
-        <caption><%= t("assets_declarations.other_assets.title") %></caption>
+        <caption><%= t("assets_declarations.other_deposits.title") %></caption>
         <thead>
           <tr>
-            <th scope="col" class="th-big"><%= t('assets_declarations.other_assets.kind') %></th>
-            <th scope="col" class="th-small"><%= t('assets_declarations.other_assets.description') %></th>
-            <th scope="col"><%= t('assets_declarations.other_assets.amount') %></th>
-            <th scope="col" class="th-small"><%= t('assets_declarations.other_assets.purchase_date') %></th>
+            <th scope="col" class="th-big"><%= t('assets_declarations.other_deposits.kind') %></th>
+            <th scope="col" class="th-small"><%= t('assets_declarations.other_deposits.description') %></th>
+            <th scope="col"><%= t('assets_declarations.other_deposits.amount') %></th>
+            <th scope="col" class="th-small"><%= t('assets_declarations.other_deposits.purchase_date') %></th>
           </tr>
         </thead>
         <tbody>
-          <% declaration.other_assets.each do |asset| %>
+          <% declaration.other_deposits.each do |asset| %>
             <tr>
               <td><%= asset.kind %></td>
               <td><%= asset.description %></td>
@@ -119,7 +119,7 @@
           <% declaration.other_personal_properties.each do |property| %>
             <tr>
               <td><%= property.kind %></td>
-              <td><%= l(property.purchase_date) %></td>
+              <td><%= format_date(property.purchase_date) %></td>
             </tr>
           <% end %>
         </tbody>
