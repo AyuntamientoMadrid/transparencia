@@ -44,7 +44,21 @@ module Importers
     def parse_amount(str)
       return nil if str.blank?
       # Remove everything except numbers, comma, and dot
-      str.gsub(/[^0-9,\.]/, '')
+      str = str.gsub(/[^0-9,\.]/, '')
+
+      divider = calculate_decimal_places_divider(str)
+
+      amount = str.gsub(/[,\.]/, '').to_f
+
+      amount / divider
     end
+
+    private
+
+      def calculate_decimal_places_divider(str)
+        return 100 if str[-3] == '.' || str[-3] == ','
+        return 10  if str[-2] == '.' || str[-2] == ','
+        return 1
+      end
   end
 end
