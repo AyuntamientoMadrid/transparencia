@@ -3,10 +3,17 @@
   <div class="row-full jumbo">
     <div class="row">
       <div class="intro">
-        <div class="small-12 column text-center">
+        <div class="small-12 medium-8 column">
           <h1><%= t("index.title") %></h1>
-          <p><%= t("index.intro") %></p>
-          <%= link_to t("index.how_it_works"), "#", class: "button radius" %>
+          <p><%= t("index.under_construction_1") %></p>
+          <p><%= t("index.under_construction_2") %></p>
+          <%= link_to t("index.visit_people"), people_path, class: "button radius" %>
+          <p>
+          <%= link_to "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia?vgnextfmt=default&vgnextchannel=20fd850769797310VgnVCM2000000c205a0aRCRD" do %>
+            <%= t("index.visit_old_site") %>
+            <i class="icon-external"></i>
+          <% end %>
+          </p>
         </div>
       </div>
     </div>
@@ -14,39 +21,6 @@
 
 <% end  %>
 
-<div class="areas margin-top">
-
-  <div class="small-12 column text-center">
-    <h2><%= t("index.featured_title") %></h2>
-  </div>
-
-  <div class="small-12 medium-4 column text-center">
-    <%= link_to pages_path do %>
-      <%= image_tag ('icon_information.png'), size: '100x100' %>
-      <h3><%= t("index.info") %></h3>
-    <% end %>
-    <p><%= t("index.info_text") %></p>
-  </div>
-
-  <div class="small-12 medium-4 column text-center">
-    <%= link_to people_path do %>
-      <%= image_tag ('icon_people.png'), size: '100x100' %>
-      <h3><%= t("index.people") %></h3>
-    <% end %>
-    <p><%= t("index.people_text") %></p>
-  </div>
-
-  <div class="small-12 medium-4 column text-center">
-    <%= link_to areas_path do %>
-      <%= image_tag ('icon_objectives.png'), size: '100x100' %>
-      <h3><%= t("index.objectives") %></h3>
-    <% end %>
-    <p><%= t("index.objectives_text") %></p>
-  </div>
-</div>
-
-<div class="small-12 text-center column highlight">
-  <h2><%= t("index.request") %></h2>
-  <p><%= t("index.request_text") %></p>
-  <%= link_to t("index.request_button"), "#", class: "button radius" %>
+<div class="alert-box info radius small-12 column margin-top">
+  <p>Mientras acabamos el nuevo portal, te invitamos a visitar el <a href="https://decide.madrid.es/blog" target="_blank">blog del Área de Participación Ciudadana, Transparencia y Gobierno Abierto</a> para conocer nuestros avances y novedades; o la <a href="https://decide.madrid.es/">sección de Participación Ciudadana</a> donde poder decidir qué ciudad es la que quieres.</p>
 </div>
