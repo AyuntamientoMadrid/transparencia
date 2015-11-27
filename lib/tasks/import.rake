@@ -89,5 +89,11 @@ namespace :import do
     task other: 'import:activities:declarations' do
       Importers::Activities::OtherImporter.new('./import-data/activities/other_activities.csv').import!
     end
+
+    desc "Imports all the information about activities_declarations"
+    task all: ['import:activities:declarations',
+               'import:activities:public',
+               'import:activities:private',
+               'import:activities:other']
   end
 end
