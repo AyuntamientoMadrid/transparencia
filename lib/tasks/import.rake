@@ -11,22 +11,22 @@ namespace :import do
   end
 
   desc "Imports import-data/people.csv into the people table"
-  task people: :environment do
+  task people: 'import:parties' do
     Importers::PeopleImporter.new('./import-data/people.csv').import!
   end
 
   desc "Imports import-data/assets/assets_declarations.csv into assets_declarations table"
-  task assets_declarations: :environment do
+  task assets_declarations: 'import:people' do
     Importers::AssetsDeclarationsImporter.new('./import-data/assets/assets_declarations.csv').import!
   end
 
   desc "Imports import-data/assets/account_deposits.csv into the assets_declaration table"
-  task account_deposits: :environment do
+  task account_deposits: 'import:assets_declarations' do
     Importers::AccountDepositsImporter.new('./import-data/assets/account_deposits.csv').import!
   end
 
   desc "Imports import-data/assets/real_estate_properties.csv into the assets_declaration table"
-  task real_estate_properties: :environment do
+  task real_estate_properties: 'import:assets_declarations' do
     Importers::RealEstatePropertiesImporter.new('./import-data/assets/real_estate_properties.csv').import!
   end
 end

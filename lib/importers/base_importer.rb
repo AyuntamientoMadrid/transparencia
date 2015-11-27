@@ -29,13 +29,19 @@ module Importers
     end
 
     def parse_spanish_date(str)
-      return nil unless str
+      return nil if str.blank?
       day, month, year = str.split('/')
       begin
         Date.new(year.to_i, month.to_i, day.to_i)
       rescue ArgumentError # dates with day and month flipped
         Date.new(year.to_i, day.to_i, month.to_i)
       end
+    end
+
+    def parse_amount(str)
+      return nil if str.blank?
+      # Remove everything except numbers, comma, and dot
+      str.gsub(/[^0-9,\.]/, '')
     end
   end
 end
