@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127110230) do
+ActiveRecord::Schema.define(version: 20151127194619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,7 +106,10 @@ ActiveRecord::Schema.define(version: 20151127110230) do
     t.text    "functions"
     t.string  "diary"
     t.integer "internal_code"
+    t.string  "slug"
   end
+
+  add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree
 
   create_table "visits", id: :uuid, default: nil, force: :cascade do |t|
     t.uuid     "visitor_id"
