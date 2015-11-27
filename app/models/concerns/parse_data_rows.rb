@@ -3,7 +3,9 @@ require 'ostruct'
 module ParseDataRows
 
   def parse_data_rows(collection_name)
-    self.data[collection_name].collect{ |row| parse_data_row(row) }
+    data = self.data|| {}
+    col = data[collection_name] || []
+    col.collect{ |row| parse_data_row(row) }
   end
 
   def parse_data_row(row)
