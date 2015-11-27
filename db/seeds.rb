@@ -29,7 +29,7 @@ AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,
     banking_entity: "BBVA",
     balance: 234566
   }],
-  other_assets: [{
+  other_deposits: [{
     kind: "Acciones y participaciones",
     description: "Bonos del estado",
     amount: 3000,
@@ -54,7 +54,7 @@ AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,
 AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2014,1,1), data: {
   real_estate_properties: [],
   account_deposits: [],
-  other_assets: [],
+  other_deposits: [],
   vehicles: [],
   other_personal_properties: [],
   debts: []

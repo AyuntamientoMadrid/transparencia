@@ -119,7 +119,7 @@ es:
       kind: "Clase"
       entity: "Entidad de depósito"
       balance: "Saldo medio anual o valor en euros"
-    other_assets:
+    other_deposits:
       title: "3) Otros depósitos en cuenta"
       kind: "Clase"
       description: "Descripción"

@@ -14,8 +14,8 @@ class AssetsDeclaration < ActiveRecord::Base
     parse_data_rows('account_deposits')
   end
 
-  def other_assets
-    parse_data_rows('other_assets')
+  def other_deposits
+    parse_data_rows('other_deposits')
   end
 
   def vehicles

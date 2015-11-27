@@ -119,7 +119,7 @@ en:
       kind: "Class"
       entity: "Entity"
       balance: "Average annual balance or value in euros"
-    other_assets:
+    other_deposits:
       title: "3) Other account deposits"
       kind: "Class"
       description: "Description"
