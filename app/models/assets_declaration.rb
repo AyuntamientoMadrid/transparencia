@@ -30,4 +30,18 @@ class AssetsDeclaration < ActiveRecord::Base
     parse_data_rows('debts')
   end
 
+  def add_account_deposit(kind, banking_entity, balance)
+    self.data ||= {}
+    self.data['account_deposits'] ||= []
+    self.data['account_deposits'] << {'kind' => kind, 'banking_entity' => banking_entity, 'balance' => balance }
+  end
+
+  def has_account_deposit?(kind, banking_entity, balance)
+    account_deposits.any? do |deposit|
+      deposit.kind == kind &&
+      deposit.banking_entity == banking_entity &&
+      deposit.balance == balance
+    end
+  end
+
 end

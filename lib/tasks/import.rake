@@ -19,4 +19,8 @@ namespace :import do
     Importers::AssetsDeclarationsImporter.new('./import-data/assets/assets_declarations.csv').import!
   end
 
+  desc "Imports import-data/assets/account_deposits.csv into the assets_declaration table"
+  task account_deposits: :environment do
+    Importers::AccountDepositsImporter.new('./import-data/assets/account_deposits.csv').import!
+  end
 end
