@@ -18,4 +18,24 @@ class ActivitiesDeclaration < ActiveRecord::Base
     parse_data_rows('other_activities')
   end
 
+  def has_public_activity?(entity, position, start_date, end_date)
+    public_activities.any? do |activity|
+      activity.entity == entity &&
+      activity.position == position &&
+      activity.start_date == start_date &&
+      activity.end_date == end_date
+    end
+  end
+
+  def add_public_activity(entity, position, start_date, end_date)
+    self.data ||= {}
+    self.data['public_activities'] ||= []
+    self.data['public_activities'] << {
+      'entity' => entity,
+      'position' => position,
+      'start_date' => start_date,
+      'end_date' => end_date
+    }
+  end
+
 end
