@@ -36,6 +36,20 @@ class AssetsDeclaration < ActiveRecord::Base
     self.data['account_deposits'] << {'kind' => kind, 'banking_entity' => banking_entity, 'balance' => balance }
   end
 
+  def add_real_estate_property(kind, type, description, municipality, share, purchase_date, tax_value)
+    self.data ||= {}
+    self.data['real_estate_properties'] ||= []
+    self.data['real_estate_properties'] << {
+      'kind' => kind,
+      'type' => type,
+      'description' => description,
+      'municipality' => municipality,
+      'share' => share,
+      'purchase_date' => purchase_date,
+      'tax_value' => tax_value
+    }
+  end
+
   def has_account_deposit?(kind, banking_entity, balance)
     account_deposits.any? do |deposit|
       deposit.kind == kind &&
@@ -44,4 +58,14 @@ class AssetsDeclaration < ActiveRecord::Base
     end
   end
 
+  def has_real_estate_property?(kind, type, description, municipality, share, purchase_date, tax_value)
+    real_estate_properties.any? do |p|
+      p.kind == kind &&
+      p.type == type &&
+      p.municipality == p.municipality &&
+      p.share == share &&
+      p.purchase_date == purchase_date &&
+      p.tax_value == tax_value
+    end
+  end
 end

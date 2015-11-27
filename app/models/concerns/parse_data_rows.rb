@@ -12,7 +12,7 @@ module ParseDataRows
     row = row.dup
     row.each do |key, value|
       if key.end_with?('_date') then
-        row[key] = Date.parse(value)
+        row[key] = value ? Date.parse(value) : nil
       end
     end
     OpenStruct.new(row)

@@ -2,6 +2,7 @@ require 'importers/people_importer'
 require 'importers/parties_importer'
 require 'importers/account_deposits_importer'
 require 'importers/assets_declarations_importer'
+require 'importers/real_estate_properties_importer'
 
 namespace :import do
   desc "Imports import-data/parties.csv into the parties table"
@@ -22,5 +23,10 @@ namespace :import do
   desc "Imports import-data/assets/account_deposits.csv into the assets_declaration table"
   task account_deposits: :environment do
     Importers::AccountDepositsImporter.new('./import-data/assets/account_deposits.csv').import!
+  end
+
+  desc "Imports import-data/assets/real_estate_properties.csv into the assets_declaration table"
+  task real_estate_properties: :environment do
+    Importers::RealEstatePropertiesImporter.new('./import-data/assets/real_estate_properties.csv').import!
   end
 end
