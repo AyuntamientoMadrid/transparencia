@@ -30,12 +30,6 @@ class AssetsDeclaration < ActiveRecord::Base
     parse_data_rows('debts')
   end
 
-  def add_account_deposit(kind, banking_entity, balance)
-    self.data ||= {}
-    self.data['account_deposits'] ||= []
-    self.data['account_deposits'] << {'kind' => kind, 'banking_entity' => banking_entity, 'balance' => balance }
-  end
-
   def add_real_estate_property(kind, type, description, municipality, share, purchase_date, tax_value)
     self.data ||= {}
     self.data['real_estate_properties'] ||= []
@@ -50,12 +44,16 @@ class AssetsDeclaration < ActiveRecord::Base
     }
   end
 
-  def has_account_deposit?(kind, banking_entity, balance)
-    account_deposits.any? do |deposit|
-      deposit.kind == kind &&
-      deposit.banking_entity == banking_entity &&
-      deposit.balance == balance
-    end
+  def add_account_deposit(kind, banking_entity, balance)
+    self.data ||= {}
+    self.data['account_deposits'] ||= []
+    self.data['account_deposits'] << {'kind' => kind, 'banking_entity' => banking_entity, 'balance' => balance }
+  end
+
+  def add_other_deposit(kind, description, amount, purchase_date)
+    self.data ||= {}
+    self.data['other_deposits'] ||= []
+    self.data['other_deposits'] << {'kind' => kind, 'description' => description, 'amount' => amount, 'purchase_date' => purchase_date }
   end
 
   def has_real_estate_property?(kind, type, description, municipality, share, purchase_date, tax_value)
@@ -68,4 +66,22 @@ class AssetsDeclaration < ActiveRecord::Base
       p.tax_value == tax_value
     end
   end
+
+  def has_account_deposit?(kind, banking_entity, balance)
+    account_deposits.any? do |deposit|
+      deposit.kind == kind &&
+      deposit.banking_entity == banking_entity &&
+      deposit.balance == balance
+    end
+  end
+
+  def has_other_deposit?(kind, description, amount, purchase_date)
+    other_deposits.any? do |deposit|
+      deposit.kind == kind &&
+      deposit.description == description &&
+      deposit.amount == amount &&
+      deposit.purchase_date == purchase_date
+    end
+  end
+
 end
