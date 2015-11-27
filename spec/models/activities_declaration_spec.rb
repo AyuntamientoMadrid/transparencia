@@ -17,6 +17,12 @@ describe ActivitiesDeclaration do
       expect(activity.entity).to eq('B')
       expect(activity.position).to eq('C')
     end
+
+    it 'should retrieve other_activities data from hstore' do
+      declaration = create(:activities_declaration, data: { other_activities: [{'description' => 'W' }]})
+      activity = declaration.other_activities.first
+      expect(activity.description).to eq('W')
+    end
   end
 
   describe 'Adding hstore data' do
@@ -42,6 +48,16 @@ describe ActivitiesDeclaration do
       expect(private_activity.position).to eq 'Position'
       expect(private_activity.start_date).to eq Date.parse('1/1/2016')
       expect(private_activity.end_date).to eq Date.parse('1/1/2017')
+    end
+
+    it 'adds other activities to data' do
+      declaration = create(:activities_declaration)
+      declaration.add_other_activity('Other things', '2/2/2016', '2/2/2017')
+
+      other_activity = declaration.other_activities.last
+      expect(other_activity.description).to eq 'Other things'
+      expect(other_activity.start_date).to eq Date.parse('2/2/2016')
+      expect(other_activity.end_date).to eq Date.parse('2/2/2017')
     end
   end
 

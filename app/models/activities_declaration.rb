@@ -38,6 +38,14 @@ class ActivitiesDeclaration < ActiveRecord::Base
     end
   end
 
+  def has_other_activity?(description, start_date, end_date)
+    other_activities.any? do |activity|
+      activity.description == description &&
+      activity.start_date == start_date &&
+      activity.end_date == end_date
+    end
+  end
+
   def add_public_activity(entity, position, start_date, end_date)
     self.data ||= {}
     self.data['public_activities'] ||= []
@@ -57,6 +65,16 @@ class ActivitiesDeclaration < ActiveRecord::Base
       'description' => description,
       'entity' => entity,
       'position' => position,
+      'start_date' => start_date,
+      'end_date' => end_date
+    }
+  end
+
+  def add_other_activity(description, start_date, end_date)
+    self.data ||= {}
+    self.data['other_activities'] ||= []
+    self.data['other_activities'] << {
+      'description' => description,
       'start_date' => start_date,
       'end_date' => end_date
     }
