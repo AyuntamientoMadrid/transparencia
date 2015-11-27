@@ -14,13 +14,13 @@
   <div class="small-12 medium-3 column">
     <div class="show-for-medium-up relative">
       <div data-magellan-expedition="fixed" class="fixed-left-sidebar">
-        <%= render 'menu' %>
+        <%= render 'menu', person: @person %>
       </div>
     </div>
 
     <div class="show-for-small">
       <div data-magellan-expedition>
-        <%= render 'menu' %>
+        <%= render 'menu', person: @person %>
       </div>
     </div>
   </div>
