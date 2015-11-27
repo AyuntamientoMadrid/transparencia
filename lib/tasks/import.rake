@@ -8,6 +8,7 @@ require 'importers/assets/vehicles_importer'
 require 'importers/assets/other_personal_properties_importer'
 require 'importers/assets/debts_importer'
 require 'importers/activities/declarations_importer'
+require 'importers/activities/public_importer'
 
 namespace :import do
   desc "Imports import-data/parties.csv into the parties table"
@@ -67,9 +68,14 @@ namespace :import do
   end
 
   namespace :activities do
-    desc "Imports import-data/assets/assets_declarations.csv into assets_declarations table"
+    desc "Imports import-data/activities/activities_declarations.csv into activities_declarations table"
     task declarations: 'import:people' do
       Importers::Activities::DeclarationsImporter.new('./import-data/activities/activities_declarations.csv').import!
+    end
+
+    desc "Imports import-data/assets/real_estate_properties.csv into the assets_declaration table"
+    task public: 'import:activities:declarations' do
+      Importers::Activities::PublicImporter.new('./import-data/activities/public_activities.csv').import!
     end
   end
 end
