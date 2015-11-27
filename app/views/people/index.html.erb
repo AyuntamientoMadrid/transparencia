@@ -14,11 +14,15 @@
     <ul class="people-list">
       <% @people.each do |person| %>
         <li>
-          <div class="people-photo">
-            <%= image_tag "people_example.jpg" %>
-            <span class="people-affiliation"><%= person.party.name %></span>
-          </div>
-          <h3><%= link_to person.name, person %></h3>
+          <%= link_to person do %>
+            <div class="people-photo">
+              <figure>
+                <%= image_tag "people_example.jpg" %>
+                <span class="people-affiliation"><%= person.party.name %></span>
+              </figure>
+            </div>
+            <h3><%= person.name %></h3>
+          <% end %>
           <p><%= person.role %></p>
         </li>
       <% end %>

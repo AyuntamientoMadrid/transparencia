@@ -56,13 +56,21 @@
 // 02. People
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+.people-card .column {
+  padding-bottom: rem-calc(96);
+}
+
 .people-list {
   margin-left: 0;
   margin-top: rem-calc(24);
 
   li {
     display: inline-block;
-    margin-right: rem-calc(24);
+    vertical-align: top;
+
+    @media (min-width: $small-breakpoint) {
+      width: 24%;
+    }
   }
 
   p {
@@ -83,7 +91,11 @@
 }
 
 .people-photo {
-  position: relative;
+
+  figure {
+    display: inline-block;
+    position: relative;
+  }
 }
 
 .fixed-left-sidebar {
