@@ -69,8 +69,6 @@ es:
     title: "Concejales"
     assets_declarations: "Declaración de bienes"
     activities_declarations: "Declaración de actividades"
-    diary: "Agenda"
-    view_diary: "Ver agenda en madrid.es"
     contact:
       title: "Contacto"
       intro: "Envía un mensaje directo a %{person}."
