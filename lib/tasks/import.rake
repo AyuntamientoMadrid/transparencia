@@ -9,6 +9,7 @@ require 'importers/assets/other_personal_properties_importer'
 require 'importers/assets/debts_importer'
 require 'importers/activities/declarations_importer'
 require 'importers/activities/public_importer'
+require 'importers/activities/private_importer'
 
 namespace :import do
   desc "Imports import-data/parties.csv into the parties table"
