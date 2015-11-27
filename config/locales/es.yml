@@ -88,7 +88,7 @@ es:
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"
       entity: "Entidad"
-      post: "Cargo o categoría"
+      position: "Cargo o categoría"
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
     private_activities:
@@ -96,7 +96,7 @@ es:
       kind: "Clase"
       description: "Descripción"
       entity: "Entidad/Colegio profesional"
-      post: "Cargo o categoría"
+      position: "Cargo o categoría"
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
     other_activities:

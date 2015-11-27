@@ -23,7 +23,7 @@
         <thead>
           <tr>
             <th scope="col" class="th-big"><%= t('activities_declarations.public_activities.entity') %></th>
-            <th scope="col"><%= t('activities_declarations.public_activities.post') %></th>
+            <th scope="col"><%= t('activities_declarations.public_activities.position') %></th>
             <th scope="col" class="th-small"><%= t('activities_declarations.public_activities.start_date') %></th>
             <th scope="col" class="th-small"><%= t('activities_declarations.public_activities.end_date') %></th>
           </tr>
@@ -47,7 +47,7 @@
             <th scope="col"><%= t('activities_declarations.private_activities.kind') %></th>
             <th scope="col"><%= t('activities_declarations.private_activities.description') %></th>
             <th scope="col"><%= t('activities_declarations.private_activities.entity') %></th>
-            <th scope="col"><%= t('activities_declarations.private_activities.post') %></th>
+            <th scope="col"><%= t('activities_declarations.private_activities.position') %></th>
             <th scope="col" class="th-small"><%= t('activities_declarations.private_activities.start_date') %></th>
             <th scope="col" class="th-small"><%= t('activities_declarations.private_activities.end_date') %></th>
           </tr>
@@ -58,7 +58,7 @@
               <td><%= activity.kind %></td>
               <td><%= activity.description %></td>
               <td><%= activity.entity %></td>
-              <td><%= activity.post %></td>
+              <td><%= activity.position %></td>
               <td><%= format_date activity.start_date %></td>
               <td><%= format_date activity.end_date %></td>
             </tr>
