@@ -22,5 +22,10 @@ module Importers
     def import!
       each_row{ |row| puts row.inspect }
     end
+
+    def parse_declaration_date(str)
+      day, month, year = str.split('-')
+      Date.new(year.to_i + 2000, month.to_i, day.to_i)
+    end
   end
 end
