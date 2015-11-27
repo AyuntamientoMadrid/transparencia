@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore imported files
-/data/*
+/import-data/*
 
 # Ignore bundler config.
 /.bundle

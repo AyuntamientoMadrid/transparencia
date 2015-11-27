@@ -4,11 +4,11 @@ require 'importers/parties_importer'
 namespace :import do
   desc "Imports data/parties.csv into the parties table"
   task parties: :environment do
-    Importers::PartiesImporter.new('./data/parties.csv').import!
+    Importers::PartiesImporter.new('./import-data/parties.csv').import!
   end
 
   desc "Imports data/people.csv into the people table"
   task people: :environment do
-    Importers::PeopleImporter.new('./data/people.csv').import!
+    Importers::PeopleImporter.new('./import-data/people.csv').import!
   end
 end
