@@ -73,9 +73,14 @@ namespace :import do
       Importers::Activities::DeclarationsImporter.new('./import-data/activities/activities_declarations.csv').import!
     end
 
-    desc "Imports import-data/assets/real_estate_properties.csv into the assets_declaration table"
+    desc "Imports import-data/assets/public_activities.csv into the activities_declarations table"
     task public: 'import:activities:declarations' do
       Importers::Activities::PublicImporter.new('./import-data/activities/public_activities.csv').import!
+    end
+
+    desc "Imports import-data/assets/private_activities.csv into the activities_declarations table"
+    task private: 'import:activities:declarations' do
+      Importers::Activities::PrivateImporter.new('./import-data/activities/private_activities.csv').import!
     end
   end
 end
