@@ -10,8 +10,8 @@ module Importers
 
           kind        = row[:actividad]
           description = row[:descripcion]
-          entity      = row[:actividad]
-          position    = row[:descripcion]
+          entity      = row[:entidadcolegio_profesional]
+          position    = row[:cargo_o_categoria]
           start_date  = parse_spanish_date(row[:fecha_inicio])
           end_date    = parse_spanish_date(row[:fecha_cese])
 
