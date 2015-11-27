@@ -68,6 +68,12 @@ class AssetsDeclaration < ActiveRecord::Base
     self.data['other_personal_properties'] << {'kind' => kind, 'purchase_date' => purchase_date}
   end
 
+  def add_debt(kind, amount, comments)
+    self.data ||= {}
+    self.data['debts'] ||= []
+    self.data['debts'] << {'kind' => kind, 'amount' => amount, 'comments' => comments}
+  end
+
   def has_real_estate_property?(kind, type, description, municipality, share, purchase_date, tax_value)
     real_estate_properties.any? do |p|
       p.kind == kind &&
@@ -108,6 +114,14 @@ class AssetsDeclaration < ActiveRecord::Base
     other_personal_properties.any? do |property|
       property.kind == kind &&
       property.purchase_date == purchase_date
+    end
+  end
+
+  def has_debt?(kind, amount, comments)
+    debts.any? do |debt|
+      debt.kind == kind &&
+      debt.amount == amount &&
+      debt.comments == comments
     end
   end
 
