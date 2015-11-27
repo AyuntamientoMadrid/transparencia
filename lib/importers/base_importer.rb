@@ -30,11 +30,14 @@ module Importers
 
     def parse_spanish_date(str)
       return nil if str.blank?
-      day, month, year = str.split('/')
+      day, month, year = str.to_s.split('/')
+      return nil unless day.present? && month.present? && year.present?
+
+      day, month, year = day.to_i, month.to_i, year.to_i
       begin
-        Date.new(year.to_i, month.to_i, day.to_i)
+        Date.new(year, month, day)
       rescue ArgumentError # dates with day and month flipped
-        Date.new(year.to_i, day.to_i, month.to_i)
+        Date.new(year, day, month)
       end
     end
 
