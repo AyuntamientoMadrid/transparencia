@@ -1,0 +1,12 @@
+namespace :deploy do
+  desc "rsyncs local import-data folder"
+  task :upload_import_data do
+    on roles(:app) do |role|
+      run_locally do
+        execute"rsync -av ./import-data #{role.user}@#{role.hostname}:#{shared_path}/import-data;"
+      end
+      "chmod -R 755 #{shared_path}/import-data"
+      execute "ln -nfs #{shared_path}/import-data #{current_path}/import-data"
+    end
+  end
+end
