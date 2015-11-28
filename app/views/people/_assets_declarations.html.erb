@@ -38,7 +38,7 @@
               <td><%= property.description %></td>
               <td><%= property.municipality %></td>
               <td><%= property.share %></td>
-              <td><%= property.tax_value %></td>
+              <td><%= format_amount(property.tax_value) %></td>
               <td><%= format_date(property.purchase_date) %></td>
             </tr>
           <% end %>
@@ -59,7 +59,7 @@
             <tr>
               <td><%= deposit.kind %></td>
               <td><%= deposit.banking_entity %></td>
-              <td><%= deposit.balance %></td>
+              <td><%= format_amount(deposit.balance) %></td>
             </tr>
           <% end %>
         </tbody>
@@ -80,7 +80,7 @@
             <tr>
               <td><%= asset.kind %></td>
               <td><%= asset.description %></td>
-              <td><%= asset.amount %></td>
+              <td><%= format_amount(asset.amount) %></td>
               <td><%= format_date(asset.purchase_date) %></td>
             </tr>
           <% end %>
@@ -139,7 +139,7 @@
             <tr>
               <td><%= debt.kind %></td>
               <td><%= debt.comments %></td>
-              <td><%= debt.amount %></td>
+              <td><%= format_amount(debt.amount) %></td>
             </tr>
           <% end %>
         </tbody>
