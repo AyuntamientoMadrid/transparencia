@@ -57,7 +57,10 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .people-card .column {
-  padding-bottom: rem-calc(96);
+
+  @media (min-width: $small-breakpoint) {
+    padding-bottom: rem-calc(96);
+  }
 }
 
 .people-list {
@@ -67,9 +70,18 @@
   li {
     display: inline-block;
     vertical-align: top;
+    width: 49%;
 
     @media (min-width: $small-breakpoint) {
+      width: 32%;
+    }
+
+    @media (min-width: $medium-breakpoint) {
       width: 24%;
+    }
+
+    h3 {
+      max-width: 163px; // Same as people photo width
     }
   }
 
@@ -108,8 +120,11 @@
 .role {
   color: $text-medium;
   font-size: rem-calc(24);
-  margin-bottom: rem-calc(70);
   margin-top: 0;
+
+  @media (min-width: $small-breakpoint) {
+    margin-bottom: rem-calc(70);
+  }
 }
 
 .tabs.vertical {
@@ -141,6 +156,11 @@
   a:not(.button) {
     color: $link;
     font-family: $font-sans;
+    padding: 0;
+
+    @media (min-width: $small-breakpoint) {
+      padding: rem-calc(7) rem-calc(14);
+    }
 
     &:hover, &:focus {
       background: none;

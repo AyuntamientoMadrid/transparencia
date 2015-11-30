@@ -19,6 +19,12 @@
     </div>
 
     <div class="show-for-small">
+      <h1 class="inline-block"><%= @person.name %></h1>
+      <p class="role"><%= @person.role %></p>
+      <div class="right">
+        <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+      </div>
+
       <div data-magellan-expedition>
         <%= render 'menu', person: @person %>
       </div>
@@ -26,11 +32,13 @@
   </div>
 
   <div class="small-12 medium-9 column">
-    <div class="right">
-      <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+    <div class="show-for-medium-up">
+      <div class="right">
+        <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+      </div>
+      <h1 class="inline-block"><%= @person.name %></h1>
+      <p class="role"><%= @person.role %></p>
     </div>
-    <h1 class="inline-block"><%= @person.name %></h1>
-    <p class="role"><%= @person.role %></p>
 
     <%= render 'assets_declarations' %>
 
