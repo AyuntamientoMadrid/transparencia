@@ -21,12 +21,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "dashboard#index"
-
-    resource :stats, only: :show
-
-    namespace :api do
-      resource :stats, only: :show
-    end
   end
 
 end
