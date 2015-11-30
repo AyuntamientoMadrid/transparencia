@@ -4,14 +4,9 @@ en:
   admin:
     menu:
       title: "Administration"
-      stats: "Statistics"
       close_session: "Close session"
     dashboard:
       title: "Administration"
-    stats:
-      title: "Statistics"
-      visits: "Visits"
-      all_events: "All the events"
   index:
     title: "Welcome to the transparency portal"
     under_construction_1: "We are working on the new Transparency Portal Madrid City Council."

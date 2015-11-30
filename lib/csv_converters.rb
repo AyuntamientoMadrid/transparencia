@@ -1,3 +1,5 @@
+require 'csv'
+
 # Read more about this here: http://technicalpickles.com/posts/parsing-csv-with-ruby/
 
 CSV::HeaderConverters[:transliterate] = lambda do |header|
