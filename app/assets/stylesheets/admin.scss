@@ -3,8 +3,7 @@
 // 01. Global styles
 // 02. Sidebar
 // 03. List elements
-// 04. Stats
-// 05. Management
+// 04. Management
 //
 
 // 01. Global styles
@@ -281,35 +280,7 @@ body.admin {
   }
 }
 
-// 04. Stats
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-.stats {
-  background: white;
-}
-
-.stats-numbers {
-  p {
-    color: $text-medium;
-    font-size: rem-calc(13);
-    padding: rem-calc(6);
-    text-transform: uppercase;
-
-    &.featured {
-      background: $info-bg;
-      border: 1px solid $info-border;
-      font-weight: bold;
-    }
-
-    .number {
-      color: $text;
-      font-size: rem-calc(30);
-      font-weight: bold;
-    }
-  }
-}
-
-// 05. Management
+// 04. Management
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .user-permissions {
