@@ -10,4 +10,6 @@ class Person < ActiveRecord::Base
   validates :name,   presence: true
   validates :email,  presence: true
   validates :role,   presence: true
+
+  scope :sorted_for_display, -> { includes(:party).order('parties.name', :internal_code) }
 end
