@@ -4,14 +4,9 @@ es:
   admin:
     menu:
       title: "Administración"
-      stats: "Estadísticas"
       close_session: "Cerrar sesión"
     dashboard:
       title: "Administración"
-    stats:
-      title: "Estadísticas"
-      visits: "Visitas"
-      all_events: "Todos los eventos"
   index:
     title: "Transparencia"
     under_construction_1: "Estamos trabajando en el nuevo Portal de Transparencia del Ayuntamiento de Madrid, para que no quede ni una esquina del Ayuntamiento que no puedas ver."
