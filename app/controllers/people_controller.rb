@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   before_action :load_person_and_declarations, only: [:show, :contact]
 
   def index
-    @people = Person.all.includes(:party)
+    @people = Person.all.includes(:party).sorted_for_display
   end
 
   def show
