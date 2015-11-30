@@ -48,32 +48,52 @@
 
 @mixin h1 {
   font-family: $font-sans;
-  font-size: $h1-font-size;
+  font-size: $h2-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h1-font-size;
+  }
 }
 
 @mixin h2 {
   font-family: $font-sans;
-  font-size: $h2-font-size;
+  font-size: $h3-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h2-font-size;
+  }
 }
 
 @mixin h3 {
   font-family: $font-sans;
-  font-size: $h3-font-size;
+  font-size: $h4-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h3-font-size;
+  }
 }
 
 @mixin h4 {
   font-family: $font-sans;
-  font-size: $h4-font-size;
+  font-size: $h5-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h4-font-size;
+  }
 }
 
 @mixin h5 {
   font-family: $font-sans;
-  font-size: $h5-font-size;
+  font-size: $h6-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h5-font-size;
+  }
 }
 
 @mixin h6 {
@@ -210,11 +230,16 @@ form label {
 
 .breadcrumbs {
   background: none;
-  border: 0;
-  margin: rem-calc(12) 0;
+  border-bottom: 1px solid $border;
+
+  @media (min-width: $small-breakpoint) {
+    border: 0;
+    margin: rem-calc(12) 0;
+  }
 
   & > * {
     font-size: $small-font-size;
+    line-height: $line-height;
     text-transform: none;
   }
 
@@ -288,6 +313,14 @@ cite, var, address, dfn {
 
 .pending {
   color: $text-medium;
+}
+
+[data-magellan-expedition], [data-magellan-expedition-clone] {
+  padding: 0;
+
+  @media (min-width: $small-breakpoint) {
+    padding: rem-calc(10);
+  }
 }
 
 // 04. Header
@@ -468,8 +501,10 @@ header {
 .subnavigation {
   background: white;
   clear: both;
+  padding-left: rem-calc(12);
 
   @media (min-width: $small-breakpoint) {
+    padding-left: 0;
 
     & > .column {
       padding-left: 0;
