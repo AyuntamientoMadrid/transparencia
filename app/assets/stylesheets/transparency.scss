@@ -69,8 +69,11 @@
 
   li {
     display: inline-block;
+    display: inline\9;
+    float: left\9;
     vertical-align: top;
     width: 49%;
+    width: 24%\9;
 
     @media (min-width: $small-breakpoint) {
       width: 32%;
@@ -78,6 +81,10 @@
 
     @media (min-width: $medium-breakpoint) {
       width: 24%;
+    }
+
+    a {
+      display: inline\9;
     }
 
     h3 {
@@ -103,6 +110,7 @@
 }
 
 .people-photo {
+  display: inline\9;
 
   figure {
     display: inline-block;

@@ -238,6 +238,8 @@ form label {
   }
 
   & > * {
+    display: inline\9;
+    float: none\9;
     font-size: $small-font-size;
     line-height: $line-height;
     text-transform: none;
