@@ -1,47 +1,49 @@
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-  <li role="menuitem">
-    <%= link_to t("home"), root_path %>
-  </li>
-  <li role="menuitem">
-    <%= link_to t("people.title"), people_path %>
-  </li>
-  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
-    <%= @person.name %>
-  </li>
-</nav>
+<% cache [locale_key, @person, @person.party] do %>
+  <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+    <li role="menuitem">
+      <%= link_to t("home"), root_path %>
+    </li>
+    <li role="menuitem">
+      <%= link_to t("people.title"), people_path %>
+    </li>
+    <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+      <%= @person.name %>
+    </li>
+  </nav>
 
-<section class="people-card">
-  <div class="small-12 medium-3 column">
-    <div class="show-for-medium-up relative">
-      <div data-magellan-expedition="fixed" class="fixed-left-sidebar">
-        <%= render 'menu', person: @person %>
+  <section class="people-card">
+    <div class="small-12 medium-3 column">
+      <div class="show-for-medium-up relative">
+        <div data-magellan-expedition="fixed" class="fixed-left-sidebar">
+          <%= render 'menu', person: @person %>
+        </div>
+      </div>
+
+      <div class="show-for-small">
+        <h1 class="inline-block"><%= @person.name %></h1>
+        <p class="role"><%= @person.role %></p>
+        <div class="right">
+          <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+        </div>
+
+        <div data-magellan-expedition>
+          <%= render 'menu', person: @person %>
+        </div>
       </div>
     </div>
 
-    <div class="show-for-small">
-      <h1 class="inline-block"><%= @person.name %></h1>
-      <p class="role"><%= @person.role %></p>
-      <div class="right">
-        <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+    <div class="small-12 medium-9 column">
+      <div class="show-for-medium-up">
+        <div class="right">
+          <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+        </div>
+        <h1 class="inline-block"><%= @person.name %></h1>
+        <p class="role"><%= @person.role %></p>
       </div>
 
-      <div data-magellan-expedition>
-        <%= render 'menu', person: @person %>
-      </div>
+      <%= render 'assets_declarations' %>
+
+      <%= render 'activities_declarations' %>
     </div>
-  </div>
-
-  <div class="small-12 medium-9 column">
-    <div class="show-for-medium-up">
-      <div class="right">
-        <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
-      </div>
-      <h1 class="inline-block"><%= @person.name %></h1>
-      <p class="role"><%= @person.role %></p>
-    </div>
-
-    <%= render 'assets_declarations' %>
-
-    <%= render 'activities_declarations' %>
-  </div>
-</section>
+  </section>
+<% end %>
