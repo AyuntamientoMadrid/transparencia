@@ -12,7 +12,7 @@
   </ul>
 
   <div class="tabs-content">
-    <% @person.activities_declarations.each_with_index do |declaration, index| %>
+    <% @activities_declarations.each_with_index do |declaration, index| %>
 
       <% active = index == @activities_declarations.length - 1 %>
       <div role="tabpanel" id="activities_declaration_<%= iso_date(declaration.declaration_date) %>"
