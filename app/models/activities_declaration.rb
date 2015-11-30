@@ -2,7 +2,7 @@ class ActivitiesDeclaration < ActiveRecord::Base
 
   include ParseDataRows
 
-  belongs_to :person
+  belongs_to :person, touch: true
 
   validates :declaration_date, presence: true
 

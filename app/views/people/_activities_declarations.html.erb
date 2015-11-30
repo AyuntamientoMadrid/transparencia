@@ -1,91 +1,93 @@
-<a name="activities_declarations" data-magellan-destination="activities_declarations"></a>
-<h2 class="lead"><%= t("people.activities_declarations") %></h2>
+<% cache [locale_key, @activities_declarations] do %>
+  <a name="activities_declarations" data-magellan-destination="activities_declarations"></a>
+  <h2 class="lead"><%= t("people.activities_declarations") %></h2>
 
-<ul class="tabs" data-tab role="tablist">
-  <% @activities_declarations.each_with_index do |declaration, index| %>
-    <% active = index == @activities_declarations.length - 1 %>
-    <li class="tab-title <%= 'active' if active %>">
-      <a href="#activities_declaration_<%= iso_date(declaration.declaration_date) %>"><%= format_date(declaration.declaration_date) %></a>
-    </li>
-  <% end %>
-</ul>
+  <ul class="tabs" data-tab role="tablist">
+    <% @activities_declarations.each_with_index do |declaration, index| %>
+      <% active = index == @activities_declarations.length - 1 %>
+      <li class="tab-title <%= 'active' if active %>">
+        <a href="#activities_declaration_<%= iso_date(declaration.declaration_date) %>"><%= format_date(declaration.declaration_date) %></a>
+      </li>
+    <% end %>
+  </ul>
 
-<div class="tabs-content">
-  <% @person.activities_declarations.each_with_index do |declaration, index| %>
+  <div class="tabs-content">
+    <% @activities_declarations.each_with_index do |declaration, index| %>
 
-    <% active = index == @activities_declarations.length - 1 %>
-    <div role="tabpanel" id="activities_declaration_<%= iso_date(declaration.declaration_date) %>"
-         aria-hidden="<%= !active %>"
-         class="content <%= 'active' if active %>">
+      <% active = index == @activities_declarations.length - 1 %>
+      <div role="tabpanel" id="activities_declaration_<%= iso_date(declaration.declaration_date) %>"
+           aria-hidden="<%= !active %>"
+           class="content <%= 'active' if active %>">
 
-      <table>
-        <caption><%= t('activities_declarations.public_activities.title') %></caption>
-        <thead>
-          <tr>
-            <th scope="col" class="th-big"><%= t('activities_declarations.public_activities.entity') %></th>
-            <th scope="col"><%= t('activities_declarations.public_activities.position') %></th>
-            <th scope="col" class="th-small"><%= t('activities_declarations.public_activities.start_date') %></th>
-            <th scope="col" class="th-small"><%= t('activities_declarations.public_activities.end_date') %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% declaration.public_activities.each do |activity| %>
+        <table>
+          <caption><%= t('activities_declarations.public_activities.title') %></caption>
+          <thead>
             <tr>
-              <td><%= activity.entity %></td>
-              <td><%= activity.position %></td>
-              <td><%= format_date activity.start_date %></td>
-              <td><%= format_date activity.end_date %></td>
+              <th scope="col" class="th-big"><%= t('activities_declarations.public_activities.entity') %></th>
+              <th scope="col"><%= t('activities_declarations.public_activities.position') %></th>
+              <th scope="col" class="th-small"><%= t('activities_declarations.public_activities.start_date') %></th>
+              <th scope="col" class="th-small"><%= t('activities_declarations.public_activities.end_date') %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% declaration.public_activities.each do |activity| %>
+              <tr>
+                <td><%= activity.entity %></td>
+                <td><%= activity.position %></td>
+                <td><%= format_date activity.start_date %></td>
+                <td><%= format_date activity.end_date %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-      <table>
-        <caption><%= t('activities_declarations.private_activities.title') %></caption>
-        <thead>
-          <tr>
-            <th scope="col"><%= t('activities_declarations.private_activities.kind') %></th>
-            <th scope="col"><%= t('activities_declarations.private_activities.description') %></th>
-            <th scope="col"><%= t('activities_declarations.private_activities.entity') %></th>
-            <th scope="col"><%= t('activities_declarations.private_activities.position') %></th>
-            <th scope="col" class="th-small"><%= t('activities_declarations.private_activities.start_date') %></th>
-            <th scope="col" class="th-small"><%= t('activities_declarations.private_activities.end_date') %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% declaration.private_activities.each do |activity| %>
+        <table>
+          <caption><%= t('activities_declarations.private_activities.title') %></caption>
+          <thead>
             <tr>
-              <td><%= activity.kind %></td>
-              <td><%= activity.description %></td>
-              <td><%= activity.entity %></td>
-              <td><%= activity.position %></td>
-              <td><%= format_date activity.start_date %></td>
-              <td><%= format_date activity.end_date %></td>
+              <th scope="col"><%= t('activities_declarations.private_activities.kind') %></th>
+              <th scope="col"><%= t('activities_declarations.private_activities.description') %></th>
+              <th scope="col"><%= t('activities_declarations.private_activities.entity') %></th>
+              <th scope="col"><%= t('activities_declarations.private_activities.position') %></th>
+              <th scope="col" class="th-small"><%= t('activities_declarations.private_activities.start_date') %></th>
+              <th scope="col" class="th-small"><%= t('activities_declarations.private_activities.end_date') %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% declaration.private_activities.each do |activity| %>
+              <tr>
+                <td><%= activity.kind %></td>
+                <td><%= activity.description %></td>
+                <td><%= activity.entity %></td>
+                <td><%= activity.position %></td>
+                <td><%= format_date activity.start_date %></td>
+                <td><%= format_date activity.end_date %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-      <table>
-        <caption><%= t('activities_declarations.other_activities.title') %></caption>
-        <thead>
-          <tr>
-            <th scope="col"><%= t('activities_declarations.other_activities.description') %></th>
-            <th scope="col" class="th-small"><%= t('activities_declarations.other_activities.start_date') %></th>
-            <th scope="col" class="th-small"><%= t('activities_declarations.other_activities.end_date') %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% declaration.other_activities.each do |activity| %>
+        <table>
+          <caption><%= t('activities_declarations.other_activities.title') %></caption>
+          <thead>
             <tr>
-              <td><%= activity.description %></td>
-              <td><%= format_date activity.start_date %></td>
-              <td><%= format_date activity.end_date %></td>
+              <th scope="col"><%= t('activities_declarations.other_activities.description') %></th>
+              <th scope="col" class="th-small"><%= t('activities_declarations.other_activities.start_date') %></th>
+              <th scope="col" class="th-small"><%= t('activities_declarations.other_activities.end_date') %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% declaration.other_activities.each do |activity| %>
+              <tr>
+                <td><%= activity.description %></td>
+                <td><%= format_date activity.start_date %></td>
+                <td><%= format_date activity.end_date %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-    </div>
-  <% end %>
-</div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

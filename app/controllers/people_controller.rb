@@ -34,5 +34,4 @@ class PeopleController < ApplicationController
       @activities_declarations = @person.activities_declarations.order(:declaration_date)
     end
 
-
 end

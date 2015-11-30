@@ -85,6 +85,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     colorize (0.7.7)
+    dalli (2.7.4)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     devise (3.5.2)
@@ -300,6 +301,7 @@ DEPENDENCIES
   capistrano-rvm
   capybara
   coffee-rails (~> 4.1.0)
+  dalli
   database_cleaner
   devise
   factory_girl_rails

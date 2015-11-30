@@ -42,4 +42,6 @@ Rails.application.configure do
 
   # Makes the tests use English
   config.i18n.default_locale = :en
+
+  config.cache_store = :null_store
 end

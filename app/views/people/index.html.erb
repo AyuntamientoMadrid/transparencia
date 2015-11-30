@@ -1,31 +1,35 @@
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-  <li role="menuitem">
-    <%= link_to t("home"), root_path %>
-  </li>
-  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
-    <%= t("people.title") %>
-  </li>
-</nav>
+<% cache [locale_key, @people, @people.map(&:party).uniq] do %>
+  <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+    <li role="menuitem">
+      <%= link_to t("home"), root_path %>
+    </li>
+    <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+      <%= t("people.title") %>
+    </li>
+  </nav>
 
-<div class="people">
-  <div class="small-12 column">
-    <h1 class="lead"><%= t("people.title") %></h1>
+  <div class="people">
+    <div class="small-12 column">
+      <h1 class="lead"><%= t("people.title") %></h1>
 
-    <ul class="people-list">
-      <% @people.each do |person| %>
-        <li>
-          <%= link_to person do %>
-            <div class="people-photo">
-              <figure>
-                <%= profile_picture(person) %>
-                <span class="people-affiliation"><%= person.party.name %></span>
-              </figure>
-            </div>
-            <h3><%= person.name %></h3>
+      <ul class="people-list">
+        <% @people.each do |person| %>
+          <% cache [locale_key, person, person.party] do %>
+            <li>
+              <%= link_to person do %>
+                <div class="people-photo">
+                  <figure>
+                    <%= profile_picture(person) %>
+                    <span class="people-affiliation"><%= person.party.name %></span>
+                  </figure>
+                </div>
+                <h3><%= person.name %></h3>
+              <% end %>
+              <p><%= person.role %></p>
+            </li>
           <% end %>
-          <p><%= person.role %></p>
-        </li>
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
+<% end %>
