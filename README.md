@@ -2,6 +2,8 @@
 
 Bienvenidos al repositorio de la nueva página de transparencia de Madrid.
 
+[![Build Status](https://travis-ci.org/AyuntamientoMadrid/transparencia.svg?branch=master)](https://travis-ci.org/AyuntamientoMadrid/transparencia)
+
 ## Configuración para desarrollo y tests
 
 Prerequisitos: git, Ruby 2.2.3, la gema bundler y PostgreSQL (9.4 o superior).
