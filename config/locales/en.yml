@@ -64,6 +64,7 @@ en:
     title: "Councillors"
     assets_declarations: "Assets declarations"
     activities_declarations: "Activities declarations"
+    activities_explanation: "Reasons of possible incompatibility and activities which provide or can provide income"
     contact:
       title: "Contact"
       intro: "Send a message to %{person}."

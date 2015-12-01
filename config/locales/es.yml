@@ -62,8 +62,9 @@ es:
     youtube: "YouTube"
   people:
     title: "Concejales"
-    assets_declarations: "Declaración de bienes"
-    activities_declarations: "Declaración de actividades"
+    assets_declarations: "Declaración de bienes patrimoniales"
+    activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"
+    activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
     contact:
       title: "Contacto"
       intro: "Envía un mensaje directo a %{person}."
@@ -85,7 +86,7 @@ es:
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
     private_activities:
-      title: "2) Actividades privadas por cuenta propia o ajena"
+      title: "2) Actividades privadas profesionales, mercantiles, industriales o laborales, por cuenta ajena o propia"
       kind: "Clase"
       description: "Descripción"
       entity: "Entidad/Colegio profesional"
@@ -108,23 +109,23 @@ es:
       tax_value: "Valor catastral"
       purchase_date: "Fecha adquisición"
     account_deposits:
-      title: "2) Depósitos en cuenta"
+      title: "2) Depósitos en cuenta corriente, de ahorro y otros tipos de imposiciones en cuenta"
       kind: "Clase"
       entity: "Entidad de depósito"
       balance: "Saldo medio anual o valor en euros"
     other_deposits:
-      title: "3) Otros depósitos en cuenta"
+      title: "3) Otros depósitos en cuenta corriente, de ahorro y otros tipos de imposiciones en cuenta"
       kind: "Clase"
       description: "Descripción"
       amount: "Número, cuantía o valor en euros"
       purchase_date: "Fecha adquisición"
     vehicles:
-      title: "4) Vehículos"
+      title: "4) Vehículos (automóviles, motocicletas, embacaciones, aeronaves ...)"
       kind: "Clase"
       model: "Marca y Modelo"
       purchase_date: "Fecha adquisición"
     other_personal_properties:
-      title: "5) Otros Bienes Muebles"
+      title: "5) Otros bienes muebles de especial valor (objetos de arte, antigüedades, joyas, pieles, otros)"
       kind: "Clase"
       purchase_date: "Fecha adquisición"
     debts:
