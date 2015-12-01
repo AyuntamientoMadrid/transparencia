@@ -142,13 +142,6 @@ en:
     edit: "Edit"
     submit: "Submit"
     back: "Back"
-  amount:
-    format:
-      delimiter: ","
-      precision: 2
-      separator: "."
-      significant: false
-      strip_insignificant_zeros: true
   activerecord:
     attributes:
       objective:
