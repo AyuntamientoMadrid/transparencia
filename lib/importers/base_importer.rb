@@ -24,7 +24,7 @@ module Importers
     end
 
     def parse_declaration_date(str)
-      day, month, year = str.split('-')
+      day, month, year = str.split(/[-\/]/)
       Date.new(year.to_i + 2000, month.to_i, day.to_i)
     end
 
