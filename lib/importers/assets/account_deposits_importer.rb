@@ -10,7 +10,7 @@ module Importers
           declaration     = person.assets_declarations.last!
           kind            = row[:clase]
           banking_entity  = row[:entidad_de_deposito]
-          balance         = parse_amount(row[:saldo_medio_anual_o_valor_euros])
+          balance         = row[:saldo_medio_anual_o_valor_euros]
 
           unless declaration.has_account_deposit?(kind, banking_entity, balance)
             puts "Importing account balance for #{person.name} (#{kind}, #{banking_entity}, #{balance})"

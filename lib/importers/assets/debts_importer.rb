@@ -9,7 +9,7 @@ module Importers
           declaration = person.assets_declarations.last!
 
           kind           = row[:clase]
-          amount         = parse_amount(row[:importe_actual_en_euros])
+          amount         = row[:importe_actual_en_euros]
           comments       = row[:observaciones]
           comments = nil if comments.is_a?(String) && comments.length <= 3
 

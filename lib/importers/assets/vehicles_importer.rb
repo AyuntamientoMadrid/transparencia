@@ -10,7 +10,7 @@ module Importers
 
           kind           = row[:clase]
           model          = row[:marca_y_modelo]
-          purchase_date  = parse_spanish_date(row[:fecha_de_adquisicion])
+          purchase_date  = row[:fecha_de_adquisicion]
 
           unless declaration.has_vehicle?(kind, model, purchase_date)
             puts "Importing vehicle for #{person.name} (#{kind}, #{model})"
