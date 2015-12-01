@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   before_action :authenticate_http_basic, if: :http_basic_auth_site?
+  before_action :authorize
 
   add_flash_types :contact_notice, :contact_alert
 
@@ -25,6 +26,18 @@ class ApplicationController < ActionController::Base
 
     def http_basic_auth_site?
       Rails.application.secrets.http_basic_auth
+    end
+
+    def authorize
+      return true unless only_full_features?
+
+      unless %w(home people).include?(controller_name)
+        raise ActionController::RoutingError.new('Not Found')
+      end
+    end
+
+    def only_full_features?
+      Rails.application.secrets.only_full_features
     end
 
 end
