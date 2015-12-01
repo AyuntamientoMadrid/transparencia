@@ -29,9 +29,15 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize
+      return true if allow_wip_access?
+
       unless %w(home people).include?(controller_name)
         raise ActionController::RoutingError.new('Not Found')
       end
+    end
+
+    def allow_wip_access?
+      Rails.application.secrets.allow_wip_access
     end
 
 end
