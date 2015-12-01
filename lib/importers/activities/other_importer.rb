@@ -9,8 +9,8 @@ module Importers
           declaration = person.activities_declarations.last!
 
           description = row[:descripcion]
-          row[:fecha_inicio]
-          row[:fecha_cese]
+          start_date  = row[:fecha_inicio]
+          end_date    = row[:fecha_cese]
 
           unless declaration.has_other_activity?(description, start_date, end_date)
             puts "Importing other activity for #{person.name} (#{start_date}, #{end_date})"
