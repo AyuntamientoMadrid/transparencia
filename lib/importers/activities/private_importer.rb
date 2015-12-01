@@ -15,11 +15,9 @@ module Importers
           start_date  = row[:fecha_inicio]
           end_date    = row[:fecha_cese]
 
-          unless declaration.has_private_activity?(kind, description, entity, position, start_date, end_date)
-            puts "Importing private activity for #{person.name} (#{entity}, #{position}, #{start_date}, #{end_date})"
-            declaration.add_private_activity(kind, description, entity, position, start_date, end_date)
-            declaration.save!
-          end
+          puts "Importing private activity for #{person.name} (#{entity}, #{position}, #{start_date}, #{end_date})"
+          declaration.add_private_activity(kind, description, entity, position, start_date, end_date)
+          declaration.save!
         end
       end
     end
