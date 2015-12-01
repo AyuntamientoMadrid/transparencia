@@ -120,7 +120,7 @@ es:
       amount: "Número, cuantía o valor en euros"
       purchase_date: "Fecha adquisición"
     vehicles:
-      title: "4) Vehículos (automóviles, motocicletas, embacaciones, aeronaves ...)"
+      title: "4) Vehículos (automóviles, motocicletas, embarcaciones, aeronaves ...)"
       kind: "Clase"
       model: "Marca y Modelo"
       purchase_date: "Fecha adquisición"
