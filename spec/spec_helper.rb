@@ -31,10 +31,4 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  ## Used only for travis until we release on the 10th of december.
-  config.before(:each) do
-    allow_any_instance_of(ApplicationController).
-    to receive(:allow_wip_access?).and_return(true)
-  end
-
 end

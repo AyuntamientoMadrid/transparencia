@@ -2,11 +2,11 @@ require 'rails_helper'
 
 feature 'Authorization' do
 
-  context "Access to WIP features set to false" do
+  context "Access only to full features set to true" do
 
     background do
       allow_any_instance_of(ApplicationController).
-      to receive(:allow_wip_access?).and_return(false)
+      to receive(:only_full_features?).and_return(true)
     end
 
     scenario "Do not allow access to WIP features" do
@@ -30,11 +30,11 @@ feature 'Authorization' do
     end
   end
 
-  context "Access to WIP features set to true" do
+  context "Access only to full feature set to false" do
 
     background do
       allow_any_instance_of(ApplicationController).
-      to receive(:allow_wip_access?).and_return(true)
+      to receive(:only_full_features?).and_return(false)
     end
 
     scenario "Allow access to WIP features" do
