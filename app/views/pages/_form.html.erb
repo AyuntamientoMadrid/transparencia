@@ -6,6 +6,6 @@
   <%= f.label(:content, Page.human_attribute_name(:content)) %>
   <%= f.trix_editor :content %>
   <br>
-  <%= f.submit t('shared.submit'), class: "tiny button success" %>
-  <%= link_to t('shared.back'), :back, class: 'button tiny' %>
+  <%= f.submit t('shared.submit'), class: "button radius success" %>
+  <%= link_to t('shared.back'), :back, class: "button radius secondary" %>
 <% end %>
