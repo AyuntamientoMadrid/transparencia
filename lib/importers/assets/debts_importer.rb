@@ -9,15 +9,13 @@ module Importers
           declaration = person.assets_declarations.last!
 
           kind           = row[:clase]
-          amount         = parse_amount(row[:importe_actual_en_euros])
+          amount         = row[:importe_actual_en_euros]
           comments       = row[:observaciones]
           comments = nil if comments.is_a?(String) && comments.length <= 3
 
-          unless declaration.has_debt?(kind, amount, comments)
-            puts "Importing debt for #{person.name} (#{kind}, #{amount}, #{comments})"
-            declaration.add_debt(kind, amount, comments)
-            declaration.save!
-          end
+          puts "Importing debt for #{person.name} (#{kind}, #{amount}, #{comments})"
+          declaration.add_debt(kind, amount, comments)
+          declaration.save!
         end
       end
     end

@@ -9,13 +9,11 @@ module Importers
           declaration = person.assets_declarations.last!
 
           kind           = row[:clase]
-          purchase_date  = parse_spanish_date(row[:fecha_de_adquisicion])
+          purchase_date  = row[:fecha_de_adquisicion]
 
-          unless declaration.has_other_personal_property?(kind, purchase_date)
-            puts "Importing other personal properties for #{person.name} (#{kind})"
-            declaration.add_other_personal_property(kind, purchase_date)
-            declaration.save!
-          end
+          puts "Importing other personal properties for #{person.name} (#{kind})"
+          declaration.add_other_personal_property(kind, purchase_date)
+          declaration.save!
         end
       end
     end

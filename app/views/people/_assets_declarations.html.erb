@@ -39,8 +39,8 @@
                 <td><%= property.description %></td>
                 <td><%= property.municipality %></td>
                 <td><%= property.share %></td>
-                <td><%= format_amount(property.tax_value) %></td>
-                <td><%= format_date(property.purchase_date) %></td>
+                <td><%= property.tax_value %></td>
+                <td><%= property.purchase_date %></td>
               </tr>
             <% end %>
           </tbody>
@@ -60,7 +60,7 @@
               <tr>
                 <td><%= deposit.kind %></td>
                 <td><%= deposit.banking_entity %></td>
-                <td><%= format_amount(deposit.balance) %></td>
+                <td><%= deposit.balance %></td>
               </tr>
             <% end %>
           </tbody>
@@ -81,8 +81,8 @@
               <tr>
                 <td><%= asset.kind %></td>
                 <td><%= asset.description %></td>
-                <td><%= format_amount(asset.amount) %></td>
-                <td><%= format_date(asset.purchase_date) %></td>
+                <td><%= asset.amount %></td>
+                <td><%= asset.purchase_date %></td>
               </tr>
             <% end %>
           </tbody>
@@ -102,7 +102,7 @@
               <tr>
                 <td><%= vehicle.kind %></td>
                 <td><%= vehicle.model %></td>
-                <td><%= format_date(vehicle.purchase_date) %></td>
+                <td><%= vehicle.purchase_date %></td>
               </tr>
             <% end %>
           </tbody>
@@ -120,7 +120,7 @@
             <% declaration.other_personal_properties.each do |property| %>
               <tr>
                 <td><%= property.kind %></td>
-                <td><%= format_date(property.purchase_date) %></td>
+                <td><%= property.purchase_date %></td>
               </tr>
             <% end %>
           </tbody>
@@ -140,7 +140,7 @@
               <tr>
                 <td><%= debt.kind %></td>
                 <td><%= debt.comments %></td>
-                <td><%= format_amount(debt.amount) %></td>
+                <td><%= debt.amount %></td>
               </tr>
             <% end %>
           </tbody>

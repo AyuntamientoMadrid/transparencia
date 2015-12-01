@@ -34,8 +34,8 @@
               <tr>
                 <td><%= activity.entity %></td>
                 <td><%= activity.position %></td>
-                <td><%= format_date activity.start_date %></td>
-                <td><%= format_date activity.end_date %></td>
+                <td><%= activity.start_date %></td>
+                <td><%= activity.end_date %></td>
               </tr>
             <% end %>
           </tbody>
@@ -60,8 +60,8 @@
                 <td><%= activity.description %></td>
                 <td><%= activity.entity %></td>
                 <td><%= activity.position %></td>
-                <td><%= format_date activity.start_date %></td>
-                <td><%= format_date activity.end_date %></td>
+                <td><%= activity.start_date %></td>
+                <td><%= activity.end_date %></td>
               </tr>
             <% end %>
           </tbody>
@@ -80,8 +80,8 @@
             <% declaration.other_activities.each do |activity| %>
               <tr>
                 <td><%= activity.description %></td>
-                <td><%= format_date activity.start_date %></td>
-                <td><%= format_date activity.end_date %></td>
+                <td><%= activity.start_date %></td>
+                <td><%= activity.end_date %></td>
               </tr>
             <% end %>
           </tbody>

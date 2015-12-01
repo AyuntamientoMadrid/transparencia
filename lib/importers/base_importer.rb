@@ -41,18 +41,6 @@ module Importers
       end
     end
 
-    def parse_amount(str)
-      return nil if str.blank?
-      # Remove everything except numbers, comma, and dot
-      str = str.to_s.gsub(/[^0-9,\.]/, '')
-
-      divider = calculate_decimal_places_divider(str)
-
-      amount = str.gsub(/[,\.]/, '').to_f
-
-      amount / divider
-    end
-
     private
 
       def calculate_decimal_places_divider(str)
