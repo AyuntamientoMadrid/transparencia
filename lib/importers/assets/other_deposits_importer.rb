@@ -13,11 +13,9 @@ module Importers
           amount         = row[:numero_cuantia_o_valor_en_euros]
           purchase_date  = row[:fecha_de_adquisicion]
 
-          unless declaration.has_other_deposit?(kind, description, amount, purchase_date)
-            puts "Importing other deposit for #{person.name} (#{kind}, #{description}, #{amount})"
-            declaration.add_other_deposit(kind, description, amount, purchase_date)
-            declaration.save!
-          end
+          puts "Importing other deposit for #{person.name} (#{kind}, #{description}, #{amount})"
+          declaration.add_other_deposit(kind, description, amount, purchase_date)
+          declaration.save!
         end
       end
     end

@@ -12,11 +12,9 @@ module Importers
           banking_entity  = row[:entidad_de_deposito]
           balance         = row[:saldo_medio_anual_o_valor_euros]
 
-          unless declaration.has_account_deposit?(kind, banking_entity, balance)
-            puts "Importing account balance for #{person.name} (#{kind}, #{banking_entity}, #{balance})"
-            declaration.add_account_deposit(kind, banking_entity, balance)
-            declaration.save!
-          end
+          puts "Importing account balance for #{person.name} (#{kind}, #{banking_entity}, #{balance})"
+          declaration.add_account_deposit(kind, banking_entity, balance)
+          declaration.save!
         end
       end
     end
