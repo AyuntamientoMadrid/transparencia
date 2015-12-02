@@ -25,7 +25,12 @@ module Importers
 
     def parse_declaration_date(str)
       day, month, year = str.split(/[-\/]/)
-      Date.new(year.to_i + 2000, month.to_i, day.to_i)
+      day, month, year = day.to_i, month.to_i, year.to_i
+      begin
+        Date.new(year, month, day)
+      rescue ArgumentError # dates with day and month flipped
+        Date.new(year, day, month)
+      end
     end
 
     def parse_spanish_date(str)
