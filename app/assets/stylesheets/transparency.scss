@@ -88,13 +88,15 @@
     }
 
     h3 {
+      margin: rem-calc(12) auto 0;
       max-width: 163px; // Same as people photo width
     }
   }
 
   p {
     color: $text-medium;
-    margin-top: 0;
+    margin: 0 auto rem-calc(24);
+    max-width: 163px; // Same as people photo width
   }
 }
 

@@ -17,7 +17,7 @@
           <% cache [locale_key, person, person.party] do %>
             <li>
               <%= link_to person do %>
-                <div class="people-photo">
+                <div class="people-photo text-center">
                   <figure>
                     <%= profile_picture(person) %>
                     <span class="people-affiliation"><%= person.party.name %></span>
