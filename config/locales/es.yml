@@ -71,6 +71,8 @@ es:
       submit: "Envíar mensaje"
       success: "Mensaje enviado con éxito"
       error: "No se pudo enviar el mensaje"
+    show:
+      disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
   pages:
     title: "¿Qué buscas?"
     edit: "Editar contenido"

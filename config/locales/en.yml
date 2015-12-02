@@ -71,6 +71,8 @@ en:
       submit: "Send message"
       success: "Your message was sent successfully"
       error: "Your message could not be sent"
+    show:
+      disclaimer: "(*) This information is subject to changes if errors are detected"
   pages:
     title: "What are you looking for?"
     edit: "Edit content"
