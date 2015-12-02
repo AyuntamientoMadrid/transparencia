@@ -29,6 +29,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'dalli'
 gem 'rollbar', '~> 2.6.3'
 gem 'newrelic_rpm', '~> 3.14'
+# For rake db:danger:truncate
+gem 'database_cleaner'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,7 +46,6 @@ group :development, :test do
   gem 'launchy'
   gem 'quiet_assets'
   gem 'i18n-tasks'
-  gem 'database_cleaner'
 
   gem 'capistrano', '3.4.0',           require: false
   gem "capistrano-bundler", '1.1.4',   require: false
