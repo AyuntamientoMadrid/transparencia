@@ -180,10 +180,7 @@ h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: $font-sans;
   line-height: $heading-line-height;
-  margin: {
-    top: rem-calc(12);
-    bottom: rem-calc(6);
-  }
+  margin: rem-calc(12) 0 rem-calc(6);
 }
 
 a {
@@ -194,6 +191,10 @@ a {
   &:active {
     color: $link-hover;
     text-decoration: underline;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: $link-hover;
+    }
   }
 
   &:focus {
@@ -604,6 +605,9 @@ footer {
 .footer {
   background: #DEE0E2;
   border-top: rem-calc(6) solid $brand;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
 }
 
 .subfooter {
@@ -724,11 +728,11 @@ table {
   }
 
   .th-big {
-    width: 40%;
+    width: 30%;
   }
 
   .th-small {
-    width: 20%;
+    width: 15%;
   }
 
   tr td {
