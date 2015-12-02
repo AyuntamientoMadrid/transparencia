@@ -2,6 +2,16 @@ require 'securerandom'
 
 FactoryGirl.define do
 
+  factory :subvention do
+    sequence(:recipient) { |n| "NGO#{n}" }
+    project  'Water management'
+    kind     'Development'
+    location 'Madrid'
+    year 2016
+    amount_euro_cents 100
+  end
+
+
   factory :person do
     sequence(:name) { |n| "person#{n}" }
     sequence(:email) { |n| "person#{n}@madrid.es" }
