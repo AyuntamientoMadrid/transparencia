@@ -11,5 +11,5 @@ class Person < ActiveRecord::Base
   validates :email,  presence: true
   validates :role,   presence: true
 
-  scope :sorted_for_display, -> { includes(:party).order('parties.name', :internal_code) }
+  scope :sorted_for_display, -> { order(:internal_code) }
 end
