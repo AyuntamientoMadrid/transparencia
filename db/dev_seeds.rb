@@ -87,6 +87,17 @@ ActivitiesDeclaration.create!(person: Person.first, declaration_date: Date.new(2
   }]
 })
 
+# Subventions
+subvention_recipients = ["GreenCross", "Children of the Green", "Intergreen", "Green without borders", "Naturalis"]
+subvention_projects = ["Opensouce", "Water", "Fight poverty", "Fight Hunger", "Microcredits"]
+subvention_locations = ["Madrid", "Carabanchel", "Africa", "Vietnam", "Spain"]
+subvention_kinds = ["Cooperation", "Development"]
+subvention_years = (2014..2024).to_a
+
+subvention_recipients.each do |recipient|
+  Subvention.create!(recipient: recipient, project: subvention_projects.sample, location: subvention_locations.sample, kind: subvention_kinds.sample, amount_euro_cents: rand(9999999), year: subvention_years.sample)
+end
+
 # Government Areas
 areas =
 [
