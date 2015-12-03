@@ -93,6 +93,15 @@ es:
         location: Lugar
         year: Año
         amount: "Cantidad (€)"
+  contracts:
+    index:
+      title: "Contratos"
+      headers:
+        recipient: Receptor
+        description: Descripción
+        organism: Organismo
+        awarded_at: Fecha Adjudicación
+        award_amount: Importe Adjudicación (€)
   activities_declarations:
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"

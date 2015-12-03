@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     member { post :contact }
   end
   resources :subventions, only: [:index]
+  resources :contracts, only: [:index]
 
   get "designs/enquiry_index", to: "designs#enquiry_index"
   get "designs/enquiry_form", to: "designs#enquiry_form"
