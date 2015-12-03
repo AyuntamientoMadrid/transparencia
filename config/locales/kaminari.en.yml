@@ -1,0 +1,21 @@
+en:
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Previous"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      entry:
+        zero: "Entries"
+        one: "Entry"
+        other: "Entries"
+      one_page:
+        display_entries:
+          zero: "%{entry_name} cannot be found"
+          one: "There is <b>1</b> %{entry_name}"
+          other: "There are <b> %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> %{entry_name}"

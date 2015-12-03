@@ -11,6 +11,7 @@ require 'importers/activities/declarations_importer'
 require 'importers/activities/public_importer'
 require 'importers/activities/private_importer'
 require 'importers/activities/other_importer'
+require 'importers/subventions_importer'
 
 namespace :import do
   desc "Imports import-data/parties.csv into the parties table"
@@ -95,5 +96,10 @@ namespace :import do
                'import:activities:public',
                'import:activities:private',
                'import:activities:other']
+  end
+
+  desc "Imports import-data/subventions/cooperacion_v1.csv into the subventions table"
+  task :subventions do
+    Importers::SubventionsImporter.new('./import-data/subventions/cooperacion_v1.csv').import!
   end
 end
