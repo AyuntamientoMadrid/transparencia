@@ -45,10 +45,9 @@
       <div class="small-12 medium-9 column">
         <p>
           <%= t("layouts.footer.copyright", year: Time.now.year) %>&nbsp;|&nbsp;
-          <%= link_to t("layouts.footer.more_info"), "#" %>&nbsp;|&nbsp;
-          <%= link_to t("layouts.footer.privacy"), "#" %>&nbsp;|&nbsp;
-          <%= link_to t("layouts.footer.conditions"), "#" %>&nbsp;|&nbsp;
-          <%= link_to t("layouts.footer.accessibility"), "#" %>
+          <%= link_to t("layouts.footer.privacy"), privacy_path %>&nbsp;|&nbsp;
+          <%= link_to t("layouts.footer.conditions"), conditions_path %>&nbsp;|&nbsp;
+          <%= link_to t("layouts.footer.accessibility"), accessibility_path %>
         </p>
       </div>
 
