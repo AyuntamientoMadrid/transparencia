@@ -20,7 +20,7 @@
 
 @mixin logo {
   color: white;
-  font-family: 'Lato' !important;
+  font-family: $font-logo;
   font-weight: lighter;
 
   @media (min-width: $small-breakpoint) {
@@ -166,10 +166,7 @@ p, ul, table {
 p {
   color: $text;
   line-height: $base-line-height;
-  margin: {
-    top: 1em;
-    bottom: 1em;
-  }
+  margin: 1em 0;
 }
 
 ol, ul, li, p {
@@ -187,8 +184,7 @@ a {
   color: $link;
   text-decoration: none;
 
-  &:hover,
-  &:active {
+  &:hover, &:active {
     color: $link-hover;
     text-decoration: underline;
 
