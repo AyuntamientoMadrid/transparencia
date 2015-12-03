@@ -9,28 +9,30 @@
 
 <h1><%= t("subventions.index.title") %></h1>
 <div class="small-12 column">
-<table>
-  <thead>
-    <tr>
-      <th scope="col"><%= t("subventions.index.headers.recipient") %></th>
-      <th scope="col"><%= t("subventions.index.headers.project") %></th>
-      <th scope="col"><%= t("subventions.index.headers.kind") %></th>
-      <th scope="col"><%= t("subventions.index.headers.location") %></th>
-      <th scope="col"><%= t("subventions.index.headers.year") %></th>
-      <th scope="col"><%= t("subventions.index.headers.amount") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @subventions.each do |subvention| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= subvention.recipient %></td>
-        <td><%= subvention.project %></td>
-        <td><%= subvention.kind %></td>
-        <td><%= subvention.location %></td>
-        <td><%= subvention.year %></td>
-        <td><%= number_to_currency(subvention.amount_euro_cents/100.0) %></td>
+        <th scope="col"><%= t("subventions.index.headers.recipient") %></th>
+        <th scope="col"><%= t("subventions.index.headers.project") %></th>
+        <th scope="col"><%= t("subventions.index.headers.kind") %></th>
+        <th scope="col"><%= t("subventions.index.headers.location") %></th>
+        <th scope="col"><%= t("subventions.index.headers.year") %></th>
+        <th scope="col"><%= t("subventions.index.headers.amount") %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @subventions.each do |subvention| %>
+        <tr>
+          <td><%= subvention.recipient %></td>
+          <td><%= subvention.project %></td>
+          <td><%= subvention.kind %></td>
+          <td><%= subvention.location %></td>
+          <td><%= subvention.year %></td>
+          <td><%= number_to_currency(subvention.amount_euro_cents/100.0) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @subventions %>
 </div>
