@@ -42,6 +42,7 @@
   <div class="subnavigation">
     <div class="row">
       <div class="small-12">
+        <%= link_to t("layouts.header.home"), root_path, class: ("active" if current_page?(root_path)) %>
         <%= link_to t("layouts.header.people"), people_path, class: ("active" if current_page?(people_path)) %>
       </div>
     </div>
