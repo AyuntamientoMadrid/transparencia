@@ -45,13 +45,5 @@ module Importers
         Date.new(year, day, month)
       end
     end
-
-    private
-
-      def calculate_decimal_places_divider(str)
-        return 100 if str[-3] == '.' || str[-3] == ','
-        return 10  if str[-2] == '.' || str[-2] == ','
-        return 1
-      end
   end
 end
