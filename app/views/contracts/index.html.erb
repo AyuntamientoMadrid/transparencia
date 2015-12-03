@@ -1,0 +1,36 @@
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to t("home"), root_path %>
+  </li>
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <%= t("contracts.index.title") %>
+  </li>
+</nav>
+
+<h1><%= t("contracts.index.title") %></h1>
+<div class="small-12 column">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col"><%= t("contracts.index.headers.recipient") %></th>
+        <th scope="col"><%= t("contracts.index.headers.description") %></th>
+        <th scope="col"><%= t("contracts.index.headers.organism") %></th>
+        <th scope="col"><%= t("contracts.index.headers.awarded_at") %></th>
+        <th scope="col"><%= t("contracts.index.headers.award_amount") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contracts.each do |contract| %>
+        <tr>
+          <td><%= contract.recipient %></td>
+          <td><%= contract.description %></td>
+          <td><%= contract.organism %></td>
+          <td><%= l contract.awarded_at, format: :long %></td>
+          <td><%= number_to_currency(contract.award_amount_cents/100.0) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @contracts %>
+</div>

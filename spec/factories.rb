@@ -2,6 +2,14 @@ require 'securerandom'
 
 FactoryGirl.define do
 
+  factory :contract do
+    sequence(:recipient) { |n| "Johnson#{n}" }
+    description 'sample description'
+    organism    'Health'
+    awarded_at  Date.today
+    award_amount_cents 100
+  end
+
   factory :subvention do
     sequence(:recipient) { |n| "NGO#{n}" }
     project  'Water management'
@@ -10,7 +18,6 @@ FactoryGirl.define do
     year 2016
     amount_euro_cents 100
   end
-
 
   factory :person do
     sequence(:name) { |n| "person#{n}" }

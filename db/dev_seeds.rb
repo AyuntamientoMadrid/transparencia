@@ -98,6 +98,21 @@ subvention_recipients.each do |recipient|
   Subvention.create!(recipient: recipient, project: subvention_projects.sample, location: subvention_locations.sample, kind: subvention_kinds.sample, amount_euro_cents: rand(9999999), year: subvention_years.sample)
 end
 
+# Contracts
+contract_recipients = ["Jonhson & Smither", "Peter building blocks", "Long life", "Healthy life", "Go champions"]
+contract_center = ["Administration", "Companies"]
+contract_organism = ["Health", "Education", "Participation"]
+contract_projects = ["Solar panels", "Good food", "Improve the world", "Housing for all", "Jobs for all"]
+contract_kinds = ["Services", "Building"]
+contract_award_procedure = ["Open", "Negociated"]
+contract_award_criteria = ["Price", "Multiple"]
+contract_dates = 10.times.collect { Time.at(rand * Time.now.to_i) }
+contract_booleans = [true, false]
+
+contract_recipients.each do |recipient|
+  Contract.create!(recipient: contract_recipients.sample, center: contract_center.sample, organism: contract_organism.sample, contract_number: rand(9999999), document_number: rand(9999999), description: "description sample", kind: contract_kinds.sample, award_procedure: contract_award_procedure.sample, article: rand(9999), article_section: ('a'..'z').to_a.sample, award_criteria: contract_award_criteria.sample, budget_amount_cents: rand(9999999), award_amount_cents: rand(9999999), term: rand(999), awarded_at: contract_dates.sample, recipient_document_number: rand(99999999), formalized_at: contract_dates.sample, framework_agreement: contract_booleans.sample, zero_cost_revenue: contract_booleans.sample)
+end
+
 # Government Areas
 areas =
 [
