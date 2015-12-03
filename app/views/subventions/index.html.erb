@@ -28,7 +28,7 @@
         <td><%= subvention.kind %></td>
         <td><%= subvention.location %></td>
         <td><%= subvention.year %></td>
-        <td><%= subvention.amount_euro_cents %></td>
+        <td><%= number_to_currency(subvention.amount_euro_cents/100.0) %></td>
       </tr>
     <% end %>
   </tbody>
