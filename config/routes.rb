@@ -23,4 +23,9 @@ Rails.application.routes.draw do
     root to: "dashboard#index"
   end
 
+  # static pages
+  get "/accessibility", to: "static_pages#accessibility"
+  get "/conditions", to: "static_pages#conditions"
+  get "/privacy", to: "static_pages#privacy"
+
 end

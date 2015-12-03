@@ -40,7 +40,6 @@ en:
       contact_us: "For technical support contact us"
       privacy: "Privacy Policy"
       conditions: "Terms of use"
-      more_info: "More information"
       accessibility: "Accessibility"
     mailer:
       title: "Transparency"
@@ -138,6 +137,13 @@ en:
       kind: "Class"
       comments: "Comments"
       amount: "Amount"
+  static_pages:
+    accessibility:
+      title: "Accessibility"
+    conditions:
+      title: "Terms of use"
+    privacy:
+      title: "Privacy Policy"
   mailer:
     new_contact:
       subject: "Message from %{email}"
