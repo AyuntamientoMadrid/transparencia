@@ -23,6 +23,7 @@ data:
     # - "<%#= %x[bundle show vagrant].chomp %>/templates/locales/%{locale}.yml"
     - config/locales/%{locale}.yml
     - config/locales/devise.%{locale}.yml
+    - config/locales/kaminari.%{locale}.yml
 
   # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
@@ -107,6 +108,8 @@ ignore_unused:
   - '{devise,simple_form}.*'
   - 'people.contact.*'
   - 'amount.*'
+  - 'helpers.page_entries_info.*' # kaminari
+  - 'views.pagination.*' # kaminari
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
