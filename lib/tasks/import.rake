@@ -99,7 +99,7 @@ namespace :import do
   end
 
   desc "Imports import-data/subventions/cooperacion_v1.csv into the subventions table"
-  task :subventions do
+  task subventions: :environment do
     Importers::SubventionsImporter.new('./import-data/subventions/cooperacion_v1.csv').import!
   end
 end
