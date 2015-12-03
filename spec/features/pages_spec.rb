@@ -22,7 +22,7 @@ feature 'Pages' do
 
       expect(page).to have_content page1.title
       expect(page).to have_selector(".page", count: 2)
-      expect(page).to have_selector(".pane-second .page", count: 1)
+      expect(page).to have_selector(".pane .page", count: 1)
     end
 
     scenario "should show first and second level nodes when first level page is selected" do
@@ -33,8 +33,7 @@ feature 'Pages' do
       expect(page).to have_content page1.title
       expect(page).to have_content page2.title
       expect(page).to have_selector(".page", count: 4)
-      expect(page).to have_selector(".pane-second .page", count: 1)
-      expect(page).to have_selector(".pane-third .page", count: 2)
+      expect(page).to have_selector(".pane .page", count: 3)
     end
 
   end

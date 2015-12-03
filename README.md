@@ -2,6 +2,10 @@
 
 Bienvenidos al repositorio de la nueva página de transparencia de Madrid.
 
+[![Build Status](https://travis-ci.org/AyuntamientoMadrid/transparencia.svg?branch=master)](https://travis-ci.org/AyuntamientoMadrid/transparencia)
+[![Code Climate](https://codeclimate.com/github/AyuntamientoMadrid/transparencia/badges/gpa.svg)](https://codeclimate.com/github/AyuntamientoMadrid/transparencia)
+[![Dependency Status](https://gemnasium.com/AyuntamientoMadrid/transparencia.svg)](https://gemnasium.com/AyuntamientoMadrid/transparencia)
+
 ## Configuración para desarrollo y tests
 
 Prerequisitos: git, Ruby 2.2.3, la gema bundler y PostgreSQL (9.4 o superior).
@@ -30,7 +34,7 @@ bin/rspec
 
 ## Organización
 
-En estos momentos se está realizando un hackathon. Los desarrollos de esta página están centrados en las issues:
+Los desarrollos de esta página están centrados en las issues:
 
 https://github.com/AyuntamientoMadrid/transparencia/issues
 

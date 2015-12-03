@@ -48,32 +48,52 @@
 
 @mixin h1 {
   font-family: $font-sans;
-  font-size: $h1-font-size;
+  font-size: $h2-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h1-font-size;
+  }
 }
 
 @mixin h2 {
   font-family: $font-sans;
-  font-size: $h2-font-size;
+  font-size: $h3-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h2-font-size;
+  }
 }
 
 @mixin h3 {
   font-family: $font-sans;
-  font-size: $h3-font-size;
+  font-size: $h4-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h3-font-size;
+  }
 }
 
 @mixin h4 {
   font-family: $font-sans;
-  font-size: $h4-font-size;
+  font-size: $h5-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h4-font-size;
+  }
 }
 
 @mixin h5 {
   font-family: $font-sans;
-  font-size: $h5-font-size;
+  font-size: $h6-font-size;
   font-weight: $font-bold;
+
+  @media (min-width: $small-breakpoint) {
+    font-size: $h5-font-size;
+  }
 }
 
 @mixin h6 {
@@ -112,6 +132,10 @@ h1, h2, h3, h4, h5, h6 {
   &.lead {
     border-bottom: rem-calc(6) solid $brand;
   }
+
+  &.secondary {
+    color: $text-medium;
+  }
 }
 
 // 03. Global styles
@@ -148,14 +172,15 @@ p {
   }
 }
 
+ol, ul, li, p {
+  font-size: $small-font-size;
+}
+
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: $font-sans;
   line-height: $heading-line-height;
-  margin: {
-    top: rem-calc(12);
-    bottom: rem-calc(6);
-  }
+  margin: rem-calc(12) 0 rem-calc(6);
 }
 
 a {
@@ -166,6 +191,10 @@ a {
   &:active {
     color: $link-hover;
     text-decoration: underline;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: $link-hover;
+    }
   }
 
   &:focus {
@@ -202,11 +231,18 @@ form label {
 
 .breadcrumbs {
   background: none;
-  border: 0;
-  margin: rem-calc(12) 0;
+  border-bottom: 1px solid $border;
+
+  @media (min-width: $small-breakpoint) {
+    border: 0;
+    margin: rem-calc(12) 0;
+  }
 
   & > * {
+    display: inline\9;
+    float: none\9;
     font-size: $small-font-size;
+    line-height: $line-height;
     text-transform: none;
   }
 
@@ -214,7 +250,6 @@ form label {
     color: $link;
     text-decoration: underline;
   }
-
 }
 
 .footer, .push {
@@ -253,6 +288,7 @@ form label {
 
 .highlight {
   background: $highlight;
+  margin: rem-calc(24) 0;
   padding: rem-calc(12);
   padding-top: 0;
 }
@@ -274,10 +310,27 @@ cite, var, address, dfn {
   font-style: normal;
 }
 
+.success {
+  color: $check;
+}
+
+.pending {
+  color: $text-medium;
+}
+
+[data-magellan-expedition], [data-magellan-expedition-clone] {
+  padding: 0;
+
+  @media (min-width: $small-breakpoint) {
+    padding: rem-calc(10);
+  }
+}
+
 // 04. Header
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 header {
+  border-bottom: rem-calc(1) solid $border;
 
   .external-links {
     float: none;
@@ -293,6 +346,10 @@ header {
       padding-bottom: rem-calc(2);
       position: relative;
     }
+  }
+
+  a {
+    font-family: $font-sans;
   }
 }
 
@@ -428,6 +485,10 @@ header {
 .jumbo {
   background: #E7F2FC;
 
+  @media (min-width: $small-breakpoint) {
+    padding: rem-calc(24) 0;
+  }
+
   h1, p {
     color: #3D464D;
   }
@@ -437,6 +498,62 @@ header {
 
   input[type="text"], input[type="submit"] {
     height: rem-calc(48);
+  }
+}
+
+.subnavigation {
+  background: white;
+  clear: both;
+  padding-left: rem-calc(12);
+
+  @media (min-width: $small-breakpoint) {
+    padding-left: 0;
+
+    & > .column {
+      padding-left: 0;
+    }
+  }
+
+  a {
+    color: $text;
+    display: inline-block;
+    font-weight: bold;
+    line-height: $line-height*2;
+    position: relative;
+    text-align: left;
+
+    @media (min-width: $small-breakpoint) {
+      margin-left: rem-calc(12);
+      margin-right: rem-calc(36);
+      margin-right: 12px\9;
+    }
+
+    &:after {
+      color: $border;
+      content: "|";
+      padding: 0 rem-calc(12);
+
+      @media (min-width: $small-breakpoint) {
+        content: none;
+        padding: 0;
+      }
+    }
+
+    &:last-child:after {
+      content: none;
+    }
+
+    &:hover {
+      color: $link;
+    }
+
+    &.active {
+      color: $brand;
+
+      @media (min-width: $small-breakpoint) {
+        border-bottom: 2px solid $brand;
+      }
+    }
   }
 }
 
@@ -488,6 +605,9 @@ footer {
 .footer {
   background: #DEE0E2;
   border-top: rem-calc(6) solid $brand;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
 }
 
 .subfooter {
@@ -608,11 +728,11 @@ table {
   }
 
   .th-big {
-    width: 40%;
+    width: 30%;
   }
 
   .th-small {
-    width: 20%;
+    width: 15%;
   }
 
   tr td {

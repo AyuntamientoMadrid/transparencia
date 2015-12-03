@@ -1,15 +1,19 @@
 class Person < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   include ParseDataRows
 
   belongs_to :party
 
-  has_many :assets_declarations
-  has_many :activities_declarations
+  has_many :assets_declarations, dependent: :destroy
+  has_many :activities_declarations, dependent: :destroy
 
   validates :name,   presence: true
   validates :email,  presence: true
   validates :role,   presence: true
+
+  scope :sorted_for_display, -> { order(:internal_code) }
 
   def profile
     read_attribute(:profile) || {}

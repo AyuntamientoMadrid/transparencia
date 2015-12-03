@@ -1,127 +1,102 @@
 // Contents
 //
 // 01. Browse panes
-// 02. Objectives
-// 03. People
+// 02. People
 //
 
 // 01. Browse panes
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.browse-panes {
+.menu ul {
+  list-style-type: none;
+  margin-left: 0;
 
-  .text {
+  li {
+    margin: 0 rem-calc(-15);
 
-    ol, ul, li, p {
-      font-size: rem-calc(14);
+    &:hover {
+      background: $highlight;
     }
-  }
 
-  .made i {
-    color: $check;
-  }
+    a {
+      display: block;
+      line-height: rem-calc(24);
+      padding: rem-calc(12) rem-calc(18);
+      position: relative;
 
-  .pending i {
-    color: $text-medium;
-  }
+      p {
+        color: $text;
+      }
 
-  .menu {
+      &.active {
+        background: $brand;
+        color: white;
 
-    ul {
-      margin-left: 0;
-
-      li {
-        font-size: rem-calc(14);
-        list-style-type: none;
-        margin: 0 rem-calc(-15);
-
-        &:hover {
-          background: #DEE0E2;
+        h3, p {
+          color: white;
         }
+      }
 
-        a {
-          display: block;
-          line-height: rem-calc(24);
-          padding: rem-calc(12) rem-calc(18);
-          position: relative;
-
-          &.active {
-            background: $brand;
-            color: white;
-
-            h3, p {
-              color: white;
-            }
-          }
-
-          &:after {
-            content: "c";
-            font-family: "icons" !important;
-            margin-top: -12px;
-            position: absolute;
-            top: 50%;
-            right: 0;
-          }
-
-          p {
-            color: $text;
-          }
-        }
+      &:after {
+        content: "c";
+        font-family: "icons" !important;
+        margin-top: rem-calc(-12);
+        position: absolute;
+        top: 50%;
+        right: 0;
       }
     }
   }
 }
 
-.pane-second, .pane-third {
+.pane {
   border-left: 1px solid $border;
 }
 
-.description {
-
-  &.small {
-    height: 60px;
-    overflow: hidden;
-  }
-
-  .show-more {
-    position:relative;
-    cursor: pointer;
-    border:1px solid transparent;
-    display: inline-block;
-    color:$link;
-    margin-top:5px;
-    padding: 5px;
-
-    &:hover {
-      border:1px solid $link;
-    }
-  }
-}
-
-// 02. Objectives
+// 02. People
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.objectives {
+.people-card .column {
 
-  h3 {
-    color: $text-medium;
+  @media (min-width: $small-breakpoint) {
+    padding-bottom: rem-calc(288);
   }
 }
-
-// 03. People
-// - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .people-list {
   margin-left: 0;
+  margin-top: rem-calc(24);
 
   li {
     display: inline-block;
-    margin-right: rem-calc(24);
+    display: inline\9;
+    float: left\9;
+    vertical-align: top;
+    width: 49%;
+    width: 24%\9;
+
+    @media (min-width: $small-breakpoint) {
+      width: 32%;
+    }
+
+    @media (min-width: $medium-breakpoint) {
+      width: 24%;
+    }
+
+    a {
+      display: inline\9;
+    }
+
+    h3 {
+      margin: rem-calc(12) auto 0;
+      max-width: 163px; // Same as people photo width
+    }
   }
 
   p {
-    color: #6F777B;
-    margin-top: 0;
+    color: $text-medium;
+    margin: 0 auto rem-calc(24);
+    max-width: 163px; // Same as people photo width
   }
 }
 
@@ -137,17 +112,29 @@
 }
 
 .people-photo {
-  position: relative;
+  display: inline\9;
 
-  img {
-    width: 100%;
+  figure {
+    display: inline-block;
+    position: relative;
+  }
+}
+
+.fixed-left-sidebar {
+
+  .people-photo {
+    padding-left: rem-calc(12);
   }
 }
 
 .role {
-  color: #6F777B;
+  color: $text-medium;
   font-size: rem-calc(24);
-  margin: 0;
+  margin-top: 0;
+
+  @media (min-width: $small-breakpoint) {
+    margin-bottom: rem-calc(70);
+  }
 }
 
 .tabs.vertical {
@@ -169,42 +156,36 @@
   padding: 0;
 }
 
-.side-nav li a:not(.button) {
-  color: $link;
-  font-family: $font-sans;
-
-  &:hover {
-    color: $link-hover;
-  }
-}
-
 .side-nav li {
   font-size: $base-font-size;
 
   &:hover {
     background: #DEE0E2;
   }
-}
 
-.side-nav li.active {
-  background: $brand;
-  color: white;
+  a:not(.button) {
+    color: $link;
+    font-family: $font-sans;
+    padding: 0;
 
-  & > a:first-child:not(.button), a {
+    @media (min-width: $small-breakpoint) {
+      padding: rem-calc(7) rem-calc(14);
+    }
+
+    &:hover, &:focus {
+      background: none;
+      color: $link-hover;
+    }
+  }
+
+  &.active {
     background: $brand;
     color: white;
-    font-family: $font-sans;
-  }
-}
 
-.side-nav li a:not(.button):hover, .side-nav li a:not(.button):focus {
-  background: none;
-  color: $brand;
-}
-
-.people-card {
-
-  @media (min-width: $small-breakpoint) {
-    padding-bottom: rem-calc(288);
+    & > a:first-child:not(.button), a {
+      background: $brand;
+      color: white;
+      font-family: $font-sans;
+    }
   }
 }

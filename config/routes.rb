@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :people, only: [:index, :show] do
     member { post :contact }
   end
+  resources :subventions, only: [:index]
 
   get "designs/enquiry_index", to: "designs#enquiry_index"
   get "designs/enquiry_form", to: "designs#enquiry_form"
@@ -21,12 +22,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "dashboard#index"
-
-    resource :stats, only: :show
-
-    namespace :api do
-      resource :stats, only: :show
-    end
   end
+
+  # static pages
+  get "/accessibility", to: "static_pages#accessibility"
+  get "/conditions", to: "static_pages#conditions"
+  get "/privacy", to: "static_pages#privacy"
 
 end

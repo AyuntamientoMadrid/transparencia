@@ -106,6 +106,7 @@ ignore_unused:
   - 'errors.messages.*'
   - '{devise,simple_form}.*'
   - 'people.contact.*'
+  - 'amount.*'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

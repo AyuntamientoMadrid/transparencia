@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 # Use PostgreSQL
 gem 'pg'
 # Use SCSS for stylesheets
@@ -23,8 +23,14 @@ gem 'foundation_rails_helper'
 gem 'trix'
 gem 'ancestry'
 gem 'devise'
-gem 'ahoy_matey'
 gem 'groupdate'
+gem 'unicorn', '~> 5.0.1'
+gem 'friendly_id', '~> 5.1.0'
+gem 'dalli'
+gem 'rollbar', '~> 2.6.3'
+gem 'newrelic_rpm', '~> 3.14'
+# For rake db:danger:truncate
+gem 'database_cleaner'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -40,7 +46,11 @@ group :development, :test do
   gem 'launchy'
   gem 'quiet_assets'
   gem 'i18n-tasks'
-  gem 'database_cleaner'
+
+  gem 'capistrano', '3.4.0',           require: false
+  gem "capistrano-bundler", '1.1.4',   require: false
+  gem "capistrano-rails", '1.1.5',     require: false
+  gem "capistrano-rvm",                require: false
 end
 
 group :test do

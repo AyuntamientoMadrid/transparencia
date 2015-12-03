@@ -2,6 +2,16 @@ require 'securerandom'
 
 FactoryGirl.define do
 
+  factory :subvention do
+    sequence(:recipient) { |n| "NGO#{n}" }
+    project  'Water management'
+    kind     'Development'
+    location 'Madrid'
+    year 2016
+    amount_euro_cents 100
+  end
+
+
   factory :person do
     sequence(:name) { |n| "person#{n}" }
     sequence(:email) { |n| "person#{n}@madrid.es" }
@@ -12,6 +22,11 @@ FactoryGirl.define do
   factory :party do
     sequence(:name) { |n| "party#{n}" }
     logo { 'logo.png' }
+  end
+
+  factory :activities_declaration do
+    person
+    declaration_date DateTime.now
   end
 
   factory :administrator do
@@ -39,17 +54,6 @@ FactoryGirl.define do
 
   factory :page do
     sequence(:title)  { |n| "Page title #{n}" }
-  end
-
-  factory :ahoy_event, :class => Ahoy::Event do
-    id { SecureRandom.uuid }
-    time DateTime.now
-    sequence(:name) {|n| "Event #{n} type"}
-  end
-
-  factory :visit  do
-    id { SecureRandom.uuid }
-    started_at DateTime.now
   end
 
 end

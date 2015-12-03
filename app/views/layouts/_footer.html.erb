@@ -10,7 +10,7 @@
         <p>
           <%= t("layouts.footer.description",
             open_source: link_to(t("layouts.footer.open_source"), t("layouts.footer.open_source_url"), target: "blank"),
-            software:  link_to(t("layouts.footer.transparency"), t("layouts.footer.transparency_url"), target: "blank")).html_safe
+            software:  link_to(t("layouts.footer.transparency_repo"), t("layouts.footer.transparency_repo_url"), target: "blank")).html_safe
           %>
           <%= t("layouts.footer.contact_us") %>
           <%= mail_to "transparencia@madrid.es" %>
@@ -20,21 +20,21 @@
       <div class="footer-sections small-12 large-8 column">
         <div class="small-12 medium-4 column">
           <h4>
-            <%= link_to t("layouts.footer.participation_title"), root_path %>
+            <%= link_to t("layouts.footer.participation_title"), t("layouts.footer.participation_url") %>
           </h4>
           <p><%= t("layouts.footer.participation_text") %></p>
         </div>
 
         <div class="small-12 medium-4 column">
           <h4>
-            <%= link_to t("layouts.footer.transparency_title"), "/transparency" %>
+            <%= link_to t("layouts.footer.transparency_title"), t("layouts.footer.transparency_url") %>
           </h4>
           <p><%= t("layouts.footer.transparency_text") %></p>
         </div>
 
         <div class="small-12 medium-4 column">
           <h4>
-            <%= link_to t("layouts.footer.open_data_title"), "/opendata" %>
+            <%= link_to t("layouts.footer.open_data_title"), t("layouts.footer.open_data_url") %>
           </h4>
           <p><%= t("layouts.footer.open_data_text") %></p>
         </div>
@@ -45,10 +45,9 @@
       <div class="small-12 medium-9 column">
         <p>
           <%= t("layouts.footer.copyright", year: Time.now.year) %>&nbsp;|&nbsp;
-          <%= link_to t("layouts.footer.more_info"), "#" %>&nbsp;|&nbsp;
-          <%= link_to t("layouts.footer.privacy"), "#" %>&nbsp;|&nbsp;
-          <%= link_to t("layouts.footer.conditions"), "#" %>&nbsp;|&nbsp;
-          <%= link_to t("layouts.footer.accessibility"), "#" %>
+          <%= link_to t("layouts.footer.privacy"), privacy_path %>&nbsp;|&nbsp;
+          <%= link_to t("layouts.footer.conditions"), conditions_path %>&nbsp;|&nbsp;
+          <%= link_to t("layouts.footer.accessibility"), accessibility_path %>
         </p>
       </div>
 
@@ -72,4 +71,8 @@
       </div>
     </div>
   </div>
+
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "rem" %>
+  <![endif]-->
 </footer>

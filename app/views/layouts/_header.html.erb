@@ -4,7 +4,7 @@
       <div class="external-links">
         <%= link_to t("layouts.header.participation"), "http://decide.madrid.es" %>&nbsp;|
         <%= link_to t("layouts.header.transparency"), root_path, class: "selected" %>&nbsp;|
-        <%= link_to t("layouts.header.opendata"), "#" %>&nbsp;|&nbsp;
+        <%= link_to t("layouts.header.opendata"), "https://decide.madrid.es/opendata" %>&nbsp;|&nbsp;
         <div class="social inline-block">
           <%= link_to "https://twitter.com/abriendomadrid", target: "_blank", title: t("social.twitter") do %>
             <span class="sr-only"><%= t("social.twitter") %></span>
@@ -32,11 +32,19 @@
       <ul class="title-area">
         <li class="name">
           <%= link_to root_path do %>
-            <%= image_tag('header_logo_madrid.png', size: '80x80', alt: t("layouts.header.logo")) %>
-            <%= t("layouts.header.open_gov") %> | <%= t("layouts.header.transparency") %>
+            <%= image_tag('header_logo_madrid.png', size: '80x80', alt: t("layouts.header.logo")) %><%= t("layouts.header.open_gov") %> | <%= t("layouts.header.transparency") %>
           <% end %>
         </li>
       </ul>
     </nav>
   </div>
+
+  <div class="subnavigation">
+    <div class="row">
+      <div class="small-12">
+        <%= link_to t("layouts.header.people"), people_path, class: ("active" if current_page?(people_path)) %>
+      </div>
+    </div>
+  </div>
+
 </header>

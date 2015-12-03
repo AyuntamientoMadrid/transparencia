@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125192308) do
+ActiveRecord::Schema.define(version: 20151202113934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,18 +40,6 @@ ActiveRecord::Schema.define(version: 20151125192308) do
 
   add_index "administrators", ["email"], name: "index_administrators_on_email", unique: true, using: :btree
   add_index "administrators", ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true, using: :btree
-
-  create_table "ahoy_events", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid     "visit_id"
-    t.integer  "user_id"
-    t.string   "name"
-    t.jsonb    "properties"
-    t.datetime "time"
-  end
-
-  add_index "ahoy_events", ["time"], name: "index_ahoy_events_on_time", using: :btree
-  add_index "ahoy_events", ["user_id"], name: "index_ahoy_events_on_user_id", using: :btree
-  add_index "ahoy_events", ["visit_id"], name: "index_ahoy_events_on_visit_id", using: :btree
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -93,6 +81,7 @@ ActiveRecord::Schema.define(version: 20151125192308) do
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.string "logo"
+    t.string "long_name"
   end
 
   create_table "people", force: :cascade do |t|
@@ -100,41 +89,28 @@ ActiveRecord::Schema.define(version: 20151125192308) do
     t.string  "name"
     t.string  "email"
     t.string  "role"
-    t.float   "salary"
     t.text    "functions"
+    t.string  "diary"
+    t.integer "internal_code"
+    t.string  "slug"
     t.json    "profile"
     t.string  "twitter"
     t.string  "facebook"
   end
 
-  create_table "visits", id: :uuid, default: nil, force: :cascade do |t|
-    t.uuid     "visitor_id"
-    t.string   "ip"
-    t.text     "user_agent"
-    t.text     "referrer"
-    t.text     "landing_page"
-    t.integer  "user_id"
-    t.string   "referring_domain"
-    t.string   "search_keyword"
-    t.string   "browser"
-    t.string   "os"
-    t.string   "device_type"
-    t.integer  "screen_height"
-    t.integer  "screen_width"
-    t.string   "country"
-    t.string   "region"
-    t.string   "city"
-    t.string   "postal_code"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
-    t.string   "utm_source"
-    t.string   "utm_medium"
-    t.string   "utm_term"
-    t.string   "utm_content"
-    t.string   "utm_campaign"
-    t.datetime "started_at"
+  add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree
+
+  create_table "subventions", force: :cascade do |t|
+    t.string   "recipient",         null: false
+    t.string   "project"
+    t.string   "kind"
+    t.string   "location"
+    t.integer  "year"
+    t.integer  "amount_euro_cents", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  add_index "visits", ["user_id"], name: "index_visits_on_user_id", using: :btree
+  add_index "subventions", ["recipient"], name: "index_subventions_on_recipient", using: :btree
 
 end

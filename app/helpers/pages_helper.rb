@@ -8,9 +8,9 @@ module PagesHelper
     if depth == 0
       ""
     elsif depth == 1
-      "pane-second"
+      "pane"
     else
-      "pane-third"
+      "pane"
     end
   end
 

@@ -1,21 +1,10 @@
-<div class="people-photo"><%= image_tag "people_example.jpg" %></div>
+<div class="people-photo"><%= profile_picture(person) %></div>
 
 <ul class="side-nav" role="navigation">
-  <li role="menuitem" data-magellan-arrival="responsibility" class="active">
-    <a href="#responsibility" title="<%= t("people.responsibility") %>">
-      <%= t("people.responsibility") %>
-    </a>
-  </li>
 
   <li role="menuitem" data-magellan-arrival="profile">
     <a href="#profile" title="<%= t("people.profile") %>">
       <%= t("people.profile") %>
-    </a>
-  </li>
-
-  <li role="menuitem" data-magellan-arrival="diary">
-    <a href="#diary" title="<%= t("people.diary") %>">
-      <%= t("people.diary") %>
     </a>
   </li>
 
@@ -31,9 +20,4 @@
     </a>
   </li>
 
-  <li role="menuitem" data-magellan-arrival="contact">
-    <a href="#contact" title="<%= t("people.contact") %>">
-      <%= t("people.contact.title") %>
-    </a>
-  </li>
 </ul>

@@ -4,29 +4,15 @@ es:
   admin:
     menu:
       title: "Administración"
-      stats: "Estadísticas"
       close_session: "Cerrar sesión"
     dashboard:
       title: "Administración"
-    stats:
-      title: "Estadísticas"
-      visits: "Visitas"
-      all_events: "Todos los eventos"
   index:
-    title: "Bienvenidos al Portal de Transparencia"
-    intro: "El mejor lugar para encontrar toda la información del Ayuntamiento de Madrid."
-    search_placeholder: "Buscar..."
-    search_submit: "Buscar"
-    featured: "Destacados"
-    objectives: "Cumplimiento de programa"
-    objectives_text: "Dividido por las Áreas de Gobierno que componen el Ayuntamiento."
-    people: "Concejales"
-    people_text: "Conoce a los 57 Concejales de la Corporación actual del pleno."
-    info: "Información"
-    info_text: "Toda la información de tu Ayuntamiento."
-    request: "Solicitud de información"
-    request_text: "Solicita información sobre tu Ayuntamiento."
-    request_button: "Solicitar información"
+    title: "Transparencia"
+    under_construction_1: "Estamos trabajando en el nuevo Portal de Transparencia del Ayuntamiento de Madrid, para que no quede ni una esquina del Ayuntamiento que no puedas ver."
+    under_construction_2: "Por ahora puedes ver la Declaración de bienes de los actuales Concejales o visitar el portal que ya existía."
+    visit_people: "Ver Declaración de bienes de los Concejales"
+    visit_old_site: "Ir al Portal de Transparencia"
   layouts:
     header:
       participation: "Madrid Decide"
@@ -34,23 +20,26 @@ es:
       opendata: "Datos abiertos"
       logo: "Madrid"
       open_gov: "Gobierno abierto"
+      people: "Declaración de bienes de Concejales"
     footer:
       description: "Este portal usa %{software} que es %{open_source}. De Madrid, para el mundo entero."
       open_source: "software libre"
       open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
-      transparency: "la aplicación de Transparencia del Ayuntamiento de Madrid"
-      transparency_url: "https://github.com/ayuntamientomadrid/transparencia"
+      transparency_repo: "la aplicación de Transparencia del Ayuntamiento de Madrid"
+      transparency_repo_url: "https://github.com/ayuntamientomadrid/transparencia"
       copyright: "Ayuntamiento de Madrid, %{year}"
       participation_title: "Participación"
+      participation_url: "https://decide.madrid.es"
       participation_text: "Decide cómo debe ser la ciudad de Madrid que quieres."
-      transparency_title: Transparencia
+      transparency_title: "Transparencia"
+      transparency_url: "https://transparencia.madrid.es"
       transparency_text: "Obtén cualquier información sobre el Ayuntamiento de Madrid."
-      open_data_title: Datos Abiertos
+      open_data_title: "Datos Abiertos"
+      open_data_url: "https://decide.madrid.es/opendata"
       open_data_text: "Todos los datos del Ayuntamiento son tuyos."
       contact_us: "Para asistencia técnica contáctenos en"
       privacy: "Política de privacidad"
       conditions: "Condiciones de uso"
-      more_info: "Más información"
       accessibility: "Accesibilidad"
     mailer:
       title: "Transparencia"
@@ -75,17 +64,9 @@ es:
     youtube: "YouTube"
   people:
     title: "Concejales"
-    responsibility: "Responsabilidad actual"
-    assets_declarations: "Declaración de bienes"
-    activities_declarations: "Declaración de actividades"
     profile: "Perfil profesional"
-    diary: "Agenda"
-    contact:
-      title: "Contacto"
-      intro: "Envía un mensaje directo a %{person}."
-      submit: "Envíar mensaje"
-      success: "Mensaje enviado con éxito"
-      error: "No se pudo enviar el mensaje"
+    assets_declarations: "Declaración de bienes patrimoniales"
+    activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"
     studies:
       title: "Titulaciones oficiales"
       description: "Título"
@@ -124,11 +105,9 @@ es:
     special_mentions: "Distinciones"
     activity: "Actividad"
     other: "Otros"
-
-
-
-
-
+    show:
+      disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
+      activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
   pages:
     title: "¿Qué buscas?"
     edit: "Editar contenido"
@@ -136,19 +115,29 @@ es:
     update_error: "Hubo un error al guardar la página, revise el formulario"
     update_success: "Se ha modificado la página correctamente"
     create_success: "Se ha creado la página correctamente"
+  subventions:
+    index:
+      title: "Subvenciones"
+      headers:
+        recipient: Receptor
+        project: Proyecto
+        kind: Tipología
+        location: Lugar
+        year: Año
+        amount: "Cantidad (€)"
   activities_declarations:
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"
       entity: "Entidad"
-      post: "Cargo o categoría"
+      position: "Cargo o categoría"
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
     private_activities:
-      title: "2) Actividades privadas por cuenta propia o ajena"
+      title: "2) Actividades privadas profesionales, mercantiles, industriales o laborales, por cuenta ajena o propia"
       kind: "Clase"
       description: "Descripción"
       entity: "Entidad/Colegio profesional"
-      post: "Cargo o categoría"
+      position: "Cargo o categoría"
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
     other_activities:
@@ -165,26 +154,25 @@ es:
       municipality: "Municipio"
       share: "Participación"
       tax_value: "Valor catastral"
-      area: "Superficie"
       purchase_date: "Fecha adquisición"
     account_deposits:
-      title: "2) Depósitos en cuenta"
+      title: "2) Depósitos en cuenta corriente, de ahorro y otros tipos de imposiciones en cuenta"
       kind: "Clase"
       entity: "Entidad de depósito"
       balance: "Saldo medio anual o valor en euros"
-    other_assets:
-      title: "3) Otros depósitos en cuenta"
+    other_deposits:
+      title: "3) Otros depósitos en cuenta corriente, de ahorro y otros tipos de imposiciones en cuenta"
       kind: "Clase"
       description: "Descripción"
       amount: "Número, cuantía o valor en euros"
       purchase_date: "Fecha adquisición"
     vehicles:
-      title: "4) Vehículos"
+      title: "4) Vehículos (automóviles, motocicletas, embarcaciones, aeronaves ...)"
       kind: "Clase"
       model: "Marca y Modelo"
       purchase_date: "Fecha adquisición"
     other_personal_properties:
-      title: "5) Otros Bienes Muebles"
+      title: "5) Otros bienes muebles de especial valor (objetos de arte, antigüedades, joyas, pieles, otros)"
       kind: "Clase"
       purchase_date: "Fecha adquisición"
     debts:
@@ -192,6 +180,14 @@ es:
       kind: "Clase"
       comments: "Observaciones"
       amount: "Importe"
+  static_pages:
+    accessibility:
+      title: "Accesibilidad"
+    conditions:
+      title: "Condiciones de uso"
+    privacy:
+      title: "Política de privacidad"
+
   mailer:
     new_contact:
       subject: "Mensaje de %{email}"
@@ -214,7 +210,6 @@ es:
         subtitle: "Subtítulo"
         link: "Enlace externo"
         content: "Contenido"
-
   activemodel:
     models:
       contact: "Contacto"
