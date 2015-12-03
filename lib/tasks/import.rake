@@ -1,5 +1,6 @@
-require 'importers/people_importer'
 require 'importers/parties_importer'
+require 'importers/people_importer'
+require 'importers/professional_profiles_importer'
 require 'importers/assets/declarations_importer'
 require 'importers/assets/account_deposits_importer'
 require 'importers/assets/real_estate_properties_importer'
@@ -22,6 +23,11 @@ namespace :import do
   desc "Imports import-data/people.csv into the people table"
   task people: 'import:parties' do
     Importers::PeopleImporter.new('./import-data/people.csv').import!
+  end
+
+  desc "Imports import-data/PerfilProfesional.csv into the people table"
+  task profiles: 'import:people' do
+    Importers::ProfessionalProfilesImporter.new('./import-data/PerfilProfesional.csv').import!
   end
 
   namespace :assets do
@@ -102,4 +108,5 @@ namespace :import do
   task subventions: :environment do
     Importers::SubventionsImporter.new('./import-data/subventions/cooperacion_v1.csv').import!
   end
+
 end
