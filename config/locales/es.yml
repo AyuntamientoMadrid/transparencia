@@ -138,6 +138,14 @@ es:
       kind: "Clase"
       comments: "Observaciones"
       amount: "Importe"
+  static_pages:
+    accessibility:
+      title: "Accesibilidad"
+    conditions:
+      title: "Condiciones de uso"
+    privacy:
+      title: "Política de privacidad"
+
   mailer:
     new_contact:
       subject: "Mensaje de %{email}"

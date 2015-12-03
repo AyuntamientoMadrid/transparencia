@@ -138,6 +138,13 @@ en:
       kind: "Class"
       comments: "Comments"
       amount: "Amount"
+  static_pages:
+    accessibility:
+      title: "Accessibility"
+    conditions:
+      title: "Terms of use"
+    privacy:
+      title: "Privacy Policy"
   mailer:
     new_contact:
       subject: "Message from %{email}"
