@@ -82,6 +82,16 @@ es:
     update_error: "Hubo un error al guardar la página, revise el formulario"
     update_success: "Se ha modificado la página correctamente"
     create_success: "Se ha creado la página correctamente"
+  subventions:
+    index:
+      title: "Subvenciones"
+      headers:
+        recipient: Receptor
+        project: Proyecto
+        kind: Tipología
+        location: Lugar
+        year: Año
+        amount: "Cantidad (€)"
   activities_declarations:
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"

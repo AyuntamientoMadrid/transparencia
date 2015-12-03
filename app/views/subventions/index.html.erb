@@ -1,0 +1,36 @@
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to t("home"), root_path %>
+  </li>
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <%= t("subventions.index.title") %>
+  </li>
+</nav>
+
+<h1><%= t("subventions.index.title") %></h1>
+<div class="small-12 column">
+<table>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("subventions.index.headers.recipient") %></th>
+      <th scope="col"><%= t("subventions.index.headers.project") %></th>
+      <th scope="col"><%= t("subventions.index.headers.kind") %></th>
+      <th scope="col"><%= t("subventions.index.headers.location") %></th>
+      <th scope="col"><%= t("subventions.index.headers.year") %></th>
+      <th scope="col"><%= t("subventions.index.headers.amount") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subventions.each do |subvention| %>
+      <tr>
+        <td><%= subvention.recipient %></td>
+        <td><%= subvention.project %></td>
+        <td><%= subvention.kind %></td>
+        <td><%= subvention.location %></td>
+        <td><%= subvention.year %></td>
+        <td><%= number_to_currency(subvention.amount_euro_cents/100.0) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

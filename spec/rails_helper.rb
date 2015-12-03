@@ -10,6 +10,7 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
+include ActionView::Helpers::NumberHelper
 include Warden::Test::Helpers
 Warden.test_mode!
 
