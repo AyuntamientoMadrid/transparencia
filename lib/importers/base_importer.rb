@@ -13,8 +13,8 @@ module Importers
       @path_to_file = path_to_file
     end
 
-    def each_row(&block)
-      CSV.foreach(@path_to_file, OPTIONS) do |row|
+    def each_row(options = {}, &block)
+      CSV.foreach(@path_to_file, OPTIONS.merge(options)) do |row|
         block.call(row)
       end
     end
