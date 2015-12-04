@@ -17,4 +17,19 @@ feature 'Contracts' do
     end
   end
 
+  scenario 'Search' do
+    create(:contract, description: 'Build a park')
+    create(:contract, description: 'Build a hospital')
+    create(:contract, description: 'Clean the streets')
+
+    visit contracts_path
+
+    fill_in :query, with: 'build'
+    click_button 'Search'
+
+    expect(page).to have_content("2 results found")
+    expect(page).to have_content("Build a park")
+    expect(page).to have_content("Build a hospital")
+  end
+
 end

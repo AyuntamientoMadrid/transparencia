@@ -95,6 +95,11 @@ es:
         location: Lugar
         year: Año
         amount: "Cantidad (€)"
+      search_results_title: Resultados de la búsqueda
+      search_results_count:
+        zero: "No se han encontrado resultados"
+        one: "Encontado %{count} resultado"
+        other: "Encontados %{count} resultados"
   contracts:
     index:
       title: "Contratos"
@@ -104,6 +109,11 @@ es:
         organism: Organismo
         awarded_at: Fecha Adjudicación
         award_amount: Importe Adjudicación (€)
+      search_results_title: Resultados de la búsqueda
+      search_results_count:
+        zero: "No se han encontrado resultados"
+        one: "Encontado %{count} resultado"
+        other: "Encontados %{count} resultados"
   activities_declarations:
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"

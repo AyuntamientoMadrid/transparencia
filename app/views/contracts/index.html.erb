@@ -7,6 +7,16 @@
   </li>
 </nav>
 
+<div>
+  <%= render 'searches/form', url: contracts_path %>
+</div>
+
+<% if params[:query] %>
+  <h1><%= t("contracts.index.search_results_title") %> </h1>
+
+  <p><%= t("contracts.index.search_results_count", count: @contracts.count) %></p>
+<% end %>
+
 <h1><%= t("contracts.index.title") %></h1>
 <div class="small-12 column">
   <table>
