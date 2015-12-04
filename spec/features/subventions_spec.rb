@@ -31,4 +31,22 @@ feature 'Subventions' do
     expect(page).to have_content("Educate the children")
   end
 
+  scenario 'Sort ascending and descending' do
+    create(:subvention, recipient: 'Naturalis')
+    create(:subvention, recipient: 'Children of the green')
+    create(:subvention, recipient: 'GreenCross')
+
+    visit subventions_path
+
+    click_link 'Recipient'
+
+    expect('Children of the green').to appear_before('GreenCross')
+    expect('GreenCross').to appear_before('Naturalis')
+
+    click_link 'Recipient'
+
+    expect('Naturalis').to appear_before('GreenCross')
+    expect('GreenCross').to appear_before('Children of the green')
+  end
+
 end
