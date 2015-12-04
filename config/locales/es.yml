@@ -197,3 +197,13 @@ es:
         name: "Nombre y apellidos"
         email: "Email"
         body: "Mensaje"
+  searches:
+    index:
+      title: Resultados de la búsqueda
+      results_count:
+        zero: "No se han encontrado resultados"
+        one: "Encontado %{count} resultado"
+        other: "Encontados %{count} resultados"
+    form:
+      placeholder: "Buscar..."
+      submit: "Buscar"
