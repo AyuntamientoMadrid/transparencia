@@ -5,7 +5,7 @@ feature 'Search' do
   scenario 'Results' do
     jobs_page = Page.create(title: "List of jobs")
 
-    visit root_url
+    visit home_path
     fill_in :query, with: 'Jobs'
     click_button 'Search'
 
@@ -18,7 +18,7 @@ feature 'Search' do
   end
 
   scenario 'No results' do
-    visit root_url
+    visit home_path
     fill_in :query, with: 'Jobs'
     click_button 'Search'
 

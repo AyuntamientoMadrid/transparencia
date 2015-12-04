@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
 
   root 'home#welcome'
+  get  'home/index', to: "home#index", as: 'home'
 
   resources :areas, only: [:index] do
     resources :departments, only: [:index]

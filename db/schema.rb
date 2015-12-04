@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20151203152004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
   enable_extension "unaccent"
   enable_extension "pg_trgm"
 
@@ -125,6 +124,16 @@ ActiveRecord::Schema.define(version: 20151203152004) do
 
   add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
+
   create_table "subventions", force: :cascade do |t|
     t.string   "recipient",         null: false
     t.string   "project"
@@ -137,15 +146,5 @@ ActiveRecord::Schema.define(version: 20151203152004) do
   end
 
   add_index "subventions", ["recipient"], name: "index_subventions_on_recipient", using: :btree
-
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "searchable_id"
-    t.string   "searchable_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
 end
