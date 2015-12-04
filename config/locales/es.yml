@@ -22,6 +22,8 @@ es:
       open_gov: "Gobierno abierto"
       home: "Portada"
       people: "Declaración de bienes de Concejales"
+      subventions: "Subvenciones"
+      contracts: "Contratos"
     footer:
       description: "Este portal usa %{software} que es %{open_source}. De Madrid, para el mundo entero."
       open_source: "software libre"
