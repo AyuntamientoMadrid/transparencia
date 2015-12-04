@@ -16,4 +16,19 @@ feature 'Subventions' do
     end
   end
 
+  scenario 'Search' do
+    create(:subvention, project: 'Clean the parks')
+    create(:subvention, project: 'Save the children')
+    create(:subvention, project: 'Educate the children')
+
+    visit subventions_path
+
+    fill_in :query, with: 'children'
+    click_button 'Search'
+
+    expect(page).to have_content("Found 2 results")
+    expect(page).to have_content("Save the children")
+    expect(page).to have_content("Educate the children")
+  end
+
 end
