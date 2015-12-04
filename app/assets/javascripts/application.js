@@ -18,3 +18,4 @@
 //= require program-accomplishment
 //= require turbolinks
 //= require trix
+//= require linkable
