@@ -1,4 +1,4 @@
-<%= form_tag searches_path, method: :get do %>
+<%= form_tag url, method: :get do %>
   <div class="small-9 medium-12 large-9 columns">
     <%= text_field_tag :query, "", placeholder: t("searches.form.placeholder"), class: "search-form" %>
   </div>
