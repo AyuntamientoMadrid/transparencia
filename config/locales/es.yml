@@ -203,7 +203,7 @@ es:
       results_count:
         zero: "No se han encontrado resultados"
         one: "Encontado %{count} resultado"
-        many: "Encontados %{count} resultados"
+        other: "Encontados %{count} resultados"
     form:
       placeholder: "Buscar..."
       submit: "Buscar"

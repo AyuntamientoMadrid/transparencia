@@ -203,7 +203,7 @@ en:
       results_count:
         zero: "No results found"
         one: "Found %{count} result"
-        many: "Found %{count} results"
+        other: "Found %{count} results"
     form:
       placeholder: "Search..."
       submit: "Search"
