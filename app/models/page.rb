@@ -1,4 +1,5 @@
 class Page < ActiveRecord::Base
+  include PgSearch
   has_ancestry
 
   validates_presence_of :title
@@ -6,8 +7,10 @@ class Page < ActiveRecord::Base
     with: URI::regexp(%w(http https)), 
     message: "el enlace introducido no es válido", 
     allow_blank: true
-  validate :link_or_content 
-  
+  validate :link_or_content
+
+  multisearchable against: [:title, :subtitle, :content]
+
   def level
     self.depth + 1
   end

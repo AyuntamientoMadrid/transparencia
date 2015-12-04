@@ -1,26 +1,13 @@
-<%= content_for :jumbo  do %>
+<div class="intro">
+  <div class="small-12 column">
+    <h1><%= t("index.title") %></h1>
+    <p><%= t("index.intro") %></p>
 
-  <div class="row-full jumbo">
-    <div class="row">
-      <div class="intro">
-        <div class="small-12 medium-8 column">
-          <h1><%= t("index.title") %></h1>
-          <h2><%= t("index.under_construction_1") %></h2>
-          <p><%= t("index.under_construction_2") %></p>
-          <%= link_to t("index.visit_people"), people_path, class: "button radius" %>
-          <h3>
-          <%= link_to "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia?vgnextfmt=default&vgnextchannel=20fd850769797310VgnVCM2000000c205a0aRCRD", target: "blank" do %>
-            <%= t("index.visit_old_site") %>
-            <i class="icon-external"></i>
-          <% end %>
-          </h3>
-        </div>
+    <div class="small-12 medium-6">
+      <div class="row collapse">
+        <%= render 'searches/form' %>
       </div>
     </div>
+
   </div>
-
-<% end  %>
-
-<div class="alert-box info radius small-12 column margin-top">
-  <p>Mientras acabamos el nuevo portal, te invitamos a visitar el <a href="https://decide.madrid.es/blog" target="_blank">blog del Área de Participación Ciudadana, Transparencia y Gobierno Abierto</a> para conocer nuestros avances y novedades; o la <a href="https://decide.madrid.es/">sección de Participación Ciudadana</a> donde poder decidir qué ciudad es la que quieres.</p>
 </div>

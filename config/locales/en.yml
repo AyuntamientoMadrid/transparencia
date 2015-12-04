@@ -197,3 +197,13 @@ en:
         name: "Name and surname"
         email: "Email"
         body: "Message"
+  searches:
+    index:
+      title: Search results
+      results_count:
+        zero: "No results found"
+        one: "Found %{count} result"
+        many: "Found %{count} results"
+    form:
+      placeholder: "Search..."
+      submit: "Search"
