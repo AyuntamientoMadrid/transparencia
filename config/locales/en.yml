@@ -22,6 +22,8 @@ en:
       open_gov: "Open goverment"
       home: "Home"
       people: "Councillors' assets declarations"
+      subventions: "Subventions"
+      contracts: "Contracts"
     footer:
       description: "This portal uses %{software}, is %{open_source}. Madrid, for the whole world."
       open_source: "software libre"

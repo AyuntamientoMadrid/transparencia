@@ -44,6 +44,8 @@
       <div class="small-12">
         <%= link_to t("layouts.header.home"), root_path, class: ("active" if current_page?(root_path)) %>
         <%= link_to t("layouts.header.people"), people_path, class: ("active" if current_page?(people_path)) %>
+        <%= link_to t("layouts.header.subventions"), subventions_path, class: ("active" if current_page?(subventions_path)) %>
+        <%= link_to t("layouts.header.contracts"), contracts_path, class: ("active" if current_page?(contracts_path)) %>
       </div>
     </div>
   </div>
