@@ -4,11 +4,11 @@ module Importers
   class ContractsImporter < BaseImporter
     def import!
       each_row do |row|
-        center              = row[:descripcion_centro].capitalize
-        organism            = row[:organismo].capitalize
+        center              = parse_text(row[:descripcion_centro])
+        organism            = parse_text(row[:organismo])
         contract_number     = row[:numero_contrato]
         document_number     = row[:numero_expediente]
-        description         = row[:descripcion_contrato].capitalize
+        description         = parse_text(row[:descripcion_contrato])
         kind                = row[:tipo_contrato]
         award_procedure     = row[:procedimiento_adjudicación]
         article             = row[:articulo]
@@ -18,7 +18,7 @@ module Importers
         award_amount        = row[:importe_adjudicacion_iva_incluido]
         term                = row[:plazo]
         awarded_at          = parse_declaration_date(row[:fecha_adjudicacion])
-        recipient           = row[:nombrerazon_social].capitalize
+        recipient           = parse_text(row[:nombrerazon_social])
         formalized_at       = parse_declaration_date(row[:fecha_formalizacion])
         framework_agreement = row[:acuerdo_marco]
         zero_cost_revenue   = row[:ingresocoste_cero]

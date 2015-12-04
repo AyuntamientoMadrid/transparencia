@@ -4,10 +4,10 @@ module Importers
   class SubventionsImporter < BaseImporter
     def import!
       each_row do |row|
-        recipient = row[:ong].capitalize
-        project = row[:titulo_proyecto].try(:capitalize)
+        recipient = parse_text(row[:ong])
+        project = parse_text(row[:titulo_proyecto])
         kind = row[:tipologia]
-        location = row[:pais].capitalize
+        location = parse_text(row[:pais])
         year = row[:ano_de_ejecucion].to_i
         amount = row[:subvencion_]
         euros, cents = amount.split(',')

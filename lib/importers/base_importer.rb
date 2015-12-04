@@ -46,6 +46,11 @@ module Importers
       end
     end
 
+    def parse_text(str)
+      return '' if str.blank?
+      str.mb_chars.capitalize
+    end
+
     private
 
       def calculate_decimal_places_divider(str)
