@@ -8,6 +8,7 @@
 // 06. Social
 // 07. Alerts
 // 08. Tables
+// 09. Pagination
 //
 
 // 01. Variables
@@ -747,5 +748,17 @@ table {
     padding: rem-calc(12) 0;
     text-align: left;
     text-transform: uppercase;
+  }
+}
+
+// 09. Pagination
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ul.pagination {
+  font-family: $font-sans;
+  margin-top: rem-calc(24);
+
+  li {
+    color: $text-medium;
   }
 }
