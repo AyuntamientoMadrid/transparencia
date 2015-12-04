@@ -26,7 +26,7 @@ feature 'Subventions' do
     fill_in :query, with: 'children'
     click_button 'Search'
 
-    expect(page).to have_content("Found 2 results")
+    expect(page).to have_content("2 results found")
     expect(page).to have_content("Save the children")
     expect(page).to have_content("Educate the children")
   end

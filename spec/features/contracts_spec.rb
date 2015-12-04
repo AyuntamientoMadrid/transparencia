@@ -27,7 +27,7 @@ feature 'Contracts' do
     fill_in :query, with: 'build'
     click_button 'Search'
 
-    expect(page).to have_content("Found 2 results")
+    expect(page).to have_content("2 results found")
     expect(page).to have_content("Build a park")
     expect(page).to have_content("Build a hospital")
   end
