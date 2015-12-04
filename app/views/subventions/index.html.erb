@@ -22,13 +22,13 @@
 
   <table>
     <thead>
-      <tr>
-        <th scope="col"><%= t("subventions.index.headers.recipient") %></th>
-        <th scope="col"><%= t("subventions.index.headers.project") %></th>
-        <th scope="col"><%= t("subventions.index.headers.kind") %></th>
-        <th scope="col"><%= t("subventions.index.headers.location") %></th>
-        <th scope="col"><%= t("subventions.index.headers.year") %></th>
-        <th scope="col" class="th-small"><%= t("subventions.index.headers.amount") %></th>
+      <tr class="sortable">
+        <th scope="col"><%= sortable "recipient", t("subventions.index.headers.recipient") %></th>
+        <th scope="col"><%= sortable "project", t("subventions.index.headers.project") %></th>
+        <th scope="col"><%= sortable "kind", t("subventions.index.headers.kind") %></th>
+        <th scope="col"><%= sortable "location", t("subventions.index.headers.location") %></th>
+        <th scope="col"><%= sortable "year", t("subventions.index.headers.year") %></th>
+        <th scope="col" class="th-small"><%= sortable "amount_euro_cents", t("subventions.index.headers.amount") %></th>
       </tr>
     </thead>
     <tbody>
