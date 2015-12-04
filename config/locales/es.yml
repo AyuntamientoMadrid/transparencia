@@ -95,6 +95,11 @@ es:
         location: Lugar
         year: Año
         amount: "Cantidad (€)"
+      search_results_title: Resultados de la búsqueda
+      search_results_count:
+        zero: "No se han encontrado resultados"
+        one: "Encontado %{count} resultado"
+        other: "Encontados %{count} resultados"
   contracts:
     index:
       title: "Contratos"

@@ -1,7 +1,8 @@
 class SubventionsController < ApplicationController
 
   def index
-    @subventions = Subvention.all.order(year: :desc).page(params[:page])
+    @subventions = params[:query].present? ? Subvention.search(params[:query]) : Subvention.all
+    @subventions = @subventions.reorder(year: :desc).page(params[:page])
   end
 
 end
