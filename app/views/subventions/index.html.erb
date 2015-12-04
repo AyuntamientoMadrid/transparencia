@@ -7,8 +7,9 @@
   </li>
 </nav>
 
-<h1><%= t("subventions.index.title") %></h1>
 <div class="small-12 column">
+  <h1><%= t("subventions.index.title") %></h1>
+
   <table>
     <thead>
       <tr>
@@ -17,7 +18,7 @@
         <th scope="col"><%= t("subventions.index.headers.kind") %></th>
         <th scope="col"><%= t("subventions.index.headers.location") %></th>
         <th scope="col"><%= t("subventions.index.headers.year") %></th>
-        <th scope="col"><%= t("subventions.index.headers.amount") %></th>
+        <th scope="col" class="th-small"><%= t("subventions.index.headers.amount") %></th>
       </tr>
     </thead>
     <tbody>
