@@ -95,11 +95,22 @@ es:
         location: Lugar
         year: Año
         amount: "Cantidad (€)"
+<<<<<<< 21547f39f8291e8d1930df5cca0bbca583d6b6fc
       search_results_title: Resultados de la búsqueda
       search_results_count:
         zero: "No se han encontrado resultados"
         one: "Encontado %{count} resultado"
         other: "Encontados %{count} resultados"
+=======
+    show:
+      title: "Subvención"
+      recipient: Receptor
+      project: Proyecto
+      kind: Tipología
+      location: Lugar
+      year: Año
+      amount: "Cantidad (€)"
+>>>>>>> adds subventions show
   contracts:
     index:
       title: "Contratos"

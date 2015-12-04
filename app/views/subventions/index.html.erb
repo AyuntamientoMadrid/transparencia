@@ -33,7 +33,7 @@
     </thead>
     <tbody>
       <% @subventions.each do |subvention| %>
-        <tr>
+        <tr class="linkable" data-url="<%= subvention_path(subvention) %>">
           <td><%= subvention.recipient %></td>
           <td><%= subvention.project %></td>
           <td><%= subvention.kind %></td>

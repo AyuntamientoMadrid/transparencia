@@ -5,4 +5,8 @@ class SubventionsController < ApplicationController
     @subventions = @subventions.reorder(year: :desc).page(params[:page])
   end
 
+  def show
+    @subvention = Subvention.find(params[:id])
+  end
+
 end
