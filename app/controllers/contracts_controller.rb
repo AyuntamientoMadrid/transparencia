@@ -1,7 +1,8 @@
 class ContractsController < ApplicationController
 
   def index
-    @contracts = Contract.all.order(awarded_at: :desc).page(params[:page])
+    @contracts = params[:query].present? ? Contract.search(params[:query]) : Contract.all
+    @contracts = @contracts.reorder(awarded_at: :desc).page(params[:page])
   end
 
 end
