@@ -95,11 +95,11 @@ en:
         location: Location
         year: Year
         amount: "Amount (€)"
-      search_results_title: Resultados de la búsqueda
+      search_results_title: Search results
       search_results_count:
-        zero: "No se han encontrado resultados"
-        one: "Encontado %{count} resultado"
-        other: "Encontados %{count} resultados"
+        zero: "No results found"
+        one: "%{count} results found"
+        other: "%{count} results found"
   contracts:
     index:
       title: "Contracts"
@@ -109,11 +109,11 @@ en:
         organism: Organism
         awarded_at: Award date
         award_amount: Amount (€)
-      search_results_title: Resultados de la búsqueda
+      search_results_title: Search results
       search_results_count:
-        zero: "No se han encontrado resultados"
-        one: "Encontado %{count} resultado"
-        other: "Encontados %{count} resultados"
+        zero: "No results found"
+        one: "%{count} results found"
+        other: "%{count} results found"
   activities_declarations:
     public_activities:
       title: "1) Jobs, posts or activities in the public sector"
