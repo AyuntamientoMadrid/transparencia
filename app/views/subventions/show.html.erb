@@ -24,7 +24,7 @@
   <%= @subvention.project %>
 
   <h2 class="lead"><%= t("subventions.show.amount") %></h2>
-  <%= number_to_currency(@subvention.amount_euro_cents/100.0) %>
+  <%= number_to_currency(@subvention.amount_cents/100.0) %>
 
   <h2 class="lead"><%= t("subventions.show.year") %></h2>
   <%= @subvention.year %>

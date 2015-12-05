@@ -1,6 +1,6 @@
 class Subvention < ActiveRecord::Base
 
-  validates :recipient, :amount_euro_cents, presence: true
+  validates :recipient, :amount_cents, presence: true
 
   include PgSearch
 

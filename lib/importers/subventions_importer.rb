@@ -12,12 +12,12 @@ module Importers
         amount = row[:subvencion_]
         euros, cents = amount.split(',')
         cents ||= "00"
-        amount_euro_cents = "#{euros}#{cents}".gsub(/[^0-9]/,'').to_i
+        amount_cents = "#{euros}#{cents}".gsub(/[^0-9]/,'').to_i
 
         puts "Importing #{year} subvention to: #{recipient} - #{project}"
 
         subvention = Subvention.find_or_initialize_by(project: project, recipient: recipient, year: year)
-        subvention.attributes = { recipient: recipient, project: project, kind: kind, location: location, year: year, amount_euro_cents: amount_euro_cents }
+        subvention.attributes = { recipient: recipient, project: project, kind: kind, location: location, year: year, amount_cents: amount_cents }
         subvention.save!
       end
     end

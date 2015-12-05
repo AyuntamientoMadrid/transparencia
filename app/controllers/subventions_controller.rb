@@ -47,7 +47,7 @@ class SubventionsController < ApplicationController
   private
 
     def subvention_params
-      params.require(:subvention).permit(:recipient, :project, :amount, :year, :kind, :location, :amount_euro_cents)
+      params.require(:subvention).permit(:recipient, :project, :amount, :year, :kind, :location, :amount_cents)
     end
 
     def resource_model

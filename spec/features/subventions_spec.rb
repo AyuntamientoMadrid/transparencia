@@ -4,7 +4,7 @@ feature 'Subventions' do
 
   scenario 'Index' do
     subventions = [create(:subvention),
-                   create(:subvention, project: "Green", year: "2017", location: "Malmö", amount_euro_cents: 987654321)]
+                   create(:subvention, project: "Green", year: "2017", location: "Malmö", amount_cents: 987654321)]
     visit subventions_path
 
     subventions.each do |subvention|
@@ -12,7 +12,7 @@ feature 'Subventions' do
       expect(page).to have_content(subvention.project)
       expect(page).to have_content(subvention.year)
       expect(page).to have_content(subvention.location)
-      expect(page).to have_content(number_to_currency(subvention.amount_euro_cents/100.0))
+      expect(page).to have_content(number_to_currency(subvention.amount_cents/100.0))
     end
   end
 
@@ -50,14 +50,14 @@ feature 'Subventions' do
   end
 
   scenario 'Show' do
-    subvention = create(:subvention, project: "Green", year: "2017", location: "Malmö", amount_euro_cents: 987654321)
+    subvention = create(:subvention, project: "Green", year: "2017", location: "Malmö", amount_cents: 987654321)
     visit subvention_path(subvention)
 
     expect(page).to have_content(subvention.recipient)
     expect(page).to have_content(subvention.project)
     expect(page).to have_content(subvention.year)
     expect(page).to have_content(subvention.location)
-    expect(page).to have_content(number_to_currency(subvention.amount_euro_cents/100.0))
+    expect(page).to have_content(number_to_currency(subvention.amount_cents/100.0))
   end
 
   context 'Admin actions' do
@@ -69,7 +69,7 @@ feature 'Subventions' do
       visit new_subvention_path
       fill_in :subvention_recipient, with: "Green Amnesty"
       fill_in :subvention_project, with: "New forest"
-      fill_in :subvention_amount_euro_cents, with: "12345678"
+      fill_in :subvention_amount_cents, with: "12345678"
       fill_in :subvention_kind, with: "Ecology"
       fill_in :subvention_location, with: "Antarctica"
       fill_in :subvention_year, with: "2020"
@@ -106,7 +106,7 @@ feature 'Subventions' do
       expect(page).to have_content("Blue sea")
       expect(page).to have_content(subvention.year)
       expect(page).to have_content(subvention.location)
-      expect(page).to have_content(number_to_currency(subvention.amount_euro_cents/100.0))
+      expect(page).to have_content(number_to_currency(subvention.amount_cents/100.0))
     end
 
     scenario 'Delete' do

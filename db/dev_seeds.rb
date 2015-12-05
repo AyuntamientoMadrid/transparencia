@@ -95,7 +95,7 @@ subvention_kinds = ["Cooperation", "Development"]
 subvention_years = (2014..2024).to_a
 
 subvention_recipients.each do |recipient|
-  Subvention.create!(recipient: recipient, project: subvention_projects.sample, location: subvention_locations.sample, kind: subvention_kinds.sample, amount_euro_cents: rand(9999999), year: subvention_years.sample)
+  Subvention.create!(recipient: recipient, project: subvention_projects.sample, location: subvention_locations.sample, kind: subvention_kinds.sample, amount_cents: rand(9999999), year: subvention_years.sample)
 end
 
 # Contracts

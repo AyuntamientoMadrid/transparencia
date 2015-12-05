@@ -51,14 +51,14 @@ feature 'Contracts' do
   end
 
   scenario 'Show' do
-    subvention = create(:subvention, project: "Green", year: "2017", location: "Malmö", amount_euro_cents: 987654321)
+    subvention = create(:subvention, project: "Green", year: "2017", location: "Malmö", amount_cents: 987654321)
     visit subvention_path(subvention)
 
     expect(page).to have_content(subvention.recipient)
     expect(page).to have_content(subvention.project)
     expect(page).to have_content(subvention.year)
     expect(page).to have_content(subvention.location)
-    expect(page).to have_content(number_to_currency(subvention.amount_euro_cents/100.0))
+    expect(page).to have_content(number_to_currency(subvention.amount_cents/100.0))
   end
 
   context 'Admin actions' do
