@@ -1,0 +1,114 @@
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to t("home"), root_path %>
+  </li>
+  <li role="menuitem">
+    <%= link_to t("contracts.index.title"), contracts_path %>
+  </li>
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <%= t("contracts.show.title") %>
+  </li>
+</nav>
+
+<h1><%= t("contracts.show.title") %></h1>
+<%if administrator_signed_in? %>
+  <%= link_to t("contracts.show.edit"), edit_contract_path(@contract), class: "button radius" %>
+  <%= link_to t("contracts.show.delete"), contract_path(@contract), method: :delete, data: {confirm: t("contracts.show.confirm_deletion")}, class: "button radius alert" %>
+<% end %>
+
+<div class="small-12 column">
+  <% if @contract.recipient.present? %>
+    <h2 class="lead"><%= t("contracts.show.recipient") %></h2>
+    <%= @contract.recipient %>
+  <% end %>
+
+  <% if @contract.recipient_document_number.present? %>
+    <h2 class="lead"><%= t("contracts.show.recipient_document_number") %></h2>
+    <%= @contract.recipient_document_number %>
+  <% end %>
+
+  <% if @contract.description..present? %>
+    <h2 class="lead"><%= t("contracts.show.description") %></h2>
+    <%= simple_format @contract.description %>
+  <% end %>
+
+  <% if @contract.center.present? %>
+    <h2 class="lead"><%= t("contracts.show.center") %></h2>
+    <%= @contract.center %>
+  <% end %>
+
+  <% if @contract.organism.present? %>
+    <h2 class="lead"><%= t("contracts.show.organism") %></h2>
+    <%= @contract.organism %>
+  <% end %>
+
+  <% if @contract.contract_number.present? %>
+    <h2 class="lead"><%= t("contracts.show.contract_number") %></h2>
+    <%= @contract.contract_number %>
+  <% end %>
+
+  <% if @contract.document_number.present? %>
+    <h2 class="lead"><%= t("contracts.show.document_number") %></h2>
+    <%= @contract.document_number %>
+  <% end %>
+
+  <% if @contract.kind.present? %>
+    <h2 class="lead"><%= t("contracts.show.kind") %></h2>
+    <%= @contract.kind %>
+  <% end %>
+
+  <% if @contract.award_criteria.present? %>
+    <h2 class="lead"><%= t("contracts.show.award_criteria") %></h2>
+    <%= @contract.award_criteria %>
+  <% end %>
+
+  <% if @contract.award_procedure.present? %>
+    <h2 class="lead"><%= t("contracts.show.award_procedure") %></h2>
+    <%= @contract.award_procedure %>
+  <% end %>
+
+  <% if @contract.budget_amount_cents.present? %>
+    <h2 class="lead"><%= t("contracts.show.budget_amount_cents") %></h2>
+    <%= number_to_currency(@contract.budget_amount_cents/100.0) %>
+  <% end %>
+
+  <% if @contract.award_amount_cents.present? %>
+    <h2 class="lead"><%= t("contracts.show.award_amount_cents") %></h2>
+    <%= number_to_currency(@contract.award_amount_cents/100.0) %>
+  <% end %>
+
+  <% if @contract.article.present? %>
+    <h2 class="lead"><%= t("contracts.show.article") %></h2>
+    <%= @contract.article %>
+  <% end %>
+
+  <% if @contract.article_section.present? %>
+    <h2 class="lead"><%= t("contracts.show.article_section") %></h2>
+    <%= @contract.article_section %>
+  <% end %>
+
+  <% if @contract.awarded_at.present? %>
+    <h2 class="lead"><%= t("contracts.show.awarded_at") %></h2>
+    <%= l @contract.awarded_at, format: :long %>
+  <% end %>
+
+  <% if @contract.formalized_at.present? %>
+    <h2 class="lead"><%= t("contracts.show.formalized_at") %></h2>
+    <%= l @contract.formalized_at, format: :long %>
+  <% end %>
+
+  <% if @contract.term.present? %>
+    <h2 class="lead"><%= t("contracts.show.term") %></h2>
+    <%= @contract.term %>
+  <% end %>
+
+  <% if @contract.framework_agreement? %>
+    <h2 class="lead"><%= t("contracts.show.framework_agreement") %></h2>
+    <%= boolean_to_text @contract.framework_agreement %>
+  <% end %>
+
+  <% if @contract.zero_cost_revenue? %>
+    <h2 class="lead"><%= t("contracts.show.zero_cost_revenue") %></h2>
+    <%= boolean_to_text @contract.zero_cost_revenue %>
+  <% end %>
+</div>

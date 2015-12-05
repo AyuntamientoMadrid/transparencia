@@ -1,6 +1,9 @@
 es:
   transparency: "Transparencia"
   home: "Inicio"
+  booleans:
+    t: "Sí"
+    f: "No"
   admin:
     menu:
       title: "Administración"
@@ -122,12 +125,16 @@ es:
       kind: Tipología
       location: Lugar
       year: Año
-      amount: "Cantidad (en centimos de Euro)"
+      amount: "Cantidad (en céntimos de Euro)"
     new:
       title: "Crear"
     form:
       save: Guardar
   contracts:
+    notice:
+      created: "Contrato creado, por favor revise los datos"
+      updated: "Contrato actualizado, por favor revise los cambios"
+      deleted: "Contrato eliminado"
     index:
       title: "Contratos"
       headers:
@@ -141,6 +148,55 @@ es:
         zero: "No se han encontrado resultados"
         one: "Encontado %{count} resultado"
         other: "Encontados %{count} resultados"
+    show:
+      title: "Contract"
+      center: Centro
+      organism: Organismo
+      contract_number: "Número de contrato"
+      document_number: "Número de expediente"
+      description: "Descripción"
+      kind: "Tipo de contrato"
+      award_procedure: "Procedimiento de adjudicación"
+      article: "Artículo"
+      article_section: "Apartado"
+      award_criteria: "Criterios de adjudicacion"
+      budget_amount_cents: "Presupuesto total IVA incluido"
+      award_amount_cents: "Importe de la adjudicacion IVA incluido"
+      term: Plazo
+      awarded_at: "Fecha de adjudicación"
+      recipient: Adjudicatario
+      recipient_document_number: "CIF/NIF adjudicatario"
+      formalized_at: "Fecha de formalizacion"
+      framework_agreement: "Acuerdo marco"
+      zero_cost_revenue: "Ingreso coste cero"
+      edit: "Editar"
+      delete: "Eliminar"
+      confirm_deletion: "¿Seguro que desea borrar este contrato?"
+    edit:
+      title: "Editar"
+      center: Centro
+      organism: Organismo
+      contract_number: "Número de contrato"
+      document_number: "Número de expediente"
+      description: "Descripción"
+      kind: "Tipo de contrato"
+      award_procedure: "Procedimiento de adjudicación"
+      article: "Artículo"
+      article_section: "Apartado"
+      award_criteria: "Criterios de adjudicacion"
+      budget_amount_cents: "Presupuesto total IVA incluido (en céntimos de euro)"
+      award_amount_cents: "Importe de la adjudicacion IVA incluido (en céntimos de euro)"
+      term: Plazo
+      awarded_at: "Fecha de adjudicación"
+      recipient: Adjudicatario
+      recipient_document_number: "CIF/NIF adjudicatario"
+      formalized_at: "Fecha de formalizacion"
+      framework_agreement: "Acuerdo marco"
+      zero_cost_revenue: "Ingreso coste cero"
+    new:
+      title: "Crear"
+    form:
+      save: Guardar
   activities_declarations:
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"
