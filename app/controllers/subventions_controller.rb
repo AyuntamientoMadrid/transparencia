@@ -1,10 +1,11 @@
 class SubventionsController < ApplicationController
+  include Sortable
 
   before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @subventions = params[:query].present? ? Subvention.search(params[:query]) : Subvention.all
-    @subventions = @subventions.reorder(year: :desc).page(params[:page])
+    @subventions = @subventions.reorder(sort_options).page(params[:page])
   end
 
   def new
@@ -47,6 +48,14 @@ class SubventionsController < ApplicationController
 
     def subvention_params
       params.require(:subvention).permit(:recipient, :project, :amount, :year, :kind, :location, :amount_euro_cents)
+    end
+
+    def resource_model
+      Subvention
+    end
+
+    def default_order
+      "year desc"
     end
 
 end
