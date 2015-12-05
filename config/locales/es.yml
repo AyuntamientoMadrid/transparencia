@@ -86,6 +86,10 @@ es:
     update_success: "Se ha modificado la página correctamente"
     create_success: "Se ha creado la página correctamente"
   subventions:
+    notice:
+      created: "Subvención creada, por favor revise los datos"
+      updated: "Subvención actualizada, por favor revise los cambios"
+      deleted: "Subvención eliminada"
     index:
       title: "Subvenciones"
       headers:
@@ -95,13 +99,11 @@ es:
         location: Lugar
         year: Año
         amount: "Cantidad (€)"
-<<<<<<< 21547f39f8291e8d1930df5cca0bbca583d6b6fc
       search_results_title: Resultados de la búsqueda
       search_results_count:
         zero: "No se han encontrado resultados"
         one: "Encontado %{count} resultado"
         other: "Encontados %{count} resultados"
-=======
     show:
       title: "Subvención"
       recipient: Receptor
@@ -110,7 +112,21 @@ es:
       location: Lugar
       year: Año
       amount: "Cantidad (€)"
->>>>>>> adds subventions show
+      edit: "Editar"
+      delete: "Eliminar"
+      confirm_deletion: "¿Seguro que desea borrar esta subvención?"
+    edit:
+      title: "Editar"
+      recipient: Receptor
+      project: Proyecto
+      kind: Tipología
+      location: Lugar
+      year: Año
+      amount: "Cantidad (en centimos de Euro)"
+    new:
+      title: "Crear"
+    form:
+      save: Guardar
   contracts:
     index:
       title: "Contratos"

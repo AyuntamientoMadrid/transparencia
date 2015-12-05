@@ -40,4 +40,8 @@ class ApplicationController < ActionController::Base
       Rails.application.secrets.only_full_features
     end
 
+    def authorize_administrators
+      raise ActionController::RoutingError.new('Not Found') unless current_administrator.present?
+    end
+
 end

@@ -11,6 +11,10 @@
 </nav>
 
 <h1><%= t("subventions.show.title") %></h1>
+<%if administrator_signed_in? %>
+  <%= link_to t("subventions.show.edit"), edit_subvention_path(@subvention), class: "button radius" %>
+  <%= link_to t("subventions.show.delete"), subvention_path(@subvention), method: :delete, data: {confirm: t("subventions.show.confirm_deletion")}, class: "button radius alert" %>
+<% end %>
 
 <div class="small-12 column">
   <h2 class="lead"><%= t("subventions.show.recipient") %></h2>
