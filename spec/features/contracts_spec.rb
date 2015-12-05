@@ -32,4 +32,22 @@ feature 'Contracts' do
     expect(page).to have_content("Build a hospital")
   end
 
+  scenario 'Sort ascending and descending' do
+    create(:contract, recipient: 'Johnson and Smithers')
+    create(:contract, recipient: 'Building the world')
+    create(:contract, recipient: 'Keeping you healthy')
+
+    visit contracts_path
+
+    click_link 'Recipient'
+
+    expect('Building the world').to appear_before('Johnson and Smithers')
+    expect('Johnson and Smithers').to appear_before('Keeping you healthy')
+
+    click_link 'Recipient'
+
+    expect('Keeping you healthy').to appear_before('Johnson and Smithers')
+    expect('Johnson and Smithers').to appear_before('Building the world')
+  end
+
 end
