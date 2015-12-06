@@ -749,6 +749,11 @@ table {
     text-align: left;
     text-transform: uppercase;
   }
+
+  .linkable:hover {
+    cursor: pointer;
+    background-color: yellow;
+  }
 }
 
 // 09. Pagination

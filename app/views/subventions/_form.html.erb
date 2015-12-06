@@ -1,0 +1,33 @@
+<%= form_for(@subvention) do |f| %>
+  <div class="small-12 column">
+    <%= f.label :recipient, t("subventions.edit.recipient") %>
+    <%= f.text_field :recipient, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :project, t("subventions.edit.project") %>
+    <%= f.text_field :project, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :amount_cents, t("subventions.edit.amount") %>
+    <%= f.text_field :amount_cents, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :year, t("subventions.edit.year") %>
+    <%= f.text_field :year, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :kind, t("subventions.edit.kind") %>
+    <%= f.text_field :kind, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :location, t("subventions.edit.location") %>
+    <%= f.text_field :location, label: false %>
+  </div>
+
+  <%= f.submit(class: "button radius", value: t("subventions.form.save")) %>
+<% end %>

@@ -1,0 +1,103 @@
+<%= form_for(@contract) do |f| %>
+  <div class="small-12 column">
+    <%= f.label :recipient, t("contracts.edit.recipient") %>
+    <%= f.text_field :recipient, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :recipient_document_number, t("contracts.edit.recipient_document_number") %>
+    <%= f.text_field :recipient_document_number, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :description, t("contracts.edit.description") %>
+    <%= f.text_area :description, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :center, t("contracts.edit.center") %>
+    <%= f.text_field :center, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :organism, t("contracts.edit.organism") %>
+    <%= f.text_field :organism, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :contract_number, t("contracts.edit.contract_number") %>
+    <%= f.text_field :contract_number, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :document_number, t("contracts.edit.document_number") %>
+    <%= f.text_field :document_number, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :kind, t("contracts.edit.kind") %>
+    <%= f.text_field :kind, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :award_criteria, t("contracts.edit.award_criteria") %>
+    <%= f.text_field :award_criteria, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :award_procedure, t("contracts.edit.award_procedure") %>
+    <%= f.text_field :award_procedure, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :budget_amount_cents, t("contracts.edit.budget_amount_cents") %>
+    <%= f.text_field :budget_amount_cents, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :award_amount_cents, t("contracts.edit.award_amount_cents") %>
+    <%= f.text_field :award_amount_cents, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :article, t("contracts.edit.article") %>
+    <%= f.text_field :article, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :article_section, t("contracts.edit.article_section") %>
+    <%= f.text_field :article_section, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :awarded_at, t("contracts.edit.awarded_at") %>
+    <%= f.date_select :awarded_at, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :formalized_at, t("contracts.edit.formalized_at") %>
+    <%= f.date_select :formalized_at, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :term, t("contracts.edit.term") %>
+    <%= f.text_field :term, label: false %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :framework_agreement do %>
+      <%= f.check_box :framework_agreement, label: false %>
+      <span class="checkbox"><%= t("contracts.edit.framework_agreement") %></span>
+    <% end %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.label :zero_cost_revenue do %>
+      <%= f.check_box :zero_cost_revenue, label: false %>
+      <span class="checkbox"><%= t("contracts.edit.zero_cost_revenue") %></span>
+    <% end %>
+  </div>
+
+  <%= f.submit(class: "button radius", value: t("contracts.form.save")) %>
+<% end %>
+

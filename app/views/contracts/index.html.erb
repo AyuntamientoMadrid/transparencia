@@ -31,7 +31,7 @@
     </thead>
     <tbody>
       <% @contracts.each do |contract| %>
-        <tr>
+        <tr class="linkable" data-url="<%= contract_path(contract) %>">
           <td><%= contract.recipient %></td>
           <td><%= contract.description %></td>
           <td><%= contract.organism %></td>

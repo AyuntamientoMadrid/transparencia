@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :people, only: [:index, :show] do
     member { post :contact }
   end
-  resources :subventions, only: [:index]
-  resources :contracts, only: [:index]
+  resources :subventions
+  resources :contracts
 
   resources :searches, only: :index
 

@@ -28,18 +28,18 @@
         <th scope="col"><%= sortable "kind", t("subventions.index.headers.kind") %></th>
         <th scope="col"><%= sortable "location", t("subventions.index.headers.location") %></th>
         <th scope="col"><%= sortable "year", t("subventions.index.headers.year") %></th>
-        <th scope="col" class="th-small"><%= sortable "amount_euro_cents", t("subventions.index.headers.amount") %></th>
+        <th scope="col" class="th-small"><%= sortable "amount_cents", t("subventions.index.headers.amount") %></th>
       </tr>
     </thead>
     <tbody>
       <% @subventions.each do |subvention| %>
-        <tr>
+        <tr class="linkable" data-url="<%= subvention_path(subvention) %>">
           <td><%= subvention.recipient %></td>
           <td><%= subvention.project %></td>
           <td><%= subvention.kind %></td>
           <td><%= subvention.location %></td>
           <td><%= subvention.year %></td>
-          <td><%= number_to_currency(subvention.amount_euro_cents/100.0) %></td>
+          <td><%= number_to_currency(subvention.amount_cents/100.0) %></td>
         </tr>
       <% end %>
     </tbody>

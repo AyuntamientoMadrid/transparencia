@@ -1,0 +1,37 @@
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to t("home"), root_path %>
+  </li>
+  <li role="menuitem">
+    <%= link_to t("subventions.index.title"), subventions_path %>
+  </li>
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <%= t("subventions.show.title") %>
+  </li>
+</nav>
+
+<h1><%= t("subventions.show.title") %></h1>
+<%if administrator_signed_in? %>
+  <%= link_to t("subventions.show.edit"), edit_subvention_path(@subvention), class: "button radius" %>
+  <%= link_to t("subventions.show.delete"), subvention_path(@subvention), method: :delete, data: {confirm: t("subventions.show.confirm_deletion")}, class: "button radius alert" %>
+<% end %>
+
+<div class="small-12 column">
+  <h2 class="lead"><%= t("subventions.show.recipient") %></h2>
+  <%= @subvention.recipient %>
+
+  <h2 class="lead"><%= t("subventions.show.project") %></h2>
+  <%= @subvention.project %>
+
+  <h2 class="lead"><%= t("subventions.show.amount") %></h2>
+  <%= number_to_currency(@subvention.amount_cents/100.0) %>
+
+  <h2 class="lead"><%= t("subventions.show.year") %></h2>
+  <%= @subvention.year %>
+
+  <h2 class="lead"><%= t("subventions.show.kind") %></h2>
+  <%= @subvention.kind %>
+
+  <h2 class="lead"><%= t("subventions.show.location") %></h2>
+  <%= @subvention.location %>
+</div>

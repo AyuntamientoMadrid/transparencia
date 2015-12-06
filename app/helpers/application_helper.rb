@@ -11,4 +11,8 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}
   end
 
+  def boolean_to_text(bool)
+    bool ? t("booleans.t") : t("booleans.f")
+  end
+
 end

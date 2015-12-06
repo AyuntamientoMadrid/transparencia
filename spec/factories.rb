@@ -16,7 +16,7 @@ FactoryGirl.define do
     kind     'Development'
     location 'Madrid'
     year 2016
-    amount_euro_cents 100
+    amount_cents 100
   end
 
   factory :person do
