@@ -106,9 +106,9 @@ es:
         amount: "Cantidad (€)"
       search_results_title: Resultados de la búsqueda
       search_results_count:
-        zero: "No se han encontrado resultados"
-        one: "Encontrado %{count} resultado"
-        other: "Encontrados %{count} resultados"
+        zero: "No se han encontrado resultados."
+        one: "Encontrado %{count} resultado:"
+        other: "Encontrados %{count} resultados:"
     show:
       title: "Subvención"
       recipient: Receptor
@@ -147,9 +147,9 @@ es:
         award_amount: Importe Adjudicación (€)
       search_results_title: Resultados de la búsqueda
       search_results_count:
-        zero: "No se han encontrado resultados"
-        one: "Encontrado %{count} resultado"
-        other: "Encontrados %{count} resultados"
+        zero: "No se han encontrado resultados."
+        one: "Encontrado %{count} resultado:"
+        other: "Encontrados %{count} resultados:"
     show:
       title: "Contrato"
       center: Centro
@@ -296,9 +296,9 @@ es:
     index:
       title: Resultados de la búsqueda
       results_count:
-        zero: "No se han encontrado resultados"
-        one: "Encontrado %{count} resultado"
-        other: "Encontrados %{count} resultados"
+        zero: "No se han encontrado resultados."
+        one: "Encontrado %{count} resultado:"
+        other: "Encontrados %{count} resultados:"
     form:
       placeholder: "Buscar..."
       submit: "Buscar"
