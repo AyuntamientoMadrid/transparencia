@@ -106,9 +106,9 @@ en:
         amount: "Amount (€)"
       search_results_title: Search results
       search_results_count:
-        zero: "No results found"
-        one: "%{count} results found"
-        other: "%{count} results found"
+        zero: "No results found."
+        one: "%{count} result found:"
+        other: "%{count} results found:"
     show:
       title: "Subvention"
       recipient: Recipient
@@ -147,9 +147,9 @@ en:
         award_amount: "Amount (€)"
       search_results_title: Search results
       search_results_count:
-        zero: "No results found"
-        one: "%{count} results found"
-        other: "%{count} results found"
+        zero: "No results found."
+        one: "%{count} result found:"
+        other: "%{count} results found:"
     show:
       title: "Contract"
       center: Center
@@ -296,9 +296,9 @@ en:
     index:
       title: Search results
       results_count:
-        zero: "No results found"
-        one: "Found %{count} result"
-        other: "Found %{count} results"
+        zero: "No results found."
+        one: "%{count} result found:"
+        other: "%{count} results found:"
     form:
       placeholder: "Search..."
       submit: "Search"

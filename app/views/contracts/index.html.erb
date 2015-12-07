@@ -7,40 +7,44 @@
   </li>
 </nav>
 
-<div>
+<div class="small-12 column">
   <%= render 'searches/form', url: contracts_path %>
 </div>
 
-<% if params[:query] %>
-  <h1><%= t("contracts.index.search_results_title") %> </h1>
-
-  <p><%= t("contracts.index.search_results_count", count: @contracts.count) %></p>
-<% end %>
-
-<h1><%= t("contracts.index.title") %></h1>
 <div class="small-12 column">
-  <table>
-    <thead>
-      <tr>
-        <th scope="col"><%= sortable "recipient", t("contracts.index.headers.recipient") %></th>
-        <th scope="col"><%= sortable "description", t("contracts.index.headers.description") %></th>
-        <th scope="col"><%= sortable "organism", t("contracts.index.headers.organism") %></th>
-        <th scope="col"><%= sortable "awarded_at", t("contracts.index.headers.awarded_at") %></th>
-        <th scope="col"><%= sortable "award_amount_cents", t("contracts.index.headers.award_amount") %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @contracts.each do |contract| %>
-        <tr class="linkable" data-url="<%= contract_path(contract) %>">
-          <td><%= contract.recipient %></td>
-          <td><%= contract.description %></td>
-          <td><%= contract.organism %></td>
-          <td><%= l contract.awarded_at, format: :long %></td>
-          <td><%= number_to_currency(contract.award_amount_cents/100.0) %></td>
+
+  <% if params[:query] %>
+    <h1><%= t("contracts.index.search_results_title") %></h1>
+    <p><%= t("contracts.index.search_results_count", count: @contracts.count) %></p>
+  <% end %>
+
+  <% if @contracts.any? %>
+
+    <h1><%= t("contracts.index.title") %></h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th scope="col"><%= sortable "recipient", t("contracts.index.headers.recipient") %></th>
+          <th scope="col"><%= sortable "description", t("contracts.index.headers.description") %></th>
+          <th scope="col"><%= sortable "organism", t("contracts.index.headers.organism") %></th>
+          <th scope="col" class="th-small"><%= sortable "awarded_at", t("contracts.index.headers.awarded_at") %></th>
+          <th scope="col" class="th-small"><%= sortable "award_amount_cents", t("contracts.index.headers.award_amount") %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @contracts.each do |contract| %>
+          <tr class="linkable" data-url="<%= contract_path(contract) %>">
+            <td><%= contract.recipient %></td>
+            <td><%= contract.description %></td>
+            <td><%= contract.organism %></td>
+            <td><%= l contract.awarded_at, format: :long %></td>
+            <td><%= number_to_currency(contract.award_amount_cents/100.0) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 
   <%= paginate @contracts %>
 </div>

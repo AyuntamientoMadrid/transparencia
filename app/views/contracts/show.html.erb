@@ -10,105 +10,120 @@
   </li>
 </nav>
 
-<h1><%= t("contracts.show.title") %></h1>
-<%if administrator_signed_in? %>
-  <%= link_to t("contracts.show.edit"), edit_contract_path(@contract), class: "button radius" %>
-  <%= link_to t("contracts.show.delete"), contract_path(@contract), method: :delete, data: {confirm: t("contracts.show.confirm_deletion")}, class: "button radius alert" %>
-<% end %>
-
 <div class="small-12 column">
-  <% if @contract.recipient.present? %>
-    <h2 class="lead"><%= t("contracts.show.recipient") %></h2>
-    <%= @contract.recipient %>
+
+  <% if administrator_signed_in? %>
+    <div class="right">
+      <%= link_to t("contracts.show.edit"), edit_contract_path(@contract), class: "button radius" %>
+      <%= link_to t("contracts.show.delete"), contract_path(@contract), method: :delete, data: {confirm: t("contracts.show.confirm_deletion")}, class: "button radius alert" %>
+    </div>
   <% end %>
 
-  <% if @contract.recipient_document_number.present? %>
-    <h2 class="lead"><%= t("contracts.show.recipient_document_number") %></h2>
-    <%= @contract.recipient_document_number %>
-  <% end %>
+  <h1 class="lead"><%= t("contracts.show.title") %></h1>
 
-  <% if @contract.description..present? %>
-    <h2 class="lead"><%= t("contracts.show.description") %></h2>
-    <%= simple_format @contract.description %>
-  <% end %>
+  <div class="small-12 large-8 column highlight">
 
-  <% if @contract.center.present? %>
-    <h2 class="lead"><%= t("contracts.show.center") %></h2>
-    <%= @contract.center %>
-  <% end %>
+    <% if @contract.recipient.present? %>
+      <h2><%= t("contracts.show.recipient") %></h2>
+      <span class="big-data"><%= @contract.recipient %></span>
+    <% end %>
 
-  <% if @contract.organism.present? %>
-    <h2 class="lead"><%= t("contracts.show.organism") %></h2>
-    <%= @contract.organism %>
-  <% end %>
+    <dl class="details">
+      <% if @contract.recipient_document_number.present? %>
+        <dt><%= t("contracts.show.recipient_document_number") %></dt>
+        <dd><%= @contract.recipient_document_number %></dd>
+      <% end %>
 
-  <% if @contract.contract_number.present? %>
-    <h2 class="lead"><%= t("contracts.show.contract_number") %></h2>
-    <%= @contract.contract_number %>
-  <% end %>
+      <% if @contract.center.present? %>
+        <dt><%= t("contracts.show.center") %></dt>
+        <dd><%= @contract.center %></dd>
+      <% end %>
 
-  <% if @contract.document_number.present? %>
-    <h2 class="lead"><%= t("contracts.show.document_number") %></h2>
-    <%= @contract.document_number %>
-  <% end %>
+      <% if @contract.contract_number.present? %>
+        <dt><%= t("contracts.show.contract_number") %></dt>
+        <dd><%= @contract.contract_number %></dd>
+      <% end %>
 
-  <% if @contract.kind.present? %>
-    <h2 class="lead"><%= t("contracts.show.kind") %></h2>
-    <%= @contract.kind %>
-  <% end %>
+      <% if @contract.document_number.present? %>
+        <dt><%= t("contracts.show.document_number") %></dt>
+        <dd><%= @contract.document_number %></dd>
+      <% end %>
 
-  <% if @contract.award_criteria.present? %>
-    <h2 class="lead"><%= t("contracts.show.award_criteria") %></h2>
-    <%= @contract.award_criteria %>
-  <% end %>
+      <% if @contract.kind.present? %>
+        <dt><%= t("contracts.show.kind") %></dt>
+        <dd><%= @contract.kind %></dd>
+      <% end %>
 
-  <% if @contract.award_procedure.present? %>
-    <h2 class="lead"><%= t("contracts.show.award_procedure") %></h2>
-    <%= @contract.award_procedure %>
-  <% end %>
+      <% if @contract.award_criteria.present? %>
+        <dt><%= t("contracts.show.award_criteria") %></dt>
+        <dd><%= @contract.award_criteria %></dd>
+      <% end %>
 
-  <% if @contract.budget_amount_cents.present? %>
-    <h2 class="lead"><%= t("contracts.show.budget_amount_cents") %></h2>
-    <%= number_to_currency(@contract.budget_amount_cents/100.0) %>
-  <% end %>
+      <% if @contract.awarded_at.present? %>
+        <dt><%= t("contracts.show.awarded_at") %></dt>
+        <dd><%= l @contract.awarded_at, format: :long %></dd>
+      <% end %>
 
-  <% if @contract.award_amount_cents.present? %>
-    <h2 class="lead"><%= t("contracts.show.award_amount_cents") %></h2>
-    <%= number_to_currency(@contract.award_amount_cents/100.0) %>
-  <% end %>
+      <% if @contract.formalized_at.present? %>
+        <dt><%= t("contracts.show.formalized_at") %></dt>
+        <dd><%= l @contract.formalized_at, format: :long %></dd>
+      <% end %>
+    </dl>
+  </div>
 
-  <% if @contract.article.present? %>
-    <h2 class="lead"><%= t("contracts.show.article") %></h2>
-    <%= @contract.article %>
-  <% end %>
+  <div class="small-12 large-4 column">
+    <div class="details highlight-grey">
+      <% if @contract.budget_amount_cents.present? %>
+        <h3><%= t("contracts.show.budget_amount_cents") %></h3>
+        <span class="big-data"><%= number_to_currency(@contract.budget_amount_cents/100.0) %></span>
+      <% end %>
 
-  <% if @contract.article_section.present? %>
-    <h2 class="lead"><%= t("contracts.show.article_section") %></h2>
-    <%= @contract.article_section %>
-  <% end %>
+      <% if @contract.award_amount_cents.present? %>
+        <h3><%= t("contracts.show.award_amount_cents") %></h3>
+        <span class="big-data"><%= number_to_currency(@contract.award_amount_cents/100.0) %></span>
+      <% end %>
+    </div>
+  </div>
 
-  <% if @contract.awarded_at.present? %>
-    <h2 class="lead"><%= t("contracts.show.awarded_at") %></h2>
-    <%= l @contract.awarded_at, format: :long %>
-  <% end %>
+  <div class="small-12 column">
+    <% if @contract.organism.present? %>
+      <h3><%= t("contracts.show.organism") %></h3>
+      <p><%= @contract.organism %></p>
+    <% end %>
 
-  <% if @contract.formalized_at.present? %>
-    <h2 class="lead"><%= t("contracts.show.formalized_at") %></h2>
-    <%= l @contract.formalized_at, format: :long %>
-  <% end %>
+    <% if @contract.description..present? %>
+      <h3><%= t("contracts.show.description") %></h3>
+      <p><%= simple_format @contract.description %></p>
+    <% end %>
 
-  <% if @contract.term.present? %>
-    <h2 class="lead"><%= t("contracts.show.term") %></h2>
-    <%= @contract.term %>
-  <% end %>
+    <% if @contract.award_procedure.present? %>
+      <h3><%= t("contracts.show.award_procedure") %></h3>
+      <p><%= @contract.award_procedure %></p>
+    <% end %>
 
-  <% if @contract.framework_agreement? %>
-    <h2 class="lead"><%= t("contracts.show.framework_agreement") %></h2>
-    <%= boolean_to_text @contract.framework_agreement %>
-  <% end %>
+    <% if @contract.article.present? %>
+      <h3><%= t("contracts.show.article") %></h3>
+      <p><%= @contract.article %></p>
+    <% end %>
 
-  <% if @contract.zero_cost_revenue? %>
-    <h2 class="lead"><%= t("contracts.show.zero_cost_revenue") %></h2>
-    <%= boolean_to_text @contract.zero_cost_revenue %>
-  <% end %>
+    <% if @contract.article_section.present? %>
+      <h3><%= t("contracts.show.article_section") %></h3>
+      <p><%= @contract.article_section %></p>
+    <% end %>
+
+    <% if @contract.term.present? %>
+      <h3><%= t("contracts.show.term") %></h3>
+      <p><%= @contract.term %></p>
+    <% end %>
+
+    <% if @contract.framework_agreement? %>
+      <h3><%= t("contracts.show.framework_agreement") %></h3>
+      <p><%= boolean_to_text @contract.framework_agreement %></p>
+    <% end %>
+
+    <% if @contract.zero_cost_revenue? %>
+      <h3><%= t("contracts.show.zero_cost_revenue") %></h3>
+      <p><%= boolean_to_text @contract.zero_cost_revenue %></p>
+    <% end %>
+  </div>
 </div>

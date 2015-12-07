@@ -9,7 +9,7 @@ feature 'Search' do
     fill_in :query, with: 'Jobs'
     click_button 'Search'
 
-    expect(page).to have_content("Found 1 result")
+    expect(page).to have_content("1 result found")
     expect(page).to have_content("List of jobs")
     expect(page).to have_css(".result", count: 1)
 
