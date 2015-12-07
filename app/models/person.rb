@@ -12,13 +12,19 @@ class Person < ActiveRecord::Base
   validates :name,   presence: true
   validates :role,   presence: true
 
-  scope :sorted_for_display, -> { order(:councillor_code) }
+  scope :sorted_as_councillors, -> { order(:councillor_code) }
+  scope :sorted_as_directors, -> { order(:unit, :name) }
   scope :councillors, -> { where.not(councillor_code: nil) }
+  scope :directors, -> { where(councillor_code: nil) }
 
   after_initialize :initialize_profile
 
   def councillor?
     councillor_code.present?
+  end
+
+  def director?
+    councillor_code.blank?
   end
 
   def studies
