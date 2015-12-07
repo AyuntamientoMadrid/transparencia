@@ -5,7 +5,7 @@ module Importers
     class PublicImporter < BaseImporter
       def import!
         each_row do |row|
-          person = Person.find_by!(internal_code: row[:codigopersona])
+          person = Person.find_by!(councillor_code: row[:codigopersona])
           declaration = person.activities_declarations.last!
 
           entity     = row[:entidad]
