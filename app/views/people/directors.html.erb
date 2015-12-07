@@ -1,0 +1,26 @@
+<% cache [locale_key, @people] do %>
+  <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+    <li role="menuitem">
+      <%= link_to t("home"), root_path %>
+    </li>
+    <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+      <%= t("people.directors.title") %>
+    </li>
+  </nav>
+
+  <div class="people">
+    <div class="small-12 column">
+      <h1 class="lead"><%= t("people.directors.title") %></h1>
+
+        <% @people.group_by(&:unit).each do |unit, people_in_unit| %>
+          <h3><%= unit %></h3>
+          <ul>
+            <% people_in_unit.each do |person| %>
+              <li><%= link_to person.name, person %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
