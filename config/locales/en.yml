@@ -107,7 +107,7 @@ en:
       search_results_title: Search results
       search_results_count:
         zero: "No results found"
-        one: "%{count} results found"
+        one: "%{count} result found"
         other: "%{count} results found"
     show:
       title: "Subvention"
@@ -148,7 +148,7 @@ en:
       search_results_title: Search results
       search_results_count:
         zero: "No results found"
-        one: "%{count} results found"
+        one: "%{count} result found"
         other: "%{count} results found"
     show:
       title: "Contract"
