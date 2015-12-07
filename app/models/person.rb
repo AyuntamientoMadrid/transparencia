@@ -10,7 +10,6 @@ class Person < ActiveRecord::Base
   has_many :activities_declarations, dependent: :destroy
 
   validates :name,   presence: true
-  validates :email,  presence: true
   validates :role,   presence: true
 
   scope :sorted_for_display, -> { order(:councillor_code) }
