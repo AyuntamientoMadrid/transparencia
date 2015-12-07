@@ -17,8 +17,9 @@ module Importers
 
           puts "Importing profile for #{person.name}"
 
-          person.twitter = row[:cuenta_de_twitter]
+          person.twitter  = row[:cuenta_de_twitter]
           person.facebook = row[:cuenta_de_facebook]
+          person.unit     = row[:unidad]
 
           parse_studies(person, row)
           parse_courses(person, row)

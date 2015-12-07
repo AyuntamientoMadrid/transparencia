@@ -21,6 +21,7 @@
 
       <div class="show-for-small">
         <h1 class="inline-block"><%= @person.name %></h1>
+        <p><%= @person.unit %></p>
         <p class="role"><%= @person.role %></p>
         <div class="right">
           <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
@@ -38,6 +39,7 @@
           <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
         </div>
         <h1 class="inline-block"><%= @person.name %></h1>
+        <p><%= @person.unit %></p>
         <p class="role"><%= @person.role %></p>
       </div>
 
