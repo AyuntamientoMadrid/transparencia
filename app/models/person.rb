@@ -13,6 +13,7 @@ class Person < ActiveRecord::Base
   validates :role,   presence: true
 
   scope :sorted_for_display, -> { order(:councillor_code) }
+  scope :councillors, -> { where.not(councillor_code: nil) }
 
   def profile
     read_attribute(:profile) || {}
