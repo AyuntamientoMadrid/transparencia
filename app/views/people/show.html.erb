@@ -4,7 +4,12 @@
       <%= link_to t("home"), root_path %>
     </li>
     <li role="menuitem">
-      <%= link_to t("people.title"), people_path %>
+      <% if @person.councillor? %>
+        <%= link_to t("people.councillors.title"), councillors_people_path %>
+      <% else %>
+        <%= link_to t("people.directors.title"), directors_people_path %>
+      <% end %>
+
     </li>
     <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
       <%= @person.name %>
