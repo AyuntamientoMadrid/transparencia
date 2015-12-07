@@ -41,14 +41,16 @@
 
     <div class="small-12 medium-9 column">
       <div class="show-for-medium-up">
-        <div class="right">
+        <div class="medium-9 left">
+          <h1 class="inline-block"><%= @person.name %></h1>
+          <p><%= @person.unit %></p>
+          <p class="role"><%= @person.role %></p>
+        </div>
+        <div class="medium-3 left text-right">
           <% if @person.party.present? %>
             <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
           <% end %>
         </div>
-        <h1 class="inline-block"><%= @person.name %></h1>
-        <p><%= @person.unit %></p>
-        <p class="role"><%= @person.role %></p>
       </div>
 
       <%= render 'profile' %>

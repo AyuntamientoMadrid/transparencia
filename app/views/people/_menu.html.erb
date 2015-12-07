@@ -1,8 +1,7 @@
-
 <% if person.councillor? %>
   <div class="people-photo"><%= profile_picture(person) %></div>
 <% else %>
-  <h3><%= person.name %></h3>
+  <h3 class="show-for-medium-up"><%= person.name %></h3>
 <% end %>
 
 <ul class="side-nav" role="navigation">
