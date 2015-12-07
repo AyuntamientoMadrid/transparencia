@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207101600) do
+ActiveRecord::Schema.define(version: 20151207104417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20151207101600) do
     t.json    "profile"
     t.string  "twitter"
     t.string  "facebook"
+    t.integer "personal_code"
   end
 
   add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree

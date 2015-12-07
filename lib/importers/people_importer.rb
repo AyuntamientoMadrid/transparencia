@@ -8,6 +8,7 @@ module Importers
         person = Person.find_or_initialize_by(name: name)
         puts "Importing person: #{person.name}"
         person.councillor_code = row[:codigoconcejal]
+        person.personal_code = row[:codigopersona]
         person.party = Party.find_by!(long_name: row[:grupo_politico])
         person.email = "tmp@madrid.es"
         person.role = row[:cargo]
