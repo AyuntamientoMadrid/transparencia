@@ -46,6 +46,10 @@
         <%= link_to t("layouts.header.people"), people_path, class: ("active" if current_page?(people_path)) %>
         <%= link_to t("layouts.header.subventions"), subventions_path, class: ("active" if current_page?(subventions_path)) %>
         <%= link_to t("layouts.header.contracts"), contracts_path, class: ("active" if current_page?(contracts_path)) %>
+        <%= link_to t("layouts.header.inquiries_url"), target: "blank" do %>
+          <%= t("layouts.header.inquiries") %>
+          <i class="icon-external"></i>
+        <% end %>
       </div>
     </div>
   </div>

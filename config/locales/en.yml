@@ -27,6 +27,8 @@ en:
       people: "Councillors' assets declarations"
       subventions: "Subventions"
       contracts: "Contracts"
+      inquiries: "Inquiries"
+      inquiries_url: "https://www-s.munimadrid.es/LETRA_WBPROCINTER/peticionInformacion.htm"
     footer:
       description: "This portal uses %{software}, is %{open_source}. Madrid, for the whole world."
       open_source: "software libre"
