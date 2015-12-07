@@ -1,8 +1,10 @@
 <%= form_tag url, method: :get do %>
-  <div class="small-9 medium-12 large-9 columns">
-    <%= text_field_tag :query, "", placeholder: t("searches.form.placeholder"), class: "search-form" %>
-  </div>
-  <div class="small-3 medium-12 large-3 columns">
-    <%= submit_tag t("searches.form.submit"), class: "button postfix" %>
+  <div class="search-form">
+    <div class="small-12 medium-12 large-9 left">
+      <%= text_field_tag :query, "", placeholder: t("searches.form.placeholder"), class: "search-form" %>
+    </div>
+    <div class="small-12 medium-12 large-3 left">
+      <%= submit_tag t("searches.form.submit"), class: "button postfix" %>
+    </div>
   </div>
 <% end %>
