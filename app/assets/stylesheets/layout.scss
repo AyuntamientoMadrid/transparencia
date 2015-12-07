@@ -556,6 +556,13 @@ header {
     }
   }
 
+  .icon-external:before {
+    opacity: .5;
+    position: absolute;
+    right: -20px;
+    top: 16px;
+  }
+
   a {
     color: $text;
     display: inline-block;
