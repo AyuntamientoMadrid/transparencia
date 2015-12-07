@@ -45,9 +45,11 @@
 
       <%= render 'profile' %>
 
-      <%= render 'assets_declarations' %>
+      <% if @person.councillor? %>
+        <%= render 'assets_declarations' %>
 
-      <%= render 'activities_declarations' %>
+        <%= render 'activities_declarations' %>
+      <% end %>
 
       <p><%= t('people.show.disclaimer') %></p>
     </div>
