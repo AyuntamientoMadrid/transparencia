@@ -7,17 +7,17 @@
   </li>
 </nav>
 
-<div>
+<div class="small-12 column">
   <%= render 'searches/form', url: subventions_path %>
 </div>
 
-<% if params[:query] %>
-  <h1><%= t("subventions.index.search_results_title") %> </h1>
-
-  <p><%= t("subventions.index.search_results_count", count: @subventions.count) %></p>
-<% end %>
-
 <div class="small-12 column">
+
+  <% if params[:query] %>
+    <h1><%= t("subventions.index.search_results_title") %></h1>
+    <p><%= t("subventions.index.search_results_count", count: @subventions.count) %></p>
+  <% end %>
+
   <h1><%= t("subventions.index.title") %></h1>
 
   <table>
