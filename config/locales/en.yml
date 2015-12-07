@@ -84,6 +84,7 @@ en:
       title: "Languages"
       name: "Name"
       level: "Level"
+    career: "Career"
     public_jobs:
       title: "Posts in the administration"
       description: "Post"
