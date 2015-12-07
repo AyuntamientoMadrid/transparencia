@@ -64,7 +64,10 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
-    title: "Concejales"
+    councillors:
+      title: "Concejales"
+    directors:
+      title: "Directores y personal eventual"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"

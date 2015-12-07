@@ -64,7 +64,10 @@ en:
     blog: "Blog"
     youtube: "YouTube"
   people:
-    title: "Councillors"
+    councillors:
+      title: "Councillors"
+    directors:
+      title: "Directors"
     profile: "Professional profile"
     assets_declarations: "Assets declarations"
     activities_declarations: "Activities declarations"
