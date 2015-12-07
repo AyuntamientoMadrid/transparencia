@@ -21,6 +21,8 @@ module Importers
           person.facebook = row[:cuenta_de_facebook]
           person.unit     = row[:unidad]
 
+          person.party    = Party.find_by(long_name: person.unit) # Can be nil, that's ok
+
           parse_studies(person, row)
           parse_courses(person, row)
           parse_languages(person, row)
