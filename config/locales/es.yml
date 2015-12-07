@@ -109,6 +109,12 @@ es:
     show:
       disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
       activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
+    contact:
+      title: "Contacto"
+      intro: "Envía un mensaje directo a %{person}."
+      submit: "Envíar mensaje"
+      success: "Mensaje enviado con éxito"
+      error: "No se pudo enviar el mensaje"
   pages:
     title: "¿Qué buscas?"
     edit: "Editar contenido"

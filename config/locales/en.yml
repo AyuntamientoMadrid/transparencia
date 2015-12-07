@@ -109,6 +109,12 @@ en:
     show:
       disclaimer: "(*) This information is subject to changes if errors are detected"
       activities_explanation: "Reasons of possible incompatibility and activities which provide or can provide income"
+    contact:
+      title: "Contact"
+      intro: "Send a message to %{person}."
+      submit: "Send message"
+      success: "Your message was sent successfully"
+      error: "Your message could not be sent"
   pages:
     title: "What are you looking for?"
     edit: "Edit content"
