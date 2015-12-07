@@ -17,7 +17,7 @@ module Importers
 
         parse_studies(person, row)
         parse_courses(person, row)
-        # TODO: Languages
+        parse_languages(person, row)
         parse_career(person, row)
         parse_political_posts(person, row)
 
@@ -52,6 +52,16 @@ module Importers
         person.courses_comment = row[courses_comment_col]
       end
 
+      def parse_languages(person, row)
+        person.profile['languages'] = []
+        person.add_language('Inglés',   row[:ingles])   if row[:ingles].present?
+        person.add_language('Francés',  row[:frances])  if row[:frances].present?
+        person.add_language('Alemán',   row[:aleman])   if row[:aleman].present?
+        person.add_language('Italiano', row[:italiano]) if row[:italiano].present?
+
+        person.add_language(row[:otro_idioma], row[:nivel_otro_idioma])
+      end
+
       def parse_career(person, row)
         person.profile['public_jobs'] = []
         (1..4).each do |index|
@@ -65,7 +75,7 @@ module Importers
           person.add_private_job(row[col], row[col+1], row[col+2], row[col+3])
         end
 
-        career_comment_col = row.index(:"4_cargo")+4
+        career_comment_col = row.index(:"4_cargoactividad")+4
         person.political_posts_comment = row[career_comment_col]
       end
 
@@ -73,7 +83,7 @@ module Importers
         person.profile['political_posts'] = []
         (1..4).each do |index|
           col = row.index("#{index}_cargo".to_sym)
-          person.add_private_job(row[col], row[col+1], row[col+2], row[col+3])
+          person.add_political_post(row[col], row[col+1], row[col+2], row[col+3])
         end
         political_posts_comment_col = row.index(:"4_cargo")+4
         person.political_posts_comment = row[political_posts_comment_col]

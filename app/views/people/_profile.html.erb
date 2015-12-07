@@ -30,34 +30,36 @@
   </tbody>
 </table>
 
-<table>
-  <caption><%= t("people.courses.title") %></caption>
-  <thead>
-    <tr>
-      <th scope="col"><%= t("people.courses.description") %></th>
-      <th scope="col" class="th-big"><%= t("people.courses.entity") %></th>
-      <th scope="col" class="th-small"><%= t("people.courses.start_year") %></th>
-      <th scope="col" class="th-small"><%= t("people.courses.end_year") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @person.courses.each do |course| %>
+<% if @person.has_courses? %>
+  <table>
+    <caption><%= t("people.courses.title") %></caption>
+    <thead>
       <tr>
-        <td><%= course.description %></td>
-        <td><%= course.entity %></td>
-        <td><%= course.start_year %></td>
-        <td><%= course.end_year %></td>
+        <th scope="col"><%= t("people.courses.description") %></th>
+        <th scope="col" class="th-big"><%= t("people.courses.entity") %></th>
+        <th scope="col" class="th-small"><%= t("people.courses.start_year") %></th>
+        <th scope="col" class="th-small"><%= t("people.courses.end_year") %></th>
       </tr>
-    <% end %>
-    <% if @person.courses_comment.present? %>
-      <tr>
-        <td colspan=4>
-          <%= simple_format @person.courses_comment %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @person.courses.each do |course| %>
+        <tr>
+          <td><%= course.description %></td>
+          <td><%= course.entity %></td>
+          <td><%= course.start_year %></td>
+          <td><%= course.end_year %></td>
+        </tr>
+      <% end %>
+      <% if @person.courses_comment.present? %>
+        <tr>
+          <td colspan=4>
+            <%= simple_format @person.courses_comment %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <table>
   <caption><%= t("people.languages.title") %></caption>
@@ -151,7 +153,7 @@
         <td><%= post.end_year %></td>
       </tr>
     <% end %>
-    <% if @person.political_posts.present? %>
+    <% if @person.political_posts_comment.present? %>
       <tr>
         <td colspan=4>
           <%= simple_format @person.political_posts_comment %>
@@ -161,14 +163,22 @@
   </tbody>
 </table>
 
-<h3><%= t("people.publications") %></h3>
-<%= simple_format @person.publications %>
+<% if @person.publications.present? %>
+  <h3><%= t("people.publications") %></h3>
+  <%= simple_format @person.publications %>
+<% end %>
 
-<h3><%= t("people.teaching_activity") %></h3>
-<%= simple_format @person.teaching_activity %>
+<% if @person.teaching_activity.present? %>
+  <h3><%= t("people.teaching_activity") %></h3>
+  <%= simple_format @person.teaching_activity %>
+<% end %>
 
-<h3><%= t("people.special_mentions") %></h3>
-<%= simple_format @person.special_mentions %>
+<% if @person.special_mentions.present? %>
+  <h3><%= t("people.special_mentions") %></h3>
+  <%= simple_format @person.special_mentions %>
+<% end %>
 
-<h3><%= t("people.other") %></h3>
-<%= simple_format @person.other %>
+<% if @person.other.present? %>
+  <h3><%= t("people.other") %></h3>
+  <%= simple_format @person.other %>
+<% end %>

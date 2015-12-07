@@ -33,6 +33,10 @@ class Person < ActiveRecord::Base
     profile['studies_comment'] = comment
   end
 
+  def has_courses?
+    profile['courses'].present? || profile['courses_comment'].present?
+  end
+
   def courses
     parse_data_rows(profile, :courses)
   end
@@ -117,12 +121,22 @@ class Person < ActiveRecord::Base
     add_item('courses', description, entity, start_year, end_year)
   end
 
+  def add_language(name, level)
+    return unless name.present?
+    self.profile['languages'] ||= []
+    self.profile['languages'] << { name: name, level: level }
+  end
+
   def add_public_job(description, entity, start_year, end_year)
     add_item('public_jobs', description, entity, start_year, end_year)
   end
 
   def add_private_job(description, entity, start_year, end_year)
     add_item('private_jobs', description, entity, start_year, end_year)
+  end
+
+  def add_political_post(description, entity, start_year, end_year)
+    add_item('political_posts', description, entity, start_year, end_year)
   end
 
   private
