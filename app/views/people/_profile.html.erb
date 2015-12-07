@@ -23,7 +23,7 @@
     <% if @person.studies_comment.present? %>
       <tr>
         <td colspan=4>
-          <%= simple_format @person.studies_comment %>
+          <%= format_free_text @person.studies_comment %>
         </td>
       </tr>
     <% end %>
@@ -165,20 +165,20 @@
 
 <% if @person.publications.present? %>
   <h3><%= t("people.publications") %></h3>
-  <%= simple_format @person.publications %>
+  <%= format_free_text @person.publications %>
 <% end %>
 
 <% if @person.teaching_activity.present? %>
   <h3><%= t("people.teaching_activity") %></h3>
-  <%= simple_format @person.teaching_activity %>
+  <%= format_free_text @person.teaching_activity %>
 <% end %>
 
 <% if @person.special_mentions.present? %>
   <h3><%= t("people.special_mentions") %></h3>
-  <%= simple_format @person.special_mentions %>
+  <%= format_free_text @person.special_mentions %>
 <% end %>
 
 <% if @person.other.present? %>
   <h3><%= t("people.other") %></h3>
-  <%= simple_format @person.other %>
+  <%= format_free_text @person.other %>
 <% end %>
