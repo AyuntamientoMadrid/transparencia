@@ -85,6 +85,8 @@ es:
       name: "Nombre"
       level: "Nivel"
     career: "Carrera profesional"
+    career_comment:
+      title: "Otros detalles sobre la carrera profesional"
     public_jobs:
       title: "En el ámbito público"
       description: "Puesto"
@@ -105,7 +107,7 @@ es:
       end_year: "Año de fin"
     publications: "Publicaciones relevantes"
     special_mentions: "Distinciones y otros méritos"
-    activity: "Actividad docente"
+    teaching_activity: "Actividad docente"
     other: "Otra información"
     show:
       disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"

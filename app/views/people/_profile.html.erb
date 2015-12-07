@@ -20,11 +20,13 @@
         <td><%= study.end_year %></td>
       </tr>
     <% end %>
-    <tr>
-      <td colspan=4>
-        <%= @person.studies_comment %>
-      </td>
-    </tr>
+    <% if @person.studies_comment.present? %>
+      <tr>
+        <td colspan=4>
+          <%= simple_format @person.studies_comment %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
@@ -47,11 +49,13 @@
         <td><%= course.end_year %></td>
       </tr>
     <% end %>
-    <tr>
-      <td colspan=4>
-        <%= @person.courses_comment %>
-      </td>
-    </tr>
+    <% if @person.courses_comment.present? %>
+      <tr>
+        <td colspan=4>
+          <%= simple_format @person.courses_comment %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
@@ -94,11 +98,6 @@
         <td><%= job.end_year %></td>
       </tr>
     <% end %>
-    <tr>
-      <td colspan=4>
-        <%= @person.public_jobs_comment %>
-      </td>
-    </tr>
   </tbody>
 </table>
 
@@ -121,13 +120,17 @@
         <td><%= job.end_year %></td>
       </tr>
     <% end %>
-    <tr>
-      <td colspan=4>
-        <%= @person.public_jobs_comment %>
-      </td>
-    </tr>
   </tbody>
 </table>
+
+<% if @person.career_comment.present? %>
+  <table>
+    <caption><%= t("people.career_comment.title") %></caption>
+    <tbody>
+      <td><%= simple_format @person.career_comment %></td>
+    </tbody>
+  </table>
+<% end %>
 
 <table>
   <caption><%= t("people.political_posts.title") %></caption>
@@ -148,22 +151,24 @@
         <td><%= post.end_year %></td>
       </tr>
     <% end %>
-    <tr>
-      <td colspan=4>
-        <%= @person.political_posts_comment %>
-      </td>
-    </tr>
+    <% if @person.political_posts.present? %>
+      <tr>
+        <td colspan=4>
+          <%= simple_format @person.political_posts_comment %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
 <h3><%= t("people.publications") %></h3>
-<%= @person.publications %>
+<%= simple_format @person.publications %>
 
-<h3><%= t("people.activity") %></h3>
-<%= @person.activity %>
+<h3><%= t("people.teaching_activity") %></h3>
+<%= simple_format @person.teaching_activity %>
 
 <h3><%= t("people.special_mentions") %></h3>
-<%= @person.special_mentions %>
+<%= simple_format @person.special_mentions %>
 
 <h3><%= t("people.other") %></h3>
-<%= @person.other %>
+<%= simple_format @person.other %>

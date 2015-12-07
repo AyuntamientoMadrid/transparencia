@@ -85,6 +85,8 @@ en:
       name: "Name"
       level: "Level"
     career: "Career"
+    career_comment:
+      title: "Other career details"
     public_jobs:
       title: "Posts in the administration"
       description: "Post"
@@ -105,7 +107,7 @@ en:
       end_year: "End Year"
     publications: "Publications"
     special_mentions: "Special mentions"
-    activity: "Activity"
+    teaching_activity: "Activity"
     other: "Other"
     show:
       disclaimer: "(*) This information is subject to changes if errors are detected"
