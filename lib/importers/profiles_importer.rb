@@ -10,23 +10,29 @@ module Importers
           person.role = row[:cargo]
         end
 
-        puts "Importing profile for #{person.name}"
+        profiled_at = DateTime.parse(row[:fecha])
+        if person.profiled_at.blank? || person.profiled_at < profiled_at
 
-        person.twitter = row[:cuenta_de_twitter]
-        person.facebook = row[:cuenta_de_facebook]
+          person.profiled_at = profiled_at
 
-        parse_studies(person, row)
-        parse_courses(person, row)
-        parse_languages(person, row)
-        parse_career(person, row)
-        parse_political_posts(person, row)
+          puts "Importing profile for #{person.name}"
 
-        person.publications       = row[:publicaciones]
-        person.teaching_activity  = row[:actividad]
-        person.special_mentions   = row[:distinciones]
-        person.other              = row[:otra_informacion]
+          person.twitter = row[:cuenta_de_twitter]
+          person.facebook = row[:cuenta_de_facebook]
 
-        person.save
+          parse_studies(person, row)
+          parse_courses(person, row)
+          parse_languages(person, row)
+          parse_career(person, row)
+          parse_political_posts(person, row)
+
+          person.publications       = row[:publicaciones]
+          person.teaching_activity  = row[:actividad]
+          person.special_mentions   = row[:distinciones]
+          person.other              = row[:otra_informacion]
+
+          person.save
+        end
       end
     end
 
