@@ -1,5 +1,5 @@
 require 'importers/parties_importer'
-require 'importers/people_importer'
+require 'importers/councillors_importer'
 require 'importers/professional_profiles_importer'
 require 'importers/assets/declarations_importer'
 require 'importers/assets/account_deposits_importer'
@@ -20,19 +20,19 @@ namespace :import do
     Importers::PartiesImporter.new('./import-data/parties.csv').import!
   end
 
-  desc "Imports import-data/people.csv into the people table"
-  task people: 'import:parties' do
-    Importers::PeopleImporter.new('./import-data/people.csv').import!
+  desc "Imports import-data/councillors.csv into the people table"
+  task councillors: 'import:parties' do
+    Importers::CouncillorsImporter.new('./import-data/councillors.csv').import!
   end
 
   desc "Imports import-data/PerfilProfesional.csv into the people table"
-  task profiles: 'import:people' do
+  task profiles: 'import:councillors' do
     Importers::ProfessionalProfilesImporter.new('./import-data/PerfilProfesional.csv').import!
   end
 
   namespace :assets do
     desc "Imports import-data/assets/assets_declarations.csv into assets_declarations table"
-    task declarations: 'import:people' do
+    task declarations: 'import:councillors' do
       Importers::Assets::DeclarationsImporter.new('./import-data/assets/assets_declarations.csv').import!
     end
 
@@ -78,7 +78,7 @@ namespace :import do
 
   namespace :activities do
     desc "Imports import-data/activities/activities_declarations.csv into activities_declarations table"
-    task declarations: 'import:people' do
+    task declarations: 'import:councillors' do
       Importers::Activities::DeclarationsImporter.new('./import-data/activities/activities_declarations.csv').import!
     end
 
