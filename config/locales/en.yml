@@ -1,6 +1,9 @@
 en:
   transparency: "Transparency"
   home: "Home"
+  booleans:
+    t: "Yes"
+    f: "No"
   admin:
     menu:
       title: "Administration"
@@ -23,6 +26,10 @@ en:
       home: "Home"
       people: "Councillors"
       directors: "Directors"
+      subventions: "Subventions"
+      contracts: "Contracts"
+      inquiries: "Inquiries"
+      inquiries_url: "https://www-s.munimadrid.es/LETRA_WBPROCINTER/peticionInformacion.htm"
     footer:
       description: "This portal uses %{software}, is %{open_source}. Madrid, for the whole world."
       open_source: "software libre"
@@ -130,6 +137,10 @@ en:
     update_success: "Page updated successfully"
     create_success: "Page created successfully"
   subventions:
+    notice:
+      created: "Subvention created, please review the new data"
+      updated: "Subvention updated, please review changes"
+      deleted: "Subvention deleted"
     index:
       title: "Subventions"
       headers:
@@ -139,6 +150,101 @@ en:
         location: Location
         year: Year
         amount: "Amount (€)"
+      search_results_title: Search results
+      search_results_count:
+        zero: "No results found."
+        one: "%{count} result found:"
+        other: "%{count} results found:"
+    show:
+      title: "Subvention"
+      recipient: Recipient
+      project: Proyect
+      kind: Type
+      location: Location
+      year: Year
+      amount: "Amount (€)"
+      edit: "Edit"
+      delete: "Delete"
+      confirm_deletion: "Are you sure you want to delete this subvention?"
+    edit:
+      title: "Edit"
+      recipient: Recipient
+      project: Proyect
+      kind: Type
+      location: Location
+      year: Year
+      amount: "Amount (in cents of Euro)"
+    new:
+      title: "Create"
+    form:
+      save: Save
+  contracts:
+    notice:
+      created: "Contract created, please review the new data"
+      updated: "Contract updated, please review changes"
+      deleted: "Contract deleted"
+    index:
+      title: "Contracts"
+      headers:
+        recipient: Recipient
+        description: Description
+        organism: Organism
+        awarded_at: Award date
+        award_amount: "Amount (€)"
+      search_results_title: Search results
+      search_results_count:
+        zero: "No results found."
+        one: "%{count} result found:"
+        other: "%{count} results found:"
+    show:
+      title: "Contract"
+      center: Center
+      organism: Organism
+      contract_number: Contract number
+      document_number: Document number
+      description: Description
+      kind: Contract type
+      award_procedure: Award procedure
+      article: Article
+      article_section: Article section
+      award_criteria: Award criteria
+      budget_amount_cents: "Budget (€)"
+      award_amount_cents: "Amount awarded (€)"
+      term: Term
+      awarded_at: Awarded at
+      recipient: Recipient
+      recipient_document_number: Recipient document number
+      formalized_at: Formalized at
+      framework_agreement: Framework agreement
+      zero_cost_revenue: Zero cost revenue
+      edit: "Edit"
+      delete: "Delete"
+      confirm_deletion: "Are you sure you want to delete this contract?"
+    edit:
+      title: "Edit"
+      center: Center
+      organism: Organism
+      contract_number: Contract number
+      document_number: Document number
+      description: Description
+      kind: Contract type
+      award_procedure: Award procedure
+      article: Article
+      article_section: Article section
+      award_criteria: Award criteria
+      budget_amount_cents: "Budget (in cents of Euro)"
+      award_amount_cents: "Amount awarded (in cents of Euro)"
+      term: Term
+      awarded_at: Awarded at
+      recipient: Recipient
+      recipient_document_number: Recipient document number
+      formalized_at: Formalized at
+      framework_agreement: Framework agreement
+      zero_cost_revenue: Zero cost revenue
+    new:
+      title: "Create"
+    form:
+      save: Save
   activities_declarations:
     public_activities:
       title: "1) Jobs, posts or activities in the public sector"
@@ -232,3 +338,13 @@ en:
         name: "Name and surname"
         email: "Email"
         body: "Message"
+  searches:
+    index:
+      title: Search results
+      results_count:
+        zero: "No results found."
+        one: "%{count} result found:"
+        other: "%{count} results found:"
+    form:
+      placeholder: "Search..."
+      submit: "Search"

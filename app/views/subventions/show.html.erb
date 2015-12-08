@@ -1,0 +1,52 @@
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to t("home"), root_path %>
+  </li>
+  <li role="menuitem">
+    <%= link_to t("subventions.index.title"), subventions_path %>
+  </li>
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <%= t("subventions.show.title") %>
+  </li>
+</nav>
+
+<div class="small-12 column">
+
+  <% if administrator_signed_in? %>
+    <div class="right">
+      <%= link_to t("subventions.show.edit"), edit_subvention_path(@subvention), class: "button radius" %>
+      <%= link_to t("subventions.show.delete"), subvention_path(@subvention), method: :delete, data: {confirm: t("subventions.show.confirm_deletion")}, class: "button radius alert" %>
+    </div>
+  <% end %>
+
+  <h1 class="lead"><%= t("subventions.show.title") %></h1>
+
+  <div class="small-12 medium-8 column highlight">
+
+    <h2><%= t("subventions.show.recipient") %></h2>
+    <span class="big-data"><%= @subvention.recipient %></span>
+
+    <dl class="details">
+      <dt><%= t("subventions.show.year") %></dt>
+      <dd><%= @subvention.year %></dd>
+
+      <dt><%= t("subventions.show.kind") %></dt>
+      <dd><%= @subvention.kind %></dd>
+
+      <dt><%= t("subventions.show.location") %></dt>
+      <dd><%= @subvention.location %></dd>
+    </dl>
+  </div>
+
+  <div class="small-12 large-4 column">
+    <div class="details highlight-grey">
+      <h3><%= t("subventions.show.amount") %></h3>
+      <span class="big-data"><%= number_to_currency(@subvention.amount_cents/100.0) %></span>
+    </div>
+  </div>
+
+  <div class="small-12 column">
+    <h3><%= t("subventions.show.project") %></h3>
+    <p><%= @subvention.project %></p>
+  </div>
+</div>

@@ -1,6 +1,9 @@
 es:
   transparency: "Transparencia"
   home: "Inicio"
+  booleans:
+    t: "Sí"
+    f: "No"
   admin:
     menu:
       title: "Administración"
@@ -23,6 +26,10 @@ es:
       home: "Portada"
       people: "Concejales"
       directors: "Directores y personal eventual"
+      subventions: "Subvenciones"
+      contracts: "Contratos"
+      inquiries: "Peticiones de información"
+      inquiries_url: "https://www-s.munimadrid.es/LETRA_WBPROCINTER/peticionInformacion.htm"
     footer:
       description: "Este portal usa %{software} que es %{open_source}. De Madrid, para el mundo entero."
       open_source: "software libre"
@@ -130,6 +137,10 @@ es:
     update_success: "Se ha modificado la página correctamente"
     create_success: "Se ha creado la página correctamente"
   subventions:
+    notice:
+      created: "Subvención creada, por favor revise los datos"
+      updated: "Subvención actualizada, por favor revise los cambios"
+      deleted: "Subvención eliminada"
     index:
       title: "Subvenciones"
       headers:
@@ -139,6 +150,101 @@ es:
         location: Lugar
         year: Año
         amount: "Cantidad (€)"
+      search_results_title: Resultados de la búsqueda
+      search_results_count:
+        zero: "No se han encontrado resultados."
+        one: "Encontrado %{count} resultado:"
+        other: "Encontrados %{count} resultados:"
+    show:
+      title: "Subvención"
+      recipient: Receptor
+      project: Proyecto
+      kind: Tipología
+      location: Lugar
+      year: Año
+      amount: "Cantidad (€)"
+      edit: "Editar"
+      delete: "Eliminar"
+      confirm_deletion: "¿Seguro que desea borrar esta subvención?"
+    edit:
+      title: "Editar"
+      recipient: Receptor
+      project: Proyecto
+      kind: Tipología
+      location: Lugar
+      year: Año
+      amount: "Cantidad (en céntimos de Euro)"
+    new:
+      title: "Crear"
+    form:
+      save: Guardar
+  contracts:
+    notice:
+      created: "Contrato creado, por favor revise los datos"
+      updated: "Contrato actualizado, por favor revise los cambios"
+      deleted: "Contrato eliminado"
+    index:
+      title: "Contratos"
+      headers:
+        recipient: Receptor
+        description: Descripción
+        organism: Organismo
+        awarded_at: Fecha Adjudicación
+        award_amount: Importe Adjudicación (€)
+      search_results_title: Resultados de la búsqueda
+      search_results_count:
+        zero: "No se han encontrado resultados."
+        one: "Encontrado %{count} resultado:"
+        other: "Encontrados %{count} resultados:"
+    show:
+      title: "Contrato"
+      center: Centro
+      organism: Organismo
+      contract_number: "Número de contrato"
+      document_number: "Número de expediente"
+      description: "Descripción"
+      kind: "Tipo de contrato"
+      award_procedure: "Procedimiento de adjudicación"
+      article: "Artículo"
+      article_section: "Apartado"
+      award_criteria: "Criterios de adjudicacion"
+      budget_amount_cents: "Presupuesto total IVA incluido"
+      award_amount_cents: "Importe de la adjudicacion IVA incluido"
+      term: Plazo
+      awarded_at: "Fecha de adjudicación"
+      recipient: Adjudicatario
+      recipient_document_number: "CIF/NIF adjudicatario"
+      formalized_at: "Fecha de formalizacion"
+      framework_agreement: "Acuerdo marco"
+      zero_cost_revenue: "Ingreso coste cero"
+      edit: "Editar"
+      delete: "Eliminar"
+      confirm_deletion: "¿Seguro que desea borrar este contrato?"
+    edit:
+      title: "Editar"
+      center: Centro
+      organism: Organismo
+      contract_number: "Número de contrato"
+      document_number: "Número de expediente"
+      description: "Descripción"
+      kind: "Tipo de contrato"
+      award_procedure: "Procedimiento de adjudicación"
+      article: "Artículo"
+      article_section: "Apartado"
+      award_criteria: "Criterios de adjudicacion"
+      budget_amount_cents: "Presupuesto total IVA incluido (en céntimos de euro)"
+      award_amount_cents: "Importe de la adjudicacion IVA incluido (en céntimos de euro)"
+      term: Plazo
+      awarded_at: "Fecha de adjudicación"
+      recipient: Adjudicatario
+      recipient_document_number: "CIF/NIF adjudicatario"
+      formalized_at: "Fecha de formalizacion"
+      framework_agreement: "Acuerdo marco"
+      zero_cost_revenue: "Ingreso coste cero"
+    new:
+      title: "Crear"
+    form:
+      save: Guardar
   activities_declarations:
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"
@@ -232,3 +338,13 @@ es:
         name: "Nombre y apellidos"
         email: "Email"
         body: "Mensaje"
+  searches:
+    index:
+      title: Resultados de la búsqueda
+      results_count:
+        zero: "No se han encontrado resultados."
+        one: "Encontrado %{count} resultado:"
+        other: "Encontrados %{count} resultados:"
+    form:
+      placeholder: "Buscar..."
+      submit: "Buscar"

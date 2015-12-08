@@ -3,11 +3,13 @@ Rails.application.routes.draw do
     skip: [:registrations]
   }
 
-  root 'home#index'
+  root 'home#welcome'
+  get  'home/index', to: "home#index", as: 'home'
 
   resources :areas, only: [:index] do
     resources :departments, only: [:index]
   end
+
   resources :departments, only: [:show]
   resources :objectives, only: [:show, :edit, :update]
   resources :pages
@@ -18,7 +20,10 @@ Rails.application.routes.draw do
       get :directors
     end
   end
-  resources :subventions, only: [:index]
+  resources :subventions
+  resources :contracts
+
+  resources :searches, only: :index
 
   get "designs/enquiry_index", to: "designs#enquiry_index"
   get "designs/enquiry_form", to: "designs#enquiry_form"

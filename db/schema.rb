@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20151207164723) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+  enable_extension "unaccent"
+  enable_extension "pg_trgm"
 
   create_table "activities_declarations", force: :cascade do |t|
     t.integer "person_id"
@@ -49,6 +51,30 @@ ActiveRecord::Schema.define(version: 20151207164723) do
     t.integer "person_id"
     t.date    "declaration_date"
     t.json    "data"
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.string   "center"
+    t.string   "organism"
+    t.string   "contract_number"
+    t.string   "document_number"
+    t.text     "description"
+    t.string   "kind"
+    t.string   "award_procedure"
+    t.string   "article"
+    t.string   "article_section"
+    t.string   "award_criteria"
+    t.integer  "budget_amount_cents"
+    t.integer  "award_amount_cents"
+    t.string   "term"
+    t.date     "awarded_at"
+    t.string   "recipient"
+    t.string   "recipient_document_number"
+    t.date     "formalized_at"
+    t.boolean  "framework_agreement"
+    t.boolean  "zero_cost_revenue"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "departments", force: :cascade do |t|
@@ -103,15 +129,25 @@ ActiveRecord::Schema.define(version: 20151207164723) do
 
   add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
+
   create_table "subventions", force: :cascade do |t|
-    t.string   "recipient",         null: false
+    t.string   "recipient",    null: false
     t.string   "project"
     t.string   "kind"
     t.string   "location"
     t.integer  "year"
-    t.integer  "amount_euro_cents", null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "amount_cents", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "subventions", ["recipient"], name: "index_subventions_on_recipient", using: :btree

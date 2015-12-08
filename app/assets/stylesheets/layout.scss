@@ -8,6 +8,7 @@
 // 06. Social
 // 07. Alerts
 // 08. Tables
+// 09. Pagination
 //
 
 // 01. Variables
@@ -228,6 +229,7 @@ form label {
 .breadcrumbs {
   background: none;
   border-bottom: 1px solid $border;
+  margin-bottom: rem-calc(24);
 
   @media (min-width: $small-breakpoint) {
     border: 0;
@@ -282,11 +284,18 @@ form label {
   margin-top: rem-calc(24);
 }
 
-.highlight {
-  background: $highlight;
+.highlight, .highlight-grey {
   margin: rem-calc(24) 0;
   padding: rem-calc(12);
   padding-top: 0;
+}
+
+.highlight {
+  background: $highlight;
+}
+
+.highlight-grey {
+  background: $hover;
 }
 
 .relative {
@@ -320,6 +329,43 @@ cite, var, address, dfn {
   @media (min-width: $small-breakpoint) {
     padding: rem-calc(10);
   }
+}
+
+.details {
+  margin: $line-height 0;
+  padding-top: rem-calc(6);
+
+  dt, dd {
+    float: left;
+  }
+
+  dt {
+    clear: left;
+    font-weight: bold;
+    min-width: rem-calc(240);
+  }
+
+  dd {
+    clear: left;
+
+    @media (min-width: $small-breakpoint) {
+      clear: none;
+    }
+  }
+}
+
+.big-data {
+  font-family: $font-sans;
+  font-size: $h1-font-size;
+  font-weight: bold;
+}
+
+.search-form {
+
+  input[type="text"], input[type="submit"] {
+    height: $line-height*2;
+  }
+
 }
 
 // 04. Header
@@ -479,14 +525,14 @@ header {
 }
 
 .jumbo {
-  background: #E7F2FC;
+  background: $highlight;
 
   @media (min-width: $small-breakpoint) {
     padding: rem-calc(24) 0;
   }
 
   h1, p {
-    color: #3D464D;
+    color: $highlight-color;
   }
 }
 
@@ -508,6 +554,13 @@ header {
     & > .column {
       padding-left: 0;
     }
+  }
+
+  .icon-external:before {
+    opacity: .5;
+    position: absolute;
+    right: -20px;
+    top: 16px;
   }
 
   a {
@@ -747,5 +800,24 @@ table {
     padding: rem-calc(12) 0;
     text-align: left;
     text-transform: uppercase;
+  }
+
+  .linkable:hover {
+    background-color: $highlight;
+    color: $highlight-color;
+    cursor: pointer;
+    outline: 2px solid $brand;
+  }
+}
+
+// 09. Pagination
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ul.pagination {
+  font-family: $font-sans;
+  margin-top: rem-calc(24);
+
+  li {
+    color: $text-medium;
   }
 }

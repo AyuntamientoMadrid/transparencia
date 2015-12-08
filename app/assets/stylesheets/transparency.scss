@@ -15,7 +15,7 @@
     margin: 0 rem-calc(-15);
 
     &:hover {
-      background: $highlight;
+      background: $hover;
     }
 
     a {
@@ -188,4 +188,20 @@
       font-family: $font-sans;
     }
   }
+}
+
+
+// Column sorting
+.sortable th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.sortable th .asc {
+  background-image: image-url('up_arrow.gif');
+}
+
+.sortable th .desc {
+  background-image: image-url('down_arrow.gif');
 }

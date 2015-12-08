@@ -4,4 +4,8 @@ module CommonActions
     find('input[name="commit"]').click
   end
 
+  def search(query)
+    Search.new(query).results.map(&:searchable)
+  end
+
 end

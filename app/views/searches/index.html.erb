@@ -1,0 +1,9 @@
+<h1><%= t("searches.index.title") %> </h1>
+
+<p><%= t("searches.index.results_count", count: @results.count) %></p>
+
+<div id="results">
+  <% @results.map(&:searchable).each do |result| %>
+    <div class="result"><%= link_to result.title, result %></div>
+  <% end %>
+</div>

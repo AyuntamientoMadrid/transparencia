@@ -12,6 +12,7 @@ require 'importers/activities/declarations_importer'
 require 'importers/activities/public_importer'
 require 'importers/activities/private_importer'
 require 'importers/activities/other_importer'
+require 'importers/contracts_importer'
 require 'importers/subventions_importer'
 
 namespace :import do
@@ -102,6 +103,11 @@ namespace :import do
                'import:activities:public',
                'import:activities:private',
                'import:activities:other']
+  end
+
+  desc "Imports import-data/contracts/contratos_formalizados_agosto_2015.csv into the contracts table"
+  task contracts: :environment do
+    Importers::ContractsImporter.new('./import-data/contracts/contratos_formalizados_agosto_2015.csv').import!
   end
 
   desc "Imports import-data/subventions/cooperacion_v1.csv into the subventions table"

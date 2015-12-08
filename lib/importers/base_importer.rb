@@ -45,5 +45,10 @@ module Importers
         Date.new(year, day, month)
       end
     end
+
+    def parse_text(str)
+      return '' if str.blank?
+      str.mb_chars.capitalize
+    end
   end
 end
