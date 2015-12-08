@@ -9,7 +9,52 @@ Administrator.create!(email: 'admin@madrid.es', password: '12345678')
 Party.create!(name: "Ahora Madrid", logo: "logo_ahora_madrid.png")
 
 # People
-Person.create!(party: Party.first, email: 'person1@madrid.es', name: 'Manuela Carmena', role: "Alcaldesa", diary: "http://google.com")
+Person.create!(party: Party.first,
+               email: 'person1@madrid.es',
+               name: 'Manuela Carmena',
+               role: "Alcaldesa",
+               twitter: "@ManuelaCarmena",
+               facebook: "https://www.facebook.com/manuela.carmena.castrillo",
+               profile: {
+  studies: [{
+    description: "Master", entity: "Universidad de YYY", start_year: 1990, end_year: 1990
+  }],
+  studies_comment: "Lorem ipsum dolor sit amet",
+
+  courses: [{
+    description: "Curso 1", entity: "Universidad de YYY", start_year: 1995, end_year: 1996
+  }],
+  courses_comment: "Lorem ipsum dolor sit amet",
+
+  languages: [{
+    name: "Inglés",
+    level: "Alto"
+  }],
+
+  public_jobs: [{
+    description: "Trabajo 1", entity: "local", start_year: 2000, end_year: 2000
+  }],
+  public_jobs_comment: "Lorem ipsum dolor sit amet",
+
+  private_jobs: [{
+    description: "Trabajo 1", entity: "Compañía 1", start_year: 2000, end_year: 2000
+  }],
+  private_jobs_comment: "Lorem ipsum dolor sit amet",
+
+  political_posts: [{
+    description: "Coordinadora de área", entity: "Partido A", start_year: 2000, end_year: 2000
+  }],
+  political_posts_comment: "Lorem ipsum dolor sit amet",
+
+  publications: "Lorem ipsum dolor sit amet",
+
+  special_mentions: "Lorem ipsum dolor sit amet",
+
+  activity: "Lorem ipsum dolor sit amet",
+
+  other: "Lorem ipsum dolor sit amet"
+})
+
 Person.create!(party: Party.first, email: 'person2@madrid.es', name: 'Pablo Soto', role: "Concejal")
 Person.create!(party: Party.first, email: 'person3@madrid.es', name: 'Pablo Soto 2', role: "Concejal")
 

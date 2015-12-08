@@ -2,10 +2,9 @@ require 'ostruct'
 
 module ParseDataRows
 
-  def parse_data_rows(collection_name)
-    data = self.data|| {}
-    col = data[collection_name] || []
-    col.collect{ |row| OpenStruct.new(row) }
+  def parse_data_rows(data_hash, collection_name)
+    data_hash ||= {}
+    (data_hash[collection_name.to_s] || []).collect{ |row| OpenStruct.new(row) }
   end
 
 end

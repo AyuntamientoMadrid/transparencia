@@ -3,7 +3,15 @@ class PeopleController < ApplicationController
   before_action :load_person_and_declarations, only: [:show, :contact]
 
   def index
-    @people = Person.all.includes(:party).sorted_for_display
+    redirect_to councillors_people_path
+  end
+
+  def councillors
+    @people = Person.councillors.includes(:party).sorted_as_councillors
+  end
+
+  def directors
+    @people = Person.directors.sorted_as_directors
   end
 
   def show

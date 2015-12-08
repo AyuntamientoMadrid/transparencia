@@ -24,7 +24,8 @@ en:
       logo: "Madrid"
       open_gov: "Open goverment"
       home: "Home"
-      people: "Councillors' assets declarations"
+      people: "Councillors"
+      directors: "Directors"
       subventions: "Subventions"
       contracts: "Contracts"
       inquiries: "Inquiries"
@@ -71,18 +72,63 @@ en:
     blog: "Blog"
     youtube: "YouTube"
   people:
-    title: "Councillors"
+    councillors:
+      title: "Councillors"
+    directors:
+      title: "Directors"
+    profile: "Professional profile"
     assets_declarations: "Assets declarations"
     activities_declarations: "Activities declarations"
-    activities_explanation: "Reasons of possible incompatibility and activities which provide or can provide income"
+    studies:
+      title: "Official studies"
+      description: "Title"
+      entity: "Place of expedition"
+      start_year: "Start Year"
+      end_year: "End Year"
+    courses:
+      title: "Courses"
+      description: "Name"
+      entity: "Place"
+      start_year: "Start Year"
+      end_year: "End Year"
+    languages:
+      title: "Languages"
+      name: "Name"
+      level: "Level"
+    career: "Career"
+    career_comment:
+      title: "Other career details"
+    public_jobs:
+      title: "Posts in the administration"
+      description: "Post"
+      entity: "Administration"
+      start_year: "Start Year"
+      end_year: "End Year"
+    private_jobs:
+      title: "Private jobs or activities"
+      description: "Post/activity"
+      entity: "Company/NGO"
+      start_year: "Start Year"
+      end_year: "End Year"
+    political_posts:
+      title: "Political charges"
+      description: "Post"
+      entity: "Institution"
+      start_year: "Start Year"
+      end_year: "End Year"
+    publications: "Publications"
+    special_mentions: "Special mentions"
+    teaching_activity: "Activity"
+    other: "Other"
+    show:
+      disclaimer: "(*) This information is subject to changes if errors are detected"
+      activities_explanation: "Reasons of possible incompatibility and activities which provide or can provide income"
     contact:
       title: "Contact"
       intro: "Send a message to %{person}."
       submit: "Send message"
       success: "Your message was sent successfully"
       error: "Your message could not be sent"
-    show:
-      disclaimer: "(*) This information is subject to changes if errors are detected"
   pages:
     title: "What are you looking for?"
     edit: "Edit content"

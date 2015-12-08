@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :pages
   resources :people, only: [:index, :show] do
     member { post :contact }
+    collection do
+      get :councillors
+      get :directors
+    end
   end
   resources :subventions
   resources :contracts

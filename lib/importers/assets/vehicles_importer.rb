@@ -5,7 +5,7 @@ module Importers
     class VehiclesImporter < BaseImporter
       def import!
         each_row do |row|
-          person = Person.find_by!(internal_code: row[:codigopersona])
+          person = Person.find_by!(councillor_code: row[:codigopersona])
           declaration = person.assets_declarations.last!
 
           kind           = row[:clase]

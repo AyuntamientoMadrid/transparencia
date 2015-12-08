@@ -13,8 +13,8 @@ module Importers
       @path_to_file = path_to_file
     end
 
-    def each_row(&block)
-      CSV.foreach(@path_to_file, OPTIONS) do |row|
+    def each_row(options = {}, &block)
+      CSV.foreach(@path_to_file, OPTIONS.merge(options)) do |row|
         block.call(row)
       end
     end
@@ -50,13 +50,5 @@ module Importers
       return '' if str.blank?
       str.mb_chars.capitalize
     end
-
-    private
-
-      def calculate_decimal_places_divider(str)
-        return 100 if str[-3] == '.' || str[-3] == ','
-        return 10  if str[-2] == '.' || str[-2] == ','
-        return 1
-      end
   end
 end

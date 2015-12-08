@@ -4,7 +4,11 @@
       <%= link_to t("home"), root_path %>
     </li>
     <li role="menuitem">
-      <%= link_to t("people.title"), people_path %>
+      <% if @person.councillor? %>
+        <%= link_to t("people.councillors.title"), councillors_people_path %>
+      <% else %>
+        <%= link_to t("people.directors.title"), directors_people_path %>
+      <% end %>
     </li>
     <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
       <%= @person.name %>
@@ -21,9 +25,12 @@
 
       <div class="show-for-small">
         <h1 class="inline-block"><%= @person.name %></h1>
+        <p><%= @person.unit %></p>
         <p class="role"><%= @person.role %></p>
         <div class="right">
-          <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+          <% if @person.party.present? %>
+            <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+          <% end %>
         </div>
 
         <div data-magellan-expedition>
@@ -34,16 +41,25 @@
 
     <div class="small-12 medium-9 column">
       <div class="show-for-medium-up">
-        <div class="right">
-          <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+        <div class="medium-9 left">
+          <h1 class="inline-block"><%= @person.name %></h1>
+          <p><%= @person.unit %></p>
+          <p class="role"><%= @person.role %></p>
         </div>
-        <h1 class="inline-block"><%= @person.name %></h1>
-        <p class="role"><%= @person.role %></p>
+        <div class="medium-3 left text-right">
+          <% if @person.party.present? %>
+            <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+          <% end %>
+        </div>
       </div>
 
-      <%= render 'assets_declarations' %>
+      <%= render 'profile' %>
 
-      <%= render 'activities_declarations' %>
+      <% if @person.councillor? %>
+        <%= render 'assets_declarations' %>
+
+        <%= render 'activities_declarations' %>
+      <% end %>
 
       <p><%= t('people.show.disclaimer') %></p>
     </div>

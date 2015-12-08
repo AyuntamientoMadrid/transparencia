@@ -24,7 +24,8 @@ es:
       logo: "Madrid"
       open_gov: "Gobierno abierto"
       home: "Portada"
-      people: "Declaración de bienes de Concejales"
+      people: "Concejales"
+      directors: "Directores y personal eventual"
       subventions: "Subvenciones"
       contracts: "Contratos"
       inquiries: "Peticiones de información"
@@ -71,18 +72,63 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
-    title: "Concejales"
+    councillors:
+      title: "Concejales"
+    directors:
+      title: "Directores y personal eventual"
+    profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"
-    activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
+    studies:
+      title: "Formación académica"
+      description: "Título"
+      entity: "Centro de expedición"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    courses:
+      title: "Otros estudios"
+      description: "Nombre"
+      entity: "Nombre del centro"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    languages:
+      title: "Conocimientos de Idiomas"
+      name: "Nombre"
+      level: "Nivel"
+    career: "Carrera profesional"
+    career_comment:
+      title: "Otros detalles sobre la carrera profesional"
+    public_jobs:
+      title: "En el ámbito público"
+      description: "Puesto"
+      entity: "Administración"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    private_jobs:
+      title: "En el ámbito privado"
+      description: "Cargo/Actividad"
+      entity: "Empresa/ONG"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    political_posts:
+      title: "Cargos políticos"
+      description: "Puesto"
+      entity: "Nombre de la institución"
+      start_year: "Año de inicio"
+      end_year: "Año de fin"
+    publications: "Publicaciones relevantes"
+    special_mentions: "Distinciones y otros méritos"
+    teaching_activity: "Actividad docente"
+    other: "Otra información"
+    show:
+      disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
+      activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
     contact:
       title: "Contacto"
       intro: "Envía un mensaje directo a %{person}."
       submit: "Envíar mensaje"
       success: "Mensaje enviado con éxito"
       error: "No se pudo enviar el mensaje"
-    show:
-      disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
   pages:
     title: "¿Qué buscas?"
     edit: "Editar contenido"

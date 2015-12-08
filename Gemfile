@@ -30,6 +30,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'dalli'
 gem 'rollbar', '~> 2.6.3'
 gem 'newrelic_rpm', '~> 3.14'
+gem 'rinku', require: 'rails_rinku'
 
 # For rake db:danger:truncate
 gem 'database_cleaner'

@@ -7,15 +7,15 @@ class ActivitiesDeclaration < ActiveRecord::Base
   validates :declaration_date, presence: true
 
   def public_activities
-    parse_data_rows('public_activities')
+    parse_data_rows(data, :public_activities)
   end
 
   def private_activities
-    parse_data_rows('private_activities')
+    parse_data_rows(data, :private_activities)
   end
 
   def other_activities
-    parse_data_rows('other_activities')
+    parse_data_rows(data, :other_activities)
   end
 
   def add_public_activity(entity, position, start_date, end_date)
