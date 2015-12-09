@@ -1,6 +1,6 @@
 <% cache [locale_key, @person.profile] do %>
   <a name="profile" data-magellan-destination="profile"></a>
-  <h2 class="lead"><%= t("people.profile") %></h2>
+  <h2 class="lead profile"><%= t("people.profile") %></h2>
 
   <% if @person.studies.any? %>
     <table>
