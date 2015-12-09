@@ -61,12 +61,12 @@
 
       <% if @contract.awarded_at.present? %>
         <dt><%= t("contracts.show.awarded_at") %></dt>
-        <dd><%= l @contract.awarded_at, format: :long %></dd>
+        <dd><%= format_date @contract.awarded_at, format: :long %></dd>
       <% end %>
 
       <% if @contract.formalized_at.present? %>
         <dt><%= t("contracts.show.formalized_at") %></dt>
-        <dd><%= l @contract.formalized_at, format: :long %></dd>
+        <dd><%= format_date @contract.formalized_at, format: :long %></dd>
       <% end %>
     </dl>
   </div>
