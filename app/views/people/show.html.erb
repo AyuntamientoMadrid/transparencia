@@ -43,6 +43,17 @@
       <div class="show-for-medium-up">
         <div class="medium-9 left">
           <h1 class="inline-block"><%= @person.name %></h1>
+          <% if @person.twitter.present? || @person.facebook.present? %>
+            <p>
+              <% if @person.twitter.present? %>
+                <%= link_to @person.twitter, twitter_url(@person.twitter), target: :blank %>
+              <% end %>
+
+              <% if @person.facebook.present? %>
+                <%= link_to facebook_url(@person.facebook), facebook_url(@person.facebook), target: :blank %>
+              <% end %>
+            </p>
+          <% end %>
           <p><%= @person.unit %></p>
           <p class="role"><%= @person.role %></p>
         </div>
