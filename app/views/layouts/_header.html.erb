@@ -44,13 +44,13 @@
       <div class="small-12">
         <%= link_to t("layouts.header.home"), root_path, class: ("active" if current_page?(root_path)) %>
         <%= link_to t("layouts.header.people"), councillors_people_path, class: ("active" if current_page?(councillors_people_path)) %>
-        <%= link_to t("layouts.header.directors"), directors_people_path, class: ("active" if current_page?(directors_people_path)) %>
-        <%= link_to t("layouts.header.subventions"), subventions_path, class: ("active" if current_page?(subventions_path)) %>
-        <%= link_to t("layouts.header.contracts"), contracts_path, class: ("active" if current_page?(contracts_path)) %>
-        <%= link_to t("layouts.header.inquiries_url"), target: "blank" do %>
-          <%= t("layouts.header.inquiries") %>
-          <i class="icon-external"></i>
-        <% end %>
+        <%# link_to t("layouts.header.directors"), directors_people_path, class: ("active" if current_page?(directors_people_path)) %>
+        <%# link_to t("layouts.header.subventions"), subventions_path, class: ("active" if current_page?(subventions_path)) %>
+        <%# link_to t("layouts.header.contracts"), contracts_path, class: ("active" if current_page?(contracts_path)) %>
+        <%# link_to t("layouts.header.inquiries_url"), target: "blank" do %>
+          <%# t("layouts.header.inquiries") %>
+          <!-- <i class="icon-external"></i> -->
+        <%# end %>
       </div>
     </div>
   </div>
