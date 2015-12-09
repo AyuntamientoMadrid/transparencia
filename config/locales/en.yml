@@ -109,6 +109,7 @@ en:
       entity: "Administration"
       start_year: "Start Year"
       end_year: "End Year"
+      level: "Level"
     private_jobs:
       title: "Private jobs or activities"
       description: "Post/activity"

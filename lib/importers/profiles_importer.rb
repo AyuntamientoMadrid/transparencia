@@ -87,6 +87,8 @@ module Importers
 
         career_comment_col = row.index(:"4_cargoactividad")+4
         person.political_posts_comment = row[career_comment_col]
+
+        person.public_jobs_level = row[:grado_consolidado]
       end
 
       def parse_political_posts(person, row)

@@ -67,12 +67,28 @@ class Person < ActiveRecord::Base
     parse_data_rows(profile, :private_jobs)
   end
 
+  def has_career?
+    profile['public_jobs'].any? ||
+    profile['private_jobs'].any? ||
+    profile['public_posts'].any? ||
+    career_comment.present? ||
+    public_jobs_level.present?
+  end
+
   def career_comment
     profile['career_comment']
   end
 
   def career_comment=(comment)
     profile['career_comment']= comment
+  end
+
+  def public_jobs_level
+    profile['public_jobs_level']
+  end
+
+  def public_jobs_level=(level)
+    profile['public_jobs_level']= level
   end
 
   def political_posts

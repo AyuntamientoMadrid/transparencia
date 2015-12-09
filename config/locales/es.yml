@@ -109,6 +109,7 @@ es:
       entity: "Administración"
       start_year: "Año de inicio"
       end_year: "Año de fin"
+      level: "Grado consolidado"
     private_jobs:
       title: "En el ámbito privado"
       description: "Cargo/Actividad"
