@@ -13,7 +13,7 @@
       <h1 class="lead"><%= t("people.directors.title") %></h1>
         <ul>
           <% @people.each do |person| %>
-            <li><%= link_to "#{person.name}, #{person.role}", person_path(person) %></li>
+            <li><%= link_to person.name, person_path(person) %>, <%= person.unit %></li>
           <% end %>
         </ul>
       </ul>
