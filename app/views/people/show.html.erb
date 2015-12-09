@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <%= render 'profile' %>
+      <%= render 'profile' if @person.profile.present? %>
 
       <% if @person.councillor? %>
         <%= render 'assets_declarations' %>
