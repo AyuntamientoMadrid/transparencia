@@ -13,7 +13,7 @@ class Person < ActiveRecord::Base
   validates :role,   presence: true
 
   scope :sorted_as_councillors, -> { order(:councillor_code) }
-  scope :sorted_as_directors, -> { order(:unit, :name) }
+  scope :sorted_as_directors, -> { order(:name) }
   scope :councillors, -> { where.not(councillor_code: nil) }
   scope :directors, -> { where(councillor_code: nil) }
 
