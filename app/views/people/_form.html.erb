@@ -1,0 +1,11 @@
+<%= form_for(@person) do |f| %>
+  <div class="small-12 column">
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="small-12 column">
+    <%= f.collection_select :party_id, @parties, :id, :name, include_blank: true %>
+  </div>
+
+  <%= f.submit(class: "button radius", value: t("persons.form.save")) %>
+<% end %>
