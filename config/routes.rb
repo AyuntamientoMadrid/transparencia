@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     member { post :contact }
     collection do
       get :councillors
-      get :directors
+      # get :directors
     end
   end
   resources :subventions

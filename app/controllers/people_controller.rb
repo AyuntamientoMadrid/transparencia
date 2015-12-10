@@ -10,9 +10,9 @@ class PeopleController < ApplicationController
     @people = Person.councillors.includes(:party).sorted_as_councillors
   end
 
-  def directors
-    @people = Person.directors.sorted_as_directors
-  end
+  #def directors
+  #  @people = Person.directors.sorted_as_directors
+  #end
 
   def show
     @contact = Contact.new(person: @person)
