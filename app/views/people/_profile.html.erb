@@ -113,6 +113,16 @@
             <td colspan="4"><p><%= t("people.public_jobs.level") %>: <%= @person.public_jobs_level %></p></td>
           </tr>
         <% end %>
+        <% if @person.public_jobs_body.present? %>
+          <tr>
+            <td colspan="4"><p><%= t("people.public_jobs.body") %>: <%= @person.public_jobs_body %></p></td>
+          </tr>
+        <% end %>
+        <% if @person.public_jobs_start_year.present? %>
+          <tr>
+            <td colspan="4"><p><%= t("people.public_jobs.start_year") %>: <%= @person.public_jobs_start_year %></p></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   <% end %>

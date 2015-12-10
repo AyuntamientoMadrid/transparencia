@@ -110,6 +110,8 @@ es:
       start_year: "Año de inicio"
       end_year: "Año de fin"
       level: "Grado consolidado"
+      body: "Cuerpo o escala de la administración"
+      start_year: "Año de ingreso"
     private_jobs:
       title: "En el ámbito privado"
       description: "Cargo/Actividad"

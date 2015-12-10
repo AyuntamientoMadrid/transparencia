@@ -110,6 +110,8 @@ en:
       start_year: "Start Year"
       end_year: "End Year"
       level: "Level"
+      body: "Body or scale"
+      start_year: "Start year"
     private_jobs:
       title: "Private jobs or activities"
       description: "Post/activity"
