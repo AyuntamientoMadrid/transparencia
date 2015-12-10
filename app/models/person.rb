@@ -68,9 +68,9 @@ class Person < ActiveRecord::Base
   end
 
   def has_career?
-    profile['public_jobs'].any? ||
-    profile['private_jobs'].any? ||
-    profile['public_posts'].any? ||
+    profile['public_jobs'].try(:any?) ||
+    profile['private_jobs'].try(:any?) ||
+    profile['public_posts'].try(:any?) ||
     career_comment.present? ||
     public_jobs_level.present? ||
     public_jobs_body.present? ||
