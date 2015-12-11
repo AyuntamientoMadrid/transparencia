@@ -28,7 +28,7 @@ gem 'kaminari'
 gem 'unicorn', '~> 5.0.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'dalli'
-gem 'rollbar', '~> 2.6.3'
+gem 'rollbar', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3.14'
 gem 'rinku', require: 'rails_rinku'
 
