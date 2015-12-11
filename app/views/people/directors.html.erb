@@ -11,15 +11,11 @@
   <div class="people">
     <div class="small-12 column">
       <h1 class="lead"><%= t("people.directors.title") %></h1>
-
-        <% @people.group_by(&:unit).each do |unit, people_in_unit| %>
-          <h3><%= unit %></h3>
-          <ul>
-            <% people_in_unit.each do |person| %>
-              <li><%= link_to person.name, person %></li>
-            <% end %>
-          </ul>
-        <% end %>
+        <ul>
+          <% @people.each do |person| %>
+            <li><%= link_to person.name, person_path(person) %>, <%= person.unit %></li>
+          <% end %>
+        </ul>
       </ul>
     </div>
   </div>

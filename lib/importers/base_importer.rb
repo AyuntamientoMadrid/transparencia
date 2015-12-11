@@ -26,6 +26,7 @@ module Importers
     def parse_declaration_date(str)
       day, month, year = str.split(/[-\/]/)
       day, month, year = day.to_i, month.to_i, year.to_i
+      year += 2000 if year < 1000
       begin
         Date.new(year, month, day)
       rescue ArgumentError # dates with day and month flipped
@@ -39,6 +40,7 @@ module Importers
       return nil unless day.present? && month.present? && year.present?
 
       day, month, year = day.to_i, month.to_i, year.to_i
+      year += 2000 if year < 1000
       begin
         Date.new(year, month, day)
       rescue ArgumentError # dates with day and month flipped

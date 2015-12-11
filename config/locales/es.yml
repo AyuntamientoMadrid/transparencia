@@ -12,10 +12,15 @@ es:
       title: "Administración"
   index:
     title: "Transparencia"
-    under_construction_1: "Estamos trabajando en un nuevo Portal de Transparencia del Ayuntamiento de Madrid, para que no quede ni una esquina del Ayuntamiento que no puedas ver."
-    under_construction_2: "Por ahora puedes ver la Declaración de bienes de los actuales Concejales o visitar el portal que ya existía."
-    visit_people: "Ver Declaración de bienes de los Concejales"
-    visit_old_site: "Ir al Portal de Transparencia"
+    under_construction: "Estamos trabajando en un nuevo Portal de Transparencia del Ayuntamiento de Madrid, para que no quede ni una esquina del Ayuntamiento que no puedas ver."
+    under_construction_html: |
+      <p>En este portal están disponibles:</p>
+      <ul>
+        <li>Los perfiles profesionales y las declaraciones de bienes de los concejales del ayuntamiento</li>
+        <li>Los perfiles profesionales de los directivos del ayuntamiento</li>
+      </ul>
+      <p>El resto de la información de transparencia está en el portal actual, que puedes visitar en el siguiente enlace:</p>
+    visit_old_site: "Ir al Portal de Transparencia Actual"
   layouts:
     header:
       participation: "Madrid Decide"
@@ -25,7 +30,7 @@ es:
       open_gov: "Gobierno abierto"
       home: "Portada"
       people: "Concejales"
-      directors: "Directores y personal eventual"
+      directors: "Directivos"
       subventions: "Subvenciones"
       contracts: "Contratos"
       inquiries: "Peticiones de información"
@@ -75,7 +80,7 @@ es:
     councillors:
       title: "Concejales"
     directors:
-      title: "Directores y personal eventual"
+      title: "Directivos"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"
@@ -104,6 +109,9 @@ es:
       entity: "Administración"
       start_year: "Año de inicio"
       end_year: "Año de fin"
+      level: "Grado consolidado"
+      body: "Cuerpo o escala de la administración"
+      start_year: "Año de ingreso"
     private_jobs:
       title: "En el ámbito privado"
       description: "Cargo/Actividad"
@@ -129,6 +137,7 @@ es:
       submit: "Envíar mensaje"
       success: "Mensaje enviado con éxito"
       error: "No se pudo enviar el mensaje"
+    facebook: "Perfil en Facebook"
   pages:
     title: "¿Qué buscas?"
     edit: "Editar contenido"

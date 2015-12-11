@@ -38,7 +38,7 @@
             <td><%= contract.recipient %></td>
             <td><%= contract.description %></td>
             <td><%= contract.organism %></td>
-            <td><%= l contract.awarded_at, format: :long %></td>
+            <td><%= format_date contract.awarded_at, format: :long %></td>
             <td><%= number_to_currency(contract.award_amount_cents/100.0) %></td>
           </tr>
         <% end %>

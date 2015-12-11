@@ -56,10 +56,17 @@
 // 02. People
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.people-card .column {
+.people-card {
 
-  @media (min-width: $small-breakpoint) {
-    padding-bottom: rem-calc(288);
+  i {
+    font-size: $base-font-size;
+  }
+
+  .column {
+
+    @media (min-width: $small-breakpoint) {
+      padding-bottom: rem-calc(288);
+    }
   }
 }
 
@@ -131,9 +138,12 @@
   color: $text-medium;
   font-size: rem-calc(24);
   margin-top: 0;
+}
+
+.profile {
 
   @media (min-width: $small-breakpoint) {
-    margin-bottom: rem-calc(70);
+    padding-top: rem-calc(70);
   }
 }
 

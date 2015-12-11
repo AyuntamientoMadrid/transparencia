@@ -28,7 +28,7 @@ gem 'kaminari'
 gem 'unicorn', '~> 5.0.1'
 gem 'friendly_id', '~> 5.1.0'
 gem 'dalli'
-gem 'rollbar', '~> 2.6.3'
+gem 'rollbar', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3.14'
 gem 'rinku', require: 'rails_rinku'
 
@@ -36,6 +36,7 @@ gem 'rinku', require: 'rails_rinku'
 gem 'database_cleaner'
 
 gem 'pg_search'
+gem 'turnout'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -12,9 +12,14 @@ en:
       title: "Administration"
   index:
     title: "Welcome to the transparency portal"
-    under_construction_1: "We are working on the new Transparency Portal Madrid City Council."
-    under_construction_2: "For now you can see Councillors' assets declarations or visit the portal that exists so far."
-    visit_people: "See Councillors' assets declarations"
+    under_construction: "We are working on the new Transparency Portal Madrid City Council."
+    under_construction_html: |
+      <p>On this portal you may find:</p>
+      <ul>
+        <li>Professional profiles and declarations of the Councillors</li>
+        <li>Professional profiles of the directives</li>
+      </ul>
+      <p>The rest can be found in the old website</p>
     visit_old_site: "Visit Transparency Portal"
   layouts:
     header:
@@ -104,6 +109,9 @@ en:
       entity: "Administration"
       start_year: "Start Year"
       end_year: "End Year"
+      level: "Level"
+      body: "Body or scale"
+      start_year: "Start year"
     private_jobs:
       title: "Private jobs or activities"
       description: "Post/activity"
@@ -129,6 +137,7 @@ en:
       submit: "Send message"
       success: "Your message was sent successfully"
       error: "Your message could not be sent"
+    facebook: "Facebook Profile"
   pages:
     title: "What are you looking for?"
     edit: "Edit content"

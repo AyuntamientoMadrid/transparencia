@@ -43,8 +43,30 @@
       <div class="show-for-medium-up">
         <div class="medium-9 left">
           <h1 class="inline-block"><%= @person.name %></h1>
-          <p><%= @person.unit %></p>
           <p class="role"><%= @person.role %></p>
+          <p><%= @person.unit %></p>
+          <% if @person.twitter.present? || @person.facebook.present? %>
+            <p>
+
+              <% if @person.twitter.present? %>
+                <%= link_to twitter_url(@person.twitter), target: :blank do %>
+                  <i class="icon-twitter"></i>
+                  <%= @person.twitter %>
+                <% end %>
+              <% end %>
+
+              <% if @person.twitter.present? && @person.facebook.present? %>
+                &nbsp;|&nbsp;
+              <% end %>
+
+              <% if @person.facebook.present? %>
+                <%= link_to facebook_url(@person.facebook), target: :blank do %>
+                  <i class="icon-facebook"></i>
+                  <%= t("people.facebook") %>
+                <% end %>
+              <% end %>
+            </p>
+          <% end %>
         </div>
         <div class="medium-3 left text-right">
           <% if @person.party.present? %>
@@ -53,7 +75,7 @@
         </div>
       </div>
 
-      <%= render 'profile' %>
+      <%= render 'profile' if @person.profile.present? %>
 
       <% if @person.councillor? %>
         <%= render 'assets_declarations' %>

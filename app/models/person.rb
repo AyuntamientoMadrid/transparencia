@@ -13,7 +13,7 @@ class Person < ActiveRecord::Base
   validates :role,   presence: true
 
   scope :sorted_as_councillors, -> { order(:councillor_code) }
-  scope :sorted_as_directors, -> { order(:unit, :name) }
+  scope :sorted_as_directors, -> { order(:name) }
   scope :councillors, -> { where.not(councillor_code: nil) }
   scope :directors, -> { where(councillor_code: nil) }
 
@@ -67,12 +67,46 @@ class Person < ActiveRecord::Base
     parse_data_rows(profile, :private_jobs)
   end
 
+  def has_career?
+    profile['public_jobs'].try(:any?) ||
+    profile['private_jobs'].try(:any?) ||
+    profile['public_posts'].try(:any?) ||
+    career_comment.present? ||
+    public_jobs_level.present? ||
+    public_jobs_body.present? ||
+    public_jobs_start_year.present?
+  end
+
   def career_comment
     profile['career_comment']
   end
 
   def career_comment=(comment)
     profile['career_comment']= comment
+  end
+
+  def public_jobs_level
+    profile['public_jobs_level']
+  end
+
+  def public_jobs_level=(level)
+    profile['public_jobs_level']= level
+  end
+
+  def public_jobs_body
+    profile['public_jobs_body']
+  end
+
+  def public_jobs_body=(body)
+    profile['public_jobs_body']= body
+  end
+
+  def public_jobs_start_year
+    profile['public_jobs_start_year']
+  end
+
+  def public_jobs_start_year=(start_year)
+    profile['public_jobs_start_year']= start_year
   end
 
   def political_posts
