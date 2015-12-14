@@ -77,6 +77,16 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    edit:
+      title: "Editar persona"
+    new:
+      title: "Nueva persona"
+    notice:
+      created: "Se ha creado la nueva persona"
+      deleted: "Se ha borrado la persona"
+      updated: "Se ha actualizado la persona"
+    show:
+      title: "Ver persona"
     councillors:
       title: "Concejales"
     directors:
@@ -327,6 +337,8 @@ es:
     edit: "Editar"
     submit: "Enviar"
     back: "Atrás"
+    delete: "Borrar"
+    add: "Añadir"
   activerecord:
     attributes:
       objective:

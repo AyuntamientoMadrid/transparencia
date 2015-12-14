@@ -1,4 +1,4 @@
-<%= form_for :person do |f| %>
+<%= form_for :person, html: {style: "display: none"} do |f| %>
   <table><tbody id="studies-row">
     <%= f.fields_for "studies_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
       <%= render 'people/form_row', f: fs %>
@@ -7,6 +7,24 @@
 
   <table><tbody id="courses-row">
     <%= f.fields_for "courses_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
+      <%= render 'people/form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="public-jobs-row">
+    <%= f.fields_for "public_jobs_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
+      <%= render 'people/form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="private-jobs-row">
+    <%= f.fields_for "private_jobs_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
+      <%= render 'people/form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="political-posts-row">
+    <%= f.fields_for "political_posts_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
       <%= render 'people/form_row', f: fs %>
     <% end %>
   </tbody></table>
@@ -69,11 +87,12 @@
         <%= render 'people/form_row', f: fs %>
       <% end %>
     </tbody>
+    <tfoot><tr><td colspan="5">
+      <%= link_to "#", class: "right tiny button success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr></tfoot>
   </table>
-
-  <%= link_to "#", class: "right tiny button success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
-    <%= t('shared.add') %>
-  <% end %>
 
   <table>
     <caption><%= t("people.courses.title") %></caption>
@@ -91,11 +110,83 @@
         <%= render 'people/form_row', f: fs %>
       <% end %>
     </tbody>
+    <tfoot><tr><td colspan="5">
+      <%= link_to "#", class: "right tiny button success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr></tfoot>
   </table>
 
-  <%= link_to "#", class: "right tiny button success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
-    <%= t('shared.add') %>
-  <% end %>
+  <h3><%= t("people.career") %></h3>
+
+  <table>
+    <caption><%= t("people.public_jobs.title") %></caption>
+    <thead>
+      <tr>
+        <th scope="col"><%= t("people.public_jobs.description") %></th>
+        <th scope="col" class="th-big"><%= t("people.public_jobs.entity") %></th>
+        <th scope="col" class="th-small"><%= t("people.public_jobs.start_year") %></th>
+        <th scope="col" class="th-small"><%= t("people.public_jobs.end_year") %></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="public-jobs">
+      <%= f.fields_for :public_jobs, @person.public_jobs do |fs| %>
+        <%= render 'people/form_row', f: fs %>
+      <% end %>
+    </tbody>
+    <tfoot><tr><td colspan="5">
+      <%= link_to "#", class: "right tiny button success", data: {add_to: "#public-jobs", add_from: "#public-jobs-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr></tfoot>
+  </table>
+
+  <table>
+    <caption><%= t("people.private_jobs.title") %></caption>
+    <thead>
+      <tr>
+        <th scope="col"><%= t("people.private_jobs.description") %></th>
+        <th scope="col" class="th-big"><%= t("people.private_jobs.entity") %></th>
+        <th scope="col" class="th-small"><%= t("people.private_jobs.start_year") %></th>
+        <th scope="col" class="th-small"><%= t("people.private_jobs.end_year") %></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="private-jobs">
+      <%= f.fields_for :private_jobs, @person.private_jobs do |fs| %>
+        <%= render 'people/form_row', f: fs %>
+      <% end %>
+    </tbody>
+    <tfoot><tr><td colspan="5">
+      <%= link_to "#", class: "right tiny button success", data: {add_to: "#private-jobs", add_from: "#private-jobs-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr></tfoot>
+  </table>
+
+  <table>
+    <caption><%= t("people.political_posts.title") %></caption>
+    <thead>
+      <tr>
+        <th scope="col"><%= t("people.political_posts.description") %></th>
+        <th scope="col" class="th-big"><%= t("people.political_posts.entity") %></th>
+        <th scope="col" class="th-small"><%= t("people.political_posts.start_year") %></th>
+        <th scope="col" class="th-small"><%= t("people.political_posts.end_year") %></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="political-posts">
+      <%= f.fields_for :political_posts, @person.political_posts do |fs| %>
+        <%= render 'people/form_row', f: fs %>
+      <% end %>
+    </tbody>
+    <tfoot><tr><td colspan="5">
+      <%= link_to "#", class: "right tiny button success", data: {add_to: "#political-posts", add_from: "#political-posts-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr></tfoot>
+  </table>
 
 
   <%= f.submit(class: "button radius", value: t("shared.submit")) %>

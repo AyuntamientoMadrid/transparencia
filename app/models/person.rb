@@ -71,8 +71,16 @@ class Person < ActiveRecord::Base
     parse_data_rows(profile, :public_jobs)
   end
 
+  def public_jobs_attributes=(attributes)
+    profile['public_jobs'] = attributes.values
+  end
+
   def private_jobs
     parse_data_rows(profile, :private_jobs)
+  end
+
+  def private_jobs_attributes=(attributes)
+    profile['private_jobs'] = attributes.values
   end
 
   def has_career?
@@ -119,6 +127,10 @@ class Person < ActiveRecord::Base
 
   def political_posts
     parse_data_rows(profile, :political_posts)
+  end
+
+  def political_posts_attributes=(attributes)
+    profile['political_posts'] = attributes.values
   end
 
   def political_posts_comment

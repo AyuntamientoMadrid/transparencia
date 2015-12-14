@@ -84,7 +84,10 @@ class PeopleController < ApplicationController
         :name, :councillor_code, :personal_code,
         :twitter, :facebook, :role, :unit, :party_id,
         studies_attributes: [:description, :entity, :start_year, :end_year],
-        courses_attributes: [:description, :entity, :start_year, :end_year]
+        courses_attributes: [:description, :entity, :start_year, :end_year],
+        private_jobs_attributes: [:description, :entity, :start_year, :end_year],
+        public_jobs_attributes: [:description, :entity, :start_year, :end_year],
+        political_posts_attributes: [:description, :entity, :start_year, :end_year],
       )
     end
 
