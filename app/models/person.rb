@@ -51,6 +51,10 @@ class Person < ActiveRecord::Base
     parse_data_rows(profile, :courses)
   end
 
+  def courses_attributes=(attributes)
+    profile['courses'] = attributes.values
+  end
+
   def courses_comment
     profile['courses_comment']
   end

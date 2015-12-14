@@ -83,7 +83,9 @@ class PeopleController < ApplicationController
       params.require(:person).permit(
         :name, :councillor_code, :personal_code,
         :twitter, :facebook, :role, :unit, :party_id,
-        studies_attributes: [:description, :entity, :start_year, :end_year])
+        studies_attributes: [:description, :entity, :start_year, :end_year],
+        courses_attributes: [:description, :entity, :start_year, :end_year]
+      )
     end
 
     def load_parties

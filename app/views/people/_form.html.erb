@@ -1,7 +1,13 @@
 <%= form_for :person do |f| %>
   <table><tbody id="studies-row">
     <%= f.fields_for "studies_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
-      <%= render 'people/studies_row', f: fs %>
+      <%= render 'people/form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="courses-row">
+    <%= f.fields_for "courses_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
+      <%= render 'people/form_row', f: fs %>
     <% end %>
   </tbody></table>
 <% end %>
@@ -60,7 +66,7 @@
     </thead>
     <tbody id="studies">
       <%= f.fields_for :studies, @person.studies do |fs| %>
-        <%= render 'people/studies_row', f: fs %>
+        <%= render 'people/form_row', f: fs %>
       <% end %>
     </tbody>
   </table>
@@ -69,8 +75,27 @@
     <%= t('shared.add') %>
   <% end %>
 
+  <table>
+    <caption><%= t("people.courses.title") %></caption>
+    <thead>
+      <tr>
+        <th scope="col"><%= t("people.courses.description") %></th>
+        <th scope="col" class="th-big"><%= t("people.courses.entity") %></th>
+        <th scope="col" class="th-small"><%= t("people.courses.start_year") %></th>
+        <th scope="col" class="th-small"><%= t("people.courses.end_year") %></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="courses">
+      <%= f.fields_for :courses, @person.courses do |fs| %>
+        <%= render 'people/form_row', f: fs %>
+      <% end %>
+    </tbody>
+  </table>
 
-
+  <%= link_to "#", class: "right tiny button success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
+    <%= t('shared.add') %>
+  <% end %>
 
 
   <%= f.submit(class: "button radius", value: t("shared.submit")) %>
