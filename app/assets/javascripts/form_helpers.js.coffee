@@ -1,5 +1,5 @@
 form_helpers = ->
-  $('[data-add-to]').click ->
+  $(document).on 'click', 'a[data-add-to]', ->
     $this = $(this)
     source_selector = $this.data('add-from')
     destination_selector = $this.data('add-to')
@@ -7,13 +7,15 @@ form_helpers = ->
     random_id = Math.floor(Math.random() * (100000 - 100)) + 100;
     source_body = $(source_selector).html().split("{id}").join(random_id)
 
-    $(destination_selector).append($.parseHTML(source_body))
+    $(source_body).appendTo($(destination_selector))
     false
 
-  $('[data-delete-parent]').click ->
+  $(document).on 'click', '[data-delete-parent]', ->
     $this = $(this)
     $this.parents($this.data('delete-parent')).remove()
     false
+
+  42
 
 $(document).ready(form_helpers)
 $(document).on('page:load', form_helpers)
