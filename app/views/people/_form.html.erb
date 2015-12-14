@@ -127,6 +127,29 @@
     </tfoot>
   </table>
 
+  <table>
+    <caption><%= t("people.languages.title") %></caption>
+    <thead>
+      <tr>
+        <th scope="col"><%= t("people.languages.name") %></th>
+        <th scope="col" class="th-small"><%= t("people.languages.level") %></th>
+        <th scope="col" class="th-small"></th>
+      </tr>
+    </thead>
+    <tbody id="languages">
+      <%= f.fields_for :languages, @person.languages do |fs| %>
+        <%= render 'people/languages_row', f: fs %>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="3">
+        <%= link_to "#", class: "right tiny button success", data: {add_to: "#languages", add_from: "#languages-row"} do %>
+          <%= t('shared.add') %>
+        <% end %>
+      </td></tr>
+    </tfoot>
+  </table>
+
   <h3><%= t("people.career") %></h3>
 
   <table>

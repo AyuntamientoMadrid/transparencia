@@ -67,6 +67,10 @@ class Person < ActiveRecord::Base
     parse_data_rows(profile, :languages)
   end
 
+  def languages_attributes=(attributes)
+    profile['languages']= attributes.values
+  end
+
   def public_jobs
     parse_data_rows(profile, :public_jobs)
   end

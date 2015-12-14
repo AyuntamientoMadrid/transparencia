@@ -91,6 +91,7 @@ class PeopleController < ApplicationController
         private_jobs_attributes: [:description, :entity, :start_year, :end_year],
         public_jobs_attributes: [:description, :entity, :start_year, :end_year],
         political_posts_attributes: [:description, :entity, :start_year, :end_year],
+        languages_attributes: [:name, :level]
       )
     end
 
