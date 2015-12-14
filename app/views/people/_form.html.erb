@@ -87,11 +87,16 @@
         <%= render 'people/form_row', f: fs %>
       <% end %>
     </tbody>
-    <tfoot><tr><td colspan="5">
-      <%= link_to "#", class: "right tiny button success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
-        <%= t('shared.add') %>
-      <% end %>
-    </td></tr></tfoot>
+    <tfoot>
+      <tr><td colspan="5">
+        <%= link_to "#", class: "right tiny button success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
+          <%= t('shared.add') %>
+        <% end %>
+      </td></tr>
+      <tr><td colspan="5">
+        <%= f.text_area :studies_comment, rows: 3 %>
+      </td></tr>
+    </tfoot>
   </table>
 
   <table>
@@ -110,11 +115,16 @@
         <%= render 'people/form_row', f: fs %>
       <% end %>
     </tbody>
-    <tfoot><tr><td colspan="5">
-      <%= link_to "#", class: "right tiny button success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
-        <%= t('shared.add') %>
-      <% end %>
-    </td></tr></tfoot>
+    <tfoot>
+      <tr><td colspan="5">
+        <%= link_to "#", class: "right tiny button success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
+          <%= t('shared.add') %>
+        <% end %>
+      </td></tr>
+      <tr><td colspan="5">
+        <%= f.text_area :courses_comment, rows: 3 %>
+      </td></tr>
+    </tfoot>
   </table>
 
   <h3><%= t("people.career") %></h3>
@@ -135,10 +145,24 @@
         <%= render 'people/form_row', f: fs %>
       <% end %>
     </tbody>
-    <tfoot><tr><td colspan="5">
-      <%= link_to "#", class: "right tiny button success", data: {add_to: "#public-jobs", add_from: "#public-jobs-row"} do %>
-        <%= t('shared.add') %>
-      <% end %>
+    <tfoot>
+      <tr><td colspan="5">
+        <%= link_to "#", class: "right tiny button success", data: {add_to: "#public-jobs", add_from: "#public-jobs-row"} do %>
+          <%= t('shared.add') %>
+        <% end %>
+      <tr><td colspan="5">
+        <div class="row">
+          <div class="small-3 column">
+            <%= f.text_field :public_jobs_level, label: t("people.public_jobs.level") %>
+          </div>
+          <div class="small-6 column">
+            <%= f.text_field :public_jobs_body, label: t("people.public_jobs.body") %>
+          </div>
+          <div class="small-3 column">
+            <%= f.text_field :public_jobs_start_year, label: t("people.public_jobs.start_year") %>
+          </div>
+        </div>
+      </td></tr>
     </td></tr></tfoot>
   </table>
 
@@ -165,6 +189,8 @@
     </td></tr></tfoot>
   </table>
 
+  <%= f.text_area :career_comment, rows: 3 %>
+
   <table>
     <caption><%= t("people.political_posts.title") %></caption>
     <thead>
@@ -181,13 +207,21 @@
         <%= render 'people/form_row', f: fs %>
       <% end %>
     </tbody>
-    <tfoot><tr><td colspan="5">
-      <%= link_to "#", class: "right tiny button success", data: {add_to: "#political-posts", add_from: "#political-posts-row"} do %>
-        <%= t('shared.add') %>
-      <% end %>
-    </td></tr></tfoot>
+    <tfoot>
+      <tr><td colspan="5">
+        <%= link_to "#", class: "right tiny button success", data: {add_to: "#political-posts", add_from: "#political-posts-row"} do %>
+          <%= t('shared.add') %>
+        <% end %>
+      <tr><td colspan="5">
+        <%= f.text_area :political_posts_comment, rows: 3 %>
+      </td></tr>
+    </tfoot>
   </table>
 
+  <%= f.text_area :publications, rows: 3, label: t("people.publications") %>
+  <%= f.text_area :teaching_activity, rows: 3, label: t("people.teaching_activity") %>
+  <%= f.text_area :special_mentions, rows: 3, label: t("people.special_mentions") %>
+  <%= f.text_area :other, rows: 3, label: t("people.other") %>
 
   <%= f.submit(class: "button radius", value: t("shared.submit")) %>
 <% end %>
