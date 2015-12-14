@@ -1,11 +1,77 @@
+<%= form_for :person do |f| %>
+  <table><tbody id="studies-row">
+    <%= f.fields_for "studies_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
+      <%= render 'people/studies_row', f: fs %>
+    <% end %>
+  </tbody></table>
+<% end %>
+
 <%= form_for(@person) do |f| %>
-  <div class="small-12 column">
-    <%= f.text_field :name %>
+  <div class="row">
+    <div class="small-8 column">
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="small-2 column">
+      <%= f.text_field :councillor_code %>
+    </div>
+
+    <div class="small-2 column">
+      <%= f.text_field :personal_code %>
+    </div>
   </div>
 
-  <div class="small-12 column">
-    <%= f.collection_select :party_id, @parties, :id, :name, include_blank: true %>
+  <div class="row">
+    <div class="small-3 column">
+      <%= f.text_field :facebook %>
+    </div>
+
+    <div class="small-3 column end">
+      <%= f.text_field :twitter %>
+    </div>
   </div>
 
-  <%= f.submit(class: "button radius", value: t("persons.form.save")) %>
+  <div class="row">
+    <div class="small-4 column">
+      <%= f.text_field :role %>
+    </div>
+
+    <div class="small-6 column">
+      <%= f.text_field :unit %>
+    </div>
+
+    <div class="small-2 column end">
+      <%= f.collection_select :party_id, @parties, :id, :name, include_blank: true %>
+    </div>
+  </div>
+
+  <h2><%= t("people.profile") %></h2>
+
+  <table>
+    <caption><%= t("people.studies.title") %></caption>
+    <thead>
+      <tr>
+        <th scope="col"><%= t("people.studies.description") %></th>
+        <th scope="col" class="th-big"><%= t("people.studies.entity") %></th>
+        <th scope="col" class="th-small"><%= t("people.studies.start_year") %></th>
+        <th scope="col" class="th-small"><%= t("people.studies.end_year") %></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="studies">
+      <%= f.fields_for :studies, @person.studies do |fs| %>
+        <%= render 'people/studies_row', f: fs %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "#", class: "right tiny button success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
+    <%= t('shared.add') %>
+  <% end %>
+
+
+
+
+
+  <%= f.submit(class: "button radius", value: t("shared.submit")) %>
 <% end %>

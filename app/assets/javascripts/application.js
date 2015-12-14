@@ -19,3 +19,4 @@
 //= require turbolinks
 //= require trix
 //= require linkable
+//= require form_helpers

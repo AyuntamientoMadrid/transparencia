@@ -47,11 +47,11 @@ class PeopleController < ApplicationController
   end
 
   def edit
-    @person = Person.find(params[:id])
+    @person = Person.friendly.find(params[:id])
   end
 
   def update
-    @person = Person.find(params[:id])
+    @person = Person.friendly.find(params[:id])
     if @person.update(person_params)
       redirect_to person_path(@person), notice: I18n.t("people.notice.updated")
     else
@@ -60,7 +60,7 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    @person = Person.find(params[:id])
+    @person = Person.friendly.find(params[:id])
     @person.destroy
     path = @person.councillor? ? councillors_people_path : directors_people_path
     redirect_to path, notice: I18n.t("people.notice.deleted")
@@ -80,7 +80,10 @@ class PeopleController < ApplicationController
     end
 
     def person_params
-      params.require(:person).permit(:name, :role, :councillor_code, :profile, :personal_code, :twitter, :facebook)
+      params.require(:person).permit(
+        :name, :councillor_code, :personal_code,
+        :twitter, :facebook, :role, :unit, :party_id,
+        studies_attributes: [:description, :entity, :start_year, :end_year])
     end
 
     def load_parties

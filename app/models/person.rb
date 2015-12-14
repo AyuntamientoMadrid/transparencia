@@ -31,6 +31,10 @@ class Person < ActiveRecord::Base
     parse_data_rows(profile, :studies)
   end
 
+  def studies_attributes=(attributes)
+    profile['studies'] = attributes.values
+  end
+
   def studies_comment
     profile['studies_comment']
   end
@@ -177,6 +181,11 @@ class Person < ActiveRecord::Base
 
   def add_political_post(description, entity, start_year, end_year)
     add_item('political_posts', description, entity, start_year, end_year)
+  end
+
+  # Regenerate slug if name changes
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
   end
 
   private
