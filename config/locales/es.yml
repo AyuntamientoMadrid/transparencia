@@ -77,6 +77,12 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    name: "Nombre"
+    councillor_code: "Cód. concejal"
+    personal_code: "Cód. personal"
+    role: "Cargo"
+    unit: "Unidad"
+    party: "Afiliación"
     edit:
       title: "Editar persona"
     new:
@@ -100,19 +106,20 @@ es:
       entity: "Centro de expedición"
       start_year: "Año de inicio"
       end_year: "Año de fin"
+      comment: "Otros comentarios sobre formación académica"
     courses:
       title: "Otros estudios"
       description: "Nombre"
       entity: "Nombre del centro"
       start_year: "Año de inicio"
       end_year: "Año de fin"
+      comment: "Otros comentarios sobre cursos"
     languages:
       title: "Conocimientos de Idiomas"
       name: "Nombre"
       level: "Nivel"
     career: "Carrera profesional"
-    career_comment:
-      title: "Otros detalles sobre la carrera profesional"
+    career_comment: "Otros detalles sobre la carrera profesional"
     public_jobs:
       title: "En el ámbito público"
       description: "Puesto"
@@ -134,6 +141,7 @@ es:
       entity: "Nombre de la institución"
       start_year: "Año de inicio"
       end_year: "Año de fin"
+      comment: "Otros comentarios sobre cargos políticos"
     publications: "Publicaciones relevantes"
     special_mentions: "Distinciones y otros méritos"
     teaching_activity: "Actividad docente"

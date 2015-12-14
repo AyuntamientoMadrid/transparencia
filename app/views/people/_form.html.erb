@@ -32,20 +32,10 @@
 
 <%= form_for(@person) do |f| %>
   <div class="row">
-    <div class="small-8 column">
-      <%= f.text_field :name %>
+    <div class="small-6 column">
+      <%= f.text_field :name, label: t('people.name') %>
     </div>
 
-    <div class="small-2 column">
-      <%= f.text_field :councillor_code %>
-    </div>
-
-    <div class="small-2 column">
-      <%= f.text_field :personal_code %>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="small-3 column">
       <%= f.text_field :facebook %>
     </div>
@@ -56,16 +46,26 @@
   </div>
 
   <div class="row">
-    <div class="small-4 column">
-      <%= f.text_field :role %>
+    <div class="small-6 column">
+      <%= f.text_field :unit, label: t('people.unit') %>
     </div>
 
-    <div class="small-6 column">
-      <%= f.text_field :unit %>
+    <div class="small-2 column">
+      <%= f.text_field :personal_code, label: t('people.personal_code') %>
+    </div>
+
+    <div class="small-2 column">
+      <%= f.text_field :councillor_code, label: t('people.councillor_code') %>
     </div>
 
     <div class="small-2 column end">
-      <%= f.collection_select :party_id, @parties, :id, :name, include_blank: true %>
+      <%= f.collection_select :party_id, @parties, :id, :name, include_blank: true, label: t('people.party') %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-6 column">
+      <%= f.text_field :role, label: t('people.role') %>
     </div>
   </div>
 
@@ -94,7 +94,7 @@
         <% end %>
       </td></tr>
       <tr><td colspan="5">
-        <%= f.text_area :studies_comment, rows: 3 %>
+        <%= f.text_area :studies_comment, label: t('people.studies.comment'), rows: 3 %>
       </td></tr>
     </tfoot>
   </table>
@@ -122,7 +122,7 @@
         <% end %>
       </td></tr>
       <tr><td colspan="5">
-        <%= f.text_area :courses_comment, rows: 3 %>
+        <%= f.text_area :courses_comment, label: t('people.courses.comment'), rows: 3 %>
       </td></tr>
     </tfoot>
   </table>
@@ -212,7 +212,7 @@
     </td></tr></tfoot>
   </table>
 
-  <%= f.text_area :career_comment, rows: 3 %>
+  <%= f.text_area :career_comment, label: t("people.career_comment"), rows: 3 %>
 
   <table>
     <caption><%= t("people.political_posts.title") %></caption>
@@ -236,7 +236,7 @@
           <%= t('shared.add') %>
         <% end %>
       <tr><td colspan="5">
-        <%= f.text_area :political_posts_comment, rows: 3 %>
+        <%= f.text_area :political_posts_comment, label: t("people.political_posts.comment"), rows: 3 %>
       </td></tr>
     </tfoot>
   </table>

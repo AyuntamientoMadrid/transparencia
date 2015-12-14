@@ -77,6 +77,20 @@ en:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    name: "Name"
+    councillor_code: "Council Code"
+    personal_code: "Person Code"
+    role: "Role"
+    unit: "Unit"
+    party: "Party"
+    edit:
+      title: "Edit person"
+    new:
+      title: "Create person"
+    notice:
+      created: "Person created successfully"
+      deleted: "Person erased successfully"
+      updated: "Person updated successfully"
     councillors:
       title: "Councillors"
     directors:
@@ -90,19 +104,20 @@ en:
       entity: "Place of expedition"
       start_year: "Start Year"
       end_year: "End Year"
+      comment: "Studies comment"
     courses:
       title: "Courses"
       description: "Name"
       entity: "Place"
       start_year: "Start Year"
       end_year: "End Year"
+      comment: "Courses comment"
     languages:
       title: "Languages"
       name: "Name"
       level: "Level"
     career: "Career"
-    career_comment:
-      title: "Other career details"
+    career_comment: "Other career details"
     public_jobs:
       title: "Posts in the administration"
       description: "Post"
@@ -124,6 +139,7 @@ en:
       entity: "Institution"
       start_year: "Start Year"
       end_year: "End Year"
+      comment: "Political posts comment"
     publications: "Publications"
     special_mentions: "Special mentions"
     teaching_activity: "Activity"
@@ -326,6 +342,8 @@ en:
     edit: "Edit"
     submit: "Submit"
     back: "Back"
+    add: "Add"
+    delete: "Delete"
   activerecord:
     attributes:
       objective:
