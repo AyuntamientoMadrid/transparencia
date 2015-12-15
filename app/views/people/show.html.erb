@@ -41,39 +41,50 @@
 
     <div class="small-12 medium-9 column">
       <div class="show-for-medium-up">
-        <div class="medium-9 left">
-          <h1 class="inline-block"><%= @person.name %></h1>
-          <p class="role"><%= @person.role %></p>
-          <p><%= @person.unit %></p>
-          <% if @person.twitter.present? || @person.facebook.present? %>
-            <p>
+        <div class="row">
+          <div class="medium-9 columns">
+            <h1 class="inline-block"><%= @person.name %></h1>
 
-              <% if @person.twitter.present? %>
-                <%= link_to twitter_url(@person.twitter), target: :blank do %>
-                  <i class="icon-twitter"></i>
-                  <%= @person.twitter %>
+            <p class="role"><%= @person.role %></p>
+            <p><%= @person.unit %></p>
+            <% if @person.twitter.present? || @person.facebook.present? %>
+              <p>
+                <% if @person.twitter.present? %>
+                  <%= link_to twitter_url(@person.twitter), target: :blank do %>
+                    <i class="icon-twitter"></i>
+                    <%= @person.twitter %>
+                  <% end %>
                 <% end %>
-              <% end %>
 
-              <% if @person.twitter.present? && @person.facebook.present? %>
-                &nbsp;|&nbsp;
-              <% end %>
-
-              <% if @person.facebook.present? %>
-                <%= link_to facebook_url(@person.facebook), target: :blank do %>
-                  <i class="icon-facebook"></i>
-                  <%= t("people.facebook") %>
+                <% if @person.twitter.present? && @person.facebook.present? %>
+                  &nbsp;|&nbsp;
                 <% end %>
-              <% end %>
-            </p>
-          <% end %>
-        </div>
-        <div class="medium-3 left text-right">
-          <% if @person.party.present? %>
-            <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
-          <% end %>
+
+                <% if @person.facebook.present? %>
+                  <%= link_to facebook_url(@person.facebook), target: :blank do %>
+                    <i class="icon-facebook"></i>
+                    <%= t("people.facebook") %>
+                  <% end %>
+                <% end %>
+              </p>
+            <% end %>
+          </div>
+          <div class="medium-3 columns text-right">
+            <% if @person.party.present? %>
+              <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+            <% end %>
+          </div>
         </div>
       </div>
+
+      <% if administrator_signed_in? %>
+        <div class="row">
+          <div class="small-12 columns">
+            <%= link_to t("shared.edit"), edit_person_path(@person), class: "tiny button radius" %>
+            <%= link_to t("shared.delete"), person_path(@person), method: :delete, data: {confirm: t("people.show.confirm_deletion")}, class: "tiny button radius alert" %>
+          </div>
+        </div>
+      <% end %>
 
       <%= render 'profile' if @person.profile.present? %>
 
