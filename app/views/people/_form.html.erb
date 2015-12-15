@@ -11,6 +11,12 @@
     <% end %>
   </tbody></table>
 
+  <table><tbody id="languages-row">
+    <%= f.fields_for "languages_attributes[{id}]", OpenStruct.new(name: nil, level: nil) do |fs| %>
+      <%= render 'people/languages_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
   <table><tbody id="public-jobs-row">
     <%= f.fields_for "public_jobs_attributes[{id}]", OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil) do |fs| %>
       <%= render 'people/form_row', f: fs %>
