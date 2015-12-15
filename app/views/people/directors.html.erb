@@ -11,12 +11,16 @@
   <div class="people">
     <div class="small-12 column">
       <h1 class="lead"><%= t("people.directors.title") %></h1>
-        <ul>
-          <% @people.each do |person| %>
+        <% @people.group_by{ |p| ActiveSupport::Inflector.transliterate(p.name[0]).upcase }.sort.to_h.each do |initial, people| %>
+        <div class="small-12 medium-6">
+          <h2 class="lead"><%= initial %></h2>
+        </div>
+        <ul class="people-list-text">
+          <% people.each do |person| %>
             <li><%= link_to person.name, person_path(person) %>, <%= person.unit %></li>
           <% end %>
         </ul>
-      </ul>
+      <% end %>
     </div>
   </div>
 <% end %>
