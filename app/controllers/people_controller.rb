@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
 
-  # before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_parties, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_person_and_declarations, only: [:show, :contact]
 
