@@ -37,7 +37,7 @@ class Person < ActiveRecord::Base
   end
 
   def studies_attributes=(attributes)
-    profile['studies'] = attributes.values
+    profile['studies'] = clean_attributes attributes
   end
 
   def studies_comment
@@ -57,7 +57,7 @@ class Person < ActiveRecord::Base
   end
 
   def courses_attributes=(attributes)
-    profile['courses'] = attributes.values
+    profile['courses'] = clean_attributes attributes
   end
 
   def courses_comment
@@ -73,7 +73,7 @@ class Person < ActiveRecord::Base
   end
 
   def languages_attributes=(attributes)
-    profile['languages']= attributes.values
+    profile['languages']= clean_attributes attributes
   end
 
   def public_jobs
@@ -81,7 +81,7 @@ class Person < ActiveRecord::Base
   end
 
   def public_jobs_attributes=(attributes)
-    profile['public_jobs'] = attributes.values
+    profile['public_jobs']= clean_attributes attributes
   end
 
   def private_jobs
@@ -89,7 +89,7 @@ class Person < ActiveRecord::Base
   end
 
   def private_jobs_attributes=(attributes)
-    profile['private_jobs'] = attributes.values
+    profile['private_jobs'] = clean_attributes attributes
   end
 
   def has_career?
@@ -139,7 +139,7 @@ class Person < ActiveRecord::Base
   end
 
   def political_posts_attributes=(attributes)
-    profile['political_posts'] = attributes.values
+    profile['political_posts']= clean_attributes attributes
   end
 
   def political_posts_comment
@@ -225,5 +225,8 @@ class Person < ActiveRecord::Base
       self.profile[collection] << {description: description, entity: entity, start_year: start_year, end_year: end_year}
     end
 
+    def clean_attributes(attributes)
+      attributes.values.select{ |a| a.values.any?(&:present?) }
+    end
 
 end
