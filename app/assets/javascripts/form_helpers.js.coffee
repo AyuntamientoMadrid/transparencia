@@ -1,5 +1,5 @@
 form_helpers = ->
-  $(document).on 'click', 'a[data-add-to]', ->
+  $('a[data-add-to]').click ->
     $this = $(this)
     source_selector = $this.data('add-from')
     destination_selector = $this.data('add-to')
