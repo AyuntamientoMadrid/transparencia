@@ -808,6 +808,10 @@ table {
     cursor: pointer;
     outline: 2px solid $brand;
   }
+
+  .button {
+    margin-bottom: 0;
+  }
 }
 
 // 09. Pagination

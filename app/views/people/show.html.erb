@@ -80,8 +80,8 @@
       <% if administrator_signed_in? %>
         <div class="row">
           <div class="small-12 columns">
-            <%= link_to t("shared.edit"), edit_person_path(@person), class: "tiny button radius" %>
-            <%= link_to t("shared.delete"), person_path(@person), method: :delete, data: {confirm: t("people.show.confirm_deletion")}, class: "tiny button radius alert" %>
+            <%= link_to t("shared.edit"), edit_person_path(@person), class: "small button radius" %>
+            <%= link_to t("shared.delete"), person_path(@person), method: :delete, data: {confirm: t("people.show.confirm_deletion")}, class: "small button radius alert" %>
           </div>
         </div>
       <% end %>

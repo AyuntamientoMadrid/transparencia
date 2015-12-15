@@ -2,6 +2,7 @@
 //
 // 01. Browse panes
 // 02. People
+// 03. Column sorting
 //
 
 // 01. Browse panes
@@ -107,6 +108,17 @@
   }
 }
 
+.people-list-text {
+  list-style-type: none;
+  margin-left: 0;
+  margin-top: rem-calc(24);
+
+  li {
+    border-bottom: 1px solid $border;
+    padding: rem-calc(6) 0;
+  }
+}
+
 .people-affiliation {
   background: $brand;
   border-top-left-radius: rem-calc(12);
@@ -200,18 +212,22 @@
   }
 }
 
+// 03. Column sorting
+// - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// Column sorting
-.sortable th .current {
-  padding-right: 12px;
-  background-repeat: no-repeat;
-  background-position: right center;
-}
+.sortable th {
 
-.sortable th .asc {
-  background-image: image-url('up_arrow.gif');
-}
+  .current {
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: rem-calc(12);
+  }
 
-.sortable th .desc {
-  background-image: image-url('down_arrow.gif');
+  .asc {
+    background-image: image-url('up_arrow.gif');
+  }
+
+  .desc {
+    background-image: image-url('down_arrow.gif');
+  }
 }

@@ -95,7 +95,7 @@
     </tbody>
     <tfoot>
       <tr><td colspan="5">
-        <%= link_to "#", class: "right tiny button radius success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
+        <%= link_to "#", class: "right small button radius success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
           <%= t('shared.add') %>
         <% end %>
       </td></tr>
@@ -123,7 +123,7 @@
     </tbody>
     <tfoot>
       <tr><td colspan="5">
-        <%= link_to "#", class: "right tiny button radius success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
+        <%= link_to "#", class: "right small button radius success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
           <%= t('shared.add') %>
         <% end %>
       </td></tr>
@@ -149,7 +149,7 @@
     </tbody>
     <tfoot>
       <tr><td colspan="3">
-        <%= link_to "#", class: "right tiny button radius success", data: {add_to: "#languages", add_from: "#languages-row"} do %>
+        <%= link_to "#", class: "right small button radius success", data: {add_to: "#languages", add_from: "#languages-row"} do %>
           <%= t('shared.add') %>
         <% end %>
       </td></tr>
@@ -176,18 +176,19 @@
     </tbody>
     <tfoot>
       <tr><td colspan="5">
-        <%= link_to "#", class: "right tiny button radius success", data: {add_to: "#public-jobs", add_from: "#public-jobs-row"} do %>
+        <%= link_to "#", class: "right small button radius success", data: {add_to: "#public-jobs", add_from: "#public-jobs-row"} do %>
           <%= t('shared.add') %>
         <% end %>
+      </td></tr>
       <tr><td colspan="5">
         <div class="row">
-          <div class="small-3 column">
+          <div class="small-2 column">
             <%= f.text_field :public_jobs_level, label: t("people.public_jobs.level") %>
           </div>
-          <div class="small-6 column">
+          <div class="small-8 column">
             <%= f.text_field :public_jobs_body, label: t("people.public_jobs.body") %>
           </div>
-          <div class="small-3 column">
+          <div class="small-2 column">
             <%= f.text_field :public_jobs_start_year, label: t("people.public_jobs.start_year") %>
           </div>
         </div>
@@ -212,7 +213,7 @@
       <% end %>
     </tbody>
     <tfoot><tr><td colspan="5">
-      <%= link_to "#", class: "right tiny button radius success", data: {add_to: "#private-jobs", add_from: "#private-jobs-row"} do %>
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#private-jobs", add_from: "#private-jobs-row"} do %>
         <%= t('shared.add') %>
       <% end %>
     </td></tr></tfoot>
@@ -238,9 +239,10 @@
     </tbody>
     <tfoot>
       <tr><td colspan="5">
-        <%= link_to "#", class: "right tiny button radius success", data: {add_to: "#political-posts", add_from: "#political-posts-row"} do %>
+        <%= link_to "#", class: "right small button radius success", data: {add_to: "#political-posts", add_from: "#political-posts-row"} do %>
           <%= t('shared.add') %>
         <% end %>
+      </td></tr>
       <tr><td colspan="5">
         <%= f.text_area :political_posts_comment, label: t("people.political_posts.comment"), rows: 3 %>
       </td></tr>
