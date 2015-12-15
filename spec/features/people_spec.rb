@@ -29,4 +29,54 @@ feature 'People' do
     expect(body).to include("hello")
   end
 
+  context 'Admin actions' do
+    background do
+      login_as create(:administrator)
+    end
+
+    scenario 'Create' do
+      visit new_person_path
+      fill_in :person_name, with: "Gordon Freeman"
+      fill_in :person_role, with: "Level 3 Research Associate"
+      submit_form
+
+      visit directors_people_path
+      expect(page).to have_content "Gordon Freeman"
+
+      person = Person.last
+      visit person_path(person)
+      expect(page).to have_content "Gordon Freeman"
+      expect(page).to have_content "Level 3 Research Associate"
+    end
+
+    scenario 'Update' do
+      person = create(:person, name: "Red Richards", role: "Elastic Man")
+
+      visit person_path(person)
+      click_on "Edit"
+
+      fill_in :person_unit, with: "Fantastic 4"
+      submit_form
+
+      visit directors_people_path
+      expect(page).to have_content person.name
+      expect(page).to have_content person.unit
+
+      visit person_path(person)
+      expect(page).to have_content(person.name)
+      expect(page).to have_content(person.role)
+      expect(page).to have_content(person.unit)
+    end
+
+    scenario 'Delete' do
+      person = create(:person, name: "Klark Kent", role: "Tank")
+
+      visit person_path(person)
+      click_on "Delete"
+
+      visit directors_people_path
+      expect(page).to_not have_content "Klark Kent"
+    end
+  end
+
 end

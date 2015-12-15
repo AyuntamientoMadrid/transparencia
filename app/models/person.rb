@@ -19,6 +19,11 @@ class Person < ActiveRecord::Base
 
   after_initialize :initialize_profile
 
+  def profile
+    write_attribute(:profile, {}) if read_attribute(:profile).nil?
+    read_attribute(:profile)
+  end
+
   def councillor?
     councillor_code.present?
   end
