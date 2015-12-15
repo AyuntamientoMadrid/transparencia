@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :departments, only: [:show]
   resources :objectives, only: [:show, :edit, :update]
   resources :pages
-  resources :people, only: [:index, :show] do
+  resources :people do
     member { post :contact }
     collection do
       get :councillors

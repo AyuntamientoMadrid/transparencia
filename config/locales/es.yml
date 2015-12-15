@@ -77,6 +77,24 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    name: "Nombre"
+    councillor_code: "Cód. concejal"
+    personal_code: "Cód. personal"
+    role: "Cargo"
+    unit: "Unidad"
+    party: "Afiliación"
+    show:
+      confirm_deletion: "¿Seguro que desea borrar esta persona?"
+      disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
+      activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
+    edit:
+      title: "Editar persona"
+    new:
+      title: "Nueva persona"
+    notice:
+      created: "Se ha creado la nueva persona"
+      deleted: "Se ha borrado la persona"
+      updated: "Se ha actualizado la persona"
     councillors:
       title: "Concejales"
     directors:
@@ -90,19 +108,20 @@ es:
       entity: "Centro de expedición"
       start_year: "Año de inicio"
       end_year: "Año de fin"
+      comment: "Otros comentarios sobre formación académica"
     courses:
       title: "Otros estudios"
       description: "Nombre"
       entity: "Nombre del centro"
       start_year: "Año de inicio"
       end_year: "Año de fin"
+      comment: "Otros comentarios sobre cursos"
     languages:
       title: "Conocimientos de Idiomas"
       name: "Nombre"
       level: "Nivel"
     career: "Carrera profesional"
-    career_comment:
-      title: "Otros detalles sobre la carrera profesional"
+    career_comment: "Otros detalles sobre la carrera profesional"
     public_jobs:
       title: "En el ámbito público"
       description: "Puesto"
@@ -124,13 +143,11 @@ es:
       entity: "Nombre de la institución"
       start_year: "Año de inicio"
       end_year: "Año de fin"
+      comment: "Otros comentarios sobre cargos políticos"
     publications: "Publicaciones relevantes"
     special_mentions: "Distinciones y otros méritos"
     teaching_activity: "Actividad docente"
     other: "Otra información"
-    show:
-      disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
-      activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
     contact:
       title: "Contacto"
       intro: "Envía un mensaje directo a %{person}."
@@ -327,6 +344,8 @@ es:
     edit: "Editar"
     submit: "Enviar"
     back: "Atrás"
+    delete: "Borrar"
+    add: "Añadir"
   activerecord:
     attributes:
       objective:

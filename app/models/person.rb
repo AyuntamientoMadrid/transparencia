@@ -19,6 +19,11 @@ class Person < ActiveRecord::Base
 
   after_initialize :initialize_profile
 
+  def profile
+    write_attribute(:profile, {}) if read_attribute(:profile).nil?
+    read_attribute(:profile)
+  end
+
   def councillor?
     councillor_code.present?
   end
@@ -29,6 +34,10 @@ class Person < ActiveRecord::Base
 
   def studies
     parse_data_rows(profile, :studies)
+  end
+
+  def studies_attributes=(attributes)
+    profile['studies'] = clean_attributes attributes
   end
 
   def studies_comment
@@ -47,6 +56,10 @@ class Person < ActiveRecord::Base
     parse_data_rows(profile, :courses)
   end
 
+  def courses_attributes=(attributes)
+    profile['courses'] = clean_attributes attributes
+  end
+
   def courses_comment
     profile['courses_comment']
   end
@@ -59,12 +72,24 @@ class Person < ActiveRecord::Base
     parse_data_rows(profile, :languages)
   end
 
+  def languages_attributes=(attributes)
+    profile['languages']= clean_attributes attributes
+  end
+
   def public_jobs
     parse_data_rows(profile, :public_jobs)
   end
 
+  def public_jobs_attributes=(attributes)
+    profile['public_jobs']= clean_attributes attributes
+  end
+
   def private_jobs
     parse_data_rows(profile, :private_jobs)
+  end
+
+  def private_jobs_attributes=(attributes)
+    profile['private_jobs'] = clean_attributes attributes
   end
 
   def has_career?
@@ -111,6 +136,10 @@ class Person < ActiveRecord::Base
 
   def political_posts
     parse_data_rows(profile, :political_posts)
+  end
+
+  def political_posts_attributes=(attributes)
+    profile['political_posts']= clean_attributes attributes
   end
 
   def political_posts_comment
@@ -179,6 +208,11 @@ class Person < ActiveRecord::Base
     add_item('political_posts', description, entity, start_year, end_year)
   end
 
+  # Regenerate slug if name changes
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
+  end
+
   private
 
     def initialize_profile
@@ -191,5 +225,8 @@ class Person < ActiveRecord::Base
       self.profile[collection] << {description: description, entity: entity, start_year: start_year, end_year: end_year}
     end
 
+    def clean_attributes(attributes)
+      attributes.values.select{ |a| a.values.any?(&:present?) }
+    end
 
 end
