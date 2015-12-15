@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     def authorize
       return true unless only_full_features?
 
-      unless %w(home people).include?(controller_name)
+      unless %w(home people static_pages).include?(controller_name)
         raise ActionController::RoutingError.new('Not Found')
       end
     end
