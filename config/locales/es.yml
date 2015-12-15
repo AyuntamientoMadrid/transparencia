@@ -83,6 +83,10 @@ es:
     role: "Cargo"
     unit: "Unidad"
     party: "Afiliación"
+    show:
+      confirm_deletion: "¿Seguro que desea borrar esta persona?"
+      disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
+      activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
     edit:
       title: "Editar persona"
     new:
@@ -91,8 +95,6 @@ es:
       created: "Se ha creado la nueva persona"
       deleted: "Se ha borrado la persona"
       updated: "Se ha actualizado la persona"
-    show:
-      title: "Ver persona"
     councillors:
       title: "Concejales"
     directors:
@@ -146,9 +148,6 @@ es:
     special_mentions: "Distinciones y otros méritos"
     teaching_activity: "Actividad docente"
     other: "Otra información"
-    show:
-      disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
-      activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
     contact:
       title: "Contacto"
       intro: "Envía un mensaje directo a %{person}."

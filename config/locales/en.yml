@@ -83,6 +83,10 @@ en:
     role: "Role"
     unit: "Unit"
     party: "Party"
+    show:
+      confirm_deletion: "Are you sure you want to erase this person?"
+      disclaimer: "(*) This information is subject to changes if errors are detected"
+      activities_explanation: "Reasons of possible incompatibility and activities which provide or can provide income"
     edit:
       title: "Edit person"
     new:
@@ -144,9 +148,7 @@ en:
     special_mentions: "Special mentions"
     teaching_activity: "Activity"
     other: "Other"
-    show:
-      disclaimer: "(*) This information is subject to changes if errors are detected"
-      activities_explanation: "Reasons of possible incompatibility and activities which provide or can provide income"
+
     contact:
       title: "Contact"
       intro: "Send a message to %{person}."
