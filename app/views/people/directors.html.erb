@@ -11,7 +11,7 @@
   <div class="people">
     <div class="small-12 column">
       <h1 class="lead"><%= t("people.directors.title") %></h1>
-        <% @people.group_by{ |p| ActiveSupport::Inflector.transliterate(p.name[0]).upcase }.sort.to_h.each do |initial, people| %>
+      <% @people.group_by{ |p| name_initial(p) }.sort.to_h.each do |initial, people| %>
         <div class="small-12 medium-6">
           <h2 class="lead"><%= initial %></h2>
         </div>
