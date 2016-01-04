@@ -29,11 +29,12 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize
-      return true unless only_full_features?
+      return true if !only_full_features? || full_feature?
+      raise ActionController::RoutingError.new('Not Found')
+    end
 
-      unless %w(home people static_pages).include?(controller_name)
-        raise ActionController::RoutingError.new('Not Found')
-      end
+    def full_feature?
+      false # override in controllers once they are ready to show
     end
 
     def only_full_features?
