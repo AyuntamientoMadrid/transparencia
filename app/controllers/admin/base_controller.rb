@@ -4,4 +4,10 @@ class Admin::BaseController < ApplicationController
 
   layout 'admin'
 
+  private
+
+    def full_feature?
+      true
+    end
+
 end

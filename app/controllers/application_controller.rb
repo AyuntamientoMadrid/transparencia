@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize
-      return true if !only_full_features? || full_feature?
+      return true if !only_full_features? || full_feature? || devise_controller?
       raise ActionController::RoutingError.new('Not Found')
     end
 
