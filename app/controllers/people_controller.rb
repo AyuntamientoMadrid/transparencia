@@ -99,5 +99,8 @@ class PeopleController < ApplicationController
       @parties = Party.all.order(:name)
     end
 
+    def full_feature?
+      true
+    end
 
 end

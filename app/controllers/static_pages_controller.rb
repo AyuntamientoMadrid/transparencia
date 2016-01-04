@@ -9,4 +9,10 @@ class StaticPagesController < ApplicationController
   def privacy
   end
 
+  private
+
+    def full_feature?
+      true
+    end
+
 end
