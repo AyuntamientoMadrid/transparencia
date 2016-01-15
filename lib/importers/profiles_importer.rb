@@ -3,14 +3,16 @@ module Importers
 
     def import!
       each_row(col_sep: ";") do |row|
-        person = Person.find_or_initialize_by(personal_code: row[:n_personal])
-
-        if person.new_record? then
+        person = Person.new
+        if row[:n_personal].present?
+          person = Person.where(councillor_code: row[:n_personal]).first!
+        else
           person.name = "#{row[:nombre]} #{row[:apellidos]}"
           person.role = row[:cargo]
         end
 
         profiled_at = DateTime.parse(row[:fecha])
+
         if person.profiled_at.blank? || person.profiled_at < profiled_at
 
           person.profiled_at = profiled_at
