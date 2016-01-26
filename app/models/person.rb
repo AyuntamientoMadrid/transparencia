@@ -48,6 +48,10 @@ class Person < ActiveRecord::Base
     profile['studies_comment'] = comment
   end
 
+  def has_studies?
+    profile['studies'].present? || profile['studies_comment'].present?
+  end
+
   def has_courses?
     profile['courses'].present? || profile['courses_comment'].present?
   end

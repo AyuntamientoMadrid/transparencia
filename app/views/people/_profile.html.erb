@@ -2,7 +2,7 @@
   <a name="profile" data-magellan-destination="profile"></a>
   <h2 class="lead profile"><%= t("people.profile") %></h2>
 
-  <% if @person.studies.any? %>
+  <% if @person.has_studies? %>
     <table>
       <caption><%= t("people.studies.title") %></caption>
       <thead>
