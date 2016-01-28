@@ -23,7 +23,7 @@ es:
     visit_old_site: "Ir al Portal de Transparencia Actual"
   layouts:
     header:
-      participation: "Madrid Decide"
+      participation: "Decide Madrid"
       transparency: "Transparencia"
       opendata: "Datos abiertos"
       logo: "Madrid"
