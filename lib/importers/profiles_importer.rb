@@ -9,6 +9,7 @@ module Importers
         else
           person.name = "#{row[:nombre]} #{row[:apellidos]}"
           person.role = row[:cargo]
+          person.job_level = 'director'
         end
 
         profiled_at = DateTime.parse(row[:fecha])
