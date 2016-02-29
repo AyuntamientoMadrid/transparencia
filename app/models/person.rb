@@ -18,10 +18,10 @@ class Person < ActiveRecord::Base
   validates :job_level, presence: true
   validates :job_level, inclusion: { in: Person.job_levels }
 
-  scope :sorted_as_councillors, -> { order(:councillor_code) }
-  scope :sorted_as_directors, -> { order(:name) }
-  scope :councillors, -> { where.not(councillor_code: nil) }
-  scope :directors, -> { where(councillor_code: nil) }
+  scope :sorted_by_party,   -> { order("parties.name ASC", :name) }
+  scope :sorted_by_area,    -> { order(:area, :name) }
+  scope :sorted_by_name,    -> { order(:name) }
+
   scope :councillors,       -> { where(job_level: 'councillor') }
   scope :directors,         -> { where(job_level: 'director') }
   scope :temporary_workers, -> { where(job_level: 'temporary_worker') }
@@ -228,6 +228,14 @@ class Person < ActiveRecord::Base
   # Regenerate slug if name changes
   def should_generate_new_friendly_id?
     slug.blank? || name_changed?
+  end
+
+  def party_name
+    party.try(:name)
+  end
+
+  def name_initial
+    ActiveSupport::Inflector.transliterate(self.name[0]).upcase
   end
 
   private

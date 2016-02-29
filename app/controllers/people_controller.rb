@@ -10,11 +10,12 @@ class PeopleController < ApplicationController
   end
 
   def councillors
-    @people = Person.councillors.includes(:party).sorted_as_councillors
+    @order = parse_order(%w{party name})
+    @people = Person.councillors.includes(:party).send("sorted_by_#{@order}")
   end
 
   def directors
-    @people = Person.directors.sorted_as_directors
+    @people = Person.directors.sorted_by_name
   end
 
   def show
@@ -68,6 +69,9 @@ class PeopleController < ApplicationController
 
 
   private
+    def parse_order(valid_orders)
+      valid_orders.include?(params[:order]) ? params[:order] : valid_orders.first
+    end
 
     def contact_params
       params.require(:contact).permit(:name, :email, :body)

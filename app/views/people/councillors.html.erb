@@ -1,35 +1,46 @@
-<% cache [locale_key, @people, @people.map(&:party).uniq] do %>
-  <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-    <li role="menuitem">
-      <%= link_to t("home"), root_path %>
-    </li>
-    <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
-      <%= t("people.councillors.title") %>
-    </li>
-  </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <li role="menuitem">
+    <%= link_to t("home"), root_path %>
+  </li>
+  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <%= t("people.councillors.title") %>
+  </li>
+</nav>
 
-  <div class="people">
-    <div class="small-12 column">
-      <h1 class="lead"><%= t("people.councillors.title") %></h1>
+<div class="people">
+  <div class="small-12 column">
 
-      <ul class="people-list">
-        <% @people.each do |person| %>
-          <% cache [locale_key, person, person.party] do %>
-            <li>
-              <%= link_to person do %>
-                <div class="people-photo text-center">
-                  <figure>
-                    <%= profile_picture(person) %>
-                    <span class="people-affiliation"><%= person.party.name %></span>
-                  </figure>
-                </div>
-                <h3><%= person.name %></h3>
-              <% end %>
-              <p><%= person.role %></p>
-            </li>
-          <% end %>
+    <h1 class="lead"><%= t("people.councillors.title") %></h1>
+
+    <ul>
+      <li><%= link_to t('orders.party'), councillors_people_path(order: "party") %></li>
+      <li><%= link_to t('orders.name'), councillors_people_path(order: "name") %></li>
+    </ul>
+
+    <% cache [locale_key, @people, @people.map(&:party).uniq] do %>
+      <% if @order == 'party' %>
+
+        <% @people.group_by(&:party_name).sort.to_h.each do |party_name, party_people| %>
+          <h2><%= party_name %></h2>
+          <ul class="people-list">
+            <% party_people.each do |person| %>
+              <%= render 'people/councillor_item', person: person %>
+            <% end %>
+          </ul>
         <% end %>
-      </ul>
-    </div>
+
+      <% else %>
+
+        <% @people.group_by(&:name_initial).sort.to_h.each do |initial, initial_people| %>
+          <h2><%= initial %></h2>
+          <ul class="people-list">
+            <% initial_people.each do |person| %>
+              <%= render 'people/councillor_item', person: person %>
+            <% end %>
+          </ul>
+        <% end %>
+
+      <% end %>
+    <% end %>
   </div>
-<% end %>
+</div>
