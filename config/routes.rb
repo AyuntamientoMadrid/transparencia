@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     collection do
       get :councillors
       get :directors
+      get :temporary_workers
     end
   end
   resources :subventions

@@ -31,6 +31,7 @@ es:
       home: "Portada"
       people: "Concejales"
       directors: "Directivos"
+      temporary_workers: "Personal eventual"
       subventions: "Subvenciones"
       contracts: "Contratos"
       inquiries: "Peticiones de información"
@@ -78,6 +79,11 @@ es:
     youtube: "YouTube"
   people:
     name: "Nombre"
+    job_level: "Nivel"
+    job_levels:
+      councillor: "Concejal"
+      director: "Directivo"
+      temporary_worker: "Personal eventual"
     councillor_code: "Cód. concejal"
     personal_code: "Cód. personal"
     role: "Cargo"
@@ -99,6 +105,8 @@ es:
       title: "Concejales"
     directors:
       title: "Directivos"
+    temporary_workers:
+      title: "Personal eventual"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"

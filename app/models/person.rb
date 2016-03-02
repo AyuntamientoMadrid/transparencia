@@ -242,6 +242,10 @@ class Person < ActiveRecord::Base
     order(:name).group_by(&(method.to_sym)).sort.to_h
   end
 
+  def self.job_level_options
+    [['','']] + self.job_levels.map{|j| [I18n.t("people.job_levels.#{j}"), j]}
+  end
+
   private
 
     def initialize_profile

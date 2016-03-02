@@ -23,6 +23,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "person#{n}" }
     sequence(:email) { |n| "person#{n}@madrid.es" }
     sequence(:role) { "major" }
+    job_level { 'councillor' }
     party
   end
 

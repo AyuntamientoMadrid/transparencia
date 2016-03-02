@@ -37,10 +37,11 @@ feature 'People' do
     scenario 'Create' do
       visit new_person_path
       fill_in :person_name, with: "Gordon Freeman"
+      select  "Temporary worker", from: 'person_job_level'
       fill_in :person_role, with: "Level 3 Research Associate"
       submit_form
 
-      visit directors_people_path
+      visit temporary_workers_people_path
       expect(page).to have_content "Gordon Freeman"
 
       person = Person.last
@@ -50,7 +51,7 @@ feature 'People' do
     end
 
     scenario 'Update' do
-      person = create(:person, name: "Red Richards", role: "Elastic Man")
+      person = create(:person, name: "Red Richards", role: "Elastic Man", job_level: "director")
 
       visit person_path(person)
       click_on "Edit"
