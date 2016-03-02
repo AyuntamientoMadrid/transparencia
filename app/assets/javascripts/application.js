@@ -20,3 +20,16 @@
 //= require trix
 //= require linkable
 //= require form_helpers
+//= require location_changer
+
+var initialize_modules = function() {
+  App.LocationChanger.initialize();
+}
+
+$(function(){
+  Turbolinks.enableProgressBar()
+
+  $(document).ready(initialize_modules);
+  $(document).on('page:load', initialize_modules);
+  $(document).on('ajax:complete', initialize_modules);
+});

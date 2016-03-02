@@ -12,15 +12,7 @@
 
     <h1 class="lead"><%= t("people.councillors.title") %></h1>
 
-    <p>
-      <%= t('orders.order_by') %>
-    </p>
-
-    <ul>
-      <% Person.orders.each do |order| %>
-        <li><%= link_to t("orders.#{order}"), councillors_people_path(order: order) %></li>
-      <% end %>
-    </ul>
+    <%= render 'shared/order_selector' %>
 
     <% cache [locale_key, @order, @people_groups] do %>
       <% @people_groups.each do |group_name, people| %>
