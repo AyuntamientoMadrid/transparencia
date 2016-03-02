@@ -11,16 +11,26 @@
   <div class="people">
     <div class="small-12 column">
       <h1 class="lead"><%= t("people.directors.title") %></h1>
-      <% @people.group_by{ |p| name_initial(p) }.sort.to_h.each do |initial, people| %>
-        <div class="small-12 medium-6">
-          <h2 class="lead"><%= initial %></h2>
-        </div>
+
+      <p>
+        <%= t('orders.order_by') %>
+      </p>
+
+      <ul>
+        <% Person.orders.each do |order| %>
+          <li><%= link_to t("orders.#{order}"), directors_people_path(order: order) %></li>
+        <% end %>
+      </ul>
+
+      <% @people_groups.each do |group_name, people| %>
+        <h2 class="lead"><%= group_name %></h2>
         <ul class="people-list-text">
           <% people.each do |person| %>
             <li><%= link_to person.name, person_path(person) %>, <%= person.unit %></li>
           <% end %>
         </ul>
       <% end %>
+
     </div>
   </div>
 <% end %>

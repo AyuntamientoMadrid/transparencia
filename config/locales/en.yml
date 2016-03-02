@@ -346,6 +346,11 @@ en:
     back: "Back"
     add: "Add"
     delete: "Delete"
+  orders:
+    order_by: "Order by"
+    party_name: "Party"
+    area: "Government Area"
+    name_initial: "Name"
   activerecord:
     attributes:
       objective:

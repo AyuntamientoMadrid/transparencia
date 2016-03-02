@@ -13,14 +13,14 @@ class Person < ActiveRecord::Base
     %W{councillor director temporary_worker}
   end
 
+  def self.orders
+    %w{party_name area name_initial}
+  end
+
   validates :name,   presence: true
   validates :role,   presence: true
   validates :job_level, presence: true
   validates :job_level, inclusion: { in: Person.job_levels }
-
-  scope :sorted_by_party,   -> { order("parties.name ASC", :name) }
-  scope :sorted_by_area,    -> { order(:area, :name) }
-  scope :sorted_by_name,    -> { order(:name) }
 
   scope :councillors,       -> { where(job_level: 'councillor') }
   scope :directors,         -> { where(job_level: 'director') }
@@ -236,6 +236,10 @@ class Person < ActiveRecord::Base
 
   def name_initial
     ActiveSupport::Inflector.transliterate(self.name[0]).upcase
+  end
+
+  def self.in_groups_for(method)
+    order(:name).group_by(&(method.to_sym)).sort.to_h
   end
 
   private

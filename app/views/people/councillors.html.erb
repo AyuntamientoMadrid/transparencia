@@ -12,34 +12,37 @@
 
     <h1 class="lead"><%= t("people.councillors.title") %></h1>
 
+    <p>
+      <%= t('orders.order_by') %>
+    </p>
+
     <ul>
-      <li><%= link_to t('orders.party'), councillors_people_path(order: "party") %></li>
-      <li><%= link_to t('orders.name'), councillors_people_path(order: "name") %></li>
+      <% Person.orders.each do |order| %>
+        <li><%= link_to t("orders.#{order}"), councillors_people_path(order: order) %></li>
+      <% end %>
     </ul>
 
-    <% cache [locale_key, @people, @people.map(&:party).uniq] do %>
-      <% if @order == 'party' %>
-
-        <% @people.group_by(&:party_name).sort.to_h.each do |party_name, party_people| %>
-          <h2><%= party_name %></h2>
-          <ul class="people-list">
-            <% party_people.each do |person| %>
-              <%= render 'people/councillor_item', person: person %>
+    <% cache [locale_key, @order, @people_groups] do %>
+      <% @people_groups.each do |group_name, people| %>
+        <h2 class="lead"><%= group_name %></h2>
+        <ul class="people-list">
+          <% people.each do |person| %>
+            <% cache [locale_key, person, person.party] do %>
+              <li>
+                <%= link_to person do %>
+                  <div class="people-photo text-center">
+                    <figure>
+                      <%= profile_picture(person) %>
+                      <span class="people-affiliation"><%= person.party_name %></span>
+                    </figure>
+                  </div>
+                  <h3><%= person.name %></h3>
+                <% end %>
+                <p><%= person.role %></p>
+              </li>
             <% end %>
-          </ul>
-        <% end %>
-
-      <% else %>
-
-        <% @people.group_by(&:name_initial).sort.to_h.each do |initial, initial_people| %>
-          <h2><%= initial %></h2>
-          <ul class="people-list">
-            <% initial_people.each do |person| %>
-              <%= render 'people/councillor_item', person: person %>
-            <% end %>
-          </ul>
-        <% end %>
-
+          <% end %>
+        </ul>
       <% end %>
     <% end %>
   </div>

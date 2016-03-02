@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
   before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_parties, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_person_and_declarations, only: [:show, :contact]
+  before_action :parse_order, only: [:councillors, :directors, :temporary_workers]
 
 
   def index
@@ -10,12 +11,15 @@ class PeopleController < ApplicationController
   end
 
   def councillors
-    @order = parse_order(%w{party name})
-    @people = Person.councillors.includes(:party).send("sorted_by_#{@order}")
+    @people_groups = Person.councillors.includes(:party).in_groups_for(@order)
   end
 
   def directors
-    @people = Person.directors.sorted_by_name
+    @people_groups = Person.directors.includes(:party).in_groups_for(@order)
+  end
+
+  def temporary_workers
+    @people_groups = Person.temporary_workers.includes(:party).in_groups_for(@order)
   end
 
   def show
@@ -69,8 +73,8 @@ class PeopleController < ApplicationController
 
 
   private
-    def parse_order(valid_orders)
-      valid_orders.include?(params[:order]) ? params[:order] : valid_orders.first
+    def parse_order
+      @order = Person.orders.include?(params[:order]) ? params[:order] : Person.orders.first
     end
 
     def contact_params
