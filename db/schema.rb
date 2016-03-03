@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229123455) do
+ActiveRecord::Schema.define(version: 20160303112938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,6 +132,10 @@ ActiveRecord::Schema.define(version: 20160229123455) do
     t.string   "job_level"
   end
 
+  add_index "people", ["area"], name: "index_people_on_area", using: :btree
+  add_index "people", ["job_level"], name: "index_people_on_job_level", using: :btree
+  add_index "people", ["name"], name: "index_people_on_name", using: :btree
+  add_index "people", ["party_id"], name: "index_people_on_party_id", using: :btree
   add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree
 
   create_table "pg_search_documents", force: :cascade do |t|
