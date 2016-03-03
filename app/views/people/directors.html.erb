@@ -15,7 +15,7 @@
       <%= render 'shared/order_selector' %>
 
       <% @people_groups.each do |group_name, people| %>
-        <h2 class="lead"><%= group_name %></h2>
+        <h2 class="lead inline-block"><%= group_name %></h2>
         <ul class="people-list-text">
           <% people.each do |person| %>
             <li><%= link_to person.name, person_path(person) %>, <%= person.unit %></li>

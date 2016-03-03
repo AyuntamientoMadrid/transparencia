@@ -16,13 +16,13 @@
 
     <% cache [locale_key, @order, @people_groups] do %>
       <% @people_groups.each do |group_name, people| %>
-        <h2 class="lead"><%= group_name %></h2>
+        <h2 class="lead inline-block"><%= group_name %></h2>
         <ul class="people-list">
           <% people.each do |person| %>
             <% cache [locale_key, person, person.party] do %>
               <li>
                 <%= link_to person do %>
-                  <div class="people-photo text-center">
+                  <div class="people-photo">
                     <figure>
                       <%= profile_picture(person) %>
                       <span class="people-affiliation"><%= person.party_name %></span>
