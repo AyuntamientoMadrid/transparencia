@@ -80,6 +80,7 @@ es:
   people:
     name: "Nombre"
     area: "Área de Gobierno"
+    no_area: "Sin Área de Gobierno"
     job_level: "Nivel"
     job_levels:
       councillor: "Concejal"
@@ -90,6 +91,7 @@ es:
     role: "Cargo"
     unit: "Unidad"
     party: "Afiliación"
+    no_party: "Sin afiliación política"
     show:
       confirm_deletion: "¿Seguro que desea borrar esta persona?"
       disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"

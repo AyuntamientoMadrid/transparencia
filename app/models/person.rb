@@ -231,11 +231,15 @@ class Person < ActiveRecord::Base
   end
 
   def party_name
-    party.try(:name)
+    party.try(:name) || I18n.t('people.no_party')
   end
 
   def name_initial
     ActiveSupport::Inflector.transliterate(self.name[0]).upcase
+  end
+
+  def area
+    super || I18n.t('people.no_area')
   end
 
   def self.in_groups_for(method)
