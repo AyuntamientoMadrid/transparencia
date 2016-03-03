@@ -79,6 +79,7 @@ en:
     youtube: "YouTube"
   people:
     name: "Name"
+    area: "Government area"
     job_level: "Job level"
     job_levels:
       councillor: "Councillor"

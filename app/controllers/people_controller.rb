@@ -89,7 +89,7 @@ class PeopleController < ApplicationController
 
     def person_params
       params.require(:person).permit(
-        :name, :job_level, :councillor_code, :personal_code,
+        :name, :job_level, :area, :councillor_code, :personal_code,
         :twitter, :facebook, :role, :unit, :party_id,
         :studies_comment, :courses_comment, :career_comment, :political_posts_comment,
         :public_jobs_level, :public_jobs_body, :public_jobs_start_year,

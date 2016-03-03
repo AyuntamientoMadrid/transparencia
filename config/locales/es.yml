@@ -79,6 +79,7 @@ es:
     youtube: "YouTube"
   people:
     name: "Nombre"
+    area: "Área de Gobierno"
     job_level: "Nivel"
     job_levels:
       councillor: "Concejal"
