@@ -80,4 +80,33 @@ feature 'People' do
     end
   end
 
+  scenario 'sorting', :js do
+    zork  = create(:party, name: 'Zork')
+    amber = create(:party, name: 'Amber')
+    create(:director, name: "Carl",    area: "Administration", party: amber)
+    create(:director, name: "Bernard", area: "City",           party: amber)
+    create(:director, name: "Anthony", area: "Administration", party: zork)
+
+    visit directors_people_path
+
+    select 'Party', from: 'order-selector'
+    expect(page).to have_content('Amber')
+    expect('Amber').to appear_before('Bernard')
+    expect('Bernard').to appear_before('Carl')
+    expect('Carl').to appear_before('Zork')
+    expect('Zork').to appear_before('Anthony')
+
+    select 'Government Area', from: 'order-selector'
+    expect(page).to have_content('Administration')
+    expect('Administration').to appear_before('Anthony')
+    expect('Anthony').to appear_before('Carl')
+    expect('Carl').to appear_before('City')
+    expect('City').to appear_before('Bernard')
+
+    select 'Name', from: 'order-selector'
+    expect(page).to have_content('A')
+    expect('Anthony').to appear_before('Bernard')
+    expect('Bernard').to appear_before('Carl')
+  end
+
 end

@@ -27,6 +27,14 @@ FactoryGirl.define do
     party
   end
 
+  factory :director, parent: :person do
+    job_level { 'director' }
+  end
+
+  factory :temporary_worker, parent: :person do
+    job_level { 'temporary_worker' }
+  end
+
   factory :party do
     sequence(:name) { |n| "party#{n}" }
     logo { 'logo.png' }
