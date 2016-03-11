@@ -87,7 +87,10 @@ feature 'People' do
     create(:director, name: "Bernard", area: "City",           party: amber)
     create(:director, name: "Anthony", area: "Administration", party: zork)
 
-    visit directors_people_path
+    visit directors_people_path(order: :name_initial)
+
+    expect('Anthony').to appear_before('Bernard')
+    expect('Bernard').to appear_before('Carl')
 
     select 'Party', from: 'order-selector'
     expect(page).to have_content('Amber')
@@ -103,10 +106,6 @@ feature 'People' do
     expect('Carl').to appear_before('City')
     expect('City').to appear_before('Bernard')
 
-    select 'Name', from: 'order-selector'
-    expect(page).to have_content('A')
-    expect('Anthony').to appear_before('Bernard')
-    expect('Bernard').to appear_before('Carl')
   end
 
 end
