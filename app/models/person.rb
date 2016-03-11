@@ -9,13 +9,22 @@ class Person < ActiveRecord::Base
   has_many :assets_declarations, dependent: :destroy
   has_many :activities_declarations, dependent: :destroy
 
+  def self.job_levels
+    %W{councillor director temporary_worker}
+  end
+
+  def self.orders
+    %w{party_name area name_initial}
+  end
+
   validates :name,   presence: true
   validates :role,   presence: true
+  validates :job_level, presence: true
+  validates :job_level, inclusion: { in: Person.job_levels }
 
-  scope :sorted_as_councillors, -> { order(:councillor_code) }
-  scope :sorted_as_directors, -> { order(:name) }
-  scope :councillors, -> { where.not(councillor_code: nil) }
-  scope :directors, -> { where(councillor_code: nil) }
+  scope :councillors,       -> { where(job_level: 'councillor') }
+  scope :directors,         -> { where(job_level: 'director') }
+  scope :temporary_workers, -> { where(job_level: 'temporary_worker') }
 
   after_initialize :initialize_profile
 
@@ -25,11 +34,15 @@ class Person < ActiveRecord::Base
   end
 
   def councillor?
-    councillor_code.present?
+    job_level == 'councillor'
   end
 
   def director?
-    councillor_code.blank?
+    job_level == 'director'
+  end
+
+  def temporary_worker?
+    job_level == 'temporary_worker'
   end
 
   def studies
@@ -215,6 +228,22 @@ class Person < ActiveRecord::Base
   # Regenerate slug if name changes
   def should_generate_new_friendly_id?
     slug.blank? || name_changed?
+  end
+
+  def party_name
+    party.try(:name) || I18n.t('people.no_party')
+  end
+
+  def name_initial
+    ActiveSupport::Inflector.transliterate(self.name[0]).upcase
+  end
+
+  def area
+    super || I18n.t('people.no_area')
+  end
+
+  def self.in_groups_for(method)
+    order(:name).group_by(&(method.to_sym)).sort.to_h
   end
 
   private

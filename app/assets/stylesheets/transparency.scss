@@ -96,15 +96,15 @@
     }
 
     h3 {
-      margin: rem-calc(12) auto 0;
-      max-width: 163px; // Same as people photo width
+      margin-top: rem-calc(12);
+      max-width: 200px;
     }
   }
 
   p {
     color: $text-medium;
-    margin: 0 auto rem-calc(24);
-    max-width: 163px; // Same as people photo width
+    margin: 0 0 rem-calc(24);
+    max-width: 200px;
   }
 }
 

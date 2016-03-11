@@ -6,8 +6,10 @@
     <li role="menuitem">
       <% if @person.councillor? %>
         <%= link_to t("people.councillors.title"), councillors_people_path %>
-      <% else %>
+      <% elsif @person.director? %>
         <%= link_to t("people.directors.title"), directors_people_path %>
+      <% else %>
+        <%= link_to t("people.temporary_workers.title"), temporary_workers_people_path %>
       <% end %>
     </li>
     <li role="menuitem" class="unavailable" role="button" aria-disabled="true">

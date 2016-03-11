@@ -42,26 +42,10 @@
       <%= f.text_field :name, label: t('people.name') %>
     </div>
 
-    <div class="small-3 column">
-      <%= f.text_field :facebook %>
-    </div>
-
-    <div class="small-3 column end">
-      <%= f.text_field :twitter %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="small-6 column">
-      <%= f.text_field :unit, label: t('people.unit') %>
-    </div>
-
-    <div class="small-2 column">
-      <%= f.text_field :personal_code, label: t('people.personal_code') %>
-    </div>
-
-    <div class="small-2 column">
-      <%= f.text_field :councillor_code, label: t('people.councillor_code') %>
+    <div class="small-4 column">
+      <%= f.select :job_level,
+                   people_job_level_options_for_select(@person.job_level),
+                   label: t('people.job_level') %>
     </div>
 
     <div class="small-2 column end">
@@ -70,9 +54,37 @@
   </div>
 
   <div class="row">
+    <div class="small-3 column">
+      <%= f.text_field :area, label: t('people.area') %>
+    </div>
+
     <div class="small-6 column">
+      <%= f.text_field :unit, label: t('people.unit') %>
+    </div>
+
+    <div class="small-3 column">
       <%= f.text_field :role, label: t('people.role') %>
     </div>
+  </div>
+
+  <div class="row">
+
+    <div class="small-3 column">
+      <%= f.text_field :personal_code, label: t('people.personal_code') %>
+    </div>
+
+    <div class="small-3 column">
+      <%= f.text_field :councillor_code, label: t('people.councillor_code') %>
+    </div>
+
+    <div class="small-3 column">
+      <%= f.text_field :facebook %>
+    </div>
+
+    <div class="small-3 column end">
+      <%= f.text_field :twitter %>
+    </div>
+
   </div>
 
   <h2><%= t("people.profile") %></h2>

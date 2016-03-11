@@ -31,6 +31,7 @@ en:
       home: "Home"
       people: "Councillors"
       directors: "Directors"
+      temporary_workers: "Temporary workers"
       subventions: "Subventions"
       contracts: "Contracts"
       inquiries: "Inquiries"
@@ -78,11 +79,19 @@ en:
     youtube: "YouTube"
   people:
     name: "Name"
+    area: "Government area"
+    no_area: "No Government area"
+    job_level: "Job level"
+    job_levels:
+      councillor: "Councillor"
+      director: "Directive"
+      temporary_worker: "Temporary worker"
     councillor_code: "Council Code"
     personal_code: "Person Code"
     role: "Role"
     unit: "Unit"
     party: "Party"
+    no_party: "No assigned party"
     show:
       confirm_deletion: "Are you sure you want to erase this person?"
       disclaimer: "(*) This information is subject to changes if errors are detected"
@@ -99,6 +108,8 @@ en:
       title: "Councillors"
     directors:
       title: "Directors"
+    temporary_workers:
+      title: "Temporary workers"
     profile: "Professional profile"
     assets_declarations: "Assets declarations"
     activities_declarations: "Activities declarations"
@@ -346,6 +357,11 @@ en:
     back: "Back"
     add: "Add"
     delete: "Delete"
+  orders:
+    order_by: "Order by"
+    party_name: "Party"
+    area: "Government Area"
+    name_initial: "Name"
   activerecord:
     attributes:
       objective:

@@ -37,10 +37,11 @@ feature 'People' do
     scenario 'Create' do
       visit new_person_path
       fill_in :person_name, with: "Gordon Freeman"
+      select  "Temporary worker", from: 'person_job_level'
       fill_in :person_role, with: "Level 3 Research Associate"
       submit_form
 
-      visit directors_people_path
+      visit temporary_workers_people_path
       expect(page).to have_content "Gordon Freeman"
 
       person = Person.last
@@ -50,7 +51,7 @@ feature 'People' do
     end
 
     scenario 'Update' do
-      person = create(:person, name: "Red Richards", role: "Elastic Man")
+      person = create(:person, name: "Red Richards", role: "Elastic Man", job_level: "director")
 
       visit person_path(person)
       click_on "Edit"
@@ -77,6 +78,34 @@ feature 'People' do
       visit directors_people_path
       expect(page).to_not have_content "Klark Kent"
     end
+  end
+
+  scenario 'sorting', :js do
+    zork  = create(:party, name: 'Zork')
+    amber = create(:party, name: 'Amber')
+    create(:director, name: "Carl",    area: "Administration", party: amber)
+    create(:director, name: "Bernard", area: "City",           party: amber)
+    create(:director, name: "Anthony", area: "Administration", party: zork)
+
+    visit directors_people_path(order: :name_initial)
+
+    expect('Anthony').to appear_before('Bernard')
+    expect('Bernard').to appear_before('Carl')
+
+    select 'Party', from: 'order-selector'
+    expect(page).to have_content('Amber')
+    expect('Amber').to appear_before('Bernard')
+    expect('Bernard').to appear_before('Carl')
+    expect('Carl').to appear_before('Zork')
+    expect('Zork').to appear_before('Anthony')
+
+    select 'Government Area', from: 'order-selector'
+    expect(page).to have_content('Administration')
+    expect('Administration').to appear_before('Anthony')
+    expect('Anthony').to appear_before('Carl')
+    expect('Carl').to appear_before('City')
+    expect('City').to appear_before('Bernard')
+
   end
 
 end

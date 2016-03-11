@@ -45,6 +45,7 @@
         <%= link_to t("layouts.header.home"), root_path, class: ("active" if current_page?(root_path)) %>
         <%= link_to t("layouts.header.people"), councillors_people_path, class: ("active" if current_page?(councillors_people_path)) %>
         <%= link_to t("layouts.header.directors"), directors_people_path, class: ("active" if current_page?(directors_people_path)) %>
+        <%= link_to t("layouts.header.temporary_workers"), temporary_workers_people_path, class: ("active" if current_page?(temporary_workers_people_path)) %>
         <%# link_to t("layouts.header.subventions"), subventions_path, class: ("active" if current_page?(subventions_path)) %>
         <%# link_to t("layouts.header.contracts"), contracts_path, class: ("active" if current_page?(contracts_path)) %>
         <%# link_to t("layouts.header.inquiries_url"), target: "blank" do %>

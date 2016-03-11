@@ -31,6 +31,7 @@ es:
       home: "Portada"
       people: "Concejales"
       directors: "Directivos"
+      temporary_workers: "Personal eventual"
       subventions: "Subvenciones"
       contracts: "Contratos"
       inquiries: "Peticiones de información"
@@ -78,11 +79,19 @@ es:
     youtube: "YouTube"
   people:
     name: "Nombre"
+    area: "Área de Gobierno"
+    no_area: "Sin Área de Gobierno"
+    job_level: "Nivel"
+    job_levels:
+      councillor: "Concejal"
+      director: "Directivo"
+      temporary_worker: "Personal eventual"
     councillor_code: "Cód. concejal"
     personal_code: "Cód. personal"
     role: "Cargo"
     unit: "Unidad"
     party: "Afiliación"
+    no_party: "Sin afiliación política"
     show:
       confirm_deletion: "¿Seguro que desea borrar esta persona?"
       disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
@@ -99,6 +108,8 @@ es:
       title: "Concejales"
     directors:
       title: "Directivos"
+    temporary_workers:
+      title: "Personal eventual"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"
@@ -346,6 +357,11 @@ es:
     back: "Atrás"
     delete: "Borrar"
     add: "Añadir"
+  orders:
+    order_by: "Ordenar por"
+    party_name: "Afiliación política"
+    area: "Área de gobierno"
+    name_initial: "Nombre"
   activerecord:
     attributes:
       objective:
