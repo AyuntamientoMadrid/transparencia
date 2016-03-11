@@ -1,6 +1,12 @@
 module Importers
   class ProfilesImporter < BaseImporter
 
+    JOB_LEVEL_CODES = {
+      'C'=> 'councillor',
+      'D' => 'director',
+      'E' => 'temporary_worker'
+    }
+
     def import!
       each_row(col_sep: ";") do |row|
         person = Person.new
@@ -9,7 +15,9 @@ module Importers
         else
           person.name = "#{row[:nombre]} #{row[:apellidos]}"
           person.role = row[:cargo]
-          person.job_level = 'director'
+          person.job_level = JOB_LEVEL_CODES[row[:codigo_cargo]]
+          # councillors should have a personal code and be managed on the other side of this if/else
+          raise person if person.job_level == 'councillor'
         end
 
         profiled_at = DateTime.parse(row[:fecha])
