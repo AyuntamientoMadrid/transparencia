@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303112938) do
+ActiveRecord::Schema.define(version: 20160323164215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 20160303112938) do
 
   create_table "people", force: :cascade do |t|
     t.integer  "party_id"
-    t.string   "name"
     t.string   "email"
     t.string   "role"
     t.text     "functions"
@@ -130,11 +129,12 @@ ActiveRecord::Schema.define(version: 20160303112938) do
     t.string   "area"
     t.string   "district"
     t.string   "job_level"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "people", ["area"], name: "index_people_on_area", using: :btree
   add_index "people", ["job_level"], name: "index_people_on_job_level", using: :btree
-  add_index "people", ["name"], name: "index_people_on_name", using: :btree
   add_index "people", ["party_id"], name: "index_people_on_party_id", using: :btree
   add_index "people", ["slug"], name: "index_people_on_slug", unique: true, using: :btree
 
