@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_parties, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_person_and_declarations, only: [:show, :contact]
-  before_action :parse_order, only: [:councillors, :directors, :temporary_workers]
+  before_action :parse_order, only: [:directors, :temporary_workers]
 
 
   def index
@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   end
 
   def councillors
-    @people_groups = Person.councillors.includes(:party).in_groups_for(@order)
+    @people = Person.councillors.includes(:party).order(:councillor_code)
   end
 
   def directors

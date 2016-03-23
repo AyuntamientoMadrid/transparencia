@@ -12,30 +12,25 @@
 
     <h1 class="lead"><%= t("people.councillors.title") %></h1>
 
-    <%= render 'shared/order_selector' %>
-
-    <% cache [locale_key, @order, @people_groups] do %>
-      <% @people_groups.each do |group_name, people| %>
-        <h2 class="lead inline-block"><%= group_name %></h2>
-        <ul class="people-list">
-          <% people.each do |person| %>
-            <% cache [locale_key, person, person.party] do %>
-              <li>
-                <%= link_to person do %>
-                  <div class="people-photo">
-                    <figure>
-                      <%= profile_picture(person) %>
-                      <span class="people-affiliation"><%= person.party_name %></span>
-                    </figure>
-                  </div>
-                  <h3><%= person.name %></h3>
-                <% end %>
-                <p><%= person.role %></p>
-              </li>
-            <% end %>
+    <% cache [locale_key, @people] do %>
+      <ul class="people-list">
+        <% @people.each do |person| %>
+          <% cache [locale_key, person, person.party] do %>
+            <li>
+              <%= link_to person do %>
+                <div class="people-photo">
+                  <figure>
+                    <%= profile_picture(person) %>
+                    <span class="people-affiliation"><%= person.party_name %></span>
+                  </figure>
+                </div>
+                <h3><%= person.name %></h3>
+              <% end %>
+              <p><%= person.role %></p>
+            </li>
           <% end %>
-        </ul>
-      <% end %>
+        <% end %>
+      </ul>
     <% end %>
   </div>
 </div>
