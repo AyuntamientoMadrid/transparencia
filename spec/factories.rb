@@ -20,7 +20,8 @@ FactoryGirl.define do
   end
 
   factory :person do
-    sequence(:name) { |n| "person#{n}" }
+    sequence(:first_name) { |n| "person#{n}" }
+    sequence(:last_name) { |n| "surname#{n}" }
     sequence(:email) { |n| "person#{n}@madrid.es" }
     sequence(:role) { "major" }
     job_level { 'councillor' }
