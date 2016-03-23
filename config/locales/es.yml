@@ -78,7 +78,8 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
-    name: "Nombre"
+    first_name: "Nombre"
+    last_name: "Apellidos"
     area: "Área de Gobierno"
     no_area: "Sin Área de Gobierno"
     job_level: "Nivel"
