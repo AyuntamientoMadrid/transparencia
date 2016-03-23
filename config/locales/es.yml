@@ -78,7 +78,8 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
-    name: "Nombre"
+    first_name: "Nombre"
+    last_name: "Apellidos"
     area: "Área de Gobierno"
     no_area: "Sin Área de Gobierno"
     job_level: "Nivel"
@@ -357,11 +358,6 @@ es:
     back: "Atrás"
     delete: "Borrar"
     add: "Añadir"
-  orders:
-    order_by: "Ordenar por"
-    party_name: "Afiliación política"
-    area: "Área de gobierno"
-    name_initial: "Nombre"
   activerecord:
     attributes:
       objective:

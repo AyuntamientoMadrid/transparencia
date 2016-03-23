@@ -3,23 +3,21 @@ class PeopleController < ApplicationController
   before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_parties, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_person_and_declarations, only: [:show, :contact]
-  before_action :parse_order, only: [:councillors, :directors, :temporary_workers]
-
 
   def index
     redirect_to councillors_people_path
   end
 
   def councillors
-    @people_groups = Person.councillors.includes(:party).in_groups_for(@order)
+    @people = Person.councillors.includes(:party).order(:councillor_code)
   end
 
   def directors
-    @people_groups = Person.directors.includes(:party).in_groups_for(@order)
+    @people_groups = Person.directors.grouped_by_name_initial
   end
 
   def temporary_workers
-    @people_groups = Person.temporary_workers.includes(:party).in_groups_for(@order)
+    @people_groups = Person.temporary_workers.grouped_by_name_initial
   end
 
   def show
@@ -73,10 +71,6 @@ class PeopleController < ApplicationController
 
 
   private
-    def parse_order
-      @order = Person.orders.include?(params[:order]) ? params[:order] : Person.orders.first
-    end
-
     def contact_params
       params.require(:contact).permit(:name, :email, :body)
     end
@@ -89,7 +83,7 @@ class PeopleController < ApplicationController
 
     def person_params
       params.require(:person).permit(
-        :name, :job_level, :area, :councillor_code, :personal_code,
+        :first_name, :last_name, :job_level, :area, :councillor_code, :personal_code,
         :twitter, :facebook, :role, :unit, :party_id,
         :studies_comment, :courses_comment, :career_comment, :political_posts_comment,
         :public_jobs_level, :public_jobs_body, :public_jobs_start_year,

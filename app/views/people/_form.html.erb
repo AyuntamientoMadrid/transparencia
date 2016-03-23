@@ -38,8 +38,11 @@
 
 <%= form_for(@person) do |f| %>
   <div class="row">
-    <div class="small-6 column">
-      <%= f.text_field :name, label: t('people.name') %>
+    <div class="small-3 column">
+      <%= f.text_field :first_name, label: t('people.first_name') %>
+    </div>
+    <div class="small-3 column">
+      <%= f.text_field :last_name, label: t('people.last_name') %>
     </div>
 
     <div class="small-4 column">
