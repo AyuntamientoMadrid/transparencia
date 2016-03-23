@@ -17,7 +17,8 @@ class Person < ActiveRecord::Base
     %w{party_name area name_initial}
   end
 
-  validates :name,   presence: true
+  validates :first_name,   presence: true
+  validates :last_name,   presence: true
   validates :role,   presence: true
   validates :job_level, presence: true
   validates :job_level, inclusion: { in: Person.job_levels }
@@ -235,15 +236,29 @@ class Person < ActiveRecord::Base
   end
 
   def name_initial
-    ActiveSupport::Inflector.transliterate(self.name[0]).upcase
+    ActiveSupport::Inflector.transliterate(self.last_name[0]).upcase
   end
 
   def area
     super || I18n.t('people.no_area')
   end
 
-  def self.in_groups_for(method)
-    order(:name).group_by(&(method.to_sym)).sort.to_h
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+  def backwards_name
+    "#{last_name}, #{first_name}"
+  end
+
+  def name_changed?
+    first_name_changed? || last_name_changed?
+  end
+
+  def self.grouped_by_name_initial
+    order(:last_name, :first_name)
+      .group_by(&:name_initial)
+      .sort.to_h
   end
 
   private
