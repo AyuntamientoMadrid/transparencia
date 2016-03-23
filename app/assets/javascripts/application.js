@@ -20,10 +20,8 @@
 //= require trix
 //= require linkable
 //= require form_helpers
-//= require location_changer
 
 var initialize_modules = function() {
-  App.LocationChanger.initialize();
 }
 
 $(function(){
