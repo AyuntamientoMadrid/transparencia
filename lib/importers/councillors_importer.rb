@@ -4,7 +4,7 @@ module Importers
   class CouncillorsImporter < BaseImporter
     def import!
       each_row do |row|
-        councillor = Person.find_or_initialize_by(name: row[:name])
+        councillor = Person.find_or_initialize_by(first_name: row[:first_name], last_name: row[:last_name])
         puts "Importing councillor: #{councillor.name}"
         councillor.job_level = 'councillor'
         councillor.councillor_code = row[:councillor_code]

@@ -13,7 +13,8 @@ module Importers
         if row[:n_personal].present?
           person = Person.where(councillor_code: row[:n_personal]).first!
         else
-          person.name = "#{row[:nombre]} #{row[:apellidos]}"
+          person.first_name = row[:nombre]
+          person.last_name = row[:apellidos]
           person.role = row[:cargo]
           person.job_level = JOB_LEVEL_CODES[row[:codigo_cargo]]
           # councillors should have a personal code and be managed on the other side of this if/else
