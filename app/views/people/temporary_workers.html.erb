@@ -12,13 +12,11 @@
     <div class="small-12 column">
       <h1 class="lead"><%= t("people.temporary_workers.title") %></h1>
 
-      <%= render 'shared/order_selector' %>
-
       <% @people_groups.each do |group_name, people| %>
         <h2 class="lead inline-block"><%= group_name %></h2>
         <ul class="people-list-text">
           <% people.each do |person| %>
-            <li><%= link_to person.name, person_path(person) %>, <%= person.unit %></li>
+            <li><%= link_to person.backwards_name, person_path(person) %> - <%= person.unit %></li>
           <% end %>
         </ul>
       <% end %>
