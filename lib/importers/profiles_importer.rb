@@ -33,9 +33,6 @@ module Importers
           person.facebook = row[:cuenta_de_facebook]
           person.unit     = row[:unidad]
 
-          party = Party.find_by(long_name: person.unit)
-          person.party = party if party.present?
-
           parse_studies(person, row)
           parse_courses(person, row)
           parse_languages(person, row)
