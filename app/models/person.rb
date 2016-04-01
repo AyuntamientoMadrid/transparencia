@@ -1,3 +1,5 @@
+require 'sorting_name_calculator'
+
 class Person < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -28,6 +30,7 @@ class Person < ActiveRecord::Base
   scope :temporary_workers, -> { where(job_level: 'temporary_worker') }
 
   after_initialize :initialize_profile
+  before_validation :calculate_sorting_name
 
   def profile
     write_attribute(:profile, {}) if read_attribute(:profile).nil?
@@ -256,7 +259,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.grouped_by_name_initial
-    order(:last_name, :first_name)
+    order(:sorting_name)
       .group_by(&:name_initial)
       .sort.to_h
   end
@@ -275,6 +278,10 @@ class Person < ActiveRecord::Base
 
     def clean_attributes(attributes)
       attributes.values.select{ |a| a.values.any?(&:present?) }
+    end
+
+    def calculate_sorting_name
+      self.sorting_name = SortingNameCalculator.calculate(first_name, last_name)
     end
 
 end
