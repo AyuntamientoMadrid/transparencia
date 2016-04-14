@@ -36,7 +36,7 @@ es:
       contracts: "Contratos"
       inquiries: "Peticiones de información"
       inquiries_url: "https://www-s.munimadrid.es/LETRA_WBPROCINTER/peticionInformacion.htm"
-      ordinance: "Descargar Ordenanza de Transparencia"
+      ordinance: "Ordenanza de Transparencia"
     footer:
       description: "Este portal usa %{software} que es %{open_source}. De Madrid, para el mundo entero."
       open_source: "software libre"
