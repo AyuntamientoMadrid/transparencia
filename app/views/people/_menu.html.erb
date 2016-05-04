@@ -27,5 +27,12 @@
       </a>
     </li>
   <% end %>
+
+  <% if @person.previous_calendar.present? %>
+    <li role="menuitem">
+      <%= link_to t("people.calendar.until", until: iso_date(@person.previous_calendar_until)),
+                  @person.previous_calendar %>
+    </li>
+  <% end %>
 </ul>
 

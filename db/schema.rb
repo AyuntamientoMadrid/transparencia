@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401145419) do
+ActiveRecord::Schema.define(version: 20160504131022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,6 +132,8 @@ ActiveRecord::Schema.define(version: 20160401145419) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "sorting_name"
+    t.date     "previous_calendar_until"
+    t.string   "previous_calendar"
   end
 
   add_index "people", ["area"], name: "index_people_on_area", using: :btree

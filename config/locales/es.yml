@@ -79,6 +79,8 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    calendar:
+      until: "Agenda hasta %{until}"
     first_name: "Nombre"
     last_name: "Apellidos"
     area: "Área de Gobierno"
