@@ -21,6 +21,9 @@ module Importers
           raise person if person.job_level == 'councillor'
         end
 
+        person.admin_first_name = row[:nombre]
+        person.admin_last_name = row[:apellidos]
+
         profiled_at = DateTime.parse(row[:fecha])
 
         if person.profiled_at.blank? || person.profiled_at < profiled_at
