@@ -81,6 +81,8 @@ es:
   people:
     calendar:
       until: "Agenda hasta %{until}"
+      from: "Agenda institucional desde %{from}"
+      official: "Agenda institucional"
     first_name: "Nombre"
     last_name: "Apellidos"
     area: "Área de Gobierno"
