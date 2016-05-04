@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504143854) do
+ActiveRecord::Schema.define(version: 20160504161912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(version: 20160504143854) do
     t.string   "last_name"
     t.string   "sorting_name"
     t.date     "previous_calendar_until"
-    t.string   "previous_calendar"
-    t.string   "calendar"
+    t.string   "previous_calendar_url"
+    t.string   "calendar_url"
     t.string   "admin_first_name"
     t.string   "admin_last_name"
   end

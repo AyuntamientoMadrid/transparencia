@@ -8,7 +8,7 @@ module Importers
 
         person = Person.where("admin_first_name = ? AND admin_last_name = ?", admin_first_name, admin_last_name).first!
         puts "Importing calendar for #{person.name}"
-        person.update(calendar: row[:url_publica])
+        person.update(calendar_url: row[:url_publica])
       end
     end
   end
