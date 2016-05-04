@@ -79,6 +79,10 @@ en:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    calendar:
+      until: "Calendar until %{until}"
+      from: "Calendar from %{from}"
+      official: "Official calendar"
     first_name: "First Name"
     last_name: "Last Name"
     area: "Government area"

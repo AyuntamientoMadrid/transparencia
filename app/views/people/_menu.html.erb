@@ -27,5 +27,22 @@
       </a>
     </li>
   <% end %>
+
+  <% if @person.previous_calendar_url.present? %>
+    <li role="menuitem">
+      <%= link_to t("people.calendar.until", until: iso_date(@person.previous_calendar_until)),
+                  @person.previous_calendar_url %>
+    </li>
+    <% if @person.calendar_url.present? %>
+      <li role="menuitem">
+        <%= link_to t("people.calendar.from", from: iso_date(@person.previous_calendar_until.next_day)),
+                    @person.calendar_url %>
+      </li>
+    <% end %>
+  <% elsif @person.calendar_url.present? %>
+    <li role="menuitem">
+      <%= link_to t("people.calendar.official"), @person.calendar_url %>
+    </li>
+  <% end %>
 </ul>
 

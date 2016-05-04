@@ -12,6 +12,8 @@ module Importers
         councillor.party = Party.find_by!(long_name: row[:party_long_name])
         councillor.email = "tmp@madrid.es"
         councillor.role = row[:post]
+        councillor.previous_calendar_until = row[:previous_calendar_until]
+        councillor.previous_calendar_url = row[:previous_calendar_url]
         councillor.save!
       end
     end
