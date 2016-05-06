@@ -30,13 +30,13 @@
 
   <% if @person.previous_calendar_url.present? %>
     <li role="menuitem">
-      <%= link_to t("people.calendar.until", until: iso_date(@person.previous_calendar_until)),
+      <%= link_to t("people.calendar.until", until: format_date(@person.previous_calendar_until)),
                   @person.previous_calendar_url,
                   target: '_blank' %>
     </li>
     <% if @person.calendar_url.present? %>
       <li role="menuitem">
-        <%= link_to t("people.calendar.from", from: iso_date(@person.previous_calendar_until.next_day)),
+        <%= link_to t("people.calendar.from", from: format_date(@person.previous_calendar_until.next_day)),
                     @person.calendar_url ,
                     target: '_blank' %>
       </li>
