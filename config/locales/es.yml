@@ -14,12 +14,7 @@ es:
     title: "Transparencia"
     under_construction: "Estamos trabajando en un nuevo Portal de Transparencia del Ayuntamiento de Madrid, para que no quede ni una esquina del Ayuntamiento que no puedas ver."
     under_construction_html: |
-      <p>En este portal están disponibles:</p>
-      <ul>
-        <li>Los perfiles profesionales y las declaraciones de bienes de los concejales del ayuntamiento</li>
-        <li>Los perfiles profesionales de los directivos del ayuntamiento</li>
-      </ul>
-      <p>El resto de la información de transparencia está en el portal actual, que puedes visitar en el siguiente enlace:</p>
+      <p>En este portal están disponibles algunos de los datos que publica el Ayuntamiento de Madrid, el resto de la información de transparencia se encuentra en el siguiente enlace:</p>
     visit_old_site: "Ir al Portal de Transparencia Actual"
   layouts:
     header:

@@ -14,12 +14,7 @@ en:
     title: "Welcome to the transparency portal"
     under_construction: "We are working on the new Transparency Portal Madrid City Council."
     under_construction_html: |
-      <p>On this portal you may find:</p>
-      <ul>
-        <li>Professional profiles and declarations of the Councillors</li>
-        <li>Professional profiles of the directives</li>
-      </ul>
-      <p>The rest can be found in the old website</p>
+      <p>On this portal you may find some of the information published by the City Council. The rest can be found in the old website</p>
     visit_old_site: "Visit Transparency Portal"
   layouts:
     header:
