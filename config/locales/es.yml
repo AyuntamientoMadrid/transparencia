@@ -37,6 +37,7 @@ es:
       inquiries: "Peticiones de información"
       inquiries_url: "https://www-s.munimadrid.es/LETRA_WBPROCINTER/peticionInformacion.htm"
       ordinance: "Ordenanza de Transparencia"
+      calendars: "Agendas"
     footer:
       description: "Este portal usa %{software} que es %{open_source}. De Madrid, para el mundo entero."
       open_source: "software libre"
