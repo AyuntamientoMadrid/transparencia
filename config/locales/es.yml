@@ -24,9 +24,9 @@ es:
       logo: "Madrid"
       open_gov: "Gobierno abierto"
       home: "Portada"
-      people: "Concejales"
-      directors: "Directivos"
-      temporary_workers: "Personal eventual"
+      councillors: "Concejales/as"
+      directors: "Personal Directivo"
+      temporary_workers: "Personal Eventual"
       subventions: "Subvenciones"
       contracts: "Contratos"
       inquiries: "Peticiones de información"
@@ -107,11 +107,11 @@ es:
       deleted: "Se ha borrado la persona"
       updated: "Se ha actualizado la persona"
     councillors:
-      title: "Concejales"
+      title: "Concejales/as"
     directors:
-      title: "Directivos"
+      title: "Personal Directivo"
     temporary_workers:
-      title: "Personal eventual"
+      title: "Personal Eventual"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"
