@@ -6,13 +6,11 @@
 
 <ul class="side-nav" role="navigation">
 
-  <% if person.profile.present? %>
-    <li role="menuitem" data-magellan-arrival="profile">
-      <a href="#profile" title="<%= t("people.profile") %>">
-        <%= t("people.profile") %>
-      </a>
-    </li>
-  <% end %>
+  <li role="menuitem" data-magellan-arrival="profile">
+    <a href="#profile" title="<%= t("people.profile") %>">
+      <%= t("people.profile") %>
+    </a>
+  </li>
 
   <% if person.councillor? %>
     <li role="menuitem" data-magellan-arrival="assets_declarations">

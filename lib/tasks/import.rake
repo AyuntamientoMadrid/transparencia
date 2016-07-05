@@ -1,6 +1,7 @@
 require 'importers/parties_importer'
 require 'importers/councillors_importer'
 require 'importers/profiles_importer'
+require 'importers/non_profiles_importer'
 require 'importers/calendars_importer'
 require 'importers/assets/declarations_importer'
 require 'importers/assets/account_deposits_importer'
@@ -30,6 +31,7 @@ namespace :import do
   desc "Imports import-data/PerfilProfesional.csv into the people table"
   task profiles: 'import:councillors' do
     Importers::ProfilesImporter.new('./import-data/profiles.csv').import!
+    Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
   end
 
   desc "Imports import-data/calendars.csv into the db"

@@ -89,7 +89,11 @@
         </div>
       <% end %>
 
-      <%= render 'profile' if @person.profile.present? %>
+      <% if @person.profile.present? %>
+        <%= render 'profile' %>
+      <% else %>
+        <%= render 'no_profile' %>
+      <% end %>
 
       <% if @person.councillor? %>
         <%= render 'assets_declarations' %>
