@@ -48,6 +48,10 @@ module Importers
       end
     end
 
+    def transliterate(str)
+      ActiveSupport::Inflector.transliterate(str)
+    end
+
     def parse_text(str)
       return '' if str.blank?
       str.mb_chars.capitalize

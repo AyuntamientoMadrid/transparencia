@@ -14,6 +14,8 @@ module Importers
         councillor.role = row[:post]
         councillor.previous_calendar_until = row[:previous_calendar_until]
         councillor.previous_calendar_url = row[:previous_calendar_url]
+        councillor.admin_first_name = transliterate(row[:first_name]).upcase
+        councillor.admin_last_name = transliterate(row[:last_name]).upcase
         councillor.save!
       end
     end

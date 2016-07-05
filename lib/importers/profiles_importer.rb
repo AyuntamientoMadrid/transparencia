@@ -15,14 +15,15 @@ module Importers
         else
           person.first_name = row[:nombre]
           person.last_name = row[:apellidos]
+          person.admin_first_name = transliterate(row[:nombre])
+          person.admin_last_name = transliterate(row[:apellidos])
           person.role = row[:cargo]
           person.job_level = JOB_LEVEL_CODES[row[:codigo_cargo]]
           # councillors should have a personal code and be managed on the other side of this if/else
           raise person if person.job_level == 'councillor'
         end
 
-        person.admin_first_name = row[:nombre]
-        person.admin_last_name = row[:apellidos]
+
 
         profiled_at = DateTime.parse(row[:fecha])
 
