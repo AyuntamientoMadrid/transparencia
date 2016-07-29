@@ -98,6 +98,9 @@ en:
       confirm_deletion: "Are you sure you want to erase this person?"
       disclaimer: "(*) This information is subject to changes if errors are detected"
       activities_explanation: "Reasons of possible incompatibility and activities which provide or can provide income"
+      no_profile: |
+        Publication of profile and professional background is not mandatory as per law 19/2013, dic. 9th.
+        That way, this information is published after explicit authorization of the person it refers to.
     edit:
       title: "Edit person"
     new:
