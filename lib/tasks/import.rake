@@ -18,6 +18,9 @@ require 'importers/contracts_importer'
 require 'importers/subventions_importer'
 
 namespace :import do
+  desc "Imports everything"
+  task all: ['import:calendars', 'import:assets:all', 'import:activities:all']
+
   desc "Imports import-data/parties.csv into the parties table"
   task parties: :environment do
     Importers::PartiesImporter.new('./import-data/parties.csv').import!
