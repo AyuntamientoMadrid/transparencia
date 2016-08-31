@@ -8,7 +8,7 @@ module Importers
     }
 
     def import!
-      each_row(col_sep: ";") do |row|
+      each_row(col_sep: ",") do |row|
         person = Person.new
         if row[:n_personal].present?
           person = Person.where(councillor_code: row[:n_personal]).first!
