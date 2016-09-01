@@ -5,20 +5,24 @@ module Importers
     class RealEstatePropertiesImporter < BaseImporter
       def import!
         each_row do |row|
-          person = Person.find_by!(councillor_code: row[:codigopersona])
-          declaration = person.assets_declarations.last!
+          begin
+            person = Person.find_by!(councillor_code: row[:codigopersona])
+            declaration = person.assets_declarations.last!
 
-          kind           = row[:clase]
-          type           = row[:tipo_de_derecho]
-          description    = row[:titulo_de_adquisicion]
-          municipality   = row[:municipio]
-          share          = row[:_participacion]
-          purchase_date  = row[:fecha_de_adquisicion]
-          tax_value      = row[:valor_catastral]
+            kind           = row[:clase]
+            type           = row[:tipo_de_derecho]
+            description    = row[:titulo_de_adquisicion]
+            municipality   = row[:municipio]
+            share          = row[:_participacion]
+            purchase_date  = row[:fecha_de_adquisicion]
+            tax_value      = row[:valor_catastral]
 
-          puts "Importing real estate property for #{person.name} (#{kind}, #{description}, #{municipality})"
-          declaration.add_real_estate_property(kind, type, description, municipality, share, purchase_date, tax_value)
-          declaration.save!
+            puts "Importing real estate property for #{person.name} (#{kind}, #{description}, #{municipality})"
+            declaration.add_real_estate_property(kind, type, description, municipality, share, purchase_date, tax_value)
+            declaration.save!
+          rescue
+            puts "NOT IMPORTED PERSON #{person.name}:#{person.id}"
+          end
         end
       end
     end

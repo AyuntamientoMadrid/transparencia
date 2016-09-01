@@ -41,48 +41,48 @@ namespace :import do
 
   namespace :assets do
     desc "Imports import-data/assets/assets_declarations.csv into assets_declarations table"
-    task declarations: 'import:councillors' do
-      Importers::Assets::DeclarationsImporter.new('./import-data/assets/assets_declarations.csv').import!
+    task :declarations, [:year] => 'import:councillors' do |t, args|
+      Importers::Assets::DeclarationsImporter.new("./import-data/#{args[:year]}/assets/assets_declarations.csv").import!
     end
 
     desc "Imports import-data/assets/real_estate_properties.csv into the assets_declaration table"
-    task real_estate_properties: 'import:assets:declarations' do
-      Importers::Assets::RealEstatePropertiesImporter.new('./import-data/assets/real_estate_properties.csv').import!
+    task :real_estate_properties, [:year] => 'import:assets:declarations' do |t, args|
+      Importers::Assets::RealEstatePropertiesImporter.new("./import-data/#{args[:year]}/assets/real_estate_properties.csv").import!
     end
 
     desc "Imports import-data/assets/account_deposits.csv into the assets_declaration table"
-    task account_deposits: 'import:assets:declarations' do
-      Importers::Assets::AccountDepositsImporter.new('./import-data/assets/account_deposits.csv').import!
+    task :account_deposits, [:year] => 'import:assets:declarations' do |t, args|
+      Importers::Assets::AccountDepositsImporter.new("./import-data/#{args[:year]}/assets/account_deposits.csv").import!
     end
 
     desc "Imports import-data/assets/other_deposits.csv into the assets_declaration table"
-    task other_deposits: 'import:assets:declarations' do
-      Importers::Assets::OtherDepositsImporter.new('./import-data/assets/other_deposits.csv').import!
+    task :other_deposits, [:year] => 'import:assets:declarations' do |t, args|
+      Importers::Assets::OtherDepositsImporter.new("./import-data/#{args[:year]}/assets/other_deposits.csv").import!
     end
 
     desc "Imports import-data/assets/vehicles.csv into the assets_declaration table"
-    task vehicles: 'import:assets:declarations' do
-      Importers::Assets::VehiclesImporter.new('./import-data/assets/vehicles.csv').import!
+    task :vehicles, [:year] => 'import:assets:declarations' do |t, args|
+      Importers::Assets::VehiclesImporter.new("./import-data/#{args[:year]}/assets/vehicles.csv").import!
     end
 
     desc "Imports import-data/assets/other_personal_properties.csv into the assets_declaration table"
-    task other_personal_properties: 'import:assets:declarations' do
-      Importers::Assets::OtherPersonalPropertiesImporter.new('./import-data/assets/other_personal_properties.csv').import!
+    task :other_personal_properties, [:year] => 'import:assets:declarations' do |t, args|
+      Importers::Assets::OtherPersonalPropertiesImporter.new("./import-data/#{args[:year]}/assets/other_personal_properties.csv").import!
     end
 
     desc "Imports import-data/assets/debts.csv into the assets_declaration table"
-    task debts: 'import:assets:declarations' do
-      Importers::Assets::DebtsImporter.new('./import-data/assets/debts.csv').import!
+    task :debts, [:year] => 'import:assets:declarations' do |t, args|
+      Importers::Assets::DebtsImporter.new("./import-data//#{args[:year]}/assets/debts.csv").import!
     end
 
     desc "Imports all the information about assets_declarations"
-    task all: ['import:assets:declarations',
-               'import:assets:real_estate_properties',
-               'import:assets:account_deposits',
-               'import:assets:other_deposits',
-               'import:assets:vehicles',
-               'import:assets:other_personal_properties',
-               'import:assets:debts']
+    task :all, [:year] => ['import:assets:declarations',
+                           'import:assets:real_estate_properties',
+                           'import:assets:account_deposits',
+                           'import:assets:other_deposits',
+                           'import:assets:vehicles',
+                           'import:assets:other_personal_properties',
+                           'import:assets:debts']
   end
 
   namespace :activities do
