@@ -1,13 +1,13 @@
-require 'importers/base_importer'
+require 'importers/year_importer'
 
 module Importers
   module Assets
-    class RealEstatePropertiesImporter < BaseImporter
+    class RealEstatePropertiesImporter < YearImporter
       def import!
         each_row do |row|
           begin
             person = Person.find_by!(councillor_code: row[:codigopersona])
-            declaration = person.assets_declarations.last!
+            declaration = person.assets_declarations.for_year(@year).first!
 
             kind           = row[:clase]
             type           = row[:tipo_de_derecho]
@@ -17,7 +17,7 @@ module Importers
             purchase_date  = row[:fecha_de_adquisicion]
             tax_value      = row[:valor_catastral]
 
-            puts "Importing real estate property for #{person.name} (#{kind}, #{description}, #{municipality})"
+            puts "#{@year} - Importing real estate property for #{person.name} (#{kind}, #{description}, #{municipality})"
             declaration.add_real_estate_property(kind, type, description, municipality, share, purchase_date, tax_value)
             declaration.save!
           rescue
