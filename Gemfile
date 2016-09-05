@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-gem 'foundation-rails'
+gem 'foundation-rails', '5.5.1' # 5.5.3 has a js problem: https://github.com/zurb/foundation-sites/issues/8416
 gem 'foundation_rails_helper'
 gem 'trix'
 gem 'ancestry'
