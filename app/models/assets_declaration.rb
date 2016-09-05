@@ -2,6 +2,8 @@ class AssetsDeclaration < ActiveRecord::Base
 
   include ParseDataRows
 
+  scope :for_year, -> (year) { where ["declaration_date >= ? and declaration_date <= ?", Date.new(year,1,1), Date.new(year,12,31)] }
+
   belongs_to :person, touch: true
 
   validates :declaration_date, presence: true

@@ -1,19 +1,19 @@
-require 'importers/base_importer'
+require 'importers/year_importer'
 
 module Importers
   module Assets
-    class DebtsImporter < BaseImporter
+    class DebtsImporter < YearImporter
       def import!
         each_row do |row|
           person = Person.find_by!(councillor_code: row[:codigopersona])
-          declaration = person.assets_declarations.last!
+          declaration = person.assets_declarations.for_year(@year).first!
 
           kind           = row[:clase]
           amount         = row[:importe_actual_en_euros]
           comments       = row[:observaciones]
           comments = nil if comments.is_a?(String) && comments.length <= 3
 
-          puts "Importing debt for #{person.name} (#{kind}, #{amount}, #{comments})"
+          puts "#{@year} - Importing debt for #{person.name} (#{kind}, #{amount}, #{comments})"
           declaration.add_debt(kind, amount, comments)
           declaration.save!
         end
