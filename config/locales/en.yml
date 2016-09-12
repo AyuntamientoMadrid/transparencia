@@ -317,6 +317,7 @@ en:
       share: "Share"
       tax_value: "Tax Value"
       purchase_date: "Purchase date"
+      notes: "Notes"
     account_deposits:
       title: "2) Account deposits"
       kind: "Class"

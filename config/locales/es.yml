@@ -320,6 +320,7 @@ es:
       share: "Participación"
       tax_value: "Valor catastral"
       purchase_date: "Fecha adquisición"
+      notes: "Observaciones"
     account_deposits:
       title: "2) Depósitos en cuenta corriente, de ahorro y otros tipos de imposiciones en cuenta"
       kind: "Clase"
