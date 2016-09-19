@@ -8,7 +8,13 @@
     <% @activities_declarations.each_with_index do |declaration, index| %>
       <% active = index == @activities_declarations.length - 1 %>
       <li class="tab-title <%= 'active' if active %>">
-        <a href="#activities_declaration_<%= iso_date(declaration.declaration_date) %>"><%= format_date(declaration.declaration_date) %></a>
+        <a href="#activities_declaration_<%= iso_date(declaration.declaration_date) %>">
+          <% if index == 0 %>
+            <%= t('activities_declarations.first', year: declaration.declaration_date.year) %>
+          <% else %>
+            <%= declaration.declaration_date.year %>
+          <% end %>
+        </a>
       </li>
     <% end %>
   </ul>
@@ -20,6 +26,8 @@
       <div role="tabpanel" id="activities_declaration_<%= iso_date(declaration.declaration_date) %>"
            aria-hidden="<%= !active %>"
            class="content <%= 'active' if active %>">
+
+        <h3><%= t('activities_declarations.date', date: format_date(declaration.declaration_date)) %></h3>
 
         <table>
           <caption><%= t('activities_declarations.public_activities.title') %></caption>

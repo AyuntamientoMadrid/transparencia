@@ -6,7 +6,13 @@
     <% @assets_declarations.each_with_index do |declaration, index| %>
       <% active = index == @assets_declarations.length - 1 %>
       <li class="tab-title <%= 'active' if active %>">
-        <a href="#assets_declaration_<%= iso_date(declaration.declaration_date) %>"><%= format_date(declaration.declaration_date) %></a>
+        <a href="#assets_declaration_<%= iso_date(declaration.declaration_date) %>">
+          <% if index == 0 %>
+            <%= t('assets_declarations.first', year: declaration.declaration_date.year) %>
+          <% else %>
+            <%= declaration.declaration_date.year %>
+          <% end %>
+        </a>
       </li>
     <% end %>
   </ul>
@@ -18,6 +24,9 @@
       <div role="tabpanel" id="assets_declaration_<%= iso_date(declaration.declaration_date) %>"
            aria-hidden="<%= !active %>"
            class="content <%= 'active' if active %>">
+
+        <h3><%= t('assets_declarations.date', date: format_date(declaration.declaration_date)) %></h3>
+
         <table>
           <caption><%= t("assets_declarations.real_estate_properties.title") %></caption>
           <thead>

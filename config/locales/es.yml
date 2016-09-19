@@ -291,6 +291,8 @@ es:
     form:
       save: Guardar
   activities_declarations:
+    first: "Inicial %{year}"
+    date: "Fecha de declaración: %{date}"
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"
       entity: "Entidad"
@@ -311,6 +313,8 @@ es:
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
   assets_declarations:
+    first: "Inicial %{year}"
+    date: "Fecha de declaración: %{date}"
     real_estate_properties:
       title: "1) Patrimonio Inmobiliario"
       kind: "Clase"
