@@ -12,7 +12,7 @@
           <% if index == 0 %>
             <%= t('activities_declarations.first', year: declaration.declaration_date.year) %>
           <% else %>
-            <%= declaration.declaration_date.year %>
+            <%= t('activities_declarations.yearly', year: declaration.declaration_date.year) %>
           <% end %>
         </a>
       </li>
