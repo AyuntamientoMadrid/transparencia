@@ -9,7 +9,7 @@ class PeopleController < ApplicationController
   end
 
   def councillors
-    @people = Person.councillors.includes(:party).order(:councillor_code)
+    @people = Person.councillors.working.includes(:party).order(:councillor_order)
   end
 
   def directors

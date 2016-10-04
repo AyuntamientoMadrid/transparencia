@@ -28,6 +28,8 @@ class Person < ActiveRecord::Base
   scope :councillors,       -> { where(job_level: 'councillor') }
   scope :directors,         -> { where(job_level: 'director') }
   scope :temporary_workers, -> { where(job_level: 'temporary_worker') }
+  scope :working,           -> { where(leaving_date: nil) }
+  scope :not_working,       -> { where.not(leaving_date: nil) }
 
   after_initialize :initialize_profile
   before_validation :calculate_sorting_name
