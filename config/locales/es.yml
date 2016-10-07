@@ -291,7 +291,7 @@ es:
     form:
       save: Guardar
   activities_declarations:
-    first: "Inicial %{year}"
+    first: "Inicial"
     yearly: "Anual %{year}"
     date: "Fecha de declaración: %{date}"
     public_activities:
@@ -314,7 +314,7 @@ es:
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
   assets_declarations:
-    first: "Inicial %{year}"
+    first: "Inicial"
     yearly: "Anual %{year}"
     date: "Fecha de declaración: %{date}"
     real_estate_properties:

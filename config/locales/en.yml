@@ -288,7 +288,7 @@ en:
     form:
       save: Save
   activities_declarations:
-    first: "First %{year}"
+    first: "First"
     yearly: "Yearly %{year}"
     date: "Declaration date: %{date}"
     public_activities:
@@ -311,7 +311,7 @@ en:
       start_date: "Start date"
       end_date: "End date"
   assets_declarations:
-    first: "First %{year}"
+    first: "First"
     yearly: "Yearly %{year}"
     date: "Declaration date: %{date}"
     real_estate_properties:
