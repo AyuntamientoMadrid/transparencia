@@ -43,60 +43,60 @@ namespace :import do
   end
 
   namespace :assets do
-    asset_years = []
+    asset_periods = []
 
-    desc "Parses the available asset years in import-data/assets"
-    task :parse_years do
-      asset_years = Dir.entries('import-data/assets').select { |entry| entry[0] != '.'  }.map(&:to_i)
-      puts "Assets years: #{asset_years}"
+    desc "Parses the available asset periods in import-data/assets"
+    task :parse_periods do
+      asset_periods = Dir.entries('import-data/assets').select { |entry| entry[0] != '.' }
+      puts "Assets periods: #{asset_periods}"
     end
 
-    desc "Imports import-data/assets/[year]/assets_declarations.csv into assets_declarations table"
-    task :declarations => ['import:councillors', 'import:assets:parse_years'] do
-      asset_years.each do |year|
-        Importers::Assets::DeclarationsImporter.new("./import-data/assets/#{year}/assets_declarations.csv").import!
+    desc "Imports import-data/assets/[period]/1_datos_personales.csv into assets_declarations table"
+    task :declarations => ['import:councillors', 'import:assets:parse_periods'] do
+      asset_periods.each do |period|
+        Importers::Assets::DeclarationsImporter.new(period, "./import-data/assets/#{period}/1_datos_personales.csv").import!
       end
     end
 
-    desc "Imports import-data/assets/[year]/real_estate_properties.csv into the assets_declaration table"
+    desc "Imports import-data/assets/[period]/3_patrimonio_inmobiliario.csv into the assets_declaration table"
     task :real_estate_properties => 'import:assets:declarations' do
-      asset_years.each do |year|
-        Importers::Assets::RealEstatePropertiesImporter.new(year, "./import-data/assets/#{year}/real_estate_properties.csv").import!
+      asset_periods.each do |period|
+        Importers::Assets::RealEstatePropertiesImporter.new(period, "./import-data/assets/#{period}/3_patrimonio_inmobiliario.csv").import!
       end
     end
 
-    desc "Imports import-data/assets/[year]/account_deposits.csv into the assets_declaration table"
+    desc "Imports import-data/assets/[period]/4_depositos_en_cuenta.csv into the assets_declaration table"
     task :account_deposits => 'import:assets:declarations' do
-      asset_years.each do |year|
-        Importers::Assets::AccountDepositsImporter.new(year, "./import-data/assets/#{year}/account_deposits.csv").import!
+      asset_periods.each do |period|
+        Importers::Assets::AccountDepositsImporter.new(period, "./import-data/assets/#{period}/4_depositos_en_cuenta.csv").import!
       end
     end
 
-    desc "Imports import-data/assets/[year]/other_deposits.csv into the assets_declaration table"
+    desc "Imports import-data/assets/[period]/5_otros_depositos_en_cuenta.csv into the assets_declaration table"
     task :other_deposits => 'import:assets:declarations' do |t, args|
-      asset_years.each do |year|
-        Importers::Assets::OtherDepositsImporter.new(year, "./import-data/assets/#{year}/other_deposits.csv").import!
+      asset_periods.each do |period|
+        Importers::Assets::OtherDepositsImporter.new(period, "./import-data/assets/#{period}/5_otros_depositos_en_cuenta.csv").import!
       end
     end
 
-    desc "Imports import-data/assets/[year]/vehicles.csv into the assets_declaration table"
+    desc "Imports import-data/assets/[period]/6_vehiculos.csv into the assets_declaration table"
     task :vehicles => 'import:assets:declarations' do |t, args|
-      asset_years.each do |year|
-        Importers::Assets::VehiclesImporter.new(year, "./import-data/assets/#{year}/vehicles.csv").import!
+      asset_periods.each do |period|
+        Importers::Assets::VehiclesImporter.new(period, "./import-data/assets/#{period}/6_vehiculos.csv").import!
       end
     end
 
-    desc "Imports import-data/assets/[year]/other_personal_properties.csv into the assets_declaration table"
+    desc "Imports import-data/assets/[period]/7_otros_bienes_muebles.csv into the assets_declaration table"
     task :other_personal_properties => 'import:assets:declarations' do |t, args|
-      asset_years.each do |year|
-        Importers::Assets::OtherPersonalPropertiesImporter.new(year, "./import-data/assets/#{year}/other_personal_properties.csv").import!
+      asset_periods.each do |period|
+        Importers::Assets::OtherPersonalPropertiesImporter.new(period, "./import-data/assets/#{period}/7_otros_bienes_muebles.csv").import!
       end
     end
 
-    desc "Imports import-data/assets/[year]/debts.csv into the assets_declaration table"
+    desc "Imports import-data/assets/[period]/8_deudas.csv into the assets_declaration table"
     task :debts => 'import:assets:declarations' do |t, args|
-      asset_years.each do |year|
-        Importers::Assets::DebtsImporter.new(year, "./import-data/assets/#{year}/debts.csv").import!
+      asset_periods.each do |period|
+        Importers::Assets::DebtsImporter.new(period, "./import-data/assets/#{period}/8_deudas.csv").import!
       end
     end
 
@@ -112,39 +112,39 @@ namespace :import do
 
   namespace :activities do
 
-    activities_years = []
+    activities_periods = []
 
-    desc "Parses the available asset years in import-data/activities"
-    task :parse_years do
-      activities_years = Dir.entries('import-data/assets').select { |entry| entry[0] != '.'  }.map(&:to_i)
-      puts "Activities years: #{activities_years}"
+    desc "Parses the available asset periods in import-data/activities"
+    task :parse_periods do
+      activities_periods = Dir.entries('import-data/activities').select { |entry| entry[0] != '.' }
+      puts "Activities periods: #{activities_periods}"
     end
 
-    desc "Imports import-data/activities/[year]/activities_declarations.csv into activities_declarations table"
-    task declarations: ['import:councillors', 'import:activities:parse_years'] do
-      activities_years.each do |year|
-        Importers::Activities::DeclarationsImporter.new("./import-data/activities/#{year}/activities_declarations.csv").import!
+    desc "Imports import-data/activities/[period]/1_datos_personales.csv into activities_declarations table"
+    task declarations: ['import:councillors', 'import:activities:parse_periods'] do
+      activities_periods.each do |period|
+        Importers::Activities::DeclarationsImporter.new(period, "./import-data/activities/#{period}/1_datos_personales.csv").import!
       end
     end
 
-    desc "Imports import-data/activities/[year]/public_activities.csv into the activities_declarations table"
+    desc "Imports import-data/activities/[period]/3_1_puestos_de_trabajo.csv into the activities_declarations table"
     task public: 'import:activities:declarations' do
-      activities_years.each do |year|
-        Importers::Activities::PublicImporter.new(year, "./import-data/activities/#{year}/public_activities.csv").import!
+      activities_periods.each do |period|
+        Importers::Activities::PublicImporter.new(period, "./import-data/activities/#{period}/3_1_puestos_de_trabajo.csv").import!
       end
     end
 
-    desc "Imports import-data/activities/[year]/private_activities.csv into the activities_declarations table"
+    desc "Imports import-data/activities/[period]/3_2_actividades_privadas.csv into the activities_declarations table"
     task private: 'import:activities:declarations' do
-      activities_years.each do |year|
-        Importers::Activities::PrivateImporter.new(year, "./import-data/activities/#{year}/private_activities.csv").import!
+      activities_periods.each do |period|
+        Importers::Activities::PrivateImporter.new(period, "./import-data/activities/#{period}/3_2_actividades_privadas.csv").import!
       end
     end
 
-    desc "Imports import-data/activities/[year]/other_activities.csv into the activities_declarations table"
+    desc "Imports import-data/activities/[period]/3_3_otras_actividades.csv into the activities_declarations table"
     task other: 'import:activities:declarations' do
-      activities_years.each do |year|
-        Importers::Activities::OtherImporter.new(year, "./import-data/activities/#{year}/other_activities.csv").import!
+      activities_periods.each do |period|
+        Importers::Activities::OtherImporter.new(period, "./import-data/activities/#{period}/3_3_otras_actividades.csv").import!
       end
     end
 
