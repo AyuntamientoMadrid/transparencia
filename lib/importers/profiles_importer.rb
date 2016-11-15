@@ -8,7 +8,7 @@ module Importers
     }
 
     def import!
-      each_row(col_sep: ",") do |row|
+      each_row(col_sep: ";") do |row|
         person = Person.new
         if row[:n_personal].present?
           person = Person.where(councillor_code: row[:n_personal]).first!
@@ -22,8 +22,6 @@ module Importers
           # councillors should have a personal code and be managed on the other side of this if/else
           raise person if person.job_level == 'councillor'
         end
-
-
 
         profiled_at = DateTime.parse(row[:fecha])
 
