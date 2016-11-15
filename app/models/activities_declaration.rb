@@ -3,6 +3,7 @@ class ActivitiesDeclaration < ActiveRecord::Base
   include ParseDataRows
 
   scope :for_year, -> (year) { where ["declaration_date >= ? and declaration_date <= ?", Date.new(year,1,1), Date.new(year,12,31)] }
+  scope :for_period, -> (period) { where(period: period) }
 
   belongs_to :person, touch: true
 
