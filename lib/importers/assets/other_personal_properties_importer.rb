@@ -1,12 +1,12 @@
-require 'importers/year_importer'
+require 'importers/period_importer'
 
 module Importers
   module Assets
-    class OtherPersonalPropertiesImporter < YearImporter
+    class OtherPersonalPropertiesImporter < PeriodImporter
       def import!
         each_row do |row|
           person = Person.find_by!(councillor_code: row[:codigopersona])
-          declaration = person.assets_declarations.for_year(@year).first!
+          declaration = person.assets_declarations.for_period(@period).first!
 
           kind           = row[:clase]
           purchase_date  = row[:fecha_de_adquisicion]
