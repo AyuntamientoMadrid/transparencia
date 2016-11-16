@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115173452) do
+ActiveRecord::Schema.define(version: 20161116165420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,9 +106,10 @@ ActiveRecord::Schema.define(version: 20161115173452) do
   add_index "pages", ["ancestry"], name: "index_pages_on_ancestry", using: :btree
 
   create_table "parties", force: :cascade do |t|
-    t.string "name"
-    t.string "logo"
-    t.string "long_name"
+    t.string  "name"
+    t.string  "logo"
+    t.string  "long_name"
+    t.integer "councillors_count", default: 0
   end
 
   create_table "people", force: :cascade do |t|

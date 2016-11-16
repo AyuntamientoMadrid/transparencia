@@ -33,6 +33,8 @@ class Person < ActiveRecord::Base
 
   after_initialize :initialize_profile
   before_validation :calculate_sorting_name
+  after_save :refresh_party_councillors_count
+  after_destroy :refresh_party_councillors_count
 
   def not_working?
     leaving_date.present?
@@ -288,6 +290,12 @@ class Person < ActiveRecord::Base
 
     def calculate_sorting_name
       self.sorting_name = SortingNameCalculator.calculate(first_name, last_name)
+    end
+
+    def refresh_party_councillors_count
+      if party.present?
+        party.refresh_councillors_count
+      end
     end
 
 end
