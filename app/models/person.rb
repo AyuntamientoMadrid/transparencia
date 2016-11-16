@@ -8,8 +8,8 @@ class Person < ActiveRecord::Base
 
   belongs_to :party
 
-  has_many :assets_declarations, dependent: :destroy
-  has_many :activities_declarations, dependent: :destroy
+  has_many :assets_declarations, -> { sort_for_list }, dependent: :destroy
+  has_many :activities_declarations, -> { sort_for_list }, dependent: :destroy
 
   def self.job_levels
     %W{councillor director temporary_worker}
