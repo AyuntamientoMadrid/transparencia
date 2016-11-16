@@ -26,4 +26,30 @@ describe Person do
 
   end
 
+  describe "activities_declaration order" do
+
+    it "puts initial first, final last, and the rest by declaration_date" do
+      person  = create(:person)
+      initial = create(:activities_declaration, person: person, period: 'initial')
+      final   = create(:activities_declaration, person: person, period: 'final')
+      recent  = create(:activities_declaration, person: person, declaration_date: 1.day.ago)
+      old     = create(:activities_declaration, person: person, declaration_date: 1.year.ago)
+
+      expect(person.activities_declarations.to_a).to eq([initial, old, recent, final])
+    end
+  end
+
+  describe "assets_declarations order" do
+    it "puts initial first, final last, and the rest by declaration_date" do
+      person  = create(:person)
+      initial = create(:assets_declaration, person: person, period: 'initial')
+      final   = create(:assets_declaration, person: person, period: 'final')
+      recent  = create(:assets_declaration, person: person, declaration_date: 1.day.ago)
+      old     = create(:assets_declaration, person: person, declaration_date: 1.year.ago)
+
+      expect(person.assets_declarations.to_a).to eq([initial, old, recent, final])
+    end
+
+  end
+
 end

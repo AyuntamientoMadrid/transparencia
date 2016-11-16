@@ -3,10 +3,20 @@ class ActivitiesDeclaration < ActiveRecord::Base
   include ParseDataRows
 
   scope :for_year, -> (year) { where ["declaration_date >= ? and declaration_date <= ?", Date.new(year,1,1), Date.new(year,12,31)] }
+  scope :for_period, -> (period) { where(period: period) }
+  scope :sort_for_list, -> { order("(CASE WHEN period = 'initial' THEN 0 WHEN period = 'final' THEN 2 ELSE 1 END) ASC, declaration_date ASC") }
 
   belongs_to :person, touch: true
 
   validates :declaration_date, presence: true
+
+  def initial?
+    period == 'initial'
+  end
+
+  def final?
+    period == 'final'
+  end
 
   def public_activities
     parse_data_rows(data, :public_activities)

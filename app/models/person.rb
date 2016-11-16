@@ -8,8 +8,8 @@ class Person < ActiveRecord::Base
 
   belongs_to :party
 
-  has_many :assets_declarations, dependent: :destroy
-  has_many :activities_declarations, dependent: :destroy
+  has_many :assets_declarations, -> { sort_for_list }, dependent: :destroy
+  has_many :activities_declarations, -> { sort_for_list }, dependent: :destroy
 
   def self.job_levels
     %W{councillor director temporary_worker}
@@ -33,6 +33,12 @@ class Person < ActiveRecord::Base
 
   after_initialize :initialize_profile
   before_validation :calculate_sorting_name
+  after_save :refresh_party_councillors_count
+  after_destroy :refresh_party_councillors_count
+
+  def not_working?
+    leaving_date.present?
+  end
 
   def profile
     write_attribute(:profile, {}) if read_attribute(:profile).nil?
@@ -266,6 +272,15 @@ class Person < ActiveRecord::Base
       .sort.to_h
   end
 
+  def self.grouped_by_party
+    sorted_party_ids = Party.all.order(councillors_count: :desc).pluck(:id)
+    Hash[self.includes(:party)
+             .order(leaving_date: :desc, councillor_order: :asc)
+             .group_by(&:party)
+             .sort_by{|party, v| sorted_party_ids.index(party.id)}
+    ]
+  end
+
   private
 
     def initialize_profile
@@ -284,6 +299,12 @@ class Person < ActiveRecord::Base
 
     def calculate_sorting_name
       self.sorting_name = SortingNameCalculator.calculate(first_name, last_name)
+    end
+
+    def refresh_party_councillors_count
+      if party.present?
+        party.refresh_councillors_count
+      end
     end
 
 end

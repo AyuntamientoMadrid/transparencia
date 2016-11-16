@@ -46,6 +46,11 @@ FactoryGirl.define do
     declaration_date DateTime.now
   end
 
+  factory :assets_declaration do
+    person
+    declaration_date DateTime.now
+  end
+
   factory :administrator do
     sequence(:email) { |n| "admin#{n}@madrid.es" }
     password         '12345678'

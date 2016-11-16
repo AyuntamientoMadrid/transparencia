@@ -12,16 +12,20 @@
 
     <h1 class="lead"><%= t("people.councillors.title") %></h1>
 
-    <% cache [locale_key, @people] do %>
-      <ul class="people-list">
-        <% @people.each do |person| %>
-          <% cache [locale_key, person, person.party] do %>
+    <% cache [locale_key, @people_groups] do %>
+
+      <% @people_groups.each do |party, people| %>
+        <h2 class="lead inline-block"><%= party.name %></h2>
+        <ul class="people-list">
+          <% people.each do |person| %>
             <li>
               <%= link_to person do %>
                 <div class="people-photo">
                   <figure>
                     <%= profile_picture(person) %>
-                    <span class="people-affiliation"><%= person.party_name %></span>
+                    <% if person.not_working? %>
+                      <span class="people-affiliation"><%= t('people.not_working') %></span>
+                    <% end %>
                   </figure>
                 </div>
                 <h3><%= person.name %></h3>
@@ -29,8 +33,8 @@
               <p><%= person.role %></p>
             </li>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      <% end %>
     <% end %>
   </div>
 </div>
