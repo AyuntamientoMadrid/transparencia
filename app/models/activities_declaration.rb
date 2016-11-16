@@ -10,6 +10,14 @@ class ActivitiesDeclaration < ActiveRecord::Base
 
   validates :declaration_date, presence: true
 
+  def initial?
+    period == 'initial'
+  end
+
+  def final?
+    period == 'final'
+  end
+
   def public_activities
     parse_data_rows(data, :public_activities)
   end

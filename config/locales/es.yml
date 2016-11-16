@@ -94,6 +94,7 @@ es:
     party: "Afiliación"
     no_party: "Sin afiliación política"
     show:
+      leaving_date: "(Fecha de cese: %{leaving_date})"
       confirm_deletion: "¿Seguro que desea borrar esta persona?"
       disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
       activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
@@ -291,8 +292,9 @@ es:
     form:
       save: Guardar
   activities_declarations:
-    first: "Inicial"
+    initial: "Inicial"
     yearly: "Anual %{year}"
+    final: "Final"
     date: "Fecha de declaración: %{date}"
     public_activities:
       title: "1) Puestos de trabajo, cargos o actividades en el sector público"
@@ -314,8 +316,9 @@ es:
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
   assets_declarations:
-    first: "Inicial"
+    initial: "Inicial"
     yearly: "Anual %{year}"
+    final: "Final"
     date: "Fecha de declaración: %{date}"
     real_estate_properties:
       title: "1) Patrimonio Inmobiliario"

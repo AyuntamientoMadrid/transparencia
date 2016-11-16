@@ -34,6 +34,10 @@ class Person < ActiveRecord::Base
   after_initialize :initialize_profile
   before_validation :calculate_sorting_name
 
+  def not_working?
+    leaving_date.present?
+  end
+
   def profile
     write_attribute(:profile, {}) if read_attribute(:profile).nil?
     read_attribute(:profile)

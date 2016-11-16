@@ -10,6 +10,14 @@ class AssetsDeclaration < ActiveRecord::Base
 
   validates :declaration_date, presence: true
 
+  def initial?
+    period == 'initial'
+  end
+
+  def final?
+    period == 'final'
+  end
+
   def real_estate_properties
     parse_data_rows(data, :real_estate_properties)
   end
