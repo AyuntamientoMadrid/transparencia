@@ -74,6 +74,7 @@ en:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    not_working: "Not working"
     calendar:
       until: "Calendar until %{until}"
       from: "Calendar from %{from}"
