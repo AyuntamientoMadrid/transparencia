@@ -3,7 +3,7 @@
 // 01. Browse panes
 // 02. People
 // 03. Column sorting
-//
+// 04. Accesibility
 
 // 01. Browse panes
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -93,6 +93,10 @@
 
     a {
       display: inline\9;
+
+      &:focus {
+        display: inline-block;
+      }
     }
 
     h3 {
@@ -116,6 +120,11 @@
   li {
     border-bottom: 1px solid $border;
     padding: rem-calc(6) 0;
+  }
+
+  h3 {
+    font-weight: normal;
+    margin: 0;
   }
 }
 
@@ -147,7 +156,7 @@
 }
 
 .role {
-  color: $text-medium;
+  color: $brand;
   font-size: rem-calc(24);
   margin-top: 0;
 }
@@ -187,7 +196,6 @@
 
   a:not(.button) {
     color: $link;
-    font-family: $font-sans;
     padding: 0;
 
     @media (min-width: $small-breakpoint) {
@@ -207,7 +215,6 @@
     & > a:first-child:not(.button), a {
       background: $brand;
       color: white;
-      font-family: $font-sans;
     }
   }
 }
@@ -230,4 +237,11 @@
   .desc {
     background-image: image-url('down_arrow.gif');
   }
+}
+
+// 04. Accesibility
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.breadcrumbs > *.unavailable {
+  color: $text;
 }

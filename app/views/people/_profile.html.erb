@@ -154,6 +154,11 @@
   <% if @person.career_comment.present? %>
     <table>
       <caption><%= t("people.career_comment") %></caption>
+      <thead>
+        <tr>
+          <th><%= t("people.career_comment") %></th>
+        </tr>
+      </thead>
       <tbody>
         <td><%= simple_format @person.career_comment %></td>
       </tbody>

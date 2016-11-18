@@ -11,6 +11,7 @@ es:
     dashboard:
       title: "Administración"
   index:
+    outline: "Portada"
     title: "Transparencia"
     under_construction: "Estamos trabajando en un nuevo Portal de Transparencia del Ayuntamiento de Madrid, para que no quede ni una esquina del Ayuntamiento que no puedas ver."
     under_construction_html: |
@@ -376,6 +377,7 @@ es:
     back: "Atrás"
     delete: "Borrar"
     add: "Añadir"
+    target_blank: "(se abre en ventana nueva)"
   activerecord:
     attributes:
       objective:

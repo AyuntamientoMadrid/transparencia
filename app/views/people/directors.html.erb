@@ -1,22 +1,27 @@
 <% cache [locale_key, @people_groups] do %>
-  <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+
+  <% provide :title do %><%= t("transparency") %> - <%= t("people.directors.title") %><% end %>
+
+  <ul class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
     <li role="menuitem">
       <%= link_to t("home"), root_path %>
     </li>
     <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
       <%= t("people.directors.title") %>
     </li>
-  </nav>
+  </ul>
 
   <div class="people">
     <div class="small-12 column">
-      <h1 class="lead"><%= t("people.directors.title") %></h1>
+      <h1><%= t("people.directors.title") %></h1>
 
       <% @people_groups.each do |group_name, people| %>
-        <h2 class="lead inline-block"><%= group_name %></h2>
+        <h2 class="lead"><%= group_name %></h2>
         <ul class="people-list-text">
           <% people.each do |person| %>
-            <li><%= link_to person.backwards_name, person_path(person) %> - <%= person.unit %></li>
+            <li>
+              <h3 class="inline-block"><%= link_to person.backwards_name, person_path(person) %></h3> - <%= person.unit %>
+            </li>
           <% end %>
         </ul>
       <% end %>

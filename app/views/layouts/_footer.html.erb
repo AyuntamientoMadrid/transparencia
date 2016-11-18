@@ -3,11 +3,11 @@
     <div class="row">
 
       <div class="small-12 large-4 column">
-        <h3 class="logo">
+        <h1 class="logo">
           <%= link_to t("layouts.header.open_gov").html_safe %>
-        </h3>
+        </h1>
 
-        <p>
+        <p class="info">
           <%= t("layouts.footer.description",
             open_source: link_to(t("layouts.footer.open_source"), t("layouts.footer.open_source_url"), target: "blank"),
             software:  link_to(t("layouts.footer.transparency_repo"), t("layouts.footer.transparency_repo_url"), target: "blank")).html_safe
@@ -19,23 +19,23 @@
 
       <div class="footer-sections small-12 large-8 column">
         <div class="small-12 medium-4 column">
-          <h4>
+          <h2>
             <%= link_to t("layouts.footer.participation_title"), t("layouts.footer.participation_url") %>
-          </h4>
+          </h2>
           <p><%= t("layouts.footer.participation_text") %></p>
         </div>
 
         <div class="small-12 medium-4 column">
-          <h4>
+          <h2>
             <%= link_to t("layouts.footer.transparency_title"), t("layouts.footer.transparency_url") %>
-          </h4>
+          </h2>
           <p><%= t("layouts.footer.transparency_text") %></p>
         </div>
 
         <div class="small-12 medium-4 column">
-          <h4>
+          <h2>
             <%= link_to t("layouts.footer.open_data_title"), t("layouts.footer.open_data_url") %>
-          </h4>
+          </h2>
           <p><%= t("layouts.footer.open_data_text") %></p>
         </div>
       </div>
@@ -52,21 +52,21 @@
       </div>
 
       <div class="small-12 medium-3 column social">
-        <%= link_to "https://twitter.com/abriendomadrid", target: "_blank", title: t("social.twitter") do %>
+        <%= link_to "https://twitter.com/abriendomadrid", target: "_blank", title: t("social.twitter") + " " + t("shared.target_blank") do %>
           <span class="sr-only"><%= t("social.twitter") %></span>
-          <i class="icon-twitter"></i>
+          <span class="icon-twitter" aria-hidden="true"></span>
         <% end %>
-        <%= link_to "https://www.facebook.com/Abriendo-Madrid-1475577616080350/", target: "_blank", title: t("social.facebook") do %>
+        <%= link_to "https://www.facebook.com/Abriendo-Madrid-1475577616080350/", target: "_blank", title: t("social.facebook") + " " + t("shared.target_blank") do %>
           <span class="sr-only"><%= t("social.facebook") %></span>
-          <i class="icon-facebook"></i>
+          <span class="icon-facebook"></span>
         <% end %>
-        <%= link_to "/blog", target: "_blank", title: t("social.blog") do %>
+        <%= link_to "/blog", target: "_blank", title: t("social.blog") + " " + t("shared.target_blank") do %>
           <span class="sr-only"><%= t("social.blog") %></span>
-          <i class="icon-blog"></i>
+          <span class="icon-blog" aria-hidden="true"></span>
         <% end %>
-        <%= link_to "https://www.youtube.com/channel/UCFmaChI9quIY7lwHplnacfg", target: "_blank", title: t("social.youtube") do %>
+        <%= link_to "https://www.youtube.com/channel/UCFmaChI9quIY7lwHplnacfg", target: "_blank", title: t("social.youtube") + " " + t("shared.target_blank") do %>
           <span class="sr-only"><%= t("social.youtube") %></span>
-          <i class="icon-youtube"></i>
+          <span class="icon-youtube" aria-hidden="true"></span>
         <% end %>
       </div>
     </div>

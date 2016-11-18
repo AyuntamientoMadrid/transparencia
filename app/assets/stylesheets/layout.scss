@@ -48,7 +48,6 @@
 }
 
 @mixin h1 {
-  font-family: $font-sans;
   font-size: $h2-font-size;
   font-weight: $font-bold;
 
@@ -58,7 +57,6 @@
 }
 
 @mixin h2 {
-  font-family: $font-sans;
   font-size: $h3-font-size;
   font-weight: $font-bold;
 
@@ -68,7 +66,6 @@
 }
 
 @mixin h3 {
-  font-family: $font-sans;
   font-size: $h4-font-size;
   font-weight: $font-bold;
 
@@ -78,7 +75,6 @@
 }
 
 @mixin h4 {
-  font-family: $font-sans;
   font-size: $h5-font-size;
   font-weight: $font-bold;
 
@@ -88,7 +84,6 @@
 }
 
 @mixin h5 {
-  font-family: $font-sans;
   font-size: $h6-font-size;
   font-weight: $font-bold;
 
@@ -98,7 +93,6 @@
 }
 
 @mixin h6 {
-  font-family: $font-sans;
   font-size: $h6-font-size;
   font-weight: $font-normal;
   text-transform: uppercase;
@@ -151,32 +145,29 @@ html, body {
   height: 100%;
 }
 
+::selection {
+  color: white;
+  background-color: $brand;
+}
+
 body {
   background: white;
   color: $text;
-  font-family: $font-serif;
+  font-family: $font-sans;
   font-size: $base-font-size;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 
-p, ul, table {
-  font-family: $font-serif;
-}
-
 p {
   color: $text;
+  font-size: $base-font-size;
   line-height: $base-line-height;
-  margin: 1em 0;
-}
-
-ol, ul, li, p {
-  font-size: $small-font-size;
+  margin-bottom: $line-height;
 }
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  font-family: $font-sans;
   line-height: $heading-line-height;
   margin: rem-calc(12) 0 rem-calc(6);
 }
@@ -195,24 +186,22 @@ a {
   }
 
   &:focus {
-    outline: 0;
+    outline: 3px solid #ffbf47;
   }
 }
 
 form label {
   font-size: $base-font-size;
-  font-family: $font-sans;
   font-weight: bold;
 }
 
-.side-nav {
-  font-family: $font-sans;
+small {
+  font-size: $small-font-size;
 }
 
 .button {
   background: $brand;
   font-size: $base-font-size;
-  font-family: $font-sans;
 }
 
 .row {
@@ -355,7 +344,6 @@ cite, var, address, dfn {
 }
 
 .big-data {
-  font-family: $font-sans;
   font-size: $h1-font-size;
   font-weight: bold;
 }
@@ -388,10 +376,6 @@ header {
       padding-bottom: rem-calc(2);
       position: relative;
     }
-  }
-
-  a {
-    font-family: $font-sans;
   }
 }
 
@@ -525,21 +509,21 @@ header {
 }
 
 .jumbo {
-  background: $highlight;
+  background: $brand;
+  color: white;
+  margin-bottom: $line-height;
 
   @media (min-width: $small-breakpoint) {
     padding: rem-calc(24) 0;
   }
 
-  h1, p, ul {
-    color: $highlight-color;
+  h1, h2, p, ul {
+    color: white;
   }
-}
 
-.intro {
-
-  input[type="text"], input[type="submit"] {
-    height: rem-calc(48);
+  h2 {
+    border-left: 1px solid white;
+    padding-left: rem-calc(12);
   }
 }
 
@@ -557,10 +541,11 @@ header {
   }
 
   .icon-external:before {
-    opacity: .5;
+    color: $text;
+    font-size: $small-font-size;
     position: absolute;
     right: -20px;
-    top: 16px;
+    top: 17px;
   }
 
   a {
@@ -610,7 +595,7 @@ header {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 footer {
-  color: #171819;
+  color: $text;
 
   .logo {
     @include logo;
@@ -625,6 +610,10 @@ footer {
 
   p {
     font-size: $small-font-size;
+
+    .info a {
+      text-decoration: underline;
+    }
   }
 
   a, a:active, a:focus {
@@ -640,30 +629,26 @@ footer {
     padding-left: 0;
   }
 
-  h4 {
-
-    a {
-      border-bottom: 1px solid #BFC1C3;
-      display: block;
-      padding-bottom: rem-calc(6);
-      text-decoration: none;
-    }
+  h2 a {
+    border-bottom: 1px solid $text-light;
+    display: block;
+    font-size: rem-calc(24);
+    line-height: rem-calc(31);
+    padding-bottom: $line-height/4;
+    text-decoration: none;
   }
 }
 
 .footer {
-  background: #DEE0E2;
-  border-top: rem-calc(6) solid $brand;
-  position: absolute;
-  width: 100%;
-  z-index: 100;
+  background: $border;
+  border-top: 6px solid $brand;
+  margin-top: $line-height*2;
+  padding-top: $line-height;
 }
 
 .subfooter {
-  border-top: 1px solid #BFC1C3;
-  opacity: .75;
-  margin-top: rem-calc(24);
-  padding-top: rem-calc(12);
+  border-top: 1px solid $text-light;
+  padding-top: $line-height/2;
 }
 
 // 06. Social
@@ -772,7 +757,6 @@ table {
   width: 100%;
 
   th {
-    font-family: $font-sans;
     font-weight: bold;
   }
 
@@ -799,7 +783,6 @@ table {
 
   caption {
     color: $brand;
-    font-family: $font-sans;
     font-weight: bold;
     padding: rem-calc(12) 0;
     text-align: left;
@@ -822,7 +805,6 @@ table {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ul.pagination {
-  font-family: $font-sans;
   margin-top: rem-calc(24);
 
   li {

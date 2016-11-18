@@ -7,20 +7,20 @@
 <ul class="side-nav" role="navigation">
 
   <li role="menuitem" data-magellan-arrival="profile">
-    <a href="#profile" title="<%= t("people.profile") %>">
+    <a href="#profile">
       <%= t("people.profile") %>
     </a>
   </li>
 
   <% if person.councillor? %>
     <li role="menuitem" data-magellan-arrival="assets_declarations">
-      <a href="#assets_declarations" title="<%= t("people.assets_declarations") %>">
+      <a href="#assets_declarations">
         <%= t("people.assets_declarations") %>
       </a>
     </li>
 
     <li role="menuitem" data-magellan-arrival="activities_declarations">
-      <a href="#activities_declarations" title="<%= t("people.activities_declarations") %>">
+      <a href="#activities_declarations">
         <%= t("people.activities_declarations") %>
       </a>
     </li>
@@ -45,4 +45,3 @@
     </li>
   <% end %>
 </ul>
-
