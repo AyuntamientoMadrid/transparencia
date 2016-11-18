@@ -1,23 +1,27 @@
 <%= content_for :jumbo  do %>
 
-  <div class="row-full jumbo">
+  <div class="jumbo">
     <div class="row">
-      <div class="intro">
-        <div class="small-12 medium-8 column">
-          <h1 class="sr-only"><%= t("index.outline") %></h1>
-          <h2><%= t("index.title") %></h2>
-          <p class="subtitle"><%= t("index.under_construction") %></p>
-          <%= t("index.under_construction_html") %>
-          <%= link_to "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia?vgnextfmt=default&vgnextchannel=20fd850769797310VgnVCM2000000c205a0aRCRD", target: "blank", class: "button radius" do %>
-            <%= t("index.visit_old_site") %>
-          <% end %>
-        </div>
+      <div class="small-12 column">
+        <h1 class="sr-only"><%= t("index.outline") %></h1>
+        <h2><%= t("index.title") %></h2>
       </div>
     </div>
   </div>
 
-<% end  %>
+  <div class="row">
+    <div class="intro">
+      <div class="small-12 medium-8 column">
+        <p class="subtitle"><%= t("index.under_construction") %></p>
+        <%= t("index.under_construction_html") %>
+        <%= link_to "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia?vgnextfmt=default&vgnextchannel=20fd850769797310VgnVCM2000000c205a0aRCRD", target: "blank", class: "button radius" do %>
+          <%= t("index.visit_old_site") %>
+        <% end %>
+      </div>
+    </div>
 
-<div class="alert-box info radius small-12 column margin-top">
-  <p>Mientras acabamos el nuevo portal, te invitamos a visitar el <a href="https://decide.madrid.es/blog" target="_blank">blog del Área de Participación Ciudadana, Transparencia y Gobierno Abierto</a> para conocer nuestros avances y novedades; o la <a href="https://decide.madrid.es/">sección de Participación Ciudadana</a> donde poder decidir qué ciudad es la que quieres.</p>
-</div>
+    <div class="small-12 medium-3 column alert-box info radius">
+      <p>Mientras acabamos el nuevo portal, te invitamos a visitar el <a href="https://decide.madrid.es/blog" target="_blank">blog del Área de Participación Ciudadana, Transparencia y Gobierno Abierto</a> para conocer nuestros avances y novedades; o la <a href="https://decide.madrid.es/">sección de Participación Ciudadana</a> donde poder decidir qué ciudad es la que quieres.</p>
+    </div>
+  </div>
+<% end  %>

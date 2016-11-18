@@ -531,6 +531,7 @@ header {
 
 .jumbo {
   background: $highlight;
+  margin-bottom: $line-height;
 
   @media (min-width: $small-breakpoint) {
     padding: rem-calc(24) 0;
