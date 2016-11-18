@@ -1,34 +1,9 @@
 <header>
-  <section class="top-links show-for-medium-up">
-    <div class="row">
-      <div class="external-links">
-        <%= link_to t("layouts.header.participation"), "http://decide.madrid.es" %>&nbsp;|
-        <%= link_to t("layouts.header.transparency"), "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia?vgnextfmt=default&vgnextchannel=20fd850769797310VgnVCM2000000c205a0aRCRD", class: "selected" %>&nbsp;|
-        <%= link_to t("layouts.header.opendata"), "https://decide.madrid.es/opendata" %>&nbsp;|&nbsp;
-        <div class="social inline-block">
-          <%= link_to "https://twitter.com/abriendomadrid", target: "_blank", title: t("social.twitter") do %>
-            <span class="sr-only"><%= t("social.twitter") %></span>
-            <i class="icon-twitter"></i>
-          <% end %>
-          <%= link_to "https://www.facebook.com/Abriendo-Madrid-1475577616080350/", target: "_blank", title: t("social.facebook") do %>
-            <span class="sr-only"><%= t("social.facebook") %></span>
-            <i class="icon-facebook"></i>
-          <% end %>
-          <%= link_to "/blog", target: "_blank", title: t("social.blog") do %>
-            <span class="sr-only"><%= t("social.blog") %></span>
-            <i class="icon-blog"></i>
-          <% end %>
-          <%= link_to "https://www.youtube.com/channel/UCFmaChI9quIY7lwHplnacfg", target: "_blank", title: t("social.youtube") do %>
-            <span class="sr-only"><%= t("social.youtube") %></span>
-            <i class="icon-youtube"></i>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </section>
+
+  <%= render "shared/top_links" %>
 
   <div class="contain-to-grid clear">
-    <nav class="top-bar" data-topbar>
+    <div class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
           <%= link_to root_path do %>
@@ -36,7 +11,7 @@
           <% end %>
         </li>
       </ul>
-    </nav>
+    </div>
   </div>
 
   <div class="subnavigation">
