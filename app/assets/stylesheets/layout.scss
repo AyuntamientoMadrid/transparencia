@@ -610,7 +610,7 @@ header {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 footer {
-  color: #171819;
+  color: $text;
 
   .logo {
     @include logo;
@@ -625,6 +625,10 @@ footer {
 
   p {
     font-size: $small-font-size;
+
+    .info a {
+      text-decoration: underline;
+    }
   }
 
   a, a:active, a:focus {
@@ -640,30 +644,26 @@ footer {
     padding-left: 0;
   }
 
-  h4 {
-
-    a {
-      border-bottom: 1px solid #BFC1C3;
-      display: block;
-      padding-bottom: rem-calc(6);
-      text-decoration: none;
-    }
+  h2 a {
+    border-bottom: 1px solid $text-light;
+    display: block;
+    font-size: rem-calc(24);
+    line-height: rem-calc(31);
+    padding-bottom: $line-height/4;
+    text-decoration: none;
   }
 }
 
 .footer {
-  background: #DEE0E2;
-  border-top: rem-calc(6) solid $brand;
-  position: absolute;
-  width: 100%;
-  z-index: 100;
+  background: $border;
+  border-top: 6px solid $brand;
+  margin-top: $line-height*2;
+  padding-top: $line-height;
 }
 
 .subfooter {
-  border-top: 1px solid #BFC1C3;
-  opacity: .75;
-  margin-top: rem-calc(24);
-  padding-top: rem-calc(12);
+  border-top: 1px solid $text-light;
+  padding-top: $line-height/2;
 }
 
 // 06. Social
