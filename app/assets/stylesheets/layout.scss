@@ -163,7 +163,7 @@ p {
   color: $text;
   font-size: $base-font-size;
   line-height: $base-line-height;
-  margin: 1em 0;
+  margin-bottom: $line-height;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -193,6 +193,10 @@ a {
 form label {
   font-size: $base-font-size;
   font-weight: bold;
+}
+
+small {
+  font-size: $small-font-size;
 }
 
 .button {
@@ -505,22 +509,21 @@ header {
 }
 
 .jumbo {
-  background: $highlight;
+  background: $brand;
+  color: white;
   margin-bottom: $line-height;
 
   @media (min-width: $small-breakpoint) {
     padding: rem-calc(24) 0;
   }
 
-  h1, p, ul {
-    color: $highlight-color;
+  h1, h2, p, ul {
+    color: white;
   }
-}
 
-.intro {
-
-  input[type="text"], input[type="submit"] {
-    height: rem-calc(48);
+  h2 {
+    border-left: 1px solid white;
+    padding-left: rem-calc(12);
   }
 }
 
