@@ -21,7 +21,10 @@
         <%= link_to t("layouts.header.councillors"), councillors_people_path, class: ("active" if current_page?(councillors_people_path)) %>
         <%= link_to t("layouts.header.directors"), directors_people_path, class: ("active" if current_page?(directors_people_path)) %>
         <%= link_to t("layouts.header.temporary_workers"), temporary_workers_people_path, class: ("active" if current_page?(temporary_workers_people_path)) %>
-        <%= link_to t("layouts.header.calendars"), "https://agendas.madrid.es/", target: "_blank" %>
+        <%= link_to "https://agendas.madrid.es/", target: "_blank", title: "(se abre en ventana nueva)" do %>
+            <%=  t("layouts.header.calendars") %>
+            <span class="icon-external"></span>
+        <% end %>
       </div>
     </div>
   </div>

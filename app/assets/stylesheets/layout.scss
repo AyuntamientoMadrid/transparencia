@@ -563,10 +563,11 @@ header {
   }
 
   .icon-external:before {
-    opacity: .5;
+    color: $text;
+    font-size: $small-font-size;
     position: absolute;
     right: -20px;
-    top: 16px;
+    top: 17px;
   }
 
   a {
