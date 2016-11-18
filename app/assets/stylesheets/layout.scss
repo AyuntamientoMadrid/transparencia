@@ -48,7 +48,6 @@
 }
 
 @mixin h1 {
-  font-family: $font-sans;
   font-size: $h2-font-size;
   font-weight: $font-bold;
 
@@ -58,7 +57,6 @@
 }
 
 @mixin h2 {
-  font-family: $font-sans;
   font-size: $h3-font-size;
   font-weight: $font-bold;
 
@@ -68,7 +66,6 @@
 }
 
 @mixin h3 {
-  font-family: $font-sans;
   font-size: $h4-font-size;
   font-weight: $font-bold;
 
@@ -78,7 +75,6 @@
 }
 
 @mixin h4 {
-  font-family: $font-sans;
   font-size: $h5-font-size;
   font-weight: $font-bold;
 
@@ -88,7 +84,6 @@
 }
 
 @mixin h5 {
-  font-family: $font-sans;
   font-size: $h6-font-size;
   font-weight: $font-bold;
 
@@ -98,7 +93,6 @@
 }
 
 @mixin h6 {
-  font-family: $font-sans;
   font-size: $h6-font-size;
   font-weight: $font-normal;
   text-transform: uppercase;
@@ -159,29 +153,21 @@ html, body {
 body {
   background: white;
   color: $text;
-  font-family: $font-serif;
+  font-family: $font-sans;
   font-size: $base-font-size;
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
 
-p, ul, table {
-  font-family: $font-serif;
-}
-
 p {
   color: $text;
+  font-size: $base-font-size;
   line-height: $base-line-height;
   margin: 1em 0;
 }
 
-ol, ul, li, p {
-  font-size: $small-font-size;
-}
-
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  font-family: $font-sans;
   line-height: $heading-line-height;
   margin: rem-calc(12) 0 rem-calc(6);
 }
@@ -206,18 +192,12 @@ a {
 
 form label {
   font-size: $base-font-size;
-  font-family: $font-sans;
   font-weight: bold;
-}
-
-.side-nav {
-  font-family: $font-sans;
 }
 
 .button {
   background: $brand;
   font-size: $base-font-size;
-  font-family: $font-sans;
 }
 
 .row {
@@ -360,7 +340,6 @@ cite, var, address, dfn {
 }
 
 .big-data {
-  font-family: $font-sans;
   font-size: $h1-font-size;
   font-weight: bold;
 }
@@ -393,10 +372,6 @@ header {
       padding-bottom: rem-calc(2);
       position: relative;
     }
-  }
-
-  a {
-    font-family: $font-sans;
   }
 }
 
@@ -779,7 +754,6 @@ table {
   width: 100%;
 
   th {
-    font-family: $font-sans;
     font-weight: bold;
   }
 
@@ -806,7 +780,6 @@ table {
 
   caption {
     color: $brand;
-    font-family: $font-sans;
     font-weight: bold;
     padding: rem-calc(12) 0;
     text-align: left;
@@ -829,7 +802,6 @@ table {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ul.pagination {
-  font-family: $font-sans;
   margin-top: rem-calc(24);
 
   li {

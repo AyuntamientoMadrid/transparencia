@@ -196,7 +196,6 @@
 
   a:not(.button) {
     color: $link;
-    font-family: $font-sans;
     padding: 0;
 
     @media (min-width: $small-breakpoint) {
@@ -216,7 +215,6 @@
     & > a:first-child:not(.button), a {
       background: $brand;
       color: white;
-      font-family: $font-sans;
     }
   }
 }
