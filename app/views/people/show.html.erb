@@ -2,7 +2,7 @@
 
   <% provide :title do %><%= t("transparency") %> - <%= @person.name %><% end %>
 
-  <div class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+  <ul class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
     <li role="menuitem">
       <%= link_to t("home"), root_path %>
     </li>
@@ -18,7 +18,7 @@
     <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
       <%= @person.name %>
     </li>
-  </div>
+  </ul>
 
   <section class="people-card">
     <div class="small-12 medium-3 column">
