@@ -377,6 +377,7 @@ es:
     back: "Atrás"
     delete: "Borrar"
     add: "Añadir"
+    target_blank: "(se abre en ventana nueva)"
   activerecord:
     attributes:
       objective:

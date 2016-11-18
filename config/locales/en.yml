@@ -373,6 +373,7 @@ en:
     back: "Back"
     add: "Add"
     delete: "Delete"
+    target_blank: "(opens in new window)"
   activerecord:
     attributes:
       objective:
