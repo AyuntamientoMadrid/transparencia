@@ -1,4 +1,7 @@
 <% cache [locale_key, @people_groups] do %>
+
+  <% provide :title do %><%= t("transparency") %> - <%= t("people.directors.title") %><% end %>
+
   <div class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
     <li role="menuitem">
       <%= link_to t("home"), root_path %>
