@@ -151,6 +151,11 @@ html, body {
   height: 100%;
 }
 
+::selection {
+  color: white;
+  background-color: $brand;
+}
+
 body {
   background: white;
   color: $text;
@@ -195,7 +200,7 @@ a {
   }
 
   &:focus {
-    outline: 0;
+    outline: 3px solid #ffbf47;
   }
 }
 
