@@ -3,13 +3,19 @@
   <%= render 'layouts/head' %>
 
   <body>
-    <%= render 'layouts/header' %>
+    <h1 class="sr-only"><%= t("layouts.header.open_gov") %> | <%= t("layouts.header.transparency") %></h1>
+
     <div class="wrapper">
+      <%= render 'layouts/header' %>
+
       <%= render 'shared/notice' %>
+
       <%= yield :jumbo %>
+
       <div class="row">
         <%= yield %>
       </div>
+
       <div class="push"></div>
     </div>
     <div class="footer">

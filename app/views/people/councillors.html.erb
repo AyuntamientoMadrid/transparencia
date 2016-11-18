@@ -1,21 +1,21 @@
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+<div class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
   <li role="menuitem">
     <%= link_to t("home"), root_path %>
   </li>
   <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
     <%= t("people.councillors.title") %>
   </li>
-</nav>
+</div>
 
 <div class="people">
   <div class="small-12 column">
 
-    <h1 class="lead"><%= t("people.councillors.title") %></h1>
+    <h1><%= t("people.councillors.title") %></h1>
 
     <% cache [locale_key, @people_groups] do %>
 
       <% @people_groups.each do |party, people| %>
-        <h2 class="lead inline-block"><%= party.name %></h2>
+        <h2 class="lead"><%= party.name %></h2>
         <ul class="people-list">
           <% people.each do |person| %>
             <li>

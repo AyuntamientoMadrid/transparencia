@@ -4,8 +4,9 @@
     <div class="row">
       <div class="intro">
         <div class="small-12 medium-8 column">
-          <h1><%= t("index.title") %></h1>
-          <h2><%= t("index.under_construction") %></h2>
+          <h1 class="sr-only"><%= t("index.outline") %></h1>
+          <h2><%= t("index.title") %></h2>
+          <p class="subtitle"><%= t("index.under_construction") %></p>
           <%= t("index.under_construction_html") %>
           <%= link_to "http://www.madrid.es/portales/munimadrid/es/Inicio/El-Ayuntamiento/Transparencia?vgnextfmt=default&vgnextchannel=20fd850769797310VgnVCM2000000c205a0aRCRD", target: "blank", class: "button radius" do %>
             <%= t("index.visit_old_site") %>

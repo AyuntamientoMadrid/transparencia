@@ -11,6 +11,7 @@ en:
     dashboard:
       title: "Administration"
   index:
+    outline: "Home"
     title: "Welcome to the transparency portal"
     under_construction: "We are working on the new Transparency Portal Madrid City Council."
     under_construction_html: |
