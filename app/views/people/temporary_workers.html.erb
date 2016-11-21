@@ -15,12 +15,12 @@
     <div class="small-12 column">
       <h1><%= t("people.temporary_workers.title") %></h1>
 
-      <% @people_groups.each do |group_name, people| %>
-        <h2 class="lead"><%= group_name %></h2>
+      <% @temporary_workers_by_name_initial.each do |name_initial, temporary_workers| %>
+        <h2 class="lead"><%= name_initial %></h2>
         <ul class="people-list-text">
-          <% people.each do |person| %>
+          <% temporary_workers.each do |worker| %>
             <li>
-              <h3 class="inline-block"><%= link_to person.backwards_name, person_path(person) %></h3> - <%= person.unit %>
+              <h3 class="inline-block"><%= link_to worker.backwards_name, person_path(worker) %></h3> - <%= worker.unit %>
             </li>
           <% end %>
         </ul>

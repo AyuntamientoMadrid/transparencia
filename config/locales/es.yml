@@ -75,7 +75,8 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
-    not_working: "Cesado/a"
+    working: "Concejales en ejercicio"
+    not_working: "Concejales que han causado baja"
     calendar:
       until: "Agenda hasta %{until}"
       from: "Agenda institucional desde %{from}"
