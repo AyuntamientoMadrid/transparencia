@@ -57,6 +57,17 @@
 // 02. People
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+.people {
+
+  .tabs {
+
+    &.divider {
+      border-bottom: 1px solid $border;
+      border-top: 1px solid $border;
+    }
+  }
+}
+
 .people-card {
 
   i {

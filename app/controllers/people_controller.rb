@@ -9,15 +9,16 @@ class PeopleController < ApplicationController
   end
 
   def councillors
-    @people_groups = Person.councillors.grouped_by_party
+    @working_councillors_by_party = Person.councillors.working.grouped_by_party
+    @not_working_councillors      = Person.councillors.not_working
   end
 
   def directors
-    @people_groups = Person.directors.grouped_by_name_initial
+    @directors_by_name_initial = Person.directors.grouped_by_name_initial
   end
 
   def temporary_workers
-    @people_groups = Person.temporary_workers.grouped_by_name_initial
+    @temporary_workers_by_name_initial = Person.temporary_workers.grouped_by_name_initial
   end
 
   def show

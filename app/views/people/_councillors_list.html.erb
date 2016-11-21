@@ -1,0 +1,16 @@
+<ul class="people-list">
+  <% councillors.each do |councillor| %>
+    <li>
+      <%= link_to councillor do %>
+        <div class="people-photo">
+          <figure>
+            <%= profile_picture(councillor) %>
+            <span class="people-affiliation"><%= councillor.party.name %></span>
+          </figure>
+        </div>
+        <h3><%= councillor.name %></h3>
+      <% end %>
+      <p><%= councillor.role %></p>
+    </li>
+  <% end %>
+</ul>
