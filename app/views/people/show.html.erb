@@ -53,6 +53,10 @@
             <p class="role"><%= @person.role %></p>
 
             <p><%= @person.unit %></p>
+
+            <% if @person.starting_date.present? %>
+              <p><%= t('people.show.starting_date', starting_date: format_date(@person.starting_date)) %></p>
+            <% end %>
             <% if @person.not_working? %>
               <p><%= t('people.show.leaving_date', leaving_date: format_date(@person.leaving_date)) %></p>
             <% end %>
