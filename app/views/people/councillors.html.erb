@@ -13,12 +13,12 @@
   <div class="small-12 column">
     <h1><%= t("people.councillors.title") %></h1>
 
-    <ul class="tabs" data-tab>
+    <ul class="tabs margin-top divider" data-tab>
       <li class="tab-title active"><a href="#working"><%= t('people.working') %></a></li>
       <li class="tab-title"><a href="#not-working"><%= t('people.not_working') %></a></li>
     </ul>
 
-    <div class="tabs-content">
+    <div class="tabs-content margin-top">
       <div class="content active" id="working">
         <% cache [locale_key, @working_councillors_by_party] do %>
           <% @working_councillors_by_party.each do |party, councillors| %>
