@@ -97,7 +97,7 @@ es:
     party: "Afiliación"
     no_party: "Sin afiliación política"
     show:
-      leaving_date: "(Fecha de cese: %{leaving_date})"
+      leaving_date: "Fecha de cese: %{leaving_date}"
       confirm_deletion: "¿Seguro que desea borrar esta persona?"
       disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
       activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"

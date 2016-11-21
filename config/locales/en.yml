@@ -97,7 +97,7 @@ en:
     party: "Party"
     no_party: "No assigned party"
     show:
-      leaving_date: "(Leaving date: %{leaving_date})"
+      leaving_date: "Leaving date: %{leaving_date}"
       confirm_deletion: "Are you sure you want to erase this person?"
       disclaimer: "(*) This information is subject to changes if errors are detected"
       activities_explanation: "Reasons of possible incompatibility and activities which provide or can provide income"

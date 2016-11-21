@@ -50,12 +50,13 @@
           <div class="medium-9 columns">
             <h1 class="inline-block"><%= @person.name %></h1>
 
-            <p class="role"><%= @person.role %>
-            <% if @person.not_working? %>
-              <small><%= t('people.show.leaving_date', leaving_date: format_date(@person.leaving_date)) %></small>
-            <% end %>
-            </p>
+            <p class="role"><%= @person.role %></p>
+
             <p><%= @person.unit %></p>
+            <% if @person.not_working? %>
+              <p><%= t('people.show.leaving_date', leaving_date: format_date(@person.leaving_date)) %></p>
+            <% end %>
+
             <% if @person.twitter.present? || @person.facebook.present? %>
               <p>
                 <% if @person.twitter.present? %>
