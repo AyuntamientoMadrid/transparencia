@@ -1,6 +1,16 @@
 <% cache [locale_key, @person, @person.party, administrator_signed_in?] do %>
 
-  <% provide :title do %><%= t("transparency") %> - <%= @person.name %><% end %>
+  <% provide :title do %>
+    <%= t("transparency") %> -
+    <% if @person.councillor? %>
+      <%= t("people.councillors.title") %>
+    <% elsif @person.director? %>
+      <%= t("people.directors.title") %>
+    <% else %>
+      <%= t("people.temporary_workers.title") %>
+    <% end %>
+    - <%= @person.name %>
+  <% end %>
 
   <ul class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
     <li role="menuitem">
