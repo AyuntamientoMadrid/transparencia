@@ -1,16 +1,17 @@
 <header>
 
-  <%= render "shared/top_links" %>
-
   <div class="contain-to-grid clear">
     <div class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
           <%= link_to root_path do %>
-            <%= image_tag('header_logo_madrid.png', size: '80x80', alt: t("layouts.header.logo")) %><%= t("layouts.header.transparency") %> | <%= t("layouts.header.subtitle") %>
+            <%= t("layouts.header.transparency") %> | <%= t("layouts.header.subtitle") %>
           <% end %>
         </li>
       </ul>
+      <div class="float-right text-right">
+        <%= image_tag('header_logo_madrid.png', alt: t("layouts.header.logo")) %>
+      </div>
     </div>
   </div>
 

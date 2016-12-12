@@ -380,21 +380,22 @@ header {
 }
 
 .contain-to-grid {
-  background: $brand;
+  background: black;
 }
 
 .top-bar {
-  background: $brand;
+  background: black;
+  height: auto;
   max-width: 1170px !important;
-  min-height: rem-calc(48);
+  min-height: rem-calc(60);
   padding: 0 rem-calc(12);
 
   @media (min-width: $small-breakpoint) {
-    height: auto;
     padding: 0;
   }
 
   .name {
+    line-height: rem-calc(60);
 
     @media (min-width: $small-breakpoint) {
       margin-left: rem-calc(12);
@@ -408,7 +409,7 @@ header {
   .title-area {
 
     @media (min-width: $small-breakpoint) {
-      min-height: rem-calc(80);
+      min-height: rem-calc(60);
     }
   }
 
