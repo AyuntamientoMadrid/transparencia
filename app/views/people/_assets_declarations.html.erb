@@ -45,6 +45,7 @@
             </tr>
           </thead>
           <tbody>
+          <% if declaration.real_estate_properties.any? %>
             <% declaration.real_estate_properties.each do |property| %>
               <tr>
                 <td><%= property.kind %></td>
@@ -57,6 +58,13 @@
                 <td><%= property.notes %></td>
               </tr>
             <% end %>
+          <% else %>
+            <tr>
+              <td colspan="8">
+                <%= t("shared.no_data") %>
+              </td>
+            </tr>
+          <% end %>
           </tbody>
         </table>
 
@@ -70,11 +78,19 @@
             </tr>
           </thead>
           <tbody>
-            <% declaration.account_deposits.each do |deposit| %>
+            <% if declaration.account_deposits.any? %>
+              <% declaration.account_deposits.each do |deposit| %>
+                <tr>
+                  <td><%= deposit.kind %></td>
+                  <td><%= deposit.banking_entity %></td>
+                  <td><%= deposit.balance %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= deposit.kind %></td>
-                <td><%= deposit.banking_entity %></td>
-                <td><%= deposit.balance %></td>
+                <td colspan="3">
+                  <%= t("shared.no_data") %>
+                </td>
               </tr>
             <% end %>
           </tbody>
@@ -91,12 +107,20 @@
             </tr>
           </thead>
           <tbody>
-            <% declaration.other_deposits.each do |asset| %>
+            <% if declaration.other_deposits.any? %>
+              <% declaration.other_deposits.each do |asset| %>
+                <tr>
+                  <td><%= asset.kind %></td>
+                  <td><%= asset.description %></td>
+                  <td><%= asset.amount %></td>
+                  <td><%= asset.purchase_date %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= asset.kind %></td>
-                <td><%= asset.description %></td>
-                <td><%= asset.amount %></td>
-                <td><%= asset.purchase_date %></td>
+                <td colspan="4">
+                  <%= t("shared.no_data") %>
+                </td>
               </tr>
             <% end %>
           </tbody>
@@ -112,11 +136,19 @@
             </tr>
           </thead>
           <tbody>
-            <% declaration.vehicles.each do |vehicle| %>
+            <% if declaration.vehicles.any? %>
+              <% declaration.vehicles.each do |vehicle| %>
+                <tr>
+                  <td><%= vehicle.kind %></td>
+                  <td><%= vehicle.model %></td>
+                  <td><%= vehicle.purchase_date %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= vehicle.kind %></td>
-                <td><%= vehicle.model %></td>
-                <td><%= vehicle.purchase_date %></td>
+                <td colspan="3">
+                  <%= t("shared.no_data") %>
+                </td>
               </tr>
             <% end %>
           </tbody>
@@ -131,10 +163,18 @@
             </tr>
           </thead>
           <tbody>
-            <% declaration.other_personal_properties.each do |property| %>
+            <% if declaration.other_personal_properties.any? %>
+              <% declaration.other_personal_properties.each do |property| %>
+                <tr>
+                  <td><%= property.kind %></td>
+                  <td><%= property.purchase_date %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= property.kind %></td>
-                <td><%= property.purchase_date %></td>
+                <td colspan="2">
+                  <%= t("shared.no_data") %>
+                </td>
               </tr>
             <% end %>
           </tbody>
@@ -150,11 +190,19 @@
             </tr>
           </thead>
           <tbody>
-            <% declaration.debts.each do |debt| %>
+            <% if declaration.debts.any? %>
+              <% declaration.debts.each do |debt| %>
+                <tr>
+                  <td><%= debt.kind %></td>
+                  <td><%= debt.comments %></td>
+                  <td><%= debt.amount %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= debt.kind %></td>
-                <td><%= debt.comments %></td>
-                <td><%= debt.amount %></td>
+                <td colspan="3">
+                  <%= t("shared.no_data") %>
+                </td>
               </tr>
             <% end %>
           </tbody>

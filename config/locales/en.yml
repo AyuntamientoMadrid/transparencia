@@ -384,6 +384,7 @@ en:
     add: "Add"
     delete: "Delete"
     target_blank: "(opens in new window)"
+    no_data: "This section has no data."
   activerecord:
     attributes:
       objective:

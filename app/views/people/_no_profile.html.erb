@@ -1,8 +1,10 @@
 <a name="profile" data-magellan-destination="profile"></a>
 <h2 class="lead profile"><%= t("people.profile") %></h2>
 
-<% unless @person.councillor? %>
-<p><%= t('people.show.no_profile') %>
+<% if @person.councillor? %>
+  <p class="margin"><%= t('shared.no_data') %></p>
+<% else %>
+  <p class="margin"><%= t('people.show.no_profile') %></p>
 <% end %>
 
 
