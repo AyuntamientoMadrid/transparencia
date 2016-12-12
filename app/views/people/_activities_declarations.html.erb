@@ -4,7 +4,7 @@
 
   <p><%= t("people.show.activities_explanation") %><p>
 
-  <ul class="tabs" data-tab role="tablist">
+  <ul class="tabs" data-tab>
     <% @activities_declarations.each_with_index do |declaration, index| %>
       <% active = index == @activities_declarations.length - 1 %>
       <li class="tab-title <%= 'active' if active %>">
@@ -26,7 +26,7 @@
     <% @activities_declarations.each_with_index do |declaration, index| %>
 
       <% active = index == @activities_declarations.length - 1 %>
-      <div role="tabpanel" id="activities_declaration_<%= iso_date(declaration.declaration_date) %>"
+      <div id="activities_declaration_<%= iso_date(declaration.declaration_date) %>"
            aria-hidden="<%= !active %>"
            class="content <%= 'active' if active %>">
 
@@ -43,12 +43,20 @@
             </tr>
           </thead>
           <tbody>
-            <% declaration.public_activities.each do |activity| %>
+            <% if declaration.public_activities.any? %>
+              <% declaration.public_activities.each do |activity| %>
+                <tr>
+                  <td><%= activity.entity %></td>
+                  <td><%= activity.position %></td>
+                  <td><%= activity.start_date %></td>
+                  <td><%= activity.end_date %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= activity.entity %></td>
-                <td><%= activity.position %></td>
-                <td><%= activity.start_date %></td>
-                <td><%= activity.end_date %></td>
+                <td colspan="4">
+                  <%= t("shared.no_data") %>
+                </td>
               </tr>
             <% end %>
           </tbody>
@@ -67,14 +75,22 @@
             </tr>
           </thead>
           <tbody>
-            <% declaration.private_activities.each do |activity| %>
+            <% if declaration.private_activities.any? %>
+              <% declaration.private_activities.each do |activity| %>
+                <tr>
+                  <td><%= activity.kind %></td>
+                  <td><%= activity.description %></td>
+                  <td><%= activity.entity %></td>
+                  <td><%= activity.position %></td>
+                  <td><%= activity.start_date %></td>
+                  <td><%= activity.end_date %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= activity.kind %></td>
-                <td><%= activity.description %></td>
-                <td><%= activity.entity %></td>
-                <td><%= activity.position %></td>
-                <td><%= activity.start_date %></td>
-                <td><%= activity.end_date %></td>
+                <td colspan="6">
+                  <%= t("shared.no_data") %>
+                </td>
               </tr>
             <% end %>
           </tbody>
@@ -90,11 +106,19 @@
             </tr>
           </thead>
           <tbody>
-            <% declaration.other_activities.each do |activity| %>
+            <% if declaration.other_activities.any? %>
+              <% declaration.other_activities.each do |activity| %>
+                <tr>
+                  <td><%= activity.description %></td>
+                  <td><%= activity.start_date %></td>
+                  <td><%= activity.end_date %></td>
+                </tr>
+              <% end %>
+            <% else %>
               <tr>
-                <td><%= activity.description %></td>
-                <td><%= activity.start_date %></td>
-                <td><%= activity.end_date %></td>
+                <td colspan="3">
+                  <%= t("shared.no_data") %>
+                </td>
               </tr>
             <% end %>
           </tbody>

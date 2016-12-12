@@ -1,12 +1,22 @@
 <% cache [locale_key, @person, @person.party, administrator_signed_in?] do %>
 
-  <% provide :title do %><%= t("transparency") %> - <%= @person.name %><% end %>
+  <% provide :title do %>
+    <%= t("transparency") %> -
+    <% if @person.councillor? %>
+      <%= t("people.councillors.title") %>
+    <% elsif @person.director? %>
+      <%= t("people.directors.title") %>
+    <% else %>
+      <%= t("people.temporary_workers.title") %>
+    <% end %>
+    - <%= @person.name %>
+  <% end %>
 
-  <ul class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-    <li role="menuitem">
+  <ul class="breadcrumbs" aria-label="breadcrumbs">
+    <li>
       <%= link_to t("home"), root_path %>
     </li>
-    <li role="menuitem">
+    <li>
       <% if @person.councillor? %>
         <%= link_to t("people.councillors.title"), councillors_people_path %>
       <% elsif @person.director? %>
@@ -15,7 +25,7 @@
         <%= link_to t("people.temporary_workers.title"), temporary_workers_people_path %>
       <% end %>
     </li>
-    <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <li class="unavailable" aria-disabled="true">
       <%= @person.name %>
     </li>
   </ul>
