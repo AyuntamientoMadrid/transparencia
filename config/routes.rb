@@ -3,8 +3,7 @@ Rails.application.routes.draw do
     skip: [:registrations]
   }
 
-  root 'home#welcome'
-  get  'home/index', to: "home#index", as: 'home'
+  root 'people#councillors'
 
   resources :areas, only: [:index] do
     resources :departments, only: [:index]

@@ -26,13 +26,14 @@ es:
       open_gov: "Gobierno abierto"
       home: "Portada"
       councillors: "Concejales/as"
-      directors: "Personal Directivo"
-      temporary_workers: "Personal Eventual"
+      directors: "Personal directivo"
+      temporary_workers: "Personal eventual"
       subventions: "Subvenciones"
       contracts: "Contratos"
       inquiries: "Peticiones de información"
       inquiries_url: "https://www-s.munimadrid.es/LETRA_WBPROCINTER/peticionInformacion.htm"
       calendars: "Agendas"
+      subtitle: "Concejales, directivos y eventuales"
     footer:
       description: "Este portal usa %{software} que es %{open_source}. De Madrid, para el mundo entero."
       open_source: "software libre"
@@ -120,9 +121,9 @@ es:
     councillors:
       title: "Concejales/as"
     directors:
-      title: "Personal Directivo"
+      title: "Personal directivo"
     temporary_workers:
-      title: "Personal Eventual"
+      title: "Personal eventual"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"
