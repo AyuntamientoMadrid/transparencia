@@ -533,6 +533,10 @@ header {
   clear: both;
   padding-left: rem-calc(12);
 
+  ul {
+    margin-bottom: 0;
+  }
+
   @media (min-width: $small-breakpoint) {
     padding-left: 0;
 
@@ -684,7 +688,8 @@ header {
     vertical-align: middle;
 
     &:hover {
-      color: $text-light;
+      background: white;
+      color: black;
       text-decoration: none;
     }
 
