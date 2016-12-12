@@ -15,7 +15,7 @@ feature 'Authorization' do
 
     scenario "Allow access to home" do
       visit "/"
-      expect(page).to have_content "Welcome to the transparency portal"
+      expect(page).to have_content "Councillors"
     end
 
     scenario "Allow access to people index" do
