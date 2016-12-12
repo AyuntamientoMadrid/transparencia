@@ -2,11 +2,11 @@
 
   <% provide :title do %><%= t("transparency") %> - <%= t("people.directors.title") %><% end %>
 
-  <ul class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-    <li role="menuitem">
+  <ul class="breadcrumbs" aria-label="breadcrumbs">
+    <li>
       <%= link_to t("home"), root_path %>
     </li>
-    <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+    <li class="unavailable" aria-disabled="true">
       <%= t("people.directors.title") %>
     </li>
   </ul>

@@ -4,7 +4,7 @@
 
   <p><%= t("people.show.activities_explanation") %><p>
 
-  <ul class="tabs" data-tab role="tablist">
+  <ul class="tabs" data-tab>
     <% @activities_declarations.each_with_index do |declaration, index| %>
       <% active = index == @activities_declarations.length - 1 %>
       <li class="tab-title <%= 'active' if active %>">
@@ -26,7 +26,7 @@
     <% @activities_declarations.each_with_index do |declaration, index| %>
 
       <% active = index == @activities_declarations.length - 1 %>
-      <div role="tabpanel" id="activities_declaration_<%= iso_date(declaration.declaration_date) %>"
+      <div id="activities_declaration_<%= iso_date(declaration.declaration_date) %>"
            aria-hidden="<%= !active %>"
            class="content <%= 'active' if active %>">
 

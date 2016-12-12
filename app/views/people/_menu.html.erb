@@ -4,22 +4,22 @@
   <h3 class="show-for-medium-up"><%= person.name %></h3>
 <% end %>
 
-<ul class="side-nav" role="navigation">
+<ul class="side-nav">
 
-  <li role="menuitem" data-magellan-arrival="profile">
+  <li data-magellan-arrival="profile">
     <a href="#profile">
       <%= t("people.profile") %>
     </a>
   </li>
 
   <% if person.councillor? %>
-    <li role="menuitem" data-magellan-arrival="assets_declarations">
+    <li data-magellan-arrival="assets_declarations">
       <a href="#assets_declarations">
         <%= t("people.assets_declarations") %>
       </a>
     </li>
 
-    <li role="menuitem" data-magellan-arrival="activities_declarations">
+    <li data-magellan-arrival="activities_declarations">
       <a href="#activities_declarations">
         <%= t("people.activities_declarations") %>
       </a>
@@ -27,20 +27,20 @@
   <% end %>
 
   <% if @person.previous_calendar_url.present? %>
-    <li role="menuitem">
+    <li>
       <%= link_to t("people.calendar.until", until: format_date(@person.previous_calendar_until)),
                   @person.previous_calendar_url,
                   target: '_blank' %>
     </li>
     <% if @person.calendar_url.present? %>
-      <li role="menuitem">
+      <li>
         <%= link_to t("people.calendar.from", from: format_date(@person.previous_calendar_until.next_day)),
                     @person.calendar_url ,
                     target: '_blank' %>
       </li>
     <% end %>
   <% elsif @person.calendar_url.present? %>
-    <li role="menuitem">
+    <li>
       <%= link_to t("people.calendar.official"), @person.calendar_url, target: '_blank' %>
     </li>
   <% end %>

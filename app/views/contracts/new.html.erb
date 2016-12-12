@@ -1,11 +1,11 @@
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-  <li role="menuitem">
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <li>
     <%= link_to t("home"), root_path %>
   </li>
-  <li role="menuitem">
+  <li>
     <%= link_to t("contracts.index.title"), contracts_path %>
   </li>
-  <li role="menuitem" class="unavailable" role="button" aria-disabled="true">
+  <li class="unavailable" aria-disabled="true">
     <%= t("contracts.new.title") %>
   </li>
 </nav>
