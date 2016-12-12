@@ -595,34 +595,46 @@ header {
 // 05. Footer
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-footer {
-  color: $text;
+.footer {
+  background: #292929;
+  margin-top: $line-height*2;
+  padding-top: $line-height;
 
-  .logo {
-    @include logo;
+  h1 {
+    font-size: rem-calc(24);
+    font-weight: bold;
+    line-height: $line-height;
+    margin: 0;
+    margin-bottom: $line-height/2;
 
     a {
-      color: #454A4C;
-      line-height: rem-calc(36);
-      padding-left: 0;
+      color: white;
       text-decoration: none;
     }
   }
 
   p {
+    color: white;
     font-size: $small-font-size;
 
     .info a {
       text-decoration: underline;
     }
+
+    &.title {
+      font-family: $font-logo;
+      font-weight: bold;
+      margin-bottom: $line-height/2;
+    }
   }
 
-  a, a:active, a:focus {
-    color: #454A4C;
+  a {
+    color: white;
     text-decoration: underline;
 
-    &:hover {
-      color: #171819;
+    &:hover, &:active, &:focus {
+      background: white;
+      color: black;
     }
   }
 
@@ -630,26 +642,24 @@ footer {
     padding-left: 0;
   }
 
-  h2 a {
-    border-bottom: 1px solid $text-light;
-    display: block;
-    font-size: rem-calc(24);
-    line-height: rem-calc(31);
-    padding-bottom: $line-height/4;
-    text-decoration: none;
+  .sites-list {
+    border-left: 2px solid #3F4649;
   }
 }
 
-.footer {
-  background: $border;
-  border-top: 6px solid $brand;
+.subfooter {
+  background: black;
   margin-top: $line-height*2;
   padding-top: $line-height;
+
+  ul li a {
+    margin-right: $line-height/2;
+  }
 }
 
-.subfooter {
-  border-top: 1px solid $text-light;
-  padding-top: $line-height/2;
+.copyright {
+  display: inline-block;
+  margin-right: rem-calc(30);
 }
 
 // 06. Social
