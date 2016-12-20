@@ -20,7 +20,7 @@ module Importers
           person.role = row[:cargo]
           person.job_level = JOB_LEVEL_CODES[row[:codigo_cargo]]
           # councillors should have a personal code and be managed on the other side of this if/else
-          raise person if person.job_level == 'councillor'
+          throw person if person.job_level == 'councillor'
         end
 
         profiled_at = DateTime.parse(row[:fecha])
