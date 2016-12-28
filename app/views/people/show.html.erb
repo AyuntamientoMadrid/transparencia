@@ -39,15 +39,6 @@
       </div>
 
       <div class="show-for-small">
-        <h1 class="inline-block"><%= @person.name %></h1>
-        <p><%= @person.unit %></p>
-        <p class="role"><%= @person.role %></p>
-        <div class="right">
-          <% if @person.party.present? %>
-            <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
-          <% end %>
-        </div>
-
         <div data-magellan-expedition>
           <%= render 'menu', person: @person %>
         </div>
@@ -55,49 +46,47 @@
     </div>
 
     <div class="small-12 medium-9 column">
-      <div class="show-for-medium-up">
-        <div class="row">
-          <div class="medium-9 columns">
-            <h1 class="inline-block"><%= @person.name %></h1>
+      <div class="row">
+        <div class="medium-9 columns">
+          <h1 class="inline-block"><%= @person.name %></h1>
 
-            <p class="role"><%= @person.role %></p>
+          <p class="role"><%= @person.role %></p>
 
-            <p><%= @person.unit %></p>
+          <p><%= @person.unit %></p>
 
-            <% if @person.starting_date.present? %>
-              <p><%= t('people.show.starting_date', starting_date: format_date(@person.starting_date)) %></p>
-            <% end %>
-            <% if @person.not_working? %>
-              <p><%= t('people.show.leaving_date', leaving_date: format_date(@person.leaving_date)) %></p>
-            <% end %>
+          <% if @person.starting_date.present? %>
+            <p><%= t('people.show.starting_date', starting_date: format_date(@person.starting_date)) %></p>
+          <% end %>
+          <% if @person.not_working? %>
+            <p><%= t('people.show.leaving_date', leaving_date: format_date(@person.leaving_date)) %></p>
+          <% end %>
 
-            <% if @person.twitter.present? || @person.facebook.present? %>
-              <p>
-                <% if @person.twitter.present? %>
-                  <%= link_to twitter_url(@person.twitter), target: :blank do %>
-                    <i class="icon-twitter"></i>
-                    <%= @person.twitter %>
-                  <% end %>
+          <% if @person.twitter.present? || @person.facebook.present? %>
+            <p>
+              <% if @person.twitter.present? %>
+                <%= link_to twitter_url(@person.twitter), target: :blank do %>
+                  <i class="icon-twitter"></i>
+                  <%= @person.twitter %>
                 <% end %>
+              <% end %>
 
-                <% if @person.twitter.present? && @person.facebook.present? %>
-                  &nbsp;|&nbsp;
-                <% end %>
+              <% if @person.twitter.present? && @person.facebook.present? %>
+                &nbsp;|&nbsp;
+              <% end %>
 
-                <% if @person.facebook.present? %>
-                  <%= link_to facebook_url(@person.facebook), target: :blank do %>
-                    <i class="icon-facebook"></i>
-                    <%= t("people.facebook") %>
-                  <% end %>
+              <% if @person.facebook.present? %>
+                <%= link_to facebook_url(@person.facebook), target: :blank do %>
+                  <i class="icon-facebook"></i>
+                  <%= t("people.facebook") %>
                 <% end %>
-              </p>
-            <% end %>
-          </div>
-          <div class="medium-3 columns text-right">
-            <% if @person.party.present? %>
-              <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
-            <% end %>
-          </div>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+        <div class="medium-3 columns text-right">
+          <% if @person.party.present? %>
+            <%= image_tag (@person.party.logo), alt: @person.party.name, size: "150x75" %>
+          <% end %>
         </div>
       </div>
 
