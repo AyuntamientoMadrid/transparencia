@@ -2,9 +2,8 @@ module Importers
   class CalendarsImporter < BaseImporter
     def import!
       each_row do |row|
-        admin_name = row[:titular].split(',')
-        admin_first_name = transliterate(admin_name.last.strip)
-        admin_last_name = transliterate(admin_name.first.strip) # not an error, the csv has the names switched
+        admin_last_name = transliterate(row[:apellidos])
+        admin_first_name = transliterate(row[:nombre])
 
         person = Person.where("admin_first_name = ? AND admin_last_name = ?", admin_first_name, admin_last_name).first
         if person
