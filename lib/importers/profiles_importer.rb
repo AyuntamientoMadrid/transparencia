@@ -1,11 +1,10 @@
 module Importers
   class ProfilesImporter < BaseImporter
-
     JOB_LEVEL_CODES = {
-      'C'=> 'councillor',
+      'C' => 'councillor',
       'D' => 'director',
       'E' => 'temporary_worker'
-    }
+    }.freeze
 
     def import!
       each_row(col_sep: ",") do |row|

@@ -106,6 +106,7 @@ en:
     no_party: "No assigned party"
     show:
       starting_date: "Starting date: %{starting_date}"
+      profile_date: "Profile update: ${profile_date}"
       leaving_date: "Leaving date: %{leaving_date}"
       confirm_deletion: "Are you sure you want to erase this person?"
       disclaimer: "(*) This information is subject to changes if errors are detected"
