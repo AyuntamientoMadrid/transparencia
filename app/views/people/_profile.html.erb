@@ -2,6 +2,10 @@
   <a name="profile" data-magellan-destination="profile"></a>
   <h2 class="lead profile"><%= t("people.profile") %></h2>
 
+  <% if @person.profiled_at.present? %>
+    <p><%= t('people.show.profile_date', profile_date: format_date(@person.profiled_at.to_date)) %></p>
+  <% end %>
+
   <% if @person.has_studies? %>
     <table>
       <caption><%= t("people.studies.title") %></caption>
