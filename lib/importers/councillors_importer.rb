@@ -8,6 +8,7 @@ module Importers
         puts "Importing councillor: #{councillor.name}"
         councillor.job_level = 'councillor'
         councillor.councillor_code = row[:num_trans]
+        councillor.personal_code = row[:num_trans]
         councillor.councillor_order = row[:councillor_order]
         councillor.party = Party.find_by!(long_name: row[:party_long_name])
         councillor.email = "tmp@madrid.es"
