@@ -94,6 +94,8 @@ module ExcelImporters
           person.other              = row[:otra_informacion]
 
           person.save!
+        else
+          puts "Skipping #{person.name}. #{person.profiled_at} >= #{profiled_at}"
         end
       end
     end
