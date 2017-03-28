@@ -76,7 +76,7 @@ module ExcelImporters
 
           person.profiled_at = profiled_at
 
-          puts "Importing profile for #{person.name}"
+          log "Importing profile for #{person.name}"
 
           person.twitter  = row[:cuenta_de_twitter]
           person.facebook = row[:cuenta_de_facebook]
@@ -95,7 +95,7 @@ module ExcelImporters
 
           person.save!
         else
-          puts "Skipping #{person.name}. #{person.profiled_at} >= #{profiled_at}"
+          log "Skipping #{person.name}. #{person.profiled_at} >= #{profiled_at}"
         end
       end
     end
@@ -145,7 +145,7 @@ module ExcelImporters
           person.add_private_job(row[col], row[col+1], row[col+2], row[col+3])
         end
 
-        career_comment_col = index(:"4_cargo_actividad")+4
+        career_comment_col = index(:"4_cargo_actividad") + 4
         person.career_comment = row[career_comment_col]
 
         person.public_jobs_level      = row[:grado_consolidado]

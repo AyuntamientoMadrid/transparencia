@@ -42,10 +42,10 @@ describe ExcelImporters::Base do
     end
   end
 
-  describe 'puts' do
+  describe 'log' do
     it 'uses the passed in logger class to log stuff' do
-      expect(logger).to receive(:puts).with('a message')
-      importer.puts('a message')
+      expect(logger).to receive(:log).with('a message')
+      importer.log('a message')
     end
   end
 
@@ -56,8 +56,8 @@ describe ExcelImporters::Base do
     end
 
     it 'calls import!, catches exceptions and logs them, and returns false if there is a problem' do
-      expect(importer).to receive(:import!).and_raise("a fake error happened")
-      expect(logger).to receive(:puts).with('a fake error happened')
+      expect(importer).to receive(:import!).and_raise('a fake error happened')
+      expect(logger).to receive(:log).with('a fake error happened')
       expect(importer.safe_import!).to eq(false)
     end
   end

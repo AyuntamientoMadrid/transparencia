@@ -26,7 +26,7 @@ module ExcelImporters
     end
 
     def import!
-      each_row { |row| puts row.inspect }
+      each_row { |row| log row.inspect }
     end
 
     def safe_import!
@@ -34,17 +34,17 @@ module ExcelImporters
         import!
         true
       rescue StandardError => error
-        @logger.puts(error.to_s)
+        @logger.log(error.to_s)
         false
       end
     end
 
-    def puts(str)
-      @logger.puts(str)
+    def log(str)
+      @logger.log(str)
     end
 
     class NullLogger
-      def puts(str)
+      def log(str)
       end
     end
 
