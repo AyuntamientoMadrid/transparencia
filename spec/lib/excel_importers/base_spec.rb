@@ -49,6 +49,19 @@ describe ExcelImporters::Base do
     end
   end
 
+  describe 'safe_import!' do
+    it 'calls import! and returns true if everything goes ok' do
+      expect(importer).to receive(:import!)
+      expect(importer.safe_import!).to eq(true)
+    end
+
+    it 'calls import!, catches exceptions and logs them, and returns false if there is a problem' do
+      expect(importer).to receive(:import!).and_raise("a fake error happened")
+      expect(logger).to receive(:puts).with('a fake error happened')
+      expect(importer.safe_import!).to eq(false)
+    end
+  end
+
   describe 'cell transformations' do
     it 'does not transform integers into floats' do
       year = nil
