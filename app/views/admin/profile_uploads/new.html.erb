@@ -1,0 +1,6 @@
+<h1><%= t('admin.profile_uploads.new.title') %></h1>
+
+<%= form_for :profile_upload, url: admin_profile_upload_path do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit(class: "button radius", value: t("shared.submit")) %>
+<% end %>
