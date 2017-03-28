@@ -7,4 +7,4 @@ set :stage, :production
 set :rails_env, :production
 
 server deploysecret(:server1), user: deploysecret(:user), roles: %w(web app db importer)
-#server deploysecret(:server2), user: deploysecret(:user), roles: %w(web app db importer cron)
+server deploysecret(:server2), user: deploysecret(:user), roles: %w(web app db importer)
