@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121153103) do
+ActiveRecord::Schema.define(version: 20170327180347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20161121153103) do
     t.date     "leaving_date"
     t.integer  "councillor_order"
     t.date     "starting_date"
+    t.string   "secondary_role"
   end
 
   add_index "people", ["admin_first_name"], name: "index_people_on_admin_first_name", using: :btree
