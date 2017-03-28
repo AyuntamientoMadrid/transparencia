@@ -47,7 +47,7 @@ namespace :import do
   namespace :spec do
     desc "Imports import-data/PerfilProfesional.csv into the people table"
     task profiles: 'import:councillors' do
-      ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', 2).import!
+      ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', headers_row: 2).import!
       Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
     end
   end

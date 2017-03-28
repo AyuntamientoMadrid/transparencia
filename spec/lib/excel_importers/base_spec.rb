@@ -2,7 +2,13 @@ require 'rails_helper'
 require 'excel_importers/base'
 
 describe ExcelImporters::Base do
-  let(:importer) { ExcelImporters::Base.new('./spec/fixtures/files/profiles.xls', 2) }
+  let(:logger) { ExcelImporters::Base::NullLogger.new }
+
+  let(:importer) do
+    ExcelImporters::Base.new('./spec/fixtures/files/profiles.xls',
+                             headers_row: 2,
+                             logger: logger)
+  end
 
   describe '#headers' do
     subject { importer.headers }
@@ -36,12 +42,18 @@ describe ExcelImporters::Base do
     end
   end
 
-  describe 'cell transformations' do
+  describe 'puts' do
+    it 'uses the passed in logger class to log stuff' do
+      expect(logger).to receive(:puts).with('a message')
+      importer.puts('a message')
+    end
+  end
 
-    it "does not transform integers into floats" do
+  describe 'cell transformations' do
+    it 'does not transform integers into floats' do
       year = nil
       importer.each_row do |row|
-        if row[:n_personal] == 2379 then
+        if row[:n_personal] == 2379
           year = row[importer.index(:"1_titulacion_oficial") + 2]
           break
         end
@@ -49,19 +61,16 @@ describe ExcelImporters::Base do
       expect(year).to be_an(Integer)
     end
 
-    it "does not allow NULL fields to pass" do
+    it 'does not allow NULL fields to pass' do
       studies_comment = nil
       importer.each_row do |row|
-        if row[:n_personal] == 2379  then
+        if row[:n_personal] == 2379
           studies_comment = row[importer.index(:"4_titulacion_oficial") + 4]
           break
         end
       end
-
       expect(studies_comment).to be_nil
       expect(studies_comment).to_not eq('NULL')
     end
-
   end
-
 end
