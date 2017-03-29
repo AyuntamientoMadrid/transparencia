@@ -1,0 +1,13 @@
+
+<h1><%= t('admin.profile_uploads.show.title') %></h1>
+
+<small><pre>
+<%= @log %>
+</pre></small>
+
+<p class="text-right">
+<%= link_to new_admin_profile_upload_path, class: 'button' do %>
+  <i class="icon-angle-left"></i>
+  <%= t('shared.back') %>
+<% end %>
+</p>
