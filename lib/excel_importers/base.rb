@@ -1,6 +1,7 @@
 module ExcelImporters
   class Base
     attr_reader :headers
+    attr_reader :logger
 
     def initialize(path_to_file, headers_row: 1, logger: NullLogger.new)
       @book = Spreadsheet.open(path_to_file)
@@ -26,26 +27,21 @@ module ExcelImporters
     end
 
     def import!
-      each_row { |row| log row.inspect }
+      each_row { |row| logger.info(row.inspect) }
     end
 
     def safe_import!
-      begin
-        import!
-        true
-      rescue StandardError => error
-        @logger.log(error.to_s)
-        false
-      end
-    end
-
-    def log(str)
-      @logger.log(str)
+      import!
+      true
+    rescue => err
+      logger.error(err.message)
+      false
     end
 
     class NullLogger
-      def log(str)
-      end
+      def info(str) end
+
+      def error(str) end
     end
 
     private

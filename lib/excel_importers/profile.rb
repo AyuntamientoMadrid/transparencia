@@ -76,7 +76,7 @@ module ExcelImporters
 
           person.profiled_at = profiled_at
 
-          log "Importing profile for #{person.name}"
+          logger.info "Importing profile for #{person.name}"
 
           person.twitter  = row[:cuenta_de_twitter]
           person.facebook = row[:cuenta_de_facebook]
@@ -95,7 +95,7 @@ module ExcelImporters
 
           person.save!
         else
-          log "Skipping #{person.name}. #{person.profiled_at} >= #{profiled_at}"
+          logger.info "Skipping #{person.name}. #{person.profiled_at} >= #{profiled_at}"
         end
       end
     end

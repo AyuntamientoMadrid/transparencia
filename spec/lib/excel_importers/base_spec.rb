@@ -42,13 +42,6 @@ describe ExcelImporters::Base do
     end
   end
 
-  describe 'log' do
-    it 'uses the passed in logger class to log stuff' do
-      expect(logger).to receive(:log).with('a message')
-      importer.log('a message')
-    end
-  end
-
   describe 'safe_import!' do
     it 'calls import! and returns true if everything goes ok' do
       expect(importer).to receive(:import!)
@@ -57,7 +50,7 @@ describe ExcelImporters::Base do
 
     it 'calls import!, catches exceptions and logs them, and returns false if there is a problem' do
       expect(importer).to receive(:import!).and_raise('a fake error happened')
-      expect(logger).to receive(:log).with('a fake error happened')
+      expect(logger).to receive(:error).with('a fake error happened')
       expect(importer.safe_import!).to eq(false)
     end
   end
