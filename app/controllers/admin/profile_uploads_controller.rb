@@ -7,11 +7,11 @@ class Admin::ProfileUploadsController < Admin::BaseController
   end
 
   def create
-    file =  profile_upload_params[:file].tempfile
+    file = profile_upload_params[:file].tempfile
 
     @log = StringIO.open do |strio|
       logger = Logger.new(strio)
-      logger.formatter = proc do |severity, datetime, progname, msg|
+      logger.formatter = proc do |severity, _datetime, _progname, msg|
         "#{severity}: #{msg}\n"
       end
 
@@ -21,7 +21,7 @@ class Admin::ProfileUploadsController < Admin::BaseController
       if importer.safe_import!
         flash[:notice] = t('admin.profile_uploads.create.no_errors')
       else
-        flash[:error] = t('admin.profile_uploads.create.errors')
+        flash[:alert] = t('admin.profile_uploads.create.errors')
       end
 
       logger.close
