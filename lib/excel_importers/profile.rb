@@ -70,13 +70,14 @@ module ExcelImporters
           person.job_level = job_level
         end
 
-        profiled_at = row[:fecha]
+        profiled_at = row[:fecha].in_time_zone
 
         if person.profiled_at.blank? || person.profiled_at < profiled_at
 
           person.profiled_at = profiled_at
 
-          logger.info "Importing profile for #{person.name}"
+          logger.info I18n.t('excel_importers.profile.importing',
+                             person: person.name)
 
           person.twitter  = row[:cuenta_de_twitter]
           person.facebook = row[:cuenta_de_facebook]
@@ -95,7 +96,10 @@ module ExcelImporters
 
           person.save!
         else
-          logger.info "Skipping #{person.name}. #{person.profiled_at} >= #{profiled_at}"
+          logger.info I18n.t('excel_importers.profile.skipping',
+                             person: person.name,
+                             person_profiled_at: person.profiled_at.iso8601,
+                             file_profiled_at: profiled_at.iso8601)
         end
       end
     end

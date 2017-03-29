@@ -7,9 +7,19 @@ es:
   admin:
     menu:
       title: "Administración"
+      profile_uploads: "Subir fichero de perfiles"
       close_session: "Cerrar sesión"
     dashboard:
       title: "Administración"
+    profile_uploads:
+      create:
+        errors: 'Se detectaron errores al subir el fichero'
+        no_errors: 'Fichero subido sin errores'
+      new:
+        title: 'Subir de fichero de perfiles'
+      show:
+        title: 'Subir de fichero de perfiles: resultados'
+
   index:
     outline: "Portada"
     title: "Transparencia"
@@ -368,6 +378,10 @@ es:
       kind: "Clase"
       comments: "Observaciones"
       amount: "Importe"
+  excel_importers:
+    profile:
+      importing: "Importando %{person}"
+      skipping: "Omitiendo importación de %{person}: %{person_profiled_at} >= %{file_profiled_at}"
   static_pages:
     accessibility:
       title: "Accesibilidad"

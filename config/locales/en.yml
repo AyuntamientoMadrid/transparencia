@@ -7,9 +7,18 @@ en:
   admin:
     menu:
       title: "Administration"
+      profile_uploads: "Profile uploads"
       close_session: "Close session"
     dashboard:
       title: "Administration"
+    profile_uploads:
+      create:
+        errors: 'Errors were detected while processing the file'
+        no_errors: 'File processed successfully'
+      new:
+        title: 'Upload profile file'
+      show:
+        title: 'Upload profile file: results'
   index:
     outline: "Home"
     title: "Welcome to the transparency portal"
@@ -365,6 +374,10 @@ en:
       kind: "Class"
       comments: "Comments"
       amount: "Amount"
+  excel_importers:
+    profile:
+      importing: "Importing %{person}"
+      skipping: "Skipping %{person}: %{person_profiled_at} >= %{file_profiled_at}"
   static_pages:
     accessibility:
       title: "Accessibility"
@@ -398,7 +411,6 @@ en:
         subtitle: "Subtitle"
         link: "External link"
         content: "Content"
-
   activemodel:
     models:
       contact: "Contact"
