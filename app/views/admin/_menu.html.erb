@@ -4,8 +4,11 @@
       <%= link_to t('admin.menu.title'), admin_root_path %>
     </li>
 
-    <li>
-      <%= link_to t('admin.menu.profile_uploads'), new_admin_profile_upload_path %>
+    <li class="<%= 'active' if controller_name == 'profile_uploads' %>">
+      <%= link_to new_admin_profile_upload_path do %>
+        <i class="icon-document"></i>
+        <%= t('admin.menu.profile_uploads') %>
+      <% end %>
     </li>
 
     <li>
