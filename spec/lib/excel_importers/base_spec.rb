@@ -21,6 +21,18 @@ describe ExcelImporters::Base do
     end
   end
 
+  describe '#hash_headers' do
+    subject { importer.hash_headers }
+    it 'is an array' do
+      expect(subject).to be_an(Array)
+    end
+    it 'contains the strings on the first row of the first sheet' do
+      expect(subject.first).to eq(:fecha)
+      expect(subject.last).to eq(:resultado)
+    end
+  end
+
+
   describe '#each_row' do
     it 'receives a hash with the headers transliteraded and symbolized' do
       count = 0
