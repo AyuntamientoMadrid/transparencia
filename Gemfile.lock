@@ -210,6 +210,13 @@ GEM
     rinku (1.7.3)
     rollbar (2.8.3)
       multi_json
+    roo (2.7.1)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
+    roo-xls (1.0.0)
+      nokogiri
+      roo (>= 2.0.0beta1, < 3)
+      spreadsheet (> 0.9.0)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -233,6 +240,7 @@ GEM
     rspec-support (3.4.1)
     ruby-ole (1.2.12.1)
     ruby-progressbar (1.7.5)
+    rubyzip (1.2.1)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -326,9 +334,10 @@ DEPENDENCIES
   rails (= 4.2.7.1)
   rinku
   rollbar (~> 2.8.3)
+  roo
+  roo-xls
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
-  spreadsheet
   spring
   therubyracer
   trix

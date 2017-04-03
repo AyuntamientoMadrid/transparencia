@@ -379,6 +379,8 @@ es:
       comments: "Observaciones"
       amount: "Importe"
   excel_importers:
+    base:
+      could_not_find_header: "No se pudo encontrar la cabecera '%{header}' en el archivo"
     profile:
       importing: "Importando %{person}"
       skipping: "Omitiendo importación de %{person}: %{person_profiled_at} >= %{file_profiled_at}"

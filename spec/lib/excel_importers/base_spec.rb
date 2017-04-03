@@ -5,9 +5,11 @@ describe ExcelImporters::Base do
   let(:logger) { ExcelImporters::Base::NullLogger.new }
 
   let(:importer) do
-    ExcelImporters::Base.new('./spec/fixtures/files/profiles.xls',
-                             headers_row: 2,
-                             logger: logger)
+    ExcelImporters::Base.new('./spec/fixtures/files/profiles.xls', 'Fecha', logger: logger)
+  end
+
+  let(:importer2) do
+    ExcelImporters::Base.new('./spec/fixtures/files/profiles2.xls', 'Fecha', logger: logger)
   end
 
   describe '#headers' do
