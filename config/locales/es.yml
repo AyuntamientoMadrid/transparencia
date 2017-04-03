@@ -41,7 +41,7 @@ es:
       transparency_repo: "la aplicación de Transparencia del Ayuntamiento de Madrid"
       transparency_repo_url: "https://github.com/ayuntamientomadrid/transparencia"
       copyright: "Ayuntamiento de Madrid, %{year}"
-      transparency_url: "https://transparencia.madrid.es"
+      transparency_url: "http://transparencia.madrid.es"
       contact: "Contactar"
       contact_url: "https://www.madrid.es/contactar"
       privacy: "Protección de datos"

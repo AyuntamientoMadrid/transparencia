@@ -41,7 +41,7 @@ en:
       transparency_repo: "the Transparency software from Madrid City Council"
       transparency_repo_url: "https://github.com/ayuntamientomadrid/transparencia"
       copyright: "Ayuntamiento de Madrid, %{year}"
-      transparency_url: "https://transparencia.madrid.es"
+      transparency_url: "http://transparencia.madrid.es"
       contact: "Contact"
       contact_url: "https://www.madrid.es/contactar"
       privacy: "Privacy Policy"
