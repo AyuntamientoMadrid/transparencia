@@ -7,7 +7,7 @@ describe ExcelImporters::Profile, clean_as_group: true do
   before(:all) do
     Importers::PartiesImporter.new('./import-data/parties.csv').import!
     Importers::CouncillorsImporter.new('./import-data/councillors.csv').import!
-    ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', headers_row: 2).import!
+    ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', 'Fecha').import!
   end
 
   describe '#import!' do
