@@ -40,10 +40,10 @@ module ExcelImporters
     def headers
       unless @headers
         sheet = book.sheet(0)
-        (sheet.first_row .. sheet.last_row).each do |row_index|
-          if sheet.cell(row_index, 1) == @header_field
+        sheet.each_with_index do |row, row_index|
+          if row.first == @header_field
             @headers_row = row_index
-            @headers = sheet.row(row_index)
+            @headers = row
             break
           end
         end
@@ -75,26 +75,16 @@ module ExcelImporters
       def row_to_hash(row, row_index)
         row_hash = {}
         row.each_with_index do |value, col_index|
-          value = transform_value(value, is_general_number?(col_index, row_index))
+          value = transform_value(value, col_index, row_index)
           row_hash[col_index] = value
           row_hash[hash_headers[col_index]] ||= value
         end
         row_hash
       end
 
-      def is_general_number?(col_index, row_index)
-        if book.respond_to?(:workbook) # xls, use spreadsheet gem to get format
-          sheet = book.workbook.worksheets.first
-          sheet.rows[row_index].format(col_index).number_format == 'General'
-        else
-          debugger
-        end
-      end
-
-      def transform_value(value, general_number)
+      def transform_value(value, col_index, row_index)
         if value.is_a?(Float) &&
-           value.round == value &&
-           general_number
+           value.round == value
           value.round
         elsif value == 'NULL'
           nil
