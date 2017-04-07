@@ -16,7 +16,7 @@ class Admin::ProfileUploadsController < Admin::BaseController
       end
 
       importer = ExcelImporters::Profile.new file,
-                                             headers_row: 2,
+                                             header_field: "Fecha",
                                              logger: logger
       if importer.safe_import!
         flash[:notice] = t('admin.profile_uploads.create.no_errors')

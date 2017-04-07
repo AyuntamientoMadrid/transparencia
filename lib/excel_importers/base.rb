@@ -1,9 +1,11 @@
+require 'html_table'
+
 module ExcelImporters
   class Base
     attr_reader :headers
     attr_reader :logger
 
-    def initialize(path_to_file, header_field, logger: NullLogger.new)
+    def initialize(path_to_file, header_field: nil, logger: NullLogger.new)
       @path_to_file = path_to_file
       @header_field = header_field
       @logger = logger
@@ -11,7 +13,7 @@ module ExcelImporters
 
     def each_row(&_block)
       headers # forces calculation of @headers & @headers_row
-      book.sheet(0).each_with_index do |row, row_index|
+      sheet.each_with_index do |row, row_index|
         next if row_index <= @headers_row # skip header row
         row_hash = row_to_hash(row, row_index)
         next if row_hash.values.all?(&:blank?)
@@ -39,16 +41,21 @@ module ExcelImporters
 
     def headers
       unless @headers
-        sheet = book.sheet(0)
-        sheet.each_with_index do |row, row_index|
-          if row.first == @header_field
-            @headers_row = row_index
-            @headers = row
-            break
+        if @header_field.present?
+          sheet.each_with_index do |row, row_index|
+            if row.first == @header_field
+              @headers_row = row_index
+              @headers = row
+              break
+            end
           end
+        else
+          @headers_row = 0
+          @headers = sheet.first
         end
         unless @headers
-          raise I18n.t('excel_importers.base.could_not_find_header', header: @header_field)
+          raise I18n.t('excel_importers.base.could_not_find_header',
+                       header: @header_field)
         end
       end
       @headers
@@ -68,8 +75,15 @@ module ExcelImporters
 
     private
 
-      def book
-        @book ||= Roo::Spreadsheet.open(@path_to_file)
+      def sheet
+        unless @sheet
+          begin
+            @sheet = Roo::Spreadsheet.open(@path_to_file).sheet(0)
+          rescue Ole::Storage::FormatError
+            @sheet = HTMLTable.open(@path_to_file)
+          end
+        end
+        @sheet
       end
 
       def row_to_hash(row, row_index)

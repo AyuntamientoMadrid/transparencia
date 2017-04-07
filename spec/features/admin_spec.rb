@@ -71,6 +71,6 @@ feature 'Admin' do
     click_button 'Submit'
 
     expect(page).to have_content 'Errors were detected while processing the file'
-    expect(page).to have_content 'ERROR: OLE2 signature is invalid'
+    expect(page).to have_content "Can't detect the type"
   end
 end
