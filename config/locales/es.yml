@@ -7,11 +7,14 @@ es:
   admin:
     menu:
       title: "Administración"
-      profile_uploads: "Subir fichero de perfiles"
+      profile_uploads: "Fichero de perfiles"
       close_session: "Cerrar sesión"
     dashboard:
       title: "Administración"
     profile_uploads:
+      index:
+        title: 'Histórico de subidas'
+        new_button: 'Subir un nuevo fichero'
       create:
         errors: 'Se detectaron errores al subir el fichero'
         no_errors: 'Fichero subido sin errores'
@@ -19,7 +22,7 @@ es:
         title: 'Subir de fichero de perfiles'
       show:
         title: 'Subir de fichero de perfiles: resultados'
-
+        back: 'Volver al listado'
   index:
     outline: "Portada"
     title: "Transparencia"
@@ -406,6 +409,8 @@ es:
     add: "Añadir"
     target_blank: "(se abre en ventana nueva)"
     no_data: "Esta sección carece de datos."
+    "true": "Sí"
+    "false": "No"
   activerecord:
     attributes:
       objective:
@@ -418,6 +423,14 @@ es:
         subtitle: "Subtítulo"
         link: "Enlace externo"
         content: "Contenido"
+      profile_upload:
+        file: "Fichero"
+        created_at: "Fecha de subida"
+        author_email: "Autor"
+        original_filename: "Nombre del fichero"
+        file_format: "Tipo de fichero"
+        translated_successful: "Importación sin errores"
+
   activemodel:
     models:
       contact: "Contacto"

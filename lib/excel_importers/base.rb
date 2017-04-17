@@ -4,6 +4,7 @@ module ExcelImporters
   class Base
     attr_reader :headers
     attr_reader :logger
+    attr_reader :file_format
 
     def initialize(path_to_file, header_field: nil, logger: NullLogger.new)
       @path_to_file = path_to_file
@@ -79,8 +80,10 @@ module ExcelImporters
         unless @sheet
           begin
             @sheet = Roo::Spreadsheet.open(@path_to_file).sheet(0)
+            @file_format = :xls
           rescue Ole::Storage::FormatError
             @sheet = HTMLTable.open(@path_to_file)
+            @file_format = :html
           end
         end
         @sheet

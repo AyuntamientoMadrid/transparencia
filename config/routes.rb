@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "dashboard#index"
-    resource :profile_upload, only: [:new, :create, :show]
+    resources :profile_uploads, only: [:new, :create, :show, :index]
   end
 
   # static pages

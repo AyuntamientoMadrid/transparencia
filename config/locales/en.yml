@@ -12,6 +12,9 @@ en:
     dashboard:
       title: "Administration"
     profile_uploads:
+      index:
+        title: 'Upload history'
+        new_button: 'Upload a new file'
       create:
         errors: 'Errors were detected while processing the file'
         no_errors: 'File processed successfully'
@@ -19,6 +22,7 @@ en:
         title: 'Upload profile file'
       show:
         title: 'Upload profile file: results'
+        back: 'Back to the list'
   index:
     outline: "Home"
     title: "Welcome to the transparency portal"
@@ -401,6 +405,8 @@ en:
     delete: "Delete"
     target_blank: "(opens in new window)"
     no_data: "This section has no data."
+    "true": "Yes"
+    "false": "No"
   activerecord:
     attributes:
       objective:
@@ -413,6 +419,13 @@ en:
         subtitle: "Subtitle"
         link: "External link"
         content: "Content"
+      profile_upload:
+        file: "File"
+        created_at: "Created at"
+        author_email: "Author"
+        original_filename: "Original filename"
+        file_format: "File format"
+        translated_successful: "No errors while importing"
   activemodel:
     models:
       contact: "Contact"
