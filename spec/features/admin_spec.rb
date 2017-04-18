@@ -40,6 +40,7 @@ feature 'Admin' do
     visit admin_root_path
 
     click_link 'Profile uploads'
+    click_link 'Upload a new file'
 
     attach_file('profile_upload_file', Rails.root.join('spec/fixtures/files/single_profile.xls'))
     click_button 'Submit'
@@ -53,6 +54,7 @@ feature 'Admin' do
     visit admin_root_path
 
     click_link 'Profile uploads'
+    click_link 'Upload a new file'
 
     attach_file('profile_upload_file', Rails.root.join('spec/fixtures/files/single_councillor.xls'))
     click_button 'Submit'
@@ -66,6 +68,7 @@ feature 'Admin' do
     visit admin_root_path
 
     click_link 'Profile uploads'
+    click_link 'Upload a new file'
 
     attach_file('profile_upload_file', Rails.root.join('spec/fixtures/files/banana.gif'))
     click_button 'Submit'
