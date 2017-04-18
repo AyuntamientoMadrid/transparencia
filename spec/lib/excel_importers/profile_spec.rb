@@ -6,7 +6,7 @@ require 'importers/councillors_importer'
 describe ExcelImporters::Profile, clean_as_group: true do
   [
     ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', header_field: 'Fecha'),
-    ExcelImporters::Profile.new('./spec/fixtures/files/profiles_2.xls', header_field: 'Fecha'),
+    ExcelImporters::Profile.new('./spec/fixtures/files/profiles_html.xls', header_field: 'Fecha'),
   ].each do |importer|
 
     describe '#import!', clean_as_group: true do

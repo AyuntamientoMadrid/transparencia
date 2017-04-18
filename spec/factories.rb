@@ -78,4 +78,8 @@ FactoryGirl.define do
     sequence(:title)  { |n| "Page title #{n}" }
   end
 
+  factory :profile_upload do
+    association :author, factory: :administrator
+  end
+
 end

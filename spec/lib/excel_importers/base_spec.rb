@@ -6,7 +6,7 @@ logger = ExcelImporters::Base::NullLogger.new
 describe ExcelImporters::Base do
 
   [ ExcelImporters::Base.new('./spec/fixtures/files/profiles.xls', header_field: 'Fecha', logger: logger),
-    ExcelImporters::Base.new('./spec/fixtures/files/profiles_2.xls', header_field: 'Fecha', logger: logger) ].each do |importer|
+    ExcelImporters::Base.new('./spec/fixtures/files/profiles_html.xls', header_field: 'Fecha', logger: logger) ].each do |importer|
 
     describe '#headers' do
       subject { importer.headers }
