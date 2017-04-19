@@ -48,6 +48,7 @@ es:
       calendars: "Agendas"
       subtitle: "Concejales, directivos y eventuales"
     footer:
+      admin: "Administración"
       description: "Este portal usa %{software} que es %{open_source}."
       open_source: "software libre"
       open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
@@ -416,6 +417,7 @@ es:
       administrator:
         password: "Clave"
         password_confirmation: "Repetir clave"
+        remember_me: "Recordarme"
       objective:
         title: "Título"
         description: "Descripción"

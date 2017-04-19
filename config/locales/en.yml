@@ -48,6 +48,7 @@ en:
       calendars: "Calendars"
       subtitle: "Councillors, directors and temporary workers"
     footer:
+      admin: "Administration"
       description: "This portal uses %{software}, is %{open_source}."
       open_source: "software libre"
       open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
