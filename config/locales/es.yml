@@ -16,13 +16,13 @@ es:
         title: 'Histórico de subidas'
         new_button: 'Subir un nuevo fichero'
       create:
-        errors: 'Se detectaron errores al subir el fichero'
-        no_errors: 'Fichero subido sin errores'
+        errors: 'Se detectaron errores al subir el fichero. No se han guardado cambios en la base de datos'
+        no_errors: 'Fichero subido sin errores. Cambios guardados en la base de datos'
       new:
         title: 'Subir de fichero de perfiles'
       show:
         title: 'Subir de fichero de perfiles: resultados'
-        back: 'Volver al listado'
+        back: 'Volver al histórico de subidas'
   index:
     outline: "Portada"
     title: "Transparencia"
@@ -429,7 +429,7 @@ es:
         author_email: "Autor"
         original_filename: "Nombre del fichero"
         file_format: "Tipo de fichero"
-        translated_successful: "Importación sin errores"
+        translated_successful: "Importación completada con éxito"
 
   activemodel:
     models:
