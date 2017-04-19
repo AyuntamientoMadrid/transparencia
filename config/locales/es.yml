@@ -413,6 +413,9 @@ es:
     "false": "No"
   activerecord:
     attributes:
+      administrator:
+        password: "Clave"
+        password_confirmation: "Repetir clave"
       objective:
         title: "Título"
         description: "Descripción"
