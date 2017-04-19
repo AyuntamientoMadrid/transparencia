@@ -5,10 +5,11 @@ require 'excel_importers/profile'
 logger = ExcelImporters::Base::NullLogger.new
 
 describe ExcelImporters::Base do
-
   describe '#import' do
-    it "Rolls back imports when it finds an error" do
-      importer = ExcelImporters::Profile.new('./spec/fixtures/files/single_profile_and_councillor.xls', header_field: 'Fecha', logger: logger)
+    it 'Rolls back imports when it finds an error' do
+      importer = ExcelImporters::Profile.new('./spec/fixtures/files/single_profile_and_councillor.xls',
+                                             header_field: 'Fecha',
+                                             logger: logger)
 
       expect(importer.import).to eq(false)
       expect(Person.count).to eq(0)

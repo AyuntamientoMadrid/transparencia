@@ -53,54 +53,52 @@ module ExcelImporters
       'PRIMER/A TENIENTE DE ALCALDIA' => 'councillor'
     }.freeze
 
-    def import!
-      each_row do |row|
-        person_query = Person.where(personal_code: row[:n_personal])
-        job_level = JOB_LEVEL_CODES.fetch(row[:cargo])
+    def import_row!(row)
+      person_query = Person.where(personal_code: row[:n_personal])
+      job_level = JOB_LEVEL_CODES.fetch(row[:cargo])
 
-        if job_level == 'councillor'
-          person = person_query.first!
-        else
-          person = person_query.first_or_initialize
-          person.first_name = row[:nombre]
-          person.last_name = row[:apellidos]
-          person.admin_first_name = transliterate(row[:nombre])
-          person.admin_last_name = transliterate(row[:apellidos])
-          person.role = row[:cargo]
-          person.job_level = job_level
-        end
+      if job_level == 'councillor'
+        person = person_query.first!
+      else
+        person = person_query.first_or_initialize
+        person.first_name = row[:nombre]
+        person.last_name = row[:apellidos]
+        person.admin_first_name = transliterate(row[:nombre])
+        person.admin_last_name = transliterate(row[:apellidos])
+        person.role = row[:cargo]
+        person.job_level = job_level
+      end
 
-        profiled_at = row[:fecha].in_time_zone
+      profiled_at = row[:fecha].in_time_zone
 
-        if person.profiled_at.blank? || person.profiled_at < profiled_at
+      if person.profiled_at.blank? || person.profiled_at < profiled_at
 
-          person.profiled_at = profiled_at
+        person.profiled_at = profiled_at
 
-          logger.info I18n.t('excel_importers.profile.importing',
-                             person: person.name)
+        logger.info I18n.t('excel_importers.profile.importing',
+                           person: person.name)
 
-          person.twitter  = row[:cuenta_de_twitter]
-          person.facebook = row[:cuenta_de_facebook]
-          person.unit     = row[:unidad]
+        person.twitter  = row[:cuenta_de_twitter]
+        person.facebook = row[:cuenta_de_facebook]
+        person.unit     = row[:unidad]
 
-          parse_studies(person, row)
-          parse_courses(person, row)
-          parse_languages(person, row)
-          parse_career(person, row)
-          parse_political_posts(person, row)
+        parse_studies(person, row)
+        parse_courses(person, row)
+        parse_languages(person, row)
+        parse_career(person, row)
+        parse_political_posts(person, row)
 
-          person.publications       = row[:publicaciones]
-          person.teaching_activity  = row[:actividad]
-          person.special_mentions   = row[:distinciones]
-          person.other              = row[:otra_informacion]
+        person.publications       = row[:publicaciones]
+        person.teaching_activity  = row[:actividad]
+        person.special_mentions   = row[:distinciones]
+        person.other              = row[:otra_informacion]
 
-          person.save!
-        else
-          logger.info I18n.t('excel_importers.profile.skipping',
-                             person: person.name,
-                             person_profiled_at: person.profiled_at.iso8601,
-                             file_profiled_at: profiled_at.iso8601)
-        end
+        person.save!
+      else
+        logger.info I18n.t('excel_importers.profile.skipping',
+                           person: person.name,
+                           person_profiled_at: person.profiled_at.iso8601,
+                           file_profiled_at: profiled_at.iso8601)
       end
     end
 

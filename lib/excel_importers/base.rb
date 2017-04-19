@@ -28,15 +28,19 @@ module ExcelImporters
         raise("could not find header: #{header}")
     end
 
+    def import_row!(row)
+      logger.info(row.inspect)
+    end
+
     def import!
-      each_row { |row| logger.info(row.inspect) }
+      ActiveRecord::Base.transaction do
+        each_row { |row| import_row!(row) }
+      end
     end
 
     def import
-      ActiveRecord::Base.transaction do
-        import!
-        true
-      end
+      import!
+      true
     rescue => err
       logger.error(err.message)
       false
