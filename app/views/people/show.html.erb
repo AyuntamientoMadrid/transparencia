@@ -50,7 +50,12 @@
         <div class="medium-9 columns">
           <h1 class="inline-block"><%= @person.name %></h1>
 
-          <p class="role"><%= @person.role %></p>
+          <p class="role">
+            <%= @person.role %>
+            <% if @person.secondary_role.present? %>
+              <span class="secondary-role"><%= @person.secondary_role %></span>
+            <% end %>
+          </p>
 
           <p><%= @person.unit %></p>
 

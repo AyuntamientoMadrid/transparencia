@@ -7,9 +7,22 @@ es:
   admin:
     menu:
       title: "Administración"
+      profile_uploads: "Fichero de perfiles"
       close_session: "Cerrar sesión"
     dashboard:
       title: "Administración"
+    profile_uploads:
+      index:
+        title: 'Histórico de subidas'
+        new_button: 'Subir un nuevo fichero'
+      create:
+        errors: 'Se detectaron errores al subir el fichero. No se han guardado cambios en la base de datos'
+        no_errors: 'Fichero subido sin errores. Cambios guardados en la base de datos'
+      new:
+        title: 'Subir de fichero de perfiles'
+      show:
+        title: 'Subir de fichero de perfiles: resultados'
+        back: 'Volver al histórico de subidas'
   index:
     outline: "Portada"
     title: "Transparencia"
@@ -368,6 +381,12 @@ es:
       kind: "Clase"
       comments: "Observaciones"
       amount: "Importe"
+  excel_importers:
+    base:
+      could_not_find_header: "No se pudo encontrar la cabecera '%{header}' en el archivo"
+    profile:
+      importing: "Importando %{person}"
+      skipping: "Omitiendo importación de %{person}: %{person_profiled_at} >= %{file_profiled_at}"
   static_pages:
     accessibility:
       title: "Accesibilidad"
@@ -390,6 +409,8 @@ es:
     add: "Añadir"
     target_blank: "(se abre en ventana nueva)"
     no_data: "Esta sección carece de datos."
+    "true": "Sí"
+    "false": "No"
   activerecord:
     attributes:
       objective:
@@ -402,6 +423,14 @@ es:
         subtitle: "Subtítulo"
         link: "Enlace externo"
         content: "Contenido"
+      profile_upload:
+        file: "Fichero"
+        created_at: "Fecha de subida"
+        author_email: "Autor"
+        original_filename: "Nombre del fichero"
+        file_format: "Tipo de fichero"
+        translated_successful: "Importación completada con éxito"
+
   activemodel:
     models:
       contact: "Contacto"

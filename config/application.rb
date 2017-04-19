@@ -26,5 +26,8 @@ module Transparencia
 
     # Do not access the DB or load models when precompiling assets
     config.assets.initialize_on_precompile = false
+
+    # Store datetime in local format instead of UTC
+    config.active_record.default_timezone = :local
   end
 end
