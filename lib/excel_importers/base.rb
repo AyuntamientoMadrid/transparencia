@@ -32,7 +32,7 @@ module ExcelImporters
       each_row { |row| logger.info(row.inspect) }
     end
 
-    def safe_import!
+    def import
       ActiveRecord::Base.transaction do
         import!
         true

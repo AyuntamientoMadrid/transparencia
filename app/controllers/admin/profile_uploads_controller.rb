@@ -27,7 +27,7 @@ class Admin::ProfileUploadsController < Admin::BaseController
                                                header_field: 'Fecha',
                                                logger: logger
         successful = true
-        if importer.safe_import!
+        if importer.import
           flash[:notice] = t('admin.profile_uploads.create.no_errors')
         else
           successful = false

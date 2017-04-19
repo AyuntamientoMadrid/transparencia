@@ -6,11 +6,11 @@ logger = ExcelImporters::Base::NullLogger.new
 
 describe ExcelImporters::Base do
 
-  describe '#safe_import!' do
+  describe '#import' do
     it "Rolls back imports when it finds an error" do
-      importer = ExcelImporters::.new('./spec/fixtures/files/single_profile_and_councillor.xls', header_field: 'Fecha', logger: logger)
+      importer = ExcelImporters::Profile.new('./spec/fixtures/files/single_profile_and_councillor.xls', header_field: 'Fecha', logger: logger)
 
-      expect(importer.safe_import!).to eq(false)
+      expect(importer.import).to eq(false)
       expect(Person.count).to eq(0)
     end
   end
@@ -62,16 +62,16 @@ describe ExcelImporters::Base do
       end
     end
 
-    describe 'safe_import!' do
+    describe 'import' do
       it 'calls import! and returns true if everything goes ok' do
         expect(importer).to receive(:import!)
-        expect(importer.safe_import!).to eq(true)
+        expect(importer.import).to eq(true)
       end
 
       it 'calls import!, catches exceptions and logs them, and returns false if there is a problem' do
         expect(importer).to receive(:import!).and_raise('a fake error happened')
         expect(logger).to receive(:error).with('a fake error happened')
-        expect(importer.safe_import!).to eq(false)
+        expect(importer.import).to eq(false)
       end
     end
 
