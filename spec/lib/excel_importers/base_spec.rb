@@ -1,9 +1,19 @@
 require 'rails_helper'
 require 'excel_importers/base'
+require 'excel_importers/profile'
 
 logger = ExcelImporters::Base::NullLogger.new
 
 describe ExcelImporters::Base do
+
+  describe '#safe_import!' do
+    it "Rolls back imports when it finds an error" do
+      importer = ExcelImporters::.new('./spec/fixtures/files/single_profile_and_councillor.xls', header_field: 'Fecha', logger: logger)
+
+      expect(importer.safe_import!).to eq(false)
+      expect(Person.count).to eq(0)
+    end
+  end
 
   [ ExcelImporters::Base.new('./spec/fixtures/files/profiles.xls', header_field: 'Fecha', logger: logger),
     ExcelImporters::Base.new('./spec/fixtures/files/profiles_html.xls', header_field: 'Fecha', logger: logger) ].each do |importer|

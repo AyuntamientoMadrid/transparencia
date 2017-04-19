@@ -33,8 +33,10 @@ module ExcelImporters
     end
 
     def safe_import!
-      import!
-      true
+      ActiveRecord::Base.transaction do
+        import!
+        true
+      end
     rescue => err
       logger.error(err.message)
       false
