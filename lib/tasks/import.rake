@@ -33,14 +33,19 @@ namespace :import do
     Importers::CouncillorsImporter.new('./import-data/councillors.csv').import!
   end
 
-  desc "Imports import-data/PerfilProfesional.csv into the people table"
+  desc "Imports import-data/profiles.csv & non-profiles.csv into the people table"
   task profiles: 'import:councillors' do
     Importers::ProfilesImporter.new('./import-data/profiles.csv').import!
     Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
   end
 
+  desc "Imports import-data/non-profiles.csv into the people table"
+  task non_profiles: 'import:councillors' do
+    Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
+  end
+
   desc "Imports import-data/calendars.csv into the db"
-  task calendars: 'import:profiles' do
+  task calendars: 'import:councillors' do
     Importers::CalendarsImporter.new('./import-data/calendars.csv').import!
   end
 
