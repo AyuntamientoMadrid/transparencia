@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
 
-  before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy, :hide, :unhide]
   before_action :load_parties, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_person_and_declarations, only: [:show, :contact]
 
@@ -9,16 +9,16 @@ class PeopleController < ApplicationController
   end
 
   def councillors
-    @working_councillors_by_party = Person.councillors.working.grouped_by_party
-    @not_working_councillors      = Person.councillors.not_working
+    @working_councillors_by_party = Person.councillors.working.unhidden.grouped_by_party
+    @not_working_councillors      = Person.councillors.not_working.unhidden
   end
 
   def directors
-    @directors_by_name_initial = Person.directors.grouped_by_name_initial
+    @directors_by_name_initial = Person.directors.unhidden.grouped_by_name_initial
   end
 
   def temporary_workers
-    @temporary_workers_by_name_initial = Person.temporary_workers.grouped_by_name_initial
+    @temporary_workers_by_name_initial = Person.temporary_workers.unhidden.grouped_by_name_initial
   end
 
   def show
@@ -63,13 +63,24 @@ class PeopleController < ApplicationController
     end
   end
 
+  def hide
+    @person = Person.friendly.find(params[:id])
+    @person.hide(current_administrator, params[:hidden_reason])
+    redirect_to person_path(@person), notice: I18n.t("people.notice.hidden")
+  end
+
+  def unhide
+    @person = Person.friendly.find(params[:id])
+    @person.unhide(current_administrator, params[:hidden_reason])
+    redirect_to person_path(@person), notice: I18n.t("people.notice.unhidden")
+  end
+
   def destroy
     @person = Person.friendly.find(params[:id])
     @person.destroy
     path = @person.councillor? ? councillors_people_path : directors_people_path
     redirect_to path, notice: I18n.t("people.notice.deleted")
   end
-
 
   private
     def contact_params
@@ -78,6 +89,7 @@ class PeopleController < ApplicationController
 
     def load_person_and_declarations
       @person = Person.friendly.find(params[:id])
+      authorize_administrators if @person.hidden?
       @assets_declarations = @person.assets_declarations.order(:declaration_date)
       @activities_declarations = @person.activities_declarations.order(:declaration_date)
     end

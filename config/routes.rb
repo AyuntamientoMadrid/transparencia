@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :objectives, only: [:show, :edit, :update]
   resources :pages
   resources :people do
-    member { post :contact }
+    member do
+      post :contact
+      put :hide
+      put :unhide
+    end
     collection do
       get :councillors
       get :directors
@@ -32,6 +36,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "dashboard#index"
     resources :profile_uploads, only: [:new, :create, :show, :index]
+    resources :people, only: [:index]
   end
 
   # static pages

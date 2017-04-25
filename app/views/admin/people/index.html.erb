@@ -1,0 +1,38 @@
+<h1><%= t('admin.peoople.index.title') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cargo</th>
+      <th>Fecha de borrado</th>
+      <th>Borrado por</th>
+      <th>Razón de borrado</th>
+      <th>Fecha de restauración</th>
+      <th>Restaurado por</th>
+      <th>Razón de restauración</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.backwards_name %></td>
+        <td><%= person.role %></td>
+        <td><%= person.hidden_at %></td>
+        <td><%= person.hidden_by.email %></td>
+        <td><%= person.hidden_reason %></td>
+        <td><%= person.unhidden_at %></td>
+        <td><%= person.unhidden_by.try(:email) %></td>
+        <td><%= person.unhidden_reason %></td>
+        <td>
+          <% if person.hidden? %>
+            <%= link_to t("shared.unhide"), unhide_person_path(person), method: :put, class: "small button radius info" %>
+          <% else %>
+            <%= link_to t("shared.hide"), hide_person_path(person), method: :put, class: "small button radius info" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -101,6 +101,11 @@
           <div class="small-12 columns">
             <%= link_to t("shared.edit"), edit_person_path(@person), class: "small button radius" %>
             <%= link_to t("shared.delete"), person_path(@person), method: :delete, data: {confirm: t("people.show.confirm_deletion")}, class: "small button radius alert" %>
+            <% if @person.hidden? %>
+              <%= link_to t("shared.unhide"), unhide_person_path(@person), method: :put, class: "small button radius info" %>
+            <% else %>
+              <%= link_to t("shared.hide"), hide_person_path(@person), method: :put, class: "small button radius info" %>
+            <% end %>
           </div>
         </div>
       <% end %>
