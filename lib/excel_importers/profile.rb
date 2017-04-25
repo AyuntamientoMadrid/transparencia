@@ -53,6 +53,24 @@ module ExcelImporters
       'PRIMER/A TENIENTE DE ALCALDIA' => 'councillor'
     }.freeze
 
+    def import
+      @imported = 0
+      @skipped = 0
+
+      successful = super
+
+      unless successful
+        @imported = 0
+      end
+
+      logger.info ''
+      logger.info I18n.t('excel_importers.profile.summary')
+      logger.info I18n.t('excel_importers.profile.imported', count: @imported)
+      logger.info I18n.t('excel_importers.profile.skipped', count: @skipped)
+
+      successful
+    end
+
     def import_row!(row)
       person_query = Person.where(personal_code: row[:n_personal])
       job_level = JOB_LEVEL_CODES.fetch(row[:cargo])
@@ -94,7 +112,9 @@ module ExcelImporters
         person.other              = row[:otra_informacion]
 
         person.save!
+        @imported += 1
       else
+        @skipped += 1
         logger.info I18n.t('excel_importers.profile.skipping',
                            person: person.name,
                            person_profiled_at: person.profiled_at.iso8601,

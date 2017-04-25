@@ -385,6 +385,10 @@ en:
     profile:
       importing: "Importing %{person}"
       skipping: "Skipping %{person}: %{person_profiled_at} >= %{file_profiled_at}"
+      summary: "Summary"
+      imported: "Imported: %{count}"
+      skipped: "Skipped: %{count}"
+
   static_pages:
     accessibility:
       title: "Accessibility"
