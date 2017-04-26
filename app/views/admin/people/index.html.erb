@@ -39,15 +39,19 @@
           <% end %>
         </td>
       </tr>
-      <tr>
-        <td colspan=9>
-          <% if person.hidden? %>
+      <% if person.hidden? %>
+        <tr id="<%= dom_id(person) %>_unhide_form" style="display: none;">
+          <td colspan=9>
             <%= render 'people/unhide_form', person: person %>
-          <% else %>
+          </td>
+        </tr>
+      <% else %>
+        <tr id="<%= dom_id(person) %>_hide_form" style="display: none;">
+          <td colspan=9>
             <%= render 'people/hide_form', person: person %>
-          <% end %>
-        </td>
-      </tr>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
