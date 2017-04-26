@@ -106,7 +106,7 @@
                           '#',
                           data: {toggle: "##{dom_id(@person)}_unhide_form"},
                           class: "small button radius info" %>
-              <div id="<%= dom_id(@person) %>_hide_form" style="display: none;">
+              <div id="<%= dom_id(@person) %>_unhide_form" style="display: none;">
                 <%= render 'unhide_form', person: @person %>
               </div>
 

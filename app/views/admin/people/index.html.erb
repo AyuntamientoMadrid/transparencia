@@ -16,7 +16,7 @@
   </thead>
   <tbody>
     <% @people.each do |person| %>
-      <tr>
+      <tr id="<%= dom_id(person) %>">
         <td><%= person.backwards_name %></td>
         <td><%= person.role %></td>
         <td><%= person.hidden_at %></td>
