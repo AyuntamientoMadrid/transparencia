@@ -12,6 +12,9 @@ es:
       close_session: "Cerrar sesión"
     dashboard:
       title: "Administración"
+    people:
+      index:
+        title: "Personas ocultadas y restauradas"
     profile_uploads:
       index:
         title: 'Histórico de subidas'
@@ -141,6 +144,8 @@ es:
       created: "Se ha creado la nueva persona"
       deleted: "Se ha borrado la persona"
       updated: "Se ha actualizado la persona"
+      hidden: "Se ha ocultado la persona"
+      unhidden: "Se ha restaurado la persona"
     councillors:
       title: "Concejales/as"
     directors:
@@ -409,6 +414,8 @@ es:
     back: "Atrás"
     delete: "Borrar"
     add: "Añadir"
+    hide: "Ocultar"
+    unhide: "Restaurar"
     target_blank: "(se abre en ventana nueva)"
     no_data: "Esta sección carece de datos."
     "true": "Sí"
@@ -436,6 +443,15 @@ es:
         original_filename: "Nombre del fichero"
         file_format: "Tipo de fichero"
         translated_successful: "Importación completada con éxito"
+      person:
+        backwards_name: "Nombre"
+        role: "Cargo"
+        hidden_at: "Fecha de ocultación"
+        hidden_by: "Ocultado por"
+        hidden_reason: "Razón de ocultación"
+        unhidden_at: "Fecha de restauración"
+        unhidden_by: "Restaurado por"
+        unhidden_reason: "Razón de restauración"
 
   activemodel:
     models:

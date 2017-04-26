@@ -1,16 +1,16 @@
-<h1><%= t('admin.peoople.index.title') %></h1>
+<h1><%= t('admin.people.index.title') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Cargo</th>
-      <th>Fecha de borrado</th>
-      <th>Borrado por</th>
-      <th>Razón de borrado</th>
-      <th>Fecha de restauración</th>
-      <th>Restaurado por</th>
-      <th>Razón de restauración</th>
+      <th><%= Person.human_attribute_name(:backwards_name) %></th>
+      <th><%= Person.human_attribute_name(:role) %></th>
+      <th><%= Person.human_attribute_name(:hidden_at) %></th>
+      <th><%= Person.human_attribute_name(:hidden_by) %></th>
+      <th><%= Person.human_attribute_name(:hidden_reason) %></th>
+      <th><%= Person.human_attribute_name(:unhidden_at) %></th>
+      <th><%= Person.human_attribute_name(:unhidden_by) %></th>
+      <th><%= Person.human_attribute_name(:unhidden_reason) %></th>
       <th></th>
     </tr>
   </thead>
