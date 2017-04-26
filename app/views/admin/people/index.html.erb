@@ -27,9 +27,24 @@
         <td><%= person.unhidden_reason %></td>
         <td>
           <% if person.hidden? %>
-            <%= link_to t("shared.unhide"), unhide_person_path(person), method: :put, class: "small button radius info" %>
+            <%= link_to t("shared.unhide"),
+                        '#',
+                        data: {toggle: "##{dom_id(person)}_unhide_form"},
+                        class: "small button radius info" %>
           <% else %>
-            <%= link_to t("shared.hide"), hide_person_path(person), method: :put, class: "small button radius info" %>
+            <%= link_to t("shared.hide"),
+                        '#',
+                        data: {toggle: "##{dom_id(person)}_hide_form"},
+                        class: "small button radius info" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=9>
+          <% if person.hidden? %>
+            <%= render 'people/unhide_form', person: person %>
+          <% else %>
+            <%= render 'people/hide_form', person: person %>
           <% end %>
         </td>
       </tr>

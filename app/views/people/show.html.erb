@@ -102,9 +102,18 @@
             <%= link_to t("shared.edit"), edit_person_path(@person), class: "small button radius" %>
             <%= link_to t("shared.delete"), person_path(@person), method: :delete, data: {confirm: t("people.show.confirm_deletion")}, class: "small button radius alert" %>
             <% if @person.hidden? %>
-              <%= link_to t("shared.unhide"), unhide_person_path(@person), method: :put, class: "small button radius info" %>
+              <%= link_to t("shared.unhide"),
+                          '#',
+                          data: {toggle: "##{dom_id(@person)}_unhide_form"},
+                          class: "small button radius info" %>
+              <%= render 'unhide_form', person: @person %>
+
             <% else %>
-              <%= link_to t("shared.hide"), hide_person_path(@person), method: :put, class: "small button radius info" %>
+              <%= link_to t("shared.hide"),
+                          '#',
+                          data: {toggle: "##{dom_id(@person)}_hide_form"},
+                          class: "small button radius info" %>
+              <%= render 'hide_form', person: @person %>
             <% end %>
           </div>
         </div>

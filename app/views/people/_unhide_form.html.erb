@@ -1,0 +1,6 @@
+<div id="<%= dom_id(person) %>_unhide_form" style="display: none;">
+  <%= form_for person, url: unhide_person_path(person), method: :put do |f| %>
+    <%= f.text_field :unhidden_reason %>
+    <%= f.submit t('shared.submit')%>
+  <% end %>
+</div>
