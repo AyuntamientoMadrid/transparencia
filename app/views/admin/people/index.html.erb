@@ -1,0 +1,57 @@
+<h1><%= t('admin.people.index.title') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Person.human_attribute_name(:backwards_name) %></th>
+      <th><%= Person.human_attribute_name(:role) %></th>
+      <th><%= Person.human_attribute_name(:hidden_at) %></th>
+      <th><%= Person.human_attribute_name(:hidden_by) %></th>
+      <th><%= Person.human_attribute_name(:hidden_reason) %></th>
+      <th><%= Person.human_attribute_name(:unhidden_at) %></th>
+      <th><%= Person.human_attribute_name(:unhidden_by) %></th>
+      <th><%= Person.human_attribute_name(:unhidden_reason) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr id="<%= dom_id(person) %>">
+        <td><%= person.backwards_name %></td>
+        <td><%= person.role %></td>
+        <td><%= person.hidden_at %></td>
+        <td><%= person.hidden_by.email %></td>
+        <td><%= person.hidden_reason %></td>
+        <td><%= person.unhidden_at %></td>
+        <td><%= person.unhidden_by.try(:email) %></td>
+        <td><%= person.unhidden_reason %></td>
+        <td>
+          <% if person.hidden? %>
+            <%= link_to t("shared.unhide"),
+                        '#',
+                        data: {toggle: "##{dom_id(person)}_unhide_form"},
+                        class: "small button radius info" %>
+          <% else %>
+            <%= link_to t("shared.hide"),
+                        '#',
+                        data: {toggle: "##{dom_id(person)}_hide_form"},
+                        class: "small button radius info" %>
+          <% end %>
+        </td>
+      </tr>
+      <% if person.hidden? %>
+        <tr id="<%= dom_id(person) %>_unhide_form" style="display: none;">
+          <td colspan=9>
+            <%= render 'people/unhide_form', person: person %>
+          </td>
+        </tr>
+      <% else %>
+        <tr id="<%= dom_id(person) %>_hide_form" style="display: none;">
+          <td colspan=9>
+            <%= render 'people/hide_form', person: person %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

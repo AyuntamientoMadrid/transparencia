@@ -9,8 +9,12 @@ en:
       title: "Administration"
       profile_uploads: "Profile uploads"
       close_session: "Close session"
+      people: "People"
     dashboard:
       title: "Administration"
+    people:
+      index:
+        title: "Hidden and Unhidden people"
     profile_uploads:
       index:
         title: 'Upload history'
@@ -136,6 +140,8 @@ en:
       created: "Person created successfully"
       deleted: "Person erased successfully"
       updated: "Person updated successfully"
+      hidden: "Person hidden successfully"
+      unhidden: "Person unhidden successfully"
     councillors:
       title: "Councillors"
     directors:
@@ -407,6 +413,8 @@ en:
     submit: "Submit"
     back: "Back"
     add: "Add"
+    hide: "Hide"
+    unhide: "Unhide"
     delete: "Delete"
     target_blank: "(opens in new window)"
     no_data: "This section has no data."
@@ -417,6 +425,7 @@ en:
       administrator:
         password: "Password"
         password_confirmation: "Password confirmation"
+        remember_me: "Remember me"
       objective:
         title: "Title"
         description: "Description"
@@ -434,6 +443,15 @@ en:
         original_filename: "Original filename"
         file_format: "File format"
         translated_successful: "No errors while importing"
+      person:
+        backwards_name: "Nombre"
+        role: "Cargo"
+        hidden_at: "Fecha de ocultación"
+        hidden_by: "Ocultado por"
+        hidden_reason: "Razón de ocultación"
+        unhidden_at: "Fecha de restauración"
+        unhidden_by: "Restaurado por"
+        unhidden_reason: "Razón de restauración"
   activemodel:
     models:
       contact: "Contact"
