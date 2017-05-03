@@ -13,7 +13,7 @@ describe ExcelImporters::Profile, clean_as_group: true do
       before(:all) do
         Importers::PartiesImporter.new('./import-data/parties.csv').import!
         Importers::CouncillorsImporter.new('./import-data/councillors.csv').import!
-        importer.import!
+        importer.import
       end
 
       it 'Parses job levels correctly' do
