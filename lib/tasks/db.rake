@@ -4,7 +4,7 @@ namespace :db do
   namespace :danger do
     desc "Erase the database"
     task truncate: :environment do
-      DatabaseCleaner.clean_with :truncation
+      DatabaseCleaner.clean_with :truncation, :except => %w[administrators file_uploads]
     end
   end
 
