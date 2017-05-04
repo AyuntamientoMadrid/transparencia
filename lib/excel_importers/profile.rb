@@ -117,6 +117,7 @@ module ExcelImporters
         @skipped += 1
         logger.info I18n.t('excel_importers.profile.skipping',
                            person: person.name,
+                           reference: row[:referencia],
                            person_profiled_at: person.profiled_at.iso8601,
                            file_profiled_at: profiled_at.iso8601)
       end
