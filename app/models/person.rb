@@ -286,14 +286,14 @@ class Person < ActiveRecord::Base
     ]
   end
 
-  def hide(hidden_by, hidden_reason)
-    self.update(hidden_at: DateTime.current,
+  def hide(hidden_by, hidden_reason, hidden_at = DateTime.current)
+    self.update(hidden_at: hidden_at,
                 hidden_by_id: hidden_by.id,
                 hidden_reason: hidden_reason)
   end
 
-  def unhide(unhidden_by, unhidden_reason)
-    self.update(unhidden_at: DateTime.current,
+  def unhide(unhidden_by, unhidden_reason, unhidden_at = DateTime.current)
+    self.update(unhidden_at: unhidden_at,
                 unhidden_by_id: unhidden_by.id,
                 unhidden_reason: unhidden_reason)
   end

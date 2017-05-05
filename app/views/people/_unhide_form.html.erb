@@ -1,4 +1,11 @@
 <%= form_for person, url: unhide_person_path(person), method: :put do |f| %>
-  <%= f.text_field :unhidden_reason %>
+  <div class="row">
+    <div class="small-12 large-3 columns">
+      <%= f.date_field :unhidden_at %>
+    </div>
+    <div class="small-12 large-9 columns">
+      <%= f.text_field :unhidden_reason %>
+    </div>
+  </div>
   <%= f.submit t('shared.submit')%>
 <% end %>

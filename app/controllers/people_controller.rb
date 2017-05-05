@@ -57,7 +57,7 @@ class PeopleController < ApplicationController
   def update
     @person = Person.friendly.find(params[:id])
     if @person.update(person_params)
-      redirect_to person_path(@person), notice: I18n.t("people.notice.updated")
+      redirect_to person_path(@person), notice: I18n.t('people.notice.updated')
     else
       render :edit
     end
@@ -65,14 +65,16 @@ class PeopleController < ApplicationController
 
   def hide
     @person = Person.friendly.find(params[:id])
-    @person.hide(current_administrator, person_params[:hidden_reason])
-    redirect_to person_path(@person), notice: I18n.t("people.notice.hidden")
+    hidden_at = Date.parse(person_params[:hidden_at]) rescue DateTime.current
+    @person.hide(current_administrator, person_params[:hidden_reason], hidden_at)
+    redirect_to person_path(@person), notice: I18n.t('people.notice.hidden')
   end
 
   def unhide
     @person = Person.friendly.find(params[:id])
-    @person.unhide(current_administrator, person_params[:unhidden_reason])
-    redirect_to person_path(@person), notice: I18n.t("people.notice.unhidden")
+    unhidden_at = Date.parse(person_params[:unhidden_at]) rescue DateTime.current
+    @person.unhide(current_administrator, person_params[:unhidden_reason], unhidden_at)
+    redirect_to person_path(@person), notice: I18n.t('people.notice.unhidden')
   end
 
   def destroy
@@ -101,7 +103,8 @@ class PeopleController < ApplicationController
         :studies_comment, :courses_comment, :career_comment, :political_posts_comment,
         :public_jobs_level, :public_jobs_body, :public_jobs_start_year,
         :publications, :teaching_activity, :special_mentions, :other,
-        :hidden_reason, :unhidden_reason,
+        :hidden_at, :hidden_reason,
+        :unhidden_at, :unhidden_reason,
         studies_attributes: [:description, :entity, :start_year, :end_year],
         courses_attributes: [:description, :entity, :start_year, :end_year],
         private_jobs_attributes: [:description, :entity, :start_year, :end_year],
