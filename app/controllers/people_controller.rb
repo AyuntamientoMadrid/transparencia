@@ -21,6 +21,14 @@ class PeopleController < ApplicationController
     @temporary_workers_by_name_initial = Person.temporary_workers.unhidden.grouped_by_name_initial
   end
 
+  def public_workers
+    @public_workers_by_name_initial = Person.public_workers.unhidden.grouped_by_name_initial
+  end
+
+  def spokespeople
+    @spokespeople_by_name_initial = Person.spokespeople.unhidden.grouped_by_name_initial
+  end
+
   def show
     @contact = Contact.new(person: @person)
   end

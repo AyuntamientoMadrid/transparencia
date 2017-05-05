@@ -73,6 +73,8 @@ es:
       councillors: "Concejales/as"
       directors: "Personal directivo"
       temporary_workers: "Personal eventual"
+      public_workers: "Funcionarios"
+      spokespeople: "Vocales vecinales"
       subventions: "Subvenciones"
       contracts: "Contratos"
       inquiries: "Peticiones de información"
@@ -180,6 +182,10 @@ es:
       title: "Personal directivo"
     temporary_workers:
       title: "Personal eventual"
+    public_workers:
+      title: "Funcionarios"
+    spokespeople:
+      title: "Vocales vecinales"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de actividades y de causas de posible incompatibilidad"

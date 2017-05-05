@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       get :councillors
       get :directors
       get :temporary_workers
+      get :public_workers
+      get :spokespeople
     end
   end
   resources :subventions

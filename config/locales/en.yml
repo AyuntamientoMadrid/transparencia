@@ -73,6 +73,8 @@ en:
       councillors: "Councillors"
       directors: "Directors"
       temporary_workers: "Temporary workers"
+      public_workers: "Public workers"
+      spokespeople: "Spokespeople"
       subventions: "Subventions"
       contracts: "Contracts"
       inquiries: "Inquiries"
@@ -176,6 +178,10 @@ en:
       title: "Directors"
     temporary_workers:
       title: "Temporary workers"
+    public_workers:
+      title: "Public workers"
+    spokespeople:
+      title: "Spokespeople"
     profile: "Professional profile"
     assets_declarations: "Assets declarations"
     activities_declarations: "Activities declarations"
