@@ -390,9 +390,11 @@ en:
       could_not_find_header: "Could not find header %{header}"
     profile:
       importing: "Importing %{person}"
+      updating: "Updating %{person} (ref. %{reference}): %{person_profiled_at} >= %{file_profiled_at}"
       skipping: "Skipping %{person} (ref. %{reference}): %{person_profiled_at} >= %{file_profiled_at}"
       summary: "Summary"
       imported: "Imported: %{count}"
+      updated: "Updated: %{count}"
       skipped: "Skipped: %{count}"
 
   static_pages:

@@ -55,17 +55,20 @@ module ExcelImporters
 
     def import
       @imported = 0
+      @updated = 0
       @skipped = 0
 
       successful = super
 
       unless successful
         @imported = 0
+        @updated = 0
       end
 
       logger.info ''
       logger.info I18n.t('excel_importers.profile.summary')
       logger.info I18n.t('excel_importers.profile.imported', count: @imported)
+      logger.info I18n.t('excel_importers.profile.updated', count: @updated)
       logger.info I18n.t('excel_importers.profile.skipped', count: @skipped)
 
       successful
@@ -91,10 +94,21 @@ module ExcelImporters
 
       if person.profiled_at.blank? || person.profiled_at < profiled_at
 
+        if person.profiled_at.blank?
+          @imported += 1
+          logger.info I18n.t('excel_importers.profile.importing',
+                             person: person.name)
+        else
+          @updated += 1
+          logger.info I18n.t('excel_importers.profile.updating',
+                             person: person.name,
+                             reference: row[:referencia],
+                             person_profiled_at: person.profiled_at.iso8601,
+                             file_profiled_at: profiled_at.iso8601)
+        end
+
         person.profiled_at = profiled_at
 
-        logger.info I18n.t('excel_importers.profile.importing',
-                           person: person.name)
 
         person.twitter  = row[:cuenta_de_twitter]
         person.facebook = row[:cuenta_de_facebook]
@@ -112,7 +126,6 @@ module ExcelImporters
         person.other              = row[:otra_informacion]
 
         person.save!
-        @imported += 1
       else
         @skipped += 1
         logger.info I18n.t('excel_importers.profile.skipping',
