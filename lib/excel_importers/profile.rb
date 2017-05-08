@@ -90,7 +90,7 @@ module ExcelImporters
         person.job_level = job_level
       end
 
-      profiled_at = row[:fecha].in_time_zone
+      profiled_at = parse_profiled_at(row[:fecha]).in_time_zone
 
       if person.profiled_at.blank? || person.profiled_at < profiled_at
 
@@ -108,7 +108,6 @@ module ExcelImporters
         end
 
         person.profiled_at = profiled_at
-
 
         person.twitter  = row[:cuenta_de_twitter]
         person.facebook = row[:cuenta_de_facebook]
@@ -137,6 +136,12 @@ module ExcelImporters
     end
 
     private
+
+      def parse_profiled_at(profiled_at)
+        return profiled_at if profiled_at.respond_to?(:year)
+        profiled_at = DateTime.strptime(profiled_at, '%d/%m/%y %H:%M:%S')
+        profiled_at
+      end
 
       def parse_studies(person, row)
         person.profile['studies'] = []
