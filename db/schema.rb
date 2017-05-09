@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121153103) do
+ActiveRecord::Schema.define(version: 20170419230732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,19 @@ ActiveRecord::Schema.define(version: 20161121153103) do
     t.integer "area_id"
   end
 
+  create_table "file_uploads", force: :cascade do |t|
+    t.string   "type"
+    t.string   "original_filename"
+    t.string   "file_format"
+    t.text     "log"
+    t.boolean  "successful"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "author_id"
+  end
+
+  add_index "file_uploads", ["author_id"], name: "index_file_uploads_on_author_id", using: :btree
+
   create_table "objectives", force: :cascade do |t|
     t.string  "title"
     t.text    "description"
@@ -142,6 +155,13 @@ ActiveRecord::Schema.define(version: 20161121153103) do
     t.date     "leaving_date"
     t.integer  "councillor_order"
     t.date     "starting_date"
+    t.string   "secondary_role"
+    t.datetime "hidden_at"
+    t.integer  "hidden_by_id"
+    t.string   "hidden_reason"
+    t.datetime "unhidden_at"
+    t.integer  "unhidden_by_id"
+    t.string   "unhidden_reason"
   end
 
   add_index "people", ["admin_first_name"], name: "index_people_on_admin_first_name", using: :btree
@@ -174,4 +194,7 @@ ActiveRecord::Schema.define(version: 20161121153103) do
 
   add_index "subventions", ["recipient"], name: "index_subventions_on_recipient", using: :btree
 
+  add_foreign_key "file_uploads", "administrators", column: "author_id"
+  add_foreign_key "people", "administrators", column: "hidden_by_id"
+  add_foreign_key "people", "administrators", column: "unhidden_by_id"
 end

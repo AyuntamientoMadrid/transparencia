@@ -7,9 +7,26 @@ en:
   admin:
     menu:
       title: "Administration"
+      profile_uploads: "Profile uploads"
       close_session: "Close session"
+      people: "People"
     dashboard:
       title: "Administration"
+    people:
+      index:
+        title: "Hidden and Unhidden people"
+    profile_uploads:
+      index:
+        title: 'Upload history'
+        new_button: 'Upload a new file'
+      create:
+        errors: 'Errors were detected while processing the file'
+        no_errors: 'File processed successfully'
+      new:
+        title: 'Upload profile file'
+      show:
+        title: 'Upload profile file: results'
+        back: 'Back to the list'
   index:
     outline: "Home"
     title: "Welcome to the transparency portal"
@@ -35,6 +52,7 @@ en:
       calendars: "Calendars"
       subtitle: "Councillors, directors and temporary workers"
     footer:
+      admin: "Administration"
       description: "This portal uses %{software}, is %{open_source}."
       open_source: "software libre"
       open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
@@ -122,6 +140,8 @@ en:
       created: "Person created successfully"
       deleted: "Person erased successfully"
       updated: "Person updated successfully"
+      hidden: "Person hidden successfully"
+      unhidden: "Person unhidden successfully"
     councillors:
       title: "Councillors"
     directors:
@@ -365,6 +385,18 @@ en:
       kind: "Class"
       comments: "Comments"
       amount: "Amount"
+  excel_importers:
+    base:
+      could_not_find_header: "Could not find header %{header}"
+    profile:
+      importing: "Importing %{person}"
+      updating: "Updating %{person} (ref. %{reference}): %{person_profiled_at} >= %{file_profiled_at}"
+      skipping: "Skipping %{person} (ref. %{reference}): %{person_profiled_at} >= %{file_profiled_at}"
+      summary: "Summary"
+      imported: "Imported: %{count}"
+      updated: "Updated: %{count}"
+      skipped: "Skipped: %{count}"
+
   static_pages:
     accessibility:
       title: "Accessibility"
@@ -383,11 +415,19 @@ en:
     submit: "Submit"
     back: "Back"
     add: "Add"
+    hide: "Hide"
+    unhide: "Unhide"
     delete: "Delete"
     target_blank: "(opens in new window)"
     no_data: "This section has no data."
+    "true": "Yes"
+    "false": "No"
   activerecord:
     attributes:
+      administrator:
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        remember_me: "Remember me"
       objective:
         title: "Title"
         description: "Description"
@@ -398,7 +438,22 @@ en:
         subtitle: "Subtitle"
         link: "External link"
         content: "Content"
-
+      profile_upload:
+        file: "File"
+        created_at: "Created at"
+        author_email: "Author"
+        original_filename: "Original filename"
+        file_format: "File format"
+        translated_successful: "No errors while importing"
+      person:
+        backwards_name: "Nombre"
+        role: "Cargo"
+        hidden_at: "Fecha de ocultación"
+        hidden_by: "Ocultado por"
+        hidden_reason: "Razón de ocultación"
+        unhidden_at: "Fecha de restauración"
+        unhidden_by: "Restaurado por"
+        unhidden_reason: "Razón de restauración"
   activemodel:
     models:
       contact: "Contact"

@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
 
-  before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy, :hide, :unhide]
   before_action :load_parties, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_person_and_declarations, only: [:show, :contact]
 
@@ -9,16 +9,16 @@ class PeopleController < ApplicationController
   end
 
   def councillors
-    @working_councillors_by_party = Person.councillors.working.grouped_by_party
-    @not_working_councillors      = Person.councillors.not_working
+    @working_councillors_by_party = Person.councillors.working.unhidden.grouped_by_party
+    @not_working_councillors      = Person.councillors.not_working.unhidden
   end
 
   def directors
-    @directors_by_name_initial = Person.directors.grouped_by_name_initial
+    @directors_by_name_initial = Person.directors.unhidden.grouped_by_name_initial
   end
 
   def temporary_workers
-    @temporary_workers_by_name_initial = Person.temporary_workers.grouped_by_name_initial
+    @temporary_workers_by_name_initial = Person.temporary_workers.unhidden.grouped_by_name_initial
   end
 
   def show
@@ -57,10 +57,24 @@ class PeopleController < ApplicationController
   def update
     @person = Person.friendly.find(params[:id])
     if @person.update(person_params)
-      redirect_to person_path(@person), notice: I18n.t("people.notice.updated")
+      redirect_to person_path(@person), notice: I18n.t('people.notice.updated')
     else
       render :edit
     end
+  end
+
+  def hide
+    @person = Person.friendly.find(params[:id])
+    hidden_at = Date.parse(person_params[:hidden_at]) rescue DateTime.current
+    @person.hide(current_administrator, person_params[:hidden_reason], hidden_at)
+    redirect_to person_path(@person), notice: I18n.t('people.notice.hidden')
+  end
+
+  def unhide
+    @person = Person.friendly.find(params[:id])
+    unhidden_at = Date.parse(person_params[:unhidden_at]) rescue DateTime.current
+    @person.unhide(current_administrator, person_params[:unhidden_reason], unhidden_at)
+    redirect_to person_path(@person), notice: I18n.t('people.notice.unhidden')
   end
 
   def destroy
@@ -70,7 +84,6 @@ class PeopleController < ApplicationController
     redirect_to path, notice: I18n.t("people.notice.deleted")
   end
 
-
   private
     def contact_params
       params.require(:contact).permit(:name, :email, :body)
@@ -78,6 +91,7 @@ class PeopleController < ApplicationController
 
     def load_person_and_declarations
       @person = Person.friendly.find(params[:id])
+      authorize_administrators if @person.hidden?
       @assets_declarations = @person.assets_declarations.order(:declaration_date)
       @activities_declarations = @person.activities_declarations.order(:declaration_date)
     end
@@ -89,6 +103,8 @@ class PeopleController < ApplicationController
         :studies_comment, :courses_comment, :career_comment, :political_posts_comment,
         :public_jobs_level, :public_jobs_body, :public_jobs_start_year,
         :publications, :teaching_activity, :special_mentions, :other,
+        :hidden_at, :hidden_reason,
+        :unhidden_at, :unhidden_reason,
         studies_attributes: [:description, :entity, :start_year, :end_year],
         courses_attributes: [:description, :entity, :start_year, :end_year],
         private_jobs_attributes: [:description, :entity, :start_year, :end_year],

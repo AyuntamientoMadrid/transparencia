@@ -1,0 +1,3 @@
+class ProfileUpload < FileUpload
+
+end

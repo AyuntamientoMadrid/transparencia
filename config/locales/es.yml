@@ -7,9 +7,26 @@ es:
   admin:
     menu:
       title: "Administración"
+      profile_uploads: "Fichero de perfiles"
+      people: "Personas"
       close_session: "Cerrar sesión"
     dashboard:
       title: "Administración"
+    people:
+      index:
+        title: "Personas ocultadas y restauradas"
+    profile_uploads:
+      index:
+        title: 'Histórico de subidas'
+        new_button: 'Subir un nuevo fichero'
+      create:
+        errors: 'Se detectaron errores al subir el fichero. No se han guardado cambios en la base de datos'
+        no_errors: 'Fichero subido sin errores. Cambios guardados en la base de datos'
+      new:
+        title: 'Subir de fichero de perfiles'
+      show:
+        title: 'Subir de fichero de perfiles: resultados'
+        back: 'Volver al histórico de subidas'
   index:
     outline: "Portada"
     title: "Transparencia"
@@ -35,6 +52,7 @@ es:
       calendars: "Agendas"
       subtitle: "Concejales, directivos y eventuales"
     footer:
+      admin: "Administración"
       description: "Este portal usa %{software} que es %{open_source}."
       open_source: "software libre"
       open_source_url: "http://www.gnu.org/licenses/agpl-3.0.html"
@@ -126,6 +144,8 @@ es:
       created: "Se ha creado la nueva persona"
       deleted: "Se ha borrado la persona"
       updated: "Se ha actualizado la persona"
+      hidden: "Se ha ocultado la persona"
+      unhidden: "Se ha restaurado la persona"
     councillors:
       title: "Concejales/as"
     directors:
@@ -368,6 +388,17 @@ es:
       kind: "Clase"
       comments: "Observaciones"
       amount: "Importe"
+  excel_importers:
+    base:
+      could_not_find_header: "No se pudo encontrar la cabecera '%{header}' en el archivo"
+    profile:
+      importing: "Importando %{person}"
+      updating: "Actualizando %{person} (ref. %{reference}): %{person_profiled_at} >= %{file_profiled_at}"
+      skipping: "Omitiendo importación de %{person} (ref. %{reference}): %{person_profiled_at} >= %{file_profiled_at}"
+      summary: "Resumen"
+      imported: "Importados: %{count}"
+      updated: "Actualizados: %{count}"
+      skipped: "Omitidos: %{count}"
   static_pages:
     accessibility:
       title: "Accesibilidad"
@@ -388,10 +419,18 @@ es:
     back: "Atrás"
     delete: "Borrar"
     add: "Añadir"
+    hide: "Ocultar"
+    unhide: "Restaurar"
     target_blank: "(se abre en ventana nueva)"
     no_data: "Esta sección carece de datos."
+    "true": "Sí"
+    "false": "No"
   activerecord:
     attributes:
+      administrator:
+        password: "Clave"
+        password_confirmation: "Repetir clave"
+        remember_me: "Recordarme"
       objective:
         title: "Título"
         description: "Descripción"
@@ -402,6 +441,23 @@ es:
         subtitle: "Subtítulo"
         link: "Enlace externo"
         content: "Contenido"
+      profile_upload:
+        file: "Fichero"
+        created_at: "Fecha de subida"
+        author_email: "Autor"
+        original_filename: "Nombre del fichero"
+        file_format: "Tipo de fichero"
+        translated_successful: "Importación completada con éxito"
+      person:
+        backwards_name: "Nombre"
+        role: "Cargo"
+        hidden_at: "Fecha de ocultación"
+        hidden_by: "Ocultado por"
+        hidden_reason: "Razón de ocultación"
+        unhidden_at: "Fecha de restauración"
+        unhidden_by: "Restaurado por"
+        unhidden_reason: "Razón de restauración"
+
   activemodel:
     models:
       contact: "Contacto"

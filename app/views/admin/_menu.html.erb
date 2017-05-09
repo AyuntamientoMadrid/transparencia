@@ -4,6 +4,20 @@
       <%= link_to t('admin.menu.title'), admin_root_path %>
     </li>
 
+    <li class="<%= 'active' if controller_name == 'profile_uploads' %>">
+      <%= link_to admin_profile_uploads_path do %>
+        <i class="icon-document"></i>
+        <%= t('admin.menu.profile_uploads') %>
+      <% end %>
+    </li>
+
+    <li class="<%= 'active' if controller_name == 'people' %>">
+      <%= link_to admin_people_path do %>
+        <i class="icon-user"></i>
+        <%= t('admin.menu.people') %>
+      <% end %>
+    </li>
+
     <li>
       <%= link_to destroy_administrator_session_path, method: 'delete' do %>
         <i class="icon-x"></i>

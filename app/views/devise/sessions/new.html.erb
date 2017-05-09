@@ -14,12 +14,12 @@
 
       <% if devise_mapping.rememberable? -%>
         <div class="field">
-          <%= f.check_box :remember_me, label: t('devise.admin.remember_me_label') %>
+          <%= f.check_box :remember_me %>
         </div>
       <% end -%>
 
       <div class="actions">
-        <%= f.submit t('devise.admin.submit'), class: "button radius expand" %>
+        <%= f.submit t('shared.submit'), class: "button radius expand" %>
       </div>
     <% end %>
 

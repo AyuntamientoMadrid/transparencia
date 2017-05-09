@@ -17,6 +17,8 @@ require 'importers/activities/other_importer'
 require 'importers/contracts_importer'
 require 'importers/subventions_importer'
 
+require 'excel_importers/profile'
+
 namespace :import do
   desc "Imports everything"
   task all: ['import:calendars', 'import:assets:all', 'import:activities:all']
@@ -31,15 +33,28 @@ namespace :import do
     Importers::CouncillorsImporter.new('./import-data/councillors.csv').import!
   end
 
-  desc "Imports import-data/PerfilProfesional.csv into the people table"
+  desc "Imports import-data/profiles.csv & non-profiles.csv into the people table"
   task profiles: 'import:councillors' do
     Importers::ProfilesImporter.new('./import-data/profiles.csv').import!
     Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
   end
 
+  desc "Imports import-data/non-profiles.csv into the people table"
+  task non_profiles: 'import:councillors' do
+    Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
+  end
+
   desc "Imports import-data/calendars.csv into the db"
-  task calendars: 'import:profiles' do
+  task calendars: 'import:councillors' do
     Importers::CalendarsImporter.new('./import-data/calendars.csv').import!
+  end
+
+  namespace :spec do
+    desc "Imports import-data/PerfilProfesional.csv into the people table"
+    task profiles: 'import:councillors' do
+      ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', headers_row: 2).import!
+      Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
+    end
   end
 
   namespace :assets do

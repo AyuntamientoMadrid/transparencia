@@ -20,8 +20,10 @@
 //= require trix
 //= require linkable
 //= require form_helpers
+//= require toggler
 
 var initialize_modules = function() {
+  App.Toggler.initialize()
 }
 
 $(function(){
