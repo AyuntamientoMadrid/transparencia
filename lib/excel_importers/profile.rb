@@ -159,7 +159,7 @@ module ExcelImporters
           col = index("#{course_index}_nombre_del_curso".to_sym)
           person.add_course(row[col], row[col+1], row[col+2], row[col+3])
         end
-        courses_comment_col = index(:"4_nombre_del_curso")+4
+        courses_comment_col = index(:"4_nombre_del_curso")+5
         person.courses_comment = row[courses_comment_col]
       end
 
@@ -200,7 +200,7 @@ module ExcelImporters
           col = index("#{post_index}_cargo".to_sym)
           person.add_political_post(row[col], row[col+1], row[col+2], row[col+3])
         end
-        political_posts_comment_col = index(:"4_cargo")+4
+        political_posts_comment_col = index(:"4_cargo")+5
         person.political_posts_comment = row[political_posts_comment_col]
       end
   end
