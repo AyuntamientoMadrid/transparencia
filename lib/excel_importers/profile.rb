@@ -186,7 +186,7 @@ module ExcelImporters
           person.add_private_job(row[col], row[col+1], row[col+2], row[col+3])
         end
 
-        career_comment_col = index(:"4_cargo_actividad") + 4
+        career_comment_col = index(:"4_cargo_actividad") + 5
         person.career_comment = row[career_comment_col]
 
         person.public_jobs_level      = row[:grado_consolidado]
