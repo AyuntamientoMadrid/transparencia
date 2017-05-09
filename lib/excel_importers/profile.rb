@@ -149,7 +149,7 @@ module ExcelImporters
           col = index("#{studies_index}_titulacion_oficial".to_sym)
           person.add_study(row[col], row[col+1], row[col+2], row[col+3])
         end
-        studies_comment_col = index(:"4_titulacion_oficial")+4
+        studies_comment_col = index(:"4_titulacion_oficial")+5
         person.studies_comment = row[studies_comment_col]
       end
 
