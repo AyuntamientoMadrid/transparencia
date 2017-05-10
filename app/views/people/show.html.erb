@@ -1,6 +1,6 @@
 <% cache [locale_key, @person, @person.party, administrator_signed_in?] do %>
 
-  <% provide :title do %>
+  <% content_for :title do %>
     <%= t("transparency") %> -
     <% if @person.councillor? %>
       <%= t("people.councillors.title") %>
