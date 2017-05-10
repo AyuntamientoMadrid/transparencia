@@ -1,16 +1,16 @@
-<% cache [locale_key, @person, @person.party, administrator_signed_in?] do %>
-
-  <% content_for :title do %>
-    <%= t("transparency") %> -
-    <% if @person.councillor? %>
-      <%= t("people.councillors.title") %>
-    <% elsif @person.director? %>
-      <%= t("people.directors.title") %>
-    <% else %>
-      <%= t("people.temporary_workers.title") %>
-    <% end %>
-    - <%= @person.name %>
+<% content_for :title do %>
+  <%= t("transparency") %> -
+  <% if @person.councillor? %>
+    <%= t("people.councillors.title") %>
+  <% elsif @person.director? %>
+    <%= t("people.directors.title") %>
+  <% else %>
+    <%= t("people.temporary_workers.title") %>
   <% end %>
+  - <%= @person.name %>
+<% end %>
+
+<% cache [locale_key, @person, @person.party, administrator_signed_in?] do %>
 
   <ul class="breadcrumbs" aria-label="breadcrumbs">
     <li>
