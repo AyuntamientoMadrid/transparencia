@@ -20,7 +20,7 @@
         <ul class="people-list-text">
           <% directors.each do |director| %>
             <li>
-              <h3 class="inline-block"><%= link_to director.backwards_name, person_path(director) %></h3> - <%= director.unit %>
+              <h3 class="inline-block"><%= link_to director.backwards_name, person_path(director) %></h3> - <%= director.role %>
             </li>
           <% end %>
         </ul>
