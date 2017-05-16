@@ -20,7 +20,7 @@
         <ul class="people-list-text">
           <% temporary_workers.each do |worker| %>
             <li>
-              <h3 class="inline-block"><%= link_to worker.backwards_name, person_path(worker) %></h3> - <%= worker.unit %>
+              <h3 class="inline-block"><%= link_to worker.backwards_name, person_path(worker) %></h3> - <%= worker.role %>
             </li>
           <% end %>
         </ul>

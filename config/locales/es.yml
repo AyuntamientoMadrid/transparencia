@@ -67,7 +67,7 @@ es:
       conditions: "Aviso legal"
       conditions_url: "https://www.madrid.es/portales/munimadrid/avisoLegal.html"
       accessibility: "Accesibilidad"
-      accessibility_url: "http://www.madrid.es/portales/munimadrid/accesibilidad.html"
+      accessibility_url: "/accessibility"
       site_url: "transparencia.madrid.es"
       site_description: "Espacio para el impulso de la transparencia en la gestión municipal, el acceso a la información y la trazabilidad de las decisiones públicas."
       other_sites: "Otras webs del Ayuntamiento de Madrid"
