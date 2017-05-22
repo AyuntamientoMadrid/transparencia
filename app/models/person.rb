@@ -307,7 +307,6 @@ class Person < ActiveRecord::Base
   end
 
   %i(first second third fourth).each_with_index do |ordinal, index|
-
     %i(description entity start_year end_year).each do |field|
       define_method "#{ordinal}_study_#{field}" do
         studies[index].try(field)
@@ -332,7 +331,7 @@ class Person < ActiveRecord::Base
   end
 
   { english: 'Inglés', french: 'Francés',
-    german: 'Alemán', italian: 'Italiano'}.each do |symbol, name|
+    german: 'Alemán', italian: 'Italiano' }.each do |symbol, name|
     define_method "language_#{symbol}_level" do
       languages.find { |l| l[:name].to_s == name }.try(:[], :level)
     end
