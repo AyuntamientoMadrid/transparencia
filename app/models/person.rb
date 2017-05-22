@@ -287,13 +287,16 @@ class Person < ActiveRecord::Base
   end
 
   def hide(hidden_by, hidden_reason, hidden_at = DateTime.current)
-    self.update(hidden_at: hidden_at,
-                hidden_by_id: hidden_by.id,
-                hidden_reason: hidden_reason)
+    attrs = { hidden_at: hidden_at,
+              hidden_by_id: hidden_by.id,
+              hidden_reason: hidden_reason }
+    attrs[:leaving_date] = hidden_at if councillor?
+    self.update(attrs)
   end
 
   def unhide(unhidden_by, unhidden_reason, unhidden_at = DateTime.current)
     self.update(unhidden_at: unhidden_at,
+                leaving_date: nil,
                 unhidden_by_id: unhidden_by.id,
                 unhidden_reason: unhidden_reason)
   end

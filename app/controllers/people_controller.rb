@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
 
   def councillors
     @working_councillors_by_party = Person.councillors.working.unhidden.grouped_by_party
-    @not_working_councillors      = Person.councillors.not_working.unhidden
+    @not_working_councillors      = Person.councillors.not_working # hidden councillors == not_working councillors
   end
 
   def directors
