@@ -306,6 +306,45 @@ class Person < ActiveRecord::Base
     hidden_at.blank? || (unhidden_at.present? && unhidden_at > hidden_at)
   end
 
+  %i(first second third fourth).each_with_index do |ordinal, index|
+    %i(description entity start_year end_year).each do |field|
+      define_method "#{ordinal}_study_#{field}" do
+        studies[index].try(field)
+      end
+
+      define_method "#{ordinal}_course_#{field}" do
+        courses[index].try(field)
+      end
+
+      define_method "#{ordinal}_public_job_#{field}" do
+        public_jobs[index].try(field)
+      end
+
+      define_method "#{ordinal}_private_job_#{field}" do
+        private_jobs[index].try(field)
+      end
+
+      define_method "#{ordinal}_political_post_#{field}" do
+        political_posts[index].try(field)
+      end
+    end
+  end
+
+  { english: 'Inglés', french: 'Francés',
+    german: 'Alemán', italian: 'Italiano' }.each do |symbol, name|
+    define_method "language_#{symbol}_level" do
+      languages.find { |l| l[:name].to_s == name }.try(:[], :level)
+    end
+  end
+
+  def language_other_name
+    languages.find { |l| !%w(Inglés Francés Alemán Italiano).include?(l.name) }.try(:name)
+  end
+
+  def language_other_level
+    languages.find { |l| !%w(Inglés Francés Alemán Italiano).include?(l.name) }.try(:level)
+  end
+
   private
 
     def initialize_profile
