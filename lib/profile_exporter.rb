@@ -125,6 +125,44 @@ class ProfileExporter
   end
 
   def person_to_row(person)
-    FIELDS.map { |f| person.send(f) }
+    FIELDS.map do |f|
+      person.send(f)
+    end
   end
+
+  def windows_headers
+    windows_array headers
+  end
+
+  def windows_person_row(person)
+    windows_array person_to_row(person)
+  end
+
+  def save_csv(path)
+    CSV.open(path, 'w', col_sep: ';', force_quotes: true, encoding: "ISO-8859-1") do |csv|
+      csv << windows_headers
+      Person.working.unhidden.find_each do |person|
+        csv << windows_person_row(person)
+      end
+    end
+  end
+
+  def save_xls(path)
+    book = Spreadsheet::Workbook.new
+    sheet = book.create_worksheet
+    sheet.row(0).default_format = Spreadsheet::Format.new color: :blue, weight: :bold
+    sheet.row(0).concat headers
+    index = 1
+    Person.working.unhidden.find_each do |person|
+      sheet.row(index).concat person_to_row(person)
+      index += 1
+    end
+
+    book.write(path)
+  end
+
+  private
+    def windows_array(values)
+      values.map{|v| v.to_s.encode("ISO-8859-1", invalid: :replace, undef: :replace, replace: '')}
+    end
 end
