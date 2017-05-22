@@ -33,6 +33,8 @@ gem 'newrelic_rpm', '~> 3.14'
 gem 'rinku', require: 'rails_rinku'
 gem 'roo'
 gem 'roo-xls'
+gem 'spreadsheet'
+gem 'whenever', require: false
 
 # For rake db:danger:truncate
 gem 'database_cleaner'
