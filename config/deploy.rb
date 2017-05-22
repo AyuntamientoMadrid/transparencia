@@ -33,6 +33,8 @@ set :keep_releases, 5
 
 set :local_user, ENV['USER']
 
+set :whenever_roles, [:db]
+
 # Config files should be copied by deploy:setup_config
 set(:config_files, %w(
   log_rotation
