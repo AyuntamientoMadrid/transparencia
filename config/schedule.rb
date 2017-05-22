@@ -22,5 +22,5 @@
 set :output, File.join(Whenever.path, "log", "cron.log")
 
 every 2.hours do
-  rake 'export:profile'
+  rake 'export:profiles'
 end
