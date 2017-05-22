@@ -161,6 +161,17 @@ class ProfileExporter
     book.write(path)
   end
 
+  def save_json(path)
+    data = []
+    h = headers
+    Person.working.unhidden.find_each do |person|
+      data << h.zip(person_to_row(person)).to_h
+    end
+    File.open(path,"w") do |f|
+      f.write(data.to_json)
+    end
+  end
+
   private
     def windows_array(values)
       values.map{|v| v.to_s.encode("ISO-8859-1", invalid: :replace, undef: :replace, replace: '')}

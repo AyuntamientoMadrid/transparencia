@@ -12,6 +12,7 @@ namespace :export do
 
     exporter.save_csv(folder.join('profiles.csv'))
     exporter.save_xls(folder.join('profiles.xls'))
+    exporter.save_json(folder.join('profiles.json'))
   end
 
 end
