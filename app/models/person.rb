@@ -252,7 +252,7 @@ class Person < ActiveRecord::Base
   end
 
   def name_initial
-    ActiveSupport::Inflector.transliterate(self.last_name[0]).upcase
+    self.sorting_name[0].upcase
   end
 
   def area
