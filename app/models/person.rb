@@ -272,9 +272,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.grouped_by_name_initial
-    order(:sorting_name)
-      .group_by(&:name_initial)
-      .sort.to_h
+    order(:sorting_name).group_by(&:name_initial).to_h
   end
 
   def self.grouped_by_party
