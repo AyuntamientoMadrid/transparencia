@@ -118,6 +118,8 @@ class ProfileExporter
     special_mentions
 
     other
+
+    job_level_code
   }
 
   def headers

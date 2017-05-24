@@ -454,7 +454,7 @@ es:
     language_english_level: "Inglés"
     language_french_level: "Francés"
     language_german_level: "Alemán"
-    language_italian_level: "Alemán"
+    language_italian_level: "Italiano"
     language_other_name: "Otro Idioma"
     language_other_level: "Nivel otro idioma"
 
@@ -520,11 +520,13 @@ es:
 
     publications: "Publicaciones"
 
-    teaching_activity: "Actividad docente"
+    teaching_activity: "Actividad"
 
     special_mentions: "Distinciones"
 
-    other: "Otros"
+    other: "Otra información"
+
+    job_level_code: "Código cargo"
 
   mailer:
     new_contact:

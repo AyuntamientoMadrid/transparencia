@@ -519,11 +519,13 @@ en:
 
     publications: "Publications"
 
-    teaching_activity: "Teaching Activity"
+    teaching_activity: "Activity"
 
     special_mentions: "Distinctions"
 
-    other: "Others"
+    other: "Other information"
+
+    job_level_code: "Job level code"
 
   mailer:
     new_contact:

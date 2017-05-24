@@ -348,6 +348,12 @@ class Person < ActiveRecord::Base
     languages.find { |l| !%w(Inglés Francés Alemán Italiano).include?(l.name) }.try(:level)
   end
 
+  def job_level_code
+    return 'C' if councillor?
+    return 'D' if director?
+    'E'
+  end
+
   private
 
     def initialize_profile
