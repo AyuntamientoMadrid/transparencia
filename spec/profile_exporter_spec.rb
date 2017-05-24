@@ -7,7 +7,7 @@ describe ProfileExporter do
   describe '#headers' do
     it "generates localized headers" do
       expect(exporter.headers.first).to eq('Profiled At')
-      expect(exporter.headers.last).to eq('Others')
+      expect(exporter.headers.last).to eq('Job level code')
     end
   end
 
