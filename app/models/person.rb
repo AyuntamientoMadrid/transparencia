@@ -252,7 +252,7 @@ class Person < ActiveRecord::Base
   end
 
   def name_initial
-    ActiveSupport::Inflector.transliterate(self.last_name[0]).upcase
+    sorting_name[0].upcase
   end
 
   def area
@@ -274,7 +274,8 @@ class Person < ActiveRecord::Base
   def self.grouped_by_name_initial
     order(:sorting_name)
       .group_by(&:name_initial)
-      .sort.to_h
+      .map { |k, v| [k, v.sort_by(&:sorting_name)] }
+      .to_h
   end
 
   def self.grouped_by_party
