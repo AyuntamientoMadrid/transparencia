@@ -3,6 +3,14 @@ require 'excel_importers/base'
 module ExcelImporters
   class Profile < Base
 
+    JOB_LEVELS = {
+      'C' => 'councillor',
+      'D' => 'director',
+      'E' => 'temporary_worker',
+      'F' => 'public_worker',
+      'V' => 'spokesperson'
+    }
+
     COUNCILLOR_JOB_LEVEL_CODES = %w(alcalde-sa concejal-de-gobierno concejal-presidente-de-distrito concejal-sin-respons-de-gestion-publica concejal-a-de-gobierno concejal-a-pres-distrito-3-tte-alcadia concejal-a-sin-respons-de-gestion-publi portavoz-grupo-politico primer-teniente-de-alcalde primer-a-teniente-de-alcaldia).freeze
     TEMP_WORKER_JOB_LEVEL_CODES = %w(administrativo-a apoyo-a-la-secretaria-alcaldia asesor-a-n24 asesor-a-n26 asesor-a-n28 director-a-de-gabinete jefe-a-de-secretaria vocal-asesor vocal-asesor-a).freeze
 
@@ -41,7 +49,7 @@ module ExcelImporters
 
     def import_row!(row)
       person_query = Person.where(personal_code: row[:n_personal])
-      job_level = JOB_LEVEL_CODES[row[:cargo].parameterize]
+      job_level = JOB_LEVELS.fetch(row[:tipo_de_vinculacion])
 
       if job_level == 'councillor'
         person = person_query.first!

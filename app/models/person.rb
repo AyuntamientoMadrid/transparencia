@@ -379,7 +379,9 @@ class Person < ActiveRecord::Base
   def job_level_code
     return 'C' if councillor?
     return 'D' if director?
-    'E'
+    return 'E' if temporary_worker?
+    return 'F' if public_worker?
+    'V'
   end
 
   private
