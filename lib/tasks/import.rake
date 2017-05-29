@@ -52,7 +52,12 @@ namespace :import do
   namespace :spec do
     desc "Imports import-data/PerfilProfesional.csv into the people table"
     task profiles: 'import:councillors' do
-      ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', headers_row: 2).import!
+
+      logger = Logger.new(STDOUT)
+      logger.formatter = proc do |severity, _datetime, _progname, msg|
+        "#{severity}: #{msg}\n"
+      end
+      ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', header_field: 'Fecha', logger: logger).import
       Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
     end
   end

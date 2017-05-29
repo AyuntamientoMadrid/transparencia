@@ -2,57 +2,14 @@ require 'excel_importers/base'
 
 module ExcelImporters
   class Profile < Base
-    JOB_LEVEL_CODES = {
-      'ASESOR/A N24' => 'temporary_worker',
-      'ASESOR/A N26' => 'temporary_worker',
-      'ASESOR/A N28' => 'temporary_worker',
-      'DIRECTOR/A DE GABINETE' => 'temporary_worker',
-      'VOCAL ASESOR/A' => 'temporary_worker',
-      'VOCAL ASESOR' => 'temporary_worker',
-      'ADMINISTRATIVO/A' => 'temporary_worker',
-      'APOYO A LA SECRETARIA ALCALDIA' => 'temporary_worker',
-      'JEFE/A DE SECRETARÍA' => 'temporary_worker',
-      'JEFE/A DE SECRETARIA' => 'temporary_worker',
 
-      'COORDINADOR GENERAL' => 'director',
-      'COORDINADOR/A GENERAL' => 'director',
-      'COORDINADOR/A DE DISTRITO' => 'director',
-      'DIRECTOR GENERAL' => 'director',
-      'DIRECTOR/A GENERAL' => 'director',
-      'DIRECTOR OOAA. AGENCIA TRIBUTARIA' => 'director',
-      'DIRECTOR/A OOAA. AGENCIA TRIBUTARIA' => 'director',
-      'DIRECTOR/A OFICINA' => 'director',
-      'GERENTE AGENCIA DE ACTIVIDADES' => 'director',
-      'GERENTE/A ORGANISMO AUTONOMO' => 'director',
-      'GERENTE/A ORGANISMO AUTÓNOMO' => 'director',
-      'GERENTE DE LA CIUDAD' => 'director',
-      'GERENTE/A CIUDAD' => 'director',
-      'GERENTE DISTRITO' => 'director',
-      'GERENTE/A DISTRITO' => 'director',
-      'GERENTE ORGANISMO AUTONOMO' => 'director',
-      'PENDIENTE ADSCRIPCION' => 'director',
-      'PRESIDENTE TRIBUNAL' => 'director',
-      'PRESIDENTE/A TRIBUNAL' => 'director',
-      'SECRETARIO GENERAL PLENO' => 'director',
-      'SECRETARIO GENERAL TEAMM' => 'director',
-      'SECRETARIO/A GENERAL TEAMM' => 'director',
-      'SECRETARIO GENERAL TECNICO' => 'director',
-      'SECRETARIO/A GENERAL TÉCNICO/A' => 'director',
-      'SECRETARIO/A SERVICIOS COMUNES' => 'director',
-      'VOCAL DEL TRIBUNAL' => 'director',
+    COUNCILLOR_JOB_LEVEL_CODES = %w(alcalde-sa concejal-de-gobierno concejal-presidente-de-distrito concejal-sin-respons-de-gestion-publica concejal-a-de-gobierno concejal-a-pres-distrito-3-tte-alcadia concejal-a-sin-respons-de-gestion-publi portavoz-grupo-politico primer-teniente-de-alcalde primer-a-teniente-de-alcaldia).freeze
+    TEMP_WORKER_JOB_LEVEL_CODES = %w(administrativo-a apoyo-a-la-secretaria-alcaldia asesor-a-n24 asesor-a-n26 asesor-a-n28 director-a-de-gabinete jefe-a-de-secretaria vocal-asesor vocal-asesor-a).freeze
 
-      'ALCALDE/SA' => 'councillor',
-      'CONCEJAL DE GOBIERNO' => 'councillor',
-      'CONCEJAL/A DE GOBIERNO' => 'councillor',
-      'CONCEJAL SIN RESPONS. DE GESTION PUBLICA' => 'councillor',
-      'CONCEJAL/A SIN RESPONS. DE GESTION PUBLI' => 'councillor',
-      'CONCEJAL PRESIDENTE DE DISTRITO' => 'councillor',
-      'CONCEJAL/A PRES DISTRITO/ 3º TTE ALCADIA' => 'councillor',
-      'PORTAVOZ GRUPO POLITICO' => 'councillor',
-      'PRIMER TENIENTE DE ALCALDE' => 'councillor',
-      'PRIMER/A TENIENTE DE ALCALDIA' => 'councillor'
-    }.freeze
-
+    JOB_LEVEL_CODES = Hash.new('director')
+                          .merge(Hash[COUNCILLOR_JOB_LEVEL_CODES.map{|c| [c, 'councillor']}])
+                          .merge(Hash[TEMP_WORKER_JOB_LEVEL_CODES.map{|c| [c, 'temporary_worker']}])
+                          .freeze
     def import
       @imported = 0
       @updated = 0
@@ -76,7 +33,7 @@ module ExcelImporters
 
     def import_row!(row)
       person_query = Person.where(personal_code: row[:n_personal])
-      job_level = JOB_LEVEL_CODES.fetch(row[:cargo])
+      job_level = JOB_LEVEL_CODES[row[:cargo].parameterize]
 
       if job_level == 'councillor'
         person = person_query.first!
