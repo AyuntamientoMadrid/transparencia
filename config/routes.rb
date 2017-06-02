@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "dashboard#index"
     resources :profile_uploads, only: [:new, :create, :show, :index]
+    resources :activities_uploads, only: [:new, :create, :show, :index]
     resources :people, only: [:index]
   end
 

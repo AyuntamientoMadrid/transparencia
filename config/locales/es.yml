@@ -8,6 +8,7 @@ es:
     menu:
       title: "Administración"
       profile_uploads: "Fichero de perfiles"
+      activities_uploads: "Fichero de Actividades"
       people: "Personas"
       close_session: "Cerrar sesión"
     dashboard:
@@ -16,6 +17,18 @@ es:
       index:
         title: "Personas ocultadas y restauradas"
     profile_uploads:
+      index:
+        title: 'Histórico de subidas'
+        new_button: 'Subir un nuevo fichero'
+      create:
+        errors: 'Se detectaron errores al subir el fichero. No se han guardado cambios en la base de datos'
+        no_errors: 'Fichero subido sin errores. Cambios guardados en la base de datos'
+      new:
+        title: 'Subir de fichero de perfiles'
+      show:
+        title: 'Subir de fichero de perfiles: resultados'
+        back: 'Volver al histórico de subidas'
+    activities_uploads:
       index:
         title: 'Histórico de subidas'
         new_button: 'Subir un nuevo fichero'
@@ -399,6 +412,15 @@ es:
       imported: "Importados: %{count}"
       updated: "Actualizados: %{count}"
       skipped: "Omitidos: %{count}"
+    activities:
+      declarations:
+        imported: "Detectada declaración de actividades para %{person} (%{date})"
+      public:
+        imported: "Puesto de Trabajo (%{period}) %{person}, %{entity}, %{position}. %{start_date} - %{end_date}"
+      private:
+        imported: "Actividad Privada (%{period}) %{person}, %{kind} - %{entity}, %{position}. %{start_date} - %{end_date}"
+      other:
+        imported: "Otra Actividad (%{period}) %{person}, %{start_date} - %{end_date}"
   static_pages:
     accessibility:
       title: "Accesibilidad"

@@ -6,9 +6,10 @@ module ExcelImporters
     attr_reader :logger
     attr_reader :file_format
 
-    def initialize(path_to_file, header_field: nil, logger: NullLogger.new)
+    def initialize(path_to_file, header_field: nil, sheet_name: 0, logger: NullLogger.new)
       @path_to_file = path_to_file
       @header_field = header_field
+      @sheet_name = sheet_name
       @logger = logger
     end
 
@@ -74,6 +75,14 @@ module ExcelImporters
       end
     end
 
+    def self.newDefaultLogger(strio)
+      logger = Logger.new(strio)
+      logger.formatter = proc do |severity, _datetime, _progname, msg|
+        "#{severity}: #{msg}\n"
+      end
+      logger
+    end
+
     class NullLogger
       def info(str) end
 
@@ -85,7 +94,7 @@ module ExcelImporters
       def sheet
         unless @sheet
           begin
-            @sheet = Roo::Spreadsheet.open(@path_to_file).sheet(0)
+            @sheet = Roo::Spreadsheet.open(@path_to_file).sheet(@sheet_name)
             @file_format = :xls
           rescue Ole::Storage::FormatError
             @sheet = HTMLTable.open(@path_to_file)

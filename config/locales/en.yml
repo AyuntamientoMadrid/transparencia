@@ -8,6 +8,7 @@ en:
     menu:
       title: "Administration"
       profile_uploads: "Profile uploads"
+      activities_uploads: "Activities uploads"
       close_session: "Close session"
       people: "People"
     dashboard:
@@ -16,6 +17,18 @@ en:
       index:
         title: "Hidden and Unhidden people"
     profile_uploads:
+      index:
+        title: 'Upload history'
+        new_button: 'Upload a new file'
+      create:
+        errors: 'Errors were detected while processing the file'
+        no_errors: 'File processed successfully'
+      new:
+        title: 'Upload profile file'
+      show:
+        title: 'Upload profile file: results'
+        back: 'Back to the list'
+    activities_uploads:
       index:
         title: 'Upload history'
         new_button: 'Upload a new file'
@@ -396,7 +409,15 @@ en:
       imported: "Imported: %{count}"
       updated: "Updated: %{count}"
       skipped: "Skipped: %{count}"
-
+    activities:
+      declarations:
+        imported: "Activity declaration for %{person} (%{date})"
+      public:
+        imported: "Public job (%{period}) %{person}, %{entity}, %{position}. %{start_date} - %{end_date}"
+      private:
+        imported: "Private job (%{period}) %{person}, %{kind} - %{entity}, %{position}. %{start_date} - %{end_date}"
+      other:
+        imported: "Other activities (%{period}) %{person}, %{start_date} - %{end_date}"
   static_pages:
     accessibility:
       title: "Accessibility"

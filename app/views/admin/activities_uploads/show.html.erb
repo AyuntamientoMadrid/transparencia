@@ -1,0 +1,19 @@
+<h1><%= t('admin.activities_uploads.show.title') %></h1>
+
+<ul>
+  <li><%= active_record_field(@activities_upload, :created_at) %></li>
+  <li><%= active_record_field(@activities_upload, :author_email) %></li>
+  <li><%= active_record_field(@activities_upload, :original_filename) %></li>
+  <li><%= active_record_field(@activities_upload, :file_format) %></li>
+  <li><%= active_record_field(@activities_upload, :translated_successful) %></li>
+</ul>
+
+<small><pre>
+<%= @activities_upload.log %>
+</pre></small>
+
+<p class="text-center">
+<%= link_to t('admin.activities_uploads.show.back'),
+            admin_activities_uploads_path,
+            class: 'button' %>
+</p>
