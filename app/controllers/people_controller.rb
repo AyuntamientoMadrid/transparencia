@@ -91,7 +91,7 @@ class PeopleController < ApplicationController
 
     def load_person_and_declarations
       @person = Person.friendly.find(params[:id])
-      authorize_administrators if @person.hidden?
+      authorize_administrators if (@person.hidden? && !@person.councillor?)
       @assets_declarations = @person.assets_declarations.order(:declaration_date)
       @activities_declarations = @person.activities_declarations.order(:declaration_date)
     end
