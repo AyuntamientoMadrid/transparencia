@@ -27,7 +27,13 @@ module ExcelImporters
                         logger: @logger,
                         sheet_name: '3_3OtrasActividades')
 
-      return declarations.import && pub.import && priv.import && other.import
+      ActiveRecord::Base.transaction do
+        declarations.import! && pub.import! && priv.import! && other.import!
+      end
+      true
+    rescue => err
+      @logger.error(err.message)
+      false
     end
 
     class Period < ::ExcelImporters::Base
@@ -35,11 +41,15 @@ module ExcelImporters
         super(path_to_file, logger: logger, sheet_name: sheet_name)
         @period = period
       end
+
+      def get_person(row)
+        Person.find_by!(councillor_code: row[:codigopersona])
+      end
     end
 
     class Declarations < Period
       def import_row!(row)
-        person = Person.find_by!(councillor_code: row[:codigopersona])
+        person = get_person(row)
         declaration_date = row[:fecha_de_declaracion]
         person.activities_declarations.find_or_create_by!(period: @period, declaration_date: declaration_date)
         logger.info(I18n.t('excel_importers.activities.declarations.imported', person: person.name, date: declaration_date))
@@ -48,7 +58,7 @@ module ExcelImporters
 
     class Public < Period
       def import_row!(row)
-        person = Person.find_by!(councillor_code: row[:codigopersona])
+        person = get_person(row)
         declaration = person.activities_declarations.for_period(@period).first!
 
         entity     = row[:entidad]
@@ -70,7 +80,7 @@ module ExcelImporters
 
     class Private < Period
       def import_row!(row)
-        person = Person.find_by!(councillor_code: row[:codigopersona])
+        person = get_person(row)
         declaration = person.activities_declarations.for_period(@period).first!
 
         kind        = row[:actividad]
@@ -96,7 +106,7 @@ module ExcelImporters
 
     class Other < Period
       def import_row!(row)
-        person = Person.find_by!(councillor_code: row[:codigopersona])
+        person = get_person(row)
         declaration = person.activities_declarations.for_period(@period).first!
 
         description = row[:descripcion]
