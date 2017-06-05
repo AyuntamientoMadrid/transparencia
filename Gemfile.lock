@@ -214,7 +214,7 @@ GEM
     roo (2.7.1)
       nokogiri (~> 1)
       rubyzip (~> 1.1, < 2.0.0)
-    roo-xls (1.0.0)
+    roo-xls (1.1.0)
       nokogiri
       roo (>= 2.0.0beta1, < 3)
       spreadsheet (> 0.9.0)
@@ -338,8 +338,8 @@ DEPENDENCIES
   rails (= 4.2.7.1)
   rinku
   rollbar (~> 2.8.3)
-  roo
-  roo-xls
+  roo (~> 2.7)
+  roo-xls (~> 1.1)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0.6)
   spreadsheet
@@ -354,4 +354,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.14.6
+   1.15.0
