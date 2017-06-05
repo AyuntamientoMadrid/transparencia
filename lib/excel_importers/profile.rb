@@ -15,28 +15,6 @@ module ExcelImporters
       @header_field = header_field
     end
 
-    def headers
-      unless @headers
-        if @header_field.present?
-          sheet.each_with_index do |row, row_index|
-            if row.first == @header_field
-              @headers_row = row_index
-              @headers = row
-              break
-            end
-          end
-        else
-          @headers_row = 0
-          @headers = sheet.first
-        end
-        unless @headers
-          raise I18n.t('excel_importers.base.could_not_find_header',
-                       header: @header_field)
-        end
-      end
-      @headers
-    end
-
     def import
       @imported = 0
       @updated = 0
