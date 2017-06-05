@@ -3,7 +3,7 @@ require 'logger'
 
 module ExcelImporters
   class Activities
-    def initialize(path_to_file, period, logger)
+    def initialize(path_to_file, period, logger = ExcelImporters::Base::NullLogger.new)
       @path_to_file = path_to_file
       @period = period
       @logger = logger
@@ -85,7 +85,7 @@ module ExcelImporters
 
         kind        = row[:actividad]
         description = row[:descripcion]
-        entity      = row[:entidadcolegio_profesional]
+        entity      = row[:entidad_colegio_profesional]
         position    = row[:cargo_o_categoria]
         start_date  = row[:fecha_inicio]
         end_date    = row[:fecha_cese]
