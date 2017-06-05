@@ -82,4 +82,9 @@ FactoryGirl.define do
     association :author, factory: :administrator
   end
 
+  factory :activities_upload do
+    association :author, factory: :administrator
+    period { 'inicial' }
+  end
+
 end
