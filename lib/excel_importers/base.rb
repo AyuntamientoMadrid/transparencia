@@ -34,13 +34,13 @@ module ExcelImporters
     end
 
     def import!
-      ActiveRecord::Base.transaction do
-        each_row { |row| import_row!(row) }
-      end
+      each_row { |row| import_row!(row) }
     end
 
     def import
-      import!
+      ActiveRecord::Base.transaction do
+        import!
+      end
       true
     rescue => err
       logger.error(err.message)
