@@ -16,10 +16,6 @@ module ExcelImporters
     end
 
     def import
-      @imported = 0
-      @updated = 0
-      @skipped = 0
-
       successful = super
 
       unless successful
@@ -34,6 +30,13 @@ module ExcelImporters
       logger.info I18n.t('excel_importers.profile.skipped', count: @skipped)
 
       successful
+    end
+
+    def import!
+      @imported = 0
+      @updated = 0
+      @skipped = 0
+      super
     end
 
     def import_row!(row)
