@@ -36,9 +36,9 @@ es:
         errors: 'Se detectaron errores al subir el fichero. No se han guardado cambios en la base de datos'
         no_errors: 'Fichero subido sin errores. Cambios guardados en la base de datos'
       new:
-        title: 'Subir de fichero de perfiles'
+        title: 'Subir de fichero de actividades'
       show:
-        title: 'Subir de fichero de perfiles: resultados'
+        title: 'Subir de fichero de actividades: resultados'
         back: 'Volver al histórico de subidas'
   index:
     outline: "Portada"
