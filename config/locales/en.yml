@@ -117,7 +117,7 @@ en:
       director: "Directive"
       temporary_worker: "Temporary worker"
     councillor_code: "Council Code"
-    personal_code: "Person Code"
+    personal_code: "Identifier"
     role: "Role"
     unit: "Unit"
     party: "Party"

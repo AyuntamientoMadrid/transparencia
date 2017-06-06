@@ -117,7 +117,7 @@ es:
       director: "Directivo"
       temporary_worker: "Personal eventual"
     councillor_code: "Cód. concejal"
-    personal_code: "Cód. personal"
+    personal_code: "Identificador"
     role: "Cargo"
     unit: "Unidad"
     party: "Afiliación"
