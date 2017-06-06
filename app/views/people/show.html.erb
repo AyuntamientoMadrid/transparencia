@@ -123,10 +123,12 @@
         </div>
       <% end %>
 
-      <% if @person.profile.present? %>
-        <%= render 'profile' %>
-      <% else %>
-        <%= render 'no_profile' %>
+      <% unless @person.councillor? && @person.not_working? %>
+        <% if @person.profile.present? %>
+          <%= render 'profile' %>
+        <% else %>
+          <%= render 'no_profile' %>
+        <% end %>
       <% end %>
 
       <% if @person.councillor? %>

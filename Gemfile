@@ -31,8 +31,8 @@ gem 'dalli'
 gem 'rollbar', '~> 2.8.3'
 gem 'newrelic_rpm', '~> 3.14'
 gem 'rinku', require: 'rails_rinku'
-gem 'roo'
-gem 'roo-xls'
+gem 'roo', '~> 2.7'
+gem 'roo-xls', '~> 1.1'
 gem 'spreadsheet'
 gem 'whenever', require: false
 
@@ -65,6 +65,8 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
+  gem 'rubocop'
+  gem 'rubocop-rspec'
 end
 
 group :test do

@@ -2,7 +2,7 @@
 <h2 class="lead profile"><%= t("people.profile") %></h2>
 
 <% if @person.profiled_at.present? %>
-  <p><%= t('people.show.profile_date', profile_date: format_date(@person.profiled_at.to_date)) %></p>
+  <p><%= t('people.show.profile_date', profile_date: format_date(@person.profiled_at, format: :datetime)) %></p>
 <% end %>
 
 <% cache [locale_key, @person.profile] do %>

@@ -51,7 +51,7 @@ module ExcelImporters
         person.last_name = row[:apellidos]
         person.admin_first_name = transliterate(row[:nombre])
         person.admin_last_name = transliterate(row[:apellidos])
-        person.role = row[:cargo]
+        person.role = row[:cargo] unless person.role.present?
         person.job_level = job_level
       end
 
@@ -76,7 +76,7 @@ module ExcelImporters
 
         person.twitter  = row[:cuenta_de_twitter]
         person.facebook = row[:cuenta_de_facebook]
-        person.unit     = row[:unidad]
+        person.unit     = row[:unidad] unless person.unit.present?
 
         parse_studies(person, row)
         parse_courses(person, row)
