@@ -105,6 +105,7 @@ class PeopleController < ApplicationController
         :publications, :teaching_activity, :special_mentions, :other,
         :hidden_at, :hidden_reason,
         :unhidden_at, :unhidden_reason,
+        :calendar_url,
         studies_attributes: [:description, :entity, :start_year, :end_year],
         courses_attributes: [:description, :entity, :start_year, :end_year],
         private_jobs_attributes: [:description, :entity, :start_year, :end_year],

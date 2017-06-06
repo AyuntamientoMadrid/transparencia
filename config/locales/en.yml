@@ -592,12 +592,13 @@ en:
       person:
         backwards_name: "Nombre"
         role: "Role"
-        hidden_at: "Fecha de ocultación"
-        hidden_by: "Ocultado por"
-        hidden_reason: "Razón de ocultación"
-        unhidden_at: "Fecha de restauración"
+        hidden_at: "Hidden At"
+        hidden_by: "Hidden By"
+        hidden_reason: "Hidden reason"
+        unhidden_at: "Unhidden at"
         unhidden_by: "Restaurado por"
-        unhidden_reason: "Razón de restauración"
+        unhidden_reason: "Unhidden reason"
+        calendar_url: "Calendar url"
   activemodel:
     models:
       contact: "Contact"

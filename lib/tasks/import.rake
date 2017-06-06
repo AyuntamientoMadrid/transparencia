@@ -45,7 +45,7 @@ namespace :import do
   end
 
   desc "Imports import-data/calendars.csv into the db"
-  task calendars: 'import:councillors' do
+  task calendars: :environment do
     Importers::CalendarsImporter.new('./import-data/calendars.csv').import!
   end
 
