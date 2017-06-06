@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize_administrators
-      raise ActionController::RoutingError.new('Not Found') unless current_administrator.present?
+      raise ActionController::RoutingError.new('Not Found') if current_administrator.blank?
     end
 
 end
