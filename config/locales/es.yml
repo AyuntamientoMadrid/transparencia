@@ -578,7 +578,7 @@ es:
         unhidden_at: "Fecha de restauración"
         unhidden_by: "Restaurado por"
         unhidden_reason: "Razón de restauración"
-
+        calendar_url: "Url de calendario"
   activemodel:
     models:
       contact: "Contacto"
