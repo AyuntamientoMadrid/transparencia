@@ -4,13 +4,15 @@
 
 <ul class="side-nav">
 
-  <li data-magellan-arrival="profile">
-    <a href="#profile">
-      <%= t("people.profile") %>
-    </a>
-  </li>
+  <% if person.should_display_profile? %>
+    <li data-magellan-arrival="profile">
+      <a href="#profile">
+        <%= t("people.profile") %>
+      </a>
+    </li>
+  <% end %>
 
-  <% if person.councillor? %>
+  <% if person.should_display_declarations? %>
     <li data-magellan-arrival="assets_declarations">
       <a href="#assets_declarations">
         <%= t("people.assets_declarations") %>

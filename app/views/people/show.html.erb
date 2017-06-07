@@ -123,7 +123,7 @@
         </div>
       <% end %>
 
-      <% unless @person.councillor? && @person.not_working? %>
+      <% if @person.should_display_profile? %>
         <% if @person.profile.present? %>
           <%= render 'profile' %>
         <% else %>
@@ -131,7 +131,7 @@
         <% end %>
       <% end %>
 
-      <% if @person.councillor? %>
+      <% if @person.should_display_declarations? %>
         <%= render 'assets_declarations' %>
 
         <%= render 'activities_declarations' %>

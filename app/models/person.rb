@@ -42,12 +42,25 @@ class Person < ActiveRecord::Base
   after_destroy :refresh_party_councillors_count
 
   def not_working?
-    leaving_date.present?
+    !working?
+  end
+
+  def working?
+    leaving_date.blank?
   end
 
   def profile
     write_attribute(:profile, {}) if read_attribute(:profile).nil?
     read_attribute(:profile)
+  end
+
+  def should_display_profile?
+    # non-working councillors should not display their profile
+    !councillor? || working?
+  end
+
+  def should_display_declarations?
+    councillor?
   end
 
   def councillor?
