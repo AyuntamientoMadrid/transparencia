@@ -589,6 +589,14 @@ en:
         original_filename: "Original filename"
         file_format: "File format"
         translated_successful: "No errors while importing"
+      activities_upload:
+        file: "File"
+        created_at: "Created at"
+        author_email: "Author"
+        period: "Period"
+        original_filename: "Original filename"
+        file_format: "File format"
+        translated_successful: "No errors while importing"
       person:
         backwards_name: "Nombre"
         role: "Role"
