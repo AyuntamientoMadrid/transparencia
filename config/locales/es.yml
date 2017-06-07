@@ -609,6 +609,10 @@ es:
         unhidden_by: "Restaurado por"
         unhidden_reason: "Razón de restauración"
         calendar_url: "Url de agenda"
+      activities_declaration:
+        declaration_date: "Fecha de la declaración"
+      assets_declaration:
+        declaration_date: "Fecha de la declaración"
   activemodel:
     models:
       contact: "Contacto"
