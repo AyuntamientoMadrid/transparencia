@@ -63,6 +63,10 @@ class Person < ActiveRecord::Base
     councillor?
   end
 
+  def should_display_calendar?
+    working?
+  end
+
   def councillor?
     job_level == 'councillor'
   end

@@ -26,22 +26,24 @@
     </li>
   <% end %>
 
-  <% if @person.previous_calendar_url.present? %>
-    <li>
-      <%= link_to t("people.calendar.until", until: format_date(@person.previous_calendar_until)),
-                  @person.previous_calendar_url,
-                  target: '_blank' %>
-    </li>
-    <% if @person.calendar_url.present? %>
+  <% if person.should_display_calendar? %>
+    <% if @person.previous_calendar_url.present? %>
       <li>
-        <%= link_to t("people.calendar.from", from: format_date(@person.previous_calendar_until.next_day)),
-                    @person.calendar_url ,
+        <%= link_to t("people.calendar.until", until: format_date(@person.previous_calendar_until)),
+                    @person.previous_calendar_url,
                     target: '_blank' %>
       </li>
+      <% if @person.calendar_url.present? %>
+        <li>
+          <%= link_to t("people.calendar.from", from: format_date(@person.previous_calendar_until.next_day)),
+                      @person.calendar_url ,
+                      target: '_blank' %>
+        </li>
+      <% end %>
+    <% elsif @person.calendar_url.present? %>
+      <li>
+        <%= link_to t("people.calendar.official"), @person.calendar_url, target: '_blank' %>
+      </li>
     <% end %>
-  <% elsif @person.calendar_url.present? %>
-    <li>
-      <%= link_to t("people.calendar.official"), @person.calendar_url, target: '_blank' %>
-    </li>
   <% end %>
 </ul>
