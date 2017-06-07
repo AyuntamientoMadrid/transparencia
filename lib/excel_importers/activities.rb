@@ -43,22 +43,28 @@ module ExcelImporters
       end
 
       def get_person(row)
-        Person.find_by!(councillor_code: row[:codigopersona])
+        Person.find_by!(councillor_code: row[:codigopersona]) if row[:codigopersona].present?
+      end
+
+      def import_row!(row)
+        person = get_person(row)
+        import_person_row!(person, row) if person.present?
       end
     end
 
-    class Declarations < Period
-      def import_row!(row)
-        person = get_person(row)
+    class Declarations < ActivitiesBaseImporter
+      def import_person_row!(person, row)
         declaration_date = row[:fecha_de_declaracion]
+        if declaration_date.respond_to? :strftime
+          declaration_date = declaration_date.strftime('%d/%m/%Y')
+        end
         person.activities_declarations.find_or_create_by!(period: @period, declaration_date: declaration_date)
         logger.info(I18n.t('excel_importers.activities.declarations.imported', person: person.name, date: declaration_date))
       end
     end
 
-    class Public < Period
-      def import_row!(row)
-        person = get_person(row)
+    class Public < ActivitiesBaseImporter
+      def import_person_row!(person, row)
         declaration = person.activities_declarations.for_period(@period).first!
 
         entity     = row[:entidad]
@@ -78,9 +84,8 @@ module ExcelImporters
       end
     end
 
-    class Private < Period
-      def import_row!(row)
-        person = get_person(row)
+    class Private < ActivitiesBaseImporter
+      def import_person_row!(person, row)
         declaration = person.activities_declarations.for_period(@period).first!
 
         kind        = row[:actividad]
@@ -104,9 +109,8 @@ module ExcelImporters
       end
     end
 
-    class Other < Period
-      def import_row!(row)
-        person = get_person(row)
+    class Other < ActivitiesBaseImporter
+      def import_person_row!(person, row)
         declaration = person.activities_declarations.for_period(@period).first!
 
         description = row[:descripcion]
