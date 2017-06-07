@@ -36,7 +36,7 @@ module ExcelImporters
       false
     end
 
-    class Period < ::ExcelImporters::Base
+    class ActivitiesBaseImporter < ::ExcelImporters::Base
       def initialize(path_to_file, period, logger: nil, sheet_name: nil)
         super(path_to_file, logger: logger, sheet_name: sheet_name)
         @period = period
