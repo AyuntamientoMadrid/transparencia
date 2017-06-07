@@ -7,9 +7,9 @@ module Sortable
 
   private
 
-  def sort_column
-    resource_model.column_names.include?(params[:sort]) ? params[:sort] : ""
-  end
+    def sort_column
+      resource_model.column_names.include?(params[:sort]) ? params[:sort] : ""
+    end
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : ""

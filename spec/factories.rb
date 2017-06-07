@@ -6,7 +6,7 @@ FactoryGirl.define do
     sequence(:recipient) { |n| "Johnson#{n}" }
     description 'sample description'
     organism    'Health'
-    awarded_at  Date.today
+    awarded_at  Time.current.to_date
     award_amount_cents 100
   end
 
@@ -43,12 +43,12 @@ FactoryGirl.define do
 
   factory :activities_declaration do
     person
-    declaration_date DateTime.now
+    declaration_date Time.current
   end
 
   factory :assets_declaration do
     person
-    declaration_date DateTime.now
+    declaration_date Time.current
   end
 
   factory :administrator do

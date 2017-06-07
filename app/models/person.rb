@@ -50,8 +50,8 @@ class Person < ActiveRecord::Base
   end
 
   def profile
-    write_attribute(:profile, {}) if read_attribute(:profile).nil?
-    read_attribute(:profile)
+    self[:profile] = {} if self[:profile].nil?
+    self[:profile]
   end
 
   def should_display_profile?
@@ -242,7 +242,7 @@ class Person < ActiveRecord::Base
   end
 
   def add_language(name, level)
-    return unless name.present?
+    return if name.blank?
     self.profile['languages'] ||= []
     self.profile['languages'] << { name: name, level: level }
   end
@@ -379,7 +379,7 @@ class Person < ActiveRecord::Base
     end
 
     def add_item(collection, description, entity, start_year, end_year)
-      return unless description.present?
+      return if description.blank?
       self.profile[collection] ||= []
       self.profile[collection] << {description: description, entity: entity, start_year: start_year, end_year: end_year}
     end
