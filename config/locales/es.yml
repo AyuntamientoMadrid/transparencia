@@ -8,7 +8,7 @@ es:
     menu:
       title: "Administración"
       profile_uploads: "Fichero de perfiles"
-      activities_uploads: "Fichero de Actividades"
+      activities_uploads: "Fichero de actividades"
       people: "Personas"
       close_session: "Cerrar sesión"
     dashboard:
