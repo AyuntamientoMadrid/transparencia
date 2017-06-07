@@ -22,7 +22,7 @@ module Importers
           throw person if person.job_level == 'councillor'
         end
 
-        profiled_at = DateTime.parse(row[:fecha])
+        profiled_at = Time.zone.parse(row[:fecha])
 
         if person.profiled_at.blank? || person.profiled_at < profiled_at
 

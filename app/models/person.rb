@@ -42,12 +42,29 @@ class Person < ActiveRecord::Base
   after_destroy :refresh_party_councillors_count
 
   def not_working?
-    leaving_date.present?
+    !working?
+  end
+
+  def working?
+    leaving_date.blank?
   end
 
   def profile
-    write_attribute(:profile, {}) if read_attribute(:profile).nil?
-    read_attribute(:profile)
+    self[:profile] = {} if self[:profile].nil?
+    self[:profile]
+  end
+
+  def should_display_profile?
+    # non-working councillors should not display their profile
+    !councillor? || working?
+  end
+
+  def should_display_declarations?
+    councillor?
+  end
+
+  def should_display_calendar?
+    working?
   end
 
   def councillor?
@@ -225,7 +242,7 @@ class Person < ActiveRecord::Base
   end
 
   def add_language(name, level)
-    return unless name.present?
+    return if name.blank?
     self.profile['languages'] ||= []
     self.profile['languages'] << { name: name, level: level }
   end
@@ -362,7 +379,7 @@ class Person < ActiveRecord::Base
     end
 
     def add_item(collection, description, entity, start_year, end_year)
-      return unless description.present?
+      return if description.blank?
       self.profile[collection] ||= []
       self.profile[collection] << {description: description, entity: entity, start_year: start_year, end_year: end_year}
     end

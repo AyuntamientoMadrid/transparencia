@@ -1,7 +1,7 @@
 class Objective < ActiveRecord::Base
   belongs_to :department
 
-  validates_presence_of :title, :description
+  validates :title, :description, presence: true
 
   scope :accomplished, ->     { where(accomplished: true) }
   scope :not_accomplished, -> { where(accomplished: false) }  

@@ -12,7 +12,7 @@ Party.create!(name: "Ahora Madrid", logo: "logo_ahora_madrid.png")
 Person.create!(party: Party.first,
                email: 'person1@madrid.es',
                first_name: 'Manuela',
-               last_name: 'Carmena',
+               last_name: 'Carmena Castrillo',
                job_level: 'director',
                role: "Alcaldesa",
                twitter: "@ManuelaCarmena",
@@ -57,8 +57,8 @@ Person.create!(party: Party.first,
   other: "Lorem ipsum dolor sit amet"
 })
 
-Person.create!(party: Party.first, email: 'person2@madrid.es', first_name: 'Pablo', last_name: 'Soto', job_level: 'councillor', role: "Concejal")
-Person.create!(party: Party.first, email: 'person3@madrid.es', first_name: 'Pablo', last_name: 'Soto 2', job_level: 'councillor', role: "Concejal")
+Person.create!(party: Party.first, email: 'person2@madrid.es', first_name: 'Pablo', last_name: 'Soto Bravo', job_level: 'councillor', role: "Concejal")
+Person.create!(party: Party.first, email: 'person3@madrid.es', first_name: 'Rita', last_name: 'Maestre Fernandez ', job_level: 'councillor', role: "Concejal")
 
 # Asset declarations
 AssetsDeclaration.create!(person: Person.first, declaration_date: Date.new(2015,1,1), data: {
