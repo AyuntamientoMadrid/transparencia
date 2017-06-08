@@ -7,7 +7,7 @@ logger = ExcelImporters::Base::NullLogger.new
 describe ExcelImporters::Base do
   describe '#import' do
     it 'Rolls back imports when it finds an error' do
-      importer = ExcelImporters::Profile.new('./spec/fixtures/files/single_profile_and_councillor.xls',
+      importer = ExcelImporters::Profile.new('./spec/fixtures/files/single_profile_and_single_councillor.xls',
                                              header_field: 'Fecha',
                                              logger: logger)
 
