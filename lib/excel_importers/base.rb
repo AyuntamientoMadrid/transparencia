@@ -14,9 +14,8 @@ module ExcelImporters
     end
 
     def each_row(&_block)
-      headers # forces calculation of @headers & @headers_row
       sheet.each_with_index do |row, row_index|
-        next if row_index <= @headers_row # skip header row
+        next if row_index <= headers_row # skip header row
         row_hash = row_to_hash(row, row_index)
         next if row_hash.values.all?(&:blank?)
         yield(row_hash)
@@ -67,6 +66,10 @@ module ExcelImporters
         end
       end
       @headers
+    end
+
+    def headers_row
+      headers && @headers_row
     end
 
     def hash_headers
