@@ -6,7 +6,7 @@ logger = ExcelImporters::Base::NullLogger.new
 
 describe ExcelImporters::Base do
   describe '#import' do
-    it 'Rolls back imports when it finds an error' do
+    it 'Rolls back imports when it finds an error', :js do
       importer = ExcelImporters::Profile.new('./spec/fixtures/files/single_councillor.xls',
                                              header_field: 'Fecha',
                                              logger: logger)
