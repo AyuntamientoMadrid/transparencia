@@ -18,7 +18,7 @@ class Admin::ProfileUploadsController < Admin::BaseController
 
     if @profile_upload.valid?
       StringIO.open do |strio|
-        logger = ExcelImporters::Base.newDefaultLogger(strio)
+        logger = ExcelImporters::Base.new_default_logger(strio)
         importer = ExcelImporters::Profile.new @profile_upload.file.tempfile,
                                                header_field: 'Fecha',
                                                logger: logger

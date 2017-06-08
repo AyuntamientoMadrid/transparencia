@@ -78,8 +78,8 @@ module ExcelImporters
       end
     end
 
-    def self.newDefaultLogger(strio)
-      logger = Logger.new(strio)
+    def self.new_default_logger(io = STDOUT)
+      logger = Logger.new(io)
       logger.formatter = proc do |severity, _datetime, _progname, msg|
         "#{severity}: #{msg}\n"
       end

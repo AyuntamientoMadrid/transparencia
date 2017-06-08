@@ -18,7 +18,7 @@ class Admin::ActivitiesUploadsController < Admin::BaseController
 
     if @activities_upload.valid?
       StringIO.open do |strio|
-        logger = ExcelImporters::Base.newDefaultLogger(strio)
+        logger = ExcelImporters::Base.new_default_logger(strio)
         importer = ExcelImporters::Activities.new @activities_upload.file.tempfile,
                                                   @activities_upload.period,
                                                   logger
