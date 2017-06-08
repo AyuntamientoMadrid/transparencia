@@ -9,17 +9,16 @@ describe ExcelImporters::Activities, clean_as_group: true do
       Importers::PartiesImporter.new('./import-data/parties.csv').import!
       Importers::CouncillorsImporter.new('./import-data/councillors.csv').import!
       ExcelImporters::Activities.new('./spec/fixtures/files/activities.xls', 'inicial').import
-      @person2 = Person.where(councillor_code: 2).first
     end
 
     it 'Parses declarations' do
-      declaration = Person.where(councillor_code: 1).first.activities_declarations.first
+      declaration = Person.where(personal_code: 2379).first.activities_declarations.first
       expect(declaration.period).to eq('inicial')
-      expect(declaration.declaration_date).to eq(Date.new(2015,6,12))
+      expect(declaration.declaration_date).to eq(Date.new(2015, 6, 12))
     end
 
     it 'Parses public activities' do
-      declaration = Person.where(councillor_code: 3).first.activities_declarations.first
+      declaration = Person.where(personal_code: 171133).first.activities_declarations.first
       job = declaration.public_activities.first
       expect(job.entity).to eq('Administración General del Estado')
       expect(job.position.strip).to eq('Abogado del Estado')
@@ -28,7 +27,7 @@ describe ExcelImporters::Activities, clean_as_group: true do
     end
 
     it 'Parses private activities' do
-      declaration = Person.where(councillor_code: 2).first.activities_declarations.first
+      declaration = Person.where(personal_code: 5697).first.activities_declarations.first
       job = declaration.private_activities.first
       expect(job.kind).to eq('Actividades mercantiles o industriales')
       expect(job.description).to eq('Sociedad Agraria de Transformación')
@@ -39,7 +38,7 @@ describe ExcelImporters::Activities, clean_as_group: true do
     end
 
     it 'Parses other activities' do
-      declaration = Person.where(councillor_code: 1).first.activities_declarations.first
+      declaration = Person.where(personal_code: 2379).first.activities_declarations.first
       job = declaration.other_activities.first
 
       expect(job.description).to eq("Patrona sin retribución de las fundaciones: FAES, Teatro Lirico, Miguel\nÁngel Blanco, Euramérica, Ortega Marañón")

@@ -13,22 +13,25 @@ module ExcelImporters
       declarations = Declarations.new(@path_to_file,
                                       @period,
                                       logger: @logger,
-                                      sheet_name: '1_DatosPersonales')
+                                      sheet_name: '1.DatosPersonales')
       pub = Public.new(@path_to_file,
                        @period,
                        logger: @logger,
-                       sheet_name: '3_1PuestosDeTrabajo')
+                       sheet_name: '3.1PuestosDeTrabajo')
       priv = Private.new(@path_to_file,
                          @period,
                          logger: @logger,
-                         sheet_name: '3_2ActividadesPrivadas')
+                         sheet_name: '3.2ActividadesPrivadas')
       other = Other.new(@path_to_file,
                         @period,
                         logger: @logger,
-                        sheet_name: '3_3OtrasActividades')
+                        sheet_name: '3.3OtrasActividades')
 
       ActiveRecord::Base.transaction do
-        declarations.import! && pub.import! && priv.import! && other.import!
+        declarations.import! &&
+          pub.import! &&
+          priv.import! &&
+          other.import!
       end
       true
     rescue => err
@@ -43,7 +46,8 @@ module ExcelImporters
       end
 
       def get_person(row)
-        Person.find_by!(councillor_code: row[:codigopersona]) if row[:codigopersona].present?
+        identifier = row.fetch(:identificador)
+        Person.find_by!(personal_code: row.fetch(:identificador)) if identifier.present?
       end
 
       def import_row!(row)
@@ -55,9 +59,6 @@ module ExcelImporters
     class Declarations < ActivitiesBaseImporter
       def import_person_row!(person, row)
         declaration_date = row[:fecha_de_declaracion]
-        if declaration_date.respond_to? :strftime
-          declaration_date = declaration_date.strftime('%d/%m/%Y')
-        end
         person.activities_declarations.find_or_create_by!(period: @period, declaration_date: declaration_date)
         logger.info(I18n.t('excel_importers.activities.declarations.imported', person: person.name, date: declaration_date))
       end
@@ -85,6 +86,7 @@ module ExcelImporters
     end
 
     class Private < ActivitiesBaseImporter
+
       def import_person_row!(person, row)
         declaration = person.activities_declarations.for_period(@period).first!
 
