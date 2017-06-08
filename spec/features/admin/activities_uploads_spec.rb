@@ -23,7 +23,7 @@ feature 'Admin Activities Uploads' do
   end
 
   scenario 'Administrator can upload correct xls files' do
-    create(:person, councillor_code: 2, first_name: "Pepe", last_name: "Lopez")
+    create(:person, personal_code: 5697, first_name: "Pepe", last_name: "Lopez")
     login_as create(:administrator)
     visit admin_root_path
 
@@ -57,7 +57,7 @@ feature 'Admin Activities Uploads' do
   end
 
   scenario 'Administrator can attempt to upload random files from internet without the app crashing' do
-    create(:person, councillor_code: 2)
+    create(:person, personal_code: 5697)
     login_as create(:administrator)
     visit admin_root_path
 
