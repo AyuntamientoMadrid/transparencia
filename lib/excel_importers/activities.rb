@@ -54,13 +54,15 @@ module ExcelImporters
         person = get_person(row)
         import_person_row!(person, row) if person.present?
       end
+
     end
 
     class Declarations < ActivitiesBaseImporter
       def import_person_row!(person, row)
-        declaration_date = row[:fecha_de_declaracion]
-        person.activities_declarations.find_or_create_by!(period: @period, declaration_date: declaration_date)
-        logger.info(I18n.t('excel_importers.activities.declarations.imported', person: person.name, date: declaration_date))
+        declaration = person.activities_declarations.find_or_initialize_by(period: @period)
+        declaration.declaration_date = row[:fecha_de_declaracion]
+        declaration.save!
+        logger.info(I18n.t('excel_importers.activities.declarations.imported', person: person.name, date: declaration.declaration_date))
       end
     end
 
