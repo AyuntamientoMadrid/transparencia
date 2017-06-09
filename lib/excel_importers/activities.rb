@@ -50,6 +50,10 @@ module ExcelImporters
         Person.find_by!(personal_code: row.fetch(:identificador)) if identifier.present?
       end
 
+      def get_declaration(person)
+        person.activities_declarations.for_period(@period).first!
+      end
+
       def import_row!(row)
         person = get_person(row)
         import_person_row!(person, row) if person.present?
@@ -68,12 +72,15 @@ module ExcelImporters
 
     class Public < ActivitiesBaseImporter
       def import_person_row!(person, row)
-        declaration = person.activities_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         entity     = row[:entidad]
         position   = row[:cargo_o_categoria]
         start_date = row[:fecha_inicio]
         end_date   = row[:fecha_cese]
+
+        declaration.add_public_activity(entity, position, start_date, end_date)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.activities.public.imported',
                            period: @period,
@@ -82,15 +89,13 @@ module ExcelImporters
                            position: position,
                            start_date: start_date,
                            end_date: end_date))
-        declaration.add_public_activity(entity, position, start_date, end_date)
-        declaration.save!
       end
     end
 
     class Private < ActivitiesBaseImporter
 
       def import_person_row!(person, row)
-        declaration = person.activities_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         kind        = row[:actividad]
         description = row[:descripcion]
@@ -98,6 +103,9 @@ module ExcelImporters
         position    = row[:cargo_o_categoria]
         start_date  = row[:fecha_inicio]
         end_date    = row[:fecha_cese]
+
+        declaration.add_private_activity(kind, description, entity, position, start_date, end_date)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.activities.private.imported',
                            period: @period,
@@ -107,19 +115,19 @@ module ExcelImporters
                            position: position,
                            start_date: start_date,
                            end_date: end_date))
-
-        declaration.add_private_activity(kind, description, entity, position, start_date, end_date)
-        declaration.save!
       end
     end
 
     class Other < ActivitiesBaseImporter
       def import_person_row!(person, row)
-        declaration = person.activities_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         description = row[:descripcion]
         start_date  = row[:fecha_inicio]
         end_date    = row[:fecha_cese]
+
+        declaration.add_other_activity(description, start_date, end_date)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.activities.other.imported',
                            period: @period,
@@ -127,8 +135,6 @@ module ExcelImporters
                            start_date: start_date,
                            end_date: end_date))
 
-        declaration.add_other_activity(description, start_date, end_date)
-        declaration.save!
       end
     end
 
