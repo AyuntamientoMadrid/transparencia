@@ -65,6 +65,10 @@ module ExcelImporters
         Person.find_by!(personal_code: row.fetch(:identificador)) if identifier.present?
       end
 
+      def get_declaration(person)
+        person.assets_declarations.for_period(@period).first!
+      end
+
       def import_row!(row)
         person = get_person(row)
         import_person_row!(person, row) if person.present?
@@ -73,16 +77,16 @@ module ExcelImporters
 
     class Declarations < AssetsBaseImporter
       def import_person_row!(person, row)
-        declaration = person.assets_declarations.find_or_initialize_by!(period: @period)
+        declaration = person.assets_declarations.find_or_initialize_by(period: @period)
         declaration.declaration_date = row[:fecha_de_declaracion]
-        declaration.save
-        logger.info(I18n.t('excel_importers.assets.declarations.imported', person: person.name, date: declaration_date))
+        declaration.save!
+        logger.info(I18n.t('excel_importers.assets.declarations.imported', person: person.name, date: declaration.declaration_date))
       end
     end
 
     class RealStateProperties < AssetsBaseImporter
       def import_person_row!(person, row)
-        declaration = person.assets_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         kind           = row[:clase]
         type           = row[:tipo_de_derecho]
@@ -92,6 +96,10 @@ module ExcelImporters
         purchase_date  = row[:fecha_de_adquisicion]
         tax_value      = row[:valor_catastral]
         notes          = row[:observaciones]
+
+        declaration.add_real_estate_property(kind, type, description, municipality,
+                                             share, purchase_date, tax_value, notes)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.assets.real_state_properties.imported',
                            period: @period,
@@ -103,20 +111,19 @@ module ExcelImporters
                            purchase_date: purchase_date,
                            tax_value: tax_value,
                            notes: notes)
-
-        declaration.add_real_estate_property(kind, type, description, municipality,
-                                             share, purchase_date, tax_value, notes)
-        declaration.save!
       end
     end
 
     class AccountDeposits < AssetsBaseImporter
       def import_person_row!(person, row)
-        declaration = person.assets_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         kind            = row[:clase]
         banking_entity  = row[:entidad_de_deposito]
         balance         = row[:saldo_medio_anual_o_valor_euros]
+
+        declaration.add_account_deposit(kind, banking_entity, balance)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.assets.account_deposits.imported',
                            period: @period,
@@ -124,20 +131,20 @@ module ExcelImporters
                            kind: kind,
                            banking_entity: banking_entity,
                            balance: balance))
-
-        declaration.add_account_deposit(kind, banking_entity, balance)
-        declaration.save!
       end
     end
 
     class OtherDeposits < AssetsBaseImporter
       def import_person_row!(person, row)
-        declaration = person.assets_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         kind           = row[:clase]
         description    = row[:descripcion]
         amount         = row[:numero_cuantia_o_valor_en_euros]
         purchase_date  = row[:fecha_de_adquisicion]
+
+        declaration.add_other_deposit(kind, description, amount, purchase_date)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.assets.other_deposits.imported',
                            period: @period,
@@ -146,19 +153,19 @@ module ExcelImporters
                            description: description,
                            amount: amount,
                            purchase_date: purchase_date))
-
-        declaration.add_other_deposit(kind, description, amount, purchase_date)
-        declaration.save!
       end
     end
 
     class Vehicles < AssetsBaseImporter
       def import_person_row!(person, row)
-        declaration = person.assets_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         kind           = row[:clase]
         model          = row[:marca_y_modelo]
         purchase_date  = row[:fecha_de_adquisicion]
+
+        declaration.add_vehicle(kind, model, purchase_date)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.assets.vehicles.imported',
                            period: @period,
@@ -167,17 +174,18 @@ module ExcelImporters
                            model: model,
                            purchase_date: purchase_date))
 
-        declaration.add_vehicle(kind, model, purchase_date)
-        declaration.save!
       end
     end
 
     class OtherPersonalProperties < AssetsBaseImporter
       def import_person_row!(person, row)
-        declaration = person.assets_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         kind           = row[:clase]
         purchase_date  = row[:fecha_de_adquisicion]
+
+        declaration.add_other_personal_property(kind, purchase_date)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.assets.other_personal_properties.imported',
                            period: @period,
@@ -185,18 +193,19 @@ module ExcelImporters
                            kind: kind,
                            purchase_date: purchase_date))
 
-        declaration.add_other_personal_property(kind, purchase_date)
-        declaration.save!
       end
     end
 
     class Debts < AssetsBaseImporter
       def import_person_row!(person, row)
-        declaration = person.assets_declarations.for_period(@period).first!
+        declaration = get_declaration(person)
 
         kind           = row[:clase]
         amount         = row[:importe_actual_en_euros]
         comments       = row[:observaciones]
+
+        declaration.add_debt(kind, amount, comments)
+        declaration.save!
 
         logger.info(I18n.t('excel_importers.assets.debts.imported',
                            period: @period,
@@ -205,8 +214,6 @@ module ExcelImporters
                            amount: amount,
                            comments: comments))
 
-        declaration.add_debt(kind, amount, comments)
-        declaration.save!
       end
     end
 
