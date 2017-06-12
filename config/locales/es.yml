@@ -154,7 +154,7 @@ es:
       title: "Personal eventual"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
-    activities_declarations: "Declaración de causas de posible incompatibilidad y actividades"
+    activities_declarations: "Declaración de actividades y de causas de posible incompatibilidad"
     studies:
       title: "Formación académica"
       description: "Título"
