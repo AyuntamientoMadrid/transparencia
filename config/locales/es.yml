@@ -8,6 +8,7 @@ es:
     menu:
       title: "Administración"
       profile_uploads: "Fichero de perfiles"
+      assets_uploads: "Fichero de bienes"
       activities_uploads: "Fichero de actividades"
       people: "Personas"
       close_session: "Cerrar sesión"
@@ -27,6 +28,18 @@ es:
         title: 'Subir de fichero de perfiles'
       show:
         title: 'Subir de fichero de perfiles: resultados'
+        back: 'Volver al histórico de subidas'
+    assets_uploads:
+      index:
+        title: 'Histórico de subidas'
+        new_button: 'Subir un nuevo fichero'
+      create:
+        errors: 'Se detectaron errores al subir el fichero. No se han guardado cambios en la base de datos'
+        no_errors: 'Fichero subido sin errores. Cambios guardados en la base de datos'
+      new:
+        title: 'Subir de fichero de bienes'
+      show:
+        title: 'Subir de fichero de bienes: resultados'
         back: 'Volver al histórico de subidas'
     activities_uploads:
       index:
@@ -412,6 +425,21 @@ es:
       imported: "Importados: %{count}"
       updated: "Actualizados: %{count}"
       skipped: "Omitidos: %{count}"
+    assets:
+      declarations:
+        imported: "Detectada declaración de actividades para %{person} (%{date})"
+      real_estate_properties:
+        imported: "Patrimonio inmobiliario (%{period}) %{person} - %{kind}, %{type}, %{municipality}, %{share}, %{purchase_date}, %{tax_value}, %{notes}"
+      account_deposits:
+        imported: "Depósito en cuenta (%{period}) %{person} - %{kind}, %{banking_entity}, %{balance}"
+      other_deposits:
+        imported: "Otros depósitos en cuenta (%{period}) %{person} - %{kind}, %{description}, %{amount}, %{purchase_date}"
+      vehicles:
+        imported: "Vehículo (%{period}) %{person}, %{kind}, %{model}, %{purchase_date}"
+      other_personal_properties:
+        imported: "Otros bienes muebles (%{period}) %{person}, %{kind}, %{purchase_date}"
+      debts:
+        imported: "Deuda (%{period}) %{person}, %{kind}, %{amount}, %{comments}"
     activities:
       declarations:
         imported: "Detectada declaración de actividades para %{person} (%{date})"
@@ -588,6 +616,14 @@ es:
         file: "Fichero"
         created_at: "Fecha de subida"
         author_email: "Autor"
+        original_filename: "Nombre del fichero"
+        file_format: "Tipo de fichero"
+        translated_successful: "Importación completada con éxito"
+      assets_upload:
+        file: "Fichero"
+        created_at: "Fecha de subida"
+        author_email: "Autor"
+        period: "Período"
         original_filename: "Nombre del fichero"
         file_format: "Tipo de fichero"
         translated_successful: "Importación completada con éxito"

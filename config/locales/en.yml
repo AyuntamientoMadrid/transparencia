@@ -8,6 +8,7 @@ en:
     menu:
       title: "Administration"
       profile_uploads: "Profile uploads"
+      assets_uploads: "Assets uploads"
       activities_uploads: "Activities uploads"
       close_session: "Close session"
       people: "People"
@@ -28,6 +29,18 @@ en:
       show:
         title: 'Upload profile file: results'
         back: 'Back to the list'
+    assets_uploads:
+      index:
+        title: 'Upload history'
+        new_button: 'Upload a new file'
+      create:
+        errors: 'Errors were detected while processing the file'
+        no_errors: 'File processed successfully'
+      new:
+        title: 'Upload assets file'
+      show:
+        title: 'Upload assets file: results'
+        back: 'Back to the list'
     activities_uploads:
       index:
         title: 'Upload history'
@@ -36,9 +49,9 @@ en:
         errors: 'Errors were detected while processing the file'
         no_errors: 'File processed successfully'
       new:
-        title: 'Upload profile file'
+        title: 'Upload activities file'
       show:
-        title: 'Upload profile file: results'
+        title: 'Upload activities file: results'
         back: 'Back to the list'
   index:
     outline: "Home"
@@ -409,6 +422,21 @@ en:
       imported: "Imported: %{count}"
       updated: "Updated: %{count}"
       skipped: "Skipped: %{count}"
+    assets:
+      declarations:
+        imported: "Assets declaration for %{person} (%{date})"
+      real_estate_properties:
+        imported: "Real estate (%{period}) %{person} - %{kind}, %{type}, %{municipality}, %{share}, %{purchase_date}, %{tax_value}, %{notes}"
+      account_deposits:
+        imported: "Account deposit (%{period}) %{person} - %{kind}, %{banking_entity}, %{balance}"
+      other_deposits:
+        imported: "Other deposit (%{period}) %{person} - %{kind}, %{description}, %{amount}, %{purchase_date}"
+      vehicles:
+        imported: "Vehicle (%{period}) %{person}, %{kind}, %{model}, %{purchase_date}"
+      other_personal_properties:
+        imported: "Other personal properties (%{period}) %{person}, %{kind}, %{purchase_date}"
+      debts:
+        imported: "Debt (%{period}) %{person}, %{kind}, %{amount}, %{comments}"
     activities:
       declarations:
         imported: "Activity declaration for %{person} (%{date})"
@@ -586,6 +614,14 @@ en:
         file: "File"
         created_at: "Created at"
         author_email: "Author"
+        original_filename: "Original filename"
+        file_format: "File format"
+        translated_successful: "No errors while importing"
+      assets_upload:
+        file: "File"
+        created_at: "Created at"
+        author_email: "Author"
+        period: "Period"
         original_filename: "Original filename"
         file_format: "File format"
         translated_successful: "No errors while importing"

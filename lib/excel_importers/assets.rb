@@ -14,10 +14,10 @@ module ExcelImporters
                                       @period,
                                       logger: @logger,
                                       sheet_name: '1.DatosPersonales')
-      real_state_properties = RealStateProperties.new(@path_to_file,
-                                                      @period,
-                                                      logger: @logger,
-                                                      sheet_name: '3. PatrimonioInmobiliario')
+      real_estate_properties = RealEstateProperties.new(@path_to_file,
+                                                        @period,
+                                                        logger: @logger,
+                                                        sheet_name: '3. PatrimonioInmobiliario')
       account_deposits = AccountDeposits.new(@path_to_file,
                                              @period,
                                              logger: @logger,
@@ -26,14 +26,14 @@ module ExcelImporters
                                          @period,
                                          logger: @logger,
                                          sheet_name: '5. OtrosDepositosEnCuenta')
-      vehicles = OtherDeposits.new(@path_to_file,
-                                   @period,
-                                   logger: @logger,
-                                   sheet_name: '6. Vehículos')
-      other_personal_properties = OtherDeposits.new(@path_to_file,
-                                                    @period,
-                                                    logger: @logger,
-                                                    sheet_name: '7. OtrosBieneMuebles') # !! Biene instead of Bienes
+      vehicles = Vehicles.new(@path_to_file,
+                              @period,
+                              logger: @logger,
+                              sheet_name: '6. Vehículos')
+      other_personal_properties = OtherPersonalProperties.new(@path_to_file,
+                                                              @period,
+                                                              logger: @logger,
+                                                              sheet_name: '7. OtrosBieneMuebles') # !! Biene instead of Bienes
       debts = Debts.new(@path_to_file,
                         @period,
                         logger: @logger,
@@ -41,7 +41,7 @@ module ExcelImporters
 
       ActiveRecord::Base.transaction do
         declarations.import! &&
-          real_state_properties.import! &&
+          real_estate_properties.import! &&
           account_deposits.import! &&
           other_deposits.import! &&
           vehicles.import!
@@ -84,7 +84,7 @@ module ExcelImporters
       end
     end
 
-    class RealStateProperties < AssetsBaseImporter
+    class RealEstateProperties < AssetsBaseImporter
       def import_person_row!(person, row)
         declaration = get_declaration(person)
 
@@ -92,7 +92,7 @@ module ExcelImporters
         type           = row[:tipo_de_derecho]
         description    = row[:titulo_de_adquisicion]
         municipality   = row[:municipio]
-        share          = row[:_participacion]
+        share          = row[:participacion]
         purchase_date  = row[:fecha_de_adquisicion]
         tax_value      = row[:valor_catastral]
         notes          = row[:observaciones]
@@ -101,7 +101,7 @@ module ExcelImporters
                                              share, purchase_date, tax_value, notes)
         declaration.save!
 
-        logger.info(I18n.t('excel_importers.assets.real_state_properties.imported',
+        logger.info(I18n.t('excel_importers.assets.real_estate_properties.imported',
                            period: @period,
                            person: person.name,
                            kind: kind,
@@ -110,7 +110,7 @@ module ExcelImporters
                            share: share,
                            purchase_date: purchase_date,
                            tax_value: tax_value,
-                           notes: notes)
+                           notes: notes))
       end
     end
 
