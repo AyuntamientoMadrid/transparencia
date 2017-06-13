@@ -11,6 +11,13 @@
       <% end %>
     </li>
 
+    <li class="<%= 'active' if controller_name == 'assets_uploads' %>">
+      <%= link_to admin_assets_uploads_path do %>
+        <i class="icon-document"></i>
+        <%= t('admin.menu.assets_uploads') %>
+      <% end %>
+    </li>
+
     <li class="<%= 'active' if controller_name == 'activities_uploads' %>">
       <%= link_to admin_activities_uploads_path do %>
         <i class="icon-document"></i>

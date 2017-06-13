@@ -1,0 +1,10 @@
+<h1><%= t('admin.assets_uploads.new.title') %></h1>
+
+<%= form_for @assets_upload, url: admin_assets_uploads_path do |f| %>
+  <%= f.hidden_field :id %>
+  <%= f.file_field :file %>
+  <%= f.collection_select :period, %w{inicial 2016 2017 2018 2019 2020 2021 2022 final}, :to_s, :to_s, include_blank: true %>
+  <%= f.submit(class: "button radius", value: t("shared.submit")) %>
+<% end %>
+
+
