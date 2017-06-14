@@ -23,7 +23,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       expect(prop.type).to be_nil
       expect(prop.share).to eq(5)
       expect(prop.purchase_date).to be_nil
-      expect(prop.tax_value).to eq(4081.78) # FIXME: format
+      expect(prop.tax_value).to eq("4.081,78 €")
       expect(prop.comments).to be_nil
     end
 
@@ -31,14 +31,14 @@ describe ExcelImporters::Assets, clean_as_group: true do
       prop = declaration.account_deposits.first
       expect(prop.kind).to eq('Cuenta corriente')
       expect(prop.banking_entity).to eq('Bankia')
-      expect(prop.balance).to eq(3812.36) # FIXME: format
+      expect(prop.balance).to eq("3.812,36 €")
     end
 
     it 'Parses other deposits' do
       prop = declaration.other_deposits.first
       expect(prop.kind).to eq('Acciones y participaciones de todo tipo en sociedades e instituciones de inversión colectiva')
       expect(prop.description).to eq('Club de golf')
-      expect(prop.amount).to eq(24000) # FIXME: format
+      expect(prop.amount).to eq("24.000,00 €")
       expect(prop.purchase_date).to eq("27/12/2007")
     end
 
@@ -58,7 +58,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
     it 'Parses debts' do
       prop = declaration.debts.first
       expect(prop.kind).to eq('Pago impuestos fraccionados')
-      expect(prop.amount).to eq(45551) # FIXME: format
+      expect(prop.amount).to eq('45.551,00 €')
       expect(prop.comments).to be_nil
     end
   end
