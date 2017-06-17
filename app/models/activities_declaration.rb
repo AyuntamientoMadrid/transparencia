@@ -1,5 +1,5 @@
 class ActivitiesDeclaration < ActiveRecord::Base
-
+  include DateHelper
   include ParseDataRows
 
   scope :for_year, -> (year) { where ["declaration_date >= ? and declaration_date <= ?", Date.new(year,1,1), Date.new(year,12,31)] }
@@ -63,14 +63,5 @@ class ActivitiesDeclaration < ActiveRecord::Base
       'end_date' => parse_date(end_date)
     }
   end
-
-  private
-
-    def parse_date(date)
-      date = Date.parse(date) if date.is_a?(String)
-      date.strftime('%d-%m-%Y')
-    rescue
-      date.to_s unless date.nil?
-    end
 
 end
