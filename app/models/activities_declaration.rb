@@ -36,8 +36,8 @@ class ActivitiesDeclaration < ActiveRecord::Base
     self.data['public_activities'] << {
       'entity' => entity,
       'position' => position,
-      'start_date' => start_date,
-      'end_date' => end_date
+      'start_date' => parse_date(start_date),
+      'end_date' => parse_date(end_date)
     }
   end
 
@@ -49,8 +49,8 @@ class ActivitiesDeclaration < ActiveRecord::Base
       'description' => description,
       'entity' => entity,
       'position' => position,
-      'start_date' => start_date,
-      'end_date' => end_date
+      'start_date' => parse_date(start_date),
+      'end_date' => parse_date(end_date)
     }
   end
 
@@ -59,9 +59,18 @@ class ActivitiesDeclaration < ActiveRecord::Base
     self.data['other_activities'] ||= []
     self.data['other_activities'] << {
       'description' => description,
-      'start_date' => start_date,
-      'end_date' => end_date
+      'start_date' => parse_date(start_date),
+      'end_date' => parse_date(end_date)
     }
   end
+
+  private
+
+    def parse_date(date)
+      date = Date.parse(date) if date.is_a?(String)
+      date.strftime('%d-%m-%Y')
+    rescue
+      date.to_s unless date.nil?
+    end
 
 end
