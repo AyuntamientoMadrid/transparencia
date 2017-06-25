@@ -5,6 +5,8 @@ require 'importers/councillors_importer'
 
 describe ExcelImporters::Activities, clean_as_group: true do
   describe '#import', clean_as_group: true do
+    let(:declaration) { Person.where(personal_code: 64385).first.activities_declarations.first}
+
     before(:all) do
       Importers::PartiesImporter.new('./import-data/parties.csv').import!
       Importers::CouncillorsImporter.new('./spec/fixtures/files/councillors.csv').import!
@@ -12,14 +14,11 @@ describe ExcelImporters::Activities, clean_as_group: true do
     end
 
     it 'Parses declarations' do
-      declaration = Person.where(personal_code: 64385).first.activities_declarations.first
       expect(declaration.period).to eq('inicial')
       expect(declaration.declaration_date).to eq(Date.new(2017, 5, 30))
     end
 
     it 'Parses public activities' do
-      declaration = Person.where(personal_code: 64385).first.activities_declarations.first
-
       job = declaration.public_activities[0]
       expect(job.entity).to eq('Comunidad de Madrid')
       expect(job.position.strip).to eq('Asesor')
@@ -58,8 +57,6 @@ describe ExcelImporters::Activities, clean_as_group: true do
     end
 
     it 'Parses private activities' do
-      declaration = Person.where(personal_code: 64385).first.activities_declarations.first
-
       job = declaration.private_activities[0]
       expect(job.kind).to eq('Actividades mercantiles o industriales')
       expect(job.description).to eq('Gimnasio')
@@ -94,8 +91,6 @@ describe ExcelImporters::Activities, clean_as_group: true do
     end
 
     it 'Parses other activities' do
-      declaration = Person.where(personal_code: 64385).first.activities_declarations.first
-
       job = declaration.other_activities[0]
       expect(job.description).to eq("Colaboraciones con medios de comunicación, colaboraciones en revistas, generalmente no remuneradas")
       expect(job.start_date).to eq('23-02-2016')

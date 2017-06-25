@@ -87,4 +87,9 @@ FactoryGirl.define do
     period { 'inicial' }
   end
 
+  factory :assets_upload do
+    association :author, factory: :administrator
+    period { 'inicial' }
+  end
+
 end

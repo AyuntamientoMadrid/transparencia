@@ -1,5 +1,5 @@
 class AssetsDeclaration < ActiveRecord::Base
-
+  include DateHelper
   include ParseDataRows
 
   scope :for_year, -> (year) { where ["declaration_date >= ? and declaration_date <= ?", Date.new(year,1,1), Date.new(year,12,31)] }
@@ -51,7 +51,7 @@ class AssetsDeclaration < ActiveRecord::Base
       'description' => description,
       'municipality' => municipality,
       'share' => share,
-      'purchase_date' => purchase_date,
+      'purchase_date' => parse_date(purchase_date),
       'tax_value' => tax_value,
       'notes' => notes
     }
@@ -66,19 +66,19 @@ class AssetsDeclaration < ActiveRecord::Base
   def add_other_deposit(kind, description, amount, purchase_date)
     self.data ||= {}
     self.data['other_deposits'] ||= []
-    self.data['other_deposits'] << {'kind' => kind, 'description' => description, 'amount' => amount, 'purchase_date' => purchase_date }
+    self.data['other_deposits'] << {'kind' => kind, 'description' => description, 'amount' => amount, 'purchase_date' => parse_date(purchase_date) }
   end
 
   def add_vehicle(kind, model, purchase_date)
     self.data ||= {}
     self.data['vehicles'] ||= []
-    self.data['vehicles'] << {'kind' => kind, 'model' => model, 'purchase_date' => purchase_date}
+    self.data['vehicles'] << {'kind' => kind, 'model' => model, 'purchase_date' => parse_date(purchase_date)}
   end
 
   def add_other_personal_property(kind, purchase_date)
     self.data ||= {}
     self.data['other_personal_properties'] ||= []
-    self.data['other_personal_properties'] << {'kind' => kind, 'purchase_date' => purchase_date}
+    self.data['other_personal_properties'] << {'kind' => kind, 'purchase_date' => parse_date(purchase_date)}
   end
 
   def add_debt(kind, amount, comments)

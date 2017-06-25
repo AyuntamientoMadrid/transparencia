@@ -97,9 +97,11 @@ module ExcelImporters
       def sheet
         unless @sheet
           begin
-            @sheet = Roo::Spreadsheet.open(@path_to_file).sheet(@sheet_name)
+            @xls   = Roo::Spreadsheet.open(@path_to_file)
+            @sheet = @xls.sheet(@sheet_name)
             @file_format = :xls
           rescue Ole::Storage::FormatError
+            @xls = nil
             @sheet = HTMLTable.open(@path_to_file)
             @file_format = :html
           end
@@ -118,13 +120,34 @@ module ExcelImporters
       end
 
       def transform_value(value, col_index, row_index)
-        if value.is_a?(Float) &&
+        formatted_val = formatted_value(value, col_index, row_index)
+        if formatted_val.present?
+          formatted_val
+        elsif value.is_a?(Float) &&
            value.round == value
           value.round
         elsif value == 'NULL'
           nil
         else
           value
+        end
+      end
+
+      def formatted_value(value, col_index, row_index)
+        if worksheet.present? && value.is_a?(Float)
+          number_format = worksheet.row(row_index).format(col_index).number_format
+          if number_format['€']
+            ActiveSupport::NumberHelper.number_to_currency(value, locale: :es)
+          elsif number_format['%']
+            ActiveSupport::NumberHelper.number_to_percentage(value)
+          end
+        end
+      end
+
+      # Access the Spreadsheet gem's worksheet object
+      def worksheet
+        unless @xls.nil?
+          @worksheet ||= @xls.workbook.worksheet(@xls.send(:sheet_no, @sheet_name))
         end
       end
 

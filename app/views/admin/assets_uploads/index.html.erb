@@ -1,0 +1,34 @@
+<h1><%= t('admin.assets_uploads.index.title') %></h1>
+
+<p class="text-center">
+  <%= link_to t('admin.assets_uploads.index.new_button'),
+              new_admin_assets_upload_path,
+              class: 'button' %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= AssetsUpload.human_attribute_name(:created_at) %></th>
+      <th><%= AssetsUpload.human_attribute_name(:author_email) %></th>
+      <th><%= AssetsUpload.human_attribute_name(:translated_successful) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assets_uploads.each do |p| %>
+      <tr>
+        <td>
+          <%= link_to(p.created_at, admin_assets_upload_path(p), style: "display: block;") %>
+        </td>
+        <td>
+          <%= link_to(p.author_email, admin_assets_upload_path(p), style: "display: block;") %>
+        </td>
+        <td>
+          <%= link_to(p.translated_successful, admin_assets_upload_path(p), style: "display: block;") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @assets_uploads %>
