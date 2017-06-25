@@ -10,11 +10,12 @@ module ExcelImporters
                           .merge(Hash[COUNCILLOR_JOB_LEVEL_CODES.map{|c| [c, 'councillor']}])
                           .merge(Hash[TEMP_WORKER_JOB_LEVEL_CODES.map{|c| [c, 'temporary_worker']}])
                           .freeze
-    def import
-      @imported = 0
-      @updated = 0
-      @skipped = 0
+    def initialize(path_to_file, header_field: nil, logger: NullLogger.new)
+      super
+      @header_field = header_field
+    end
 
+    def import
       successful = super
 
       unless successful
@@ -29,6 +30,13 @@ module ExcelImporters
       logger.info I18n.t('excel_importers.profile.skipped', count: @skipped)
 
       successful
+    end
+
+    def import!
+      @imported = 0
+      @updated = 0
+      @skipped = 0
+      super
     end
 
     def import_row!(row)

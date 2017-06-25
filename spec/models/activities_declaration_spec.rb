@@ -33,8 +33,8 @@ describe ActivitiesDeclaration do
       public_activity = declaration.public_activities.last
       expect(public_activity.entity).to eq 'Entity'
       expect(public_activity.position).to eq 'Position'
-      expect(public_activity.start_date).to eq '1/1/2015'
-      expect(public_activity.end_date).to eq '1/1/2016'
+      expect(public_activity.start_date).to eq '01-01-2015'
+      expect(public_activity.end_date).to eq '01-01-2016'
     end
 
     it 'adds private activities to data' do
@@ -46,8 +46,8 @@ describe ActivitiesDeclaration do
       expect(private_activity.description).to eq 'Very Private'
       expect(private_activity.entity).to eq 'Entity'
       expect(private_activity.position).to eq 'Position'
-      expect(private_activity.start_date).to eq('1/1/2016')
-      expect(private_activity.end_date).to eq('1/1/2017')
+      expect(private_activity.start_date).to eq('01-01-2016')
+      expect(private_activity.end_date).to eq('01-01-2017')
     end
 
     it 'adds other activities to data' do
@@ -56,8 +56,8 @@ describe ActivitiesDeclaration do
 
       other_activity = declaration.other_activities.last
       expect(other_activity.description).to eq 'Other things'
-      expect(other_activity.start_date).to eq('2/2/2016')
-      expect(other_activity.end_date).to eq('2/2/2017')
+      expect(other_activity.start_date).to eq('02-02-2016')
+      expect(other_activity.end_date).to eq('02-02-2017')
     end
   end
 

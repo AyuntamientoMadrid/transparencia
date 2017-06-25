@@ -8,6 +8,7 @@ es:
     menu:
       title: "Administración"
       profile_uploads: "Fichero de perfiles"
+      activities_uploads: "Fichero de actividades"
       people: "Personas"
       close_session: "Cerrar sesión"
     dashboard:
@@ -26,6 +27,18 @@ es:
         title: 'Subir de fichero de perfiles'
       show:
         title: 'Subir de fichero de perfiles: resultados'
+        back: 'Volver al histórico de subidas'
+    activities_uploads:
+      index:
+        title: 'Histórico de subidas'
+        new_button: 'Subir un nuevo fichero'
+      create:
+        errors: 'Se detectaron errores al subir el fichero. No se han guardado cambios en la base de datos'
+        no_errors: 'Fichero subido sin errores. Cambios guardados en la base de datos'
+      new:
+        title: 'Subir de fichero de actividades'
+      show:
+        title: 'Subir de fichero de actividades: resultados'
         back: 'Volver al histórico de subidas'
   index:
     outline: "Portada"
@@ -399,6 +412,15 @@ es:
       imported: "Importados: %{count}"
       updated: "Actualizados: %{count}"
       skipped: "Omitidos: %{count}"
+    activities:
+      declarations:
+        imported: "Detectada declaración de actividades para %{person} (%{date})"
+      public:
+        imported: "Puesto de Trabajo (%{period}) %{person}, %{entity}, %{position}. %{start_date} - %{end_date}"
+      private:
+        imported: "Actividad Privada (%{period}) %{person}, %{kind} - %{entity}, %{position}. %{start_date} - %{end_date}"
+      other:
+        imported: "Otra Actividad (%{period}) %{person}, %{start_date} - %{end_date}"
   static_pages:
     accessibility:
       title: "Accesibilidad"
@@ -569,6 +591,14 @@ es:
         original_filename: "Nombre del fichero"
         file_format: "Tipo de fichero"
         translated_successful: "Importación completada con éxito"
+      activities_upload:
+        file: "Fichero"
+        created_at: "Fecha de subida"
+        author_email: "Autor"
+        period: "Período"
+        original_filename: "Nombre del fichero"
+        file_format: "Tipo de fichero"
+        translated_successful: "Importación completada con éxito"
       person:
         backwards_name: "Nombre"
         role: "Cargo"
@@ -579,6 +609,10 @@ es:
         unhidden_by: "Restaurado por"
         unhidden_reason: "Razón de restauración"
         calendar_url: "Url de agenda"
+      activities_declaration:
+        declaration_date: "Fecha de la declaración"
+      assets_declaration:
+        declaration_date: "Fecha de la declaración"
   activemodel:
     models:
       contact: "Contacto"
