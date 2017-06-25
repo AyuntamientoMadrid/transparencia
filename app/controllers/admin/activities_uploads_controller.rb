@@ -2,9 +2,12 @@ require 'stringio'
 require 'logger'
 require 'excel_importers/activities'
 
+include DeclarationsHelper
+
 class Admin::ActivitiesUploadsController < Admin::BaseController
   def new
     @activities_upload = ActivitiesUpload.new
+    @periods_list = DeclarationsHelper.periods_list
   end
 
   def index
@@ -13,7 +16,7 @@ class Admin::ActivitiesUploadsController < Admin::BaseController
 
   def create
     attrs = activities_upload_params.merge(author: current_administrator,
-                                        check_for_file: true)
+                                           check_for_file: true)
     @activities_upload = ActivitiesUpload.new(attrs)
 
     if @activities_upload.valid?
@@ -56,4 +59,6 @@ class Admin::ActivitiesUploadsController < Admin::BaseController
     def activities_upload_params
       params.require(:activities_upload).permit(:file, :period)
     end
+
+    def periods_list; end
 end

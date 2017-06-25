@@ -4,6 +4,8 @@ en:
   booleans:
     t: "Yes"
     f: "No"
+  initial: 'initial'
+  final: 'final'
   admin:
     menu:
       title: "Administration"

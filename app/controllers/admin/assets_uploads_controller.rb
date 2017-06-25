@@ -1,10 +1,12 @@
 require 'stringio'
 require 'logger'
 require 'excel_importers/assets'
+include DeclarationsHelper
 
 class Admin::AssetsUploadsController < Admin::BaseController
   def new
     @assets_upload = AssetsUpload.new
+    @periods_list = DeclarationsHelper.periods_list
   end
 
   def index
@@ -13,15 +15,15 @@ class Admin::AssetsUploadsController < Admin::BaseController
 
   def create
     attrs = assets_upload_params.merge(author: current_administrator,
-                                        check_for_file: true)
+                                       check_for_file: true)
     @assets_upload = AssetsUpload.new(attrs)
 
     if @assets_upload.valid?
       StringIO.open do |strio|
         logger = ExcelImporters::Base.new_default_logger(strio)
         importer = ExcelImporters::Assets.new @assets_upload.file.tempfile,
-                                                  @assets_upload.period,
-                                                  logger
+                                              @assets_upload.period,
+                                              logger
         successful = true
         if importer.import
           flash[:notice] = t('admin.assets_uploads.create.no_errors')
