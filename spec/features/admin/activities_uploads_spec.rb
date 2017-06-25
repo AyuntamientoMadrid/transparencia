@@ -23,7 +23,7 @@ feature 'Admin Activities Uploads' do
   end
 
   scenario 'Administrator can upload correct xls files' do
-    create(:person, personal_code: 5697, first_name: "Pepe", last_name: "Lopez")
+    person = create(:person, personal_code: 5697, first_name: "Pepe", last_name: "Lopez")
     login_as create(:administrator)
     visit admin_root_path
 
@@ -31,7 +31,7 @@ feature 'Admin Activities Uploads' do
     click_link 'Upload a new file'
 
     attach_file('activities_upload_file', Rails.root.join('spec/fixtures/files/single_activities.xls'))
-    page.select('inicial', from: 'activities_upload_period')
+    page.select('initial', from: 'activities_upload_period')
 
     click_button 'Submit'
 
@@ -39,6 +39,9 @@ feature 'Admin Activities Uploads' do
     expect(page).to have_content 'File format: xls'
     expect(page).to have_content 'File processed successfully'
     expect(page).to have_content 'Activity declaration for Pepe Lopez'
+
+    visit person_path(person)
+    expect(page).to have_content 'Initial'
   end
 
   scenario 'Administrator can upload xls file with error' do
@@ -49,7 +52,7 @@ feature 'Admin Activities Uploads' do
     click_link 'Upload a new file'
 
     attach_file('activities_upload_file', Rails.root.join('spec/fixtures/files/single_activities.xls'))
-    page.select('inicial', from: 'activities_upload_period')
+    page.select('initial', from: 'activities_upload_period')
 
     click_button 'Submit'
 
@@ -65,7 +68,7 @@ feature 'Admin Activities Uploads' do
     click_link 'Upload a new file'
 
     attach_file('activities_upload_file', Rails.root.join('spec/fixtures/files/banana.gif'))
-    page.select('inicial', from: 'activities_upload_period')
+    page.select('initial', from: 'activities_upload_period')
     click_button 'Submit'
 
     expect(page).to have_content 'Errors were detected while processing the file'
