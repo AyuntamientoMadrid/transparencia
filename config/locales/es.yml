@@ -156,7 +156,7 @@ es:
       leaving_date: "Fecha de cese: %{leaving_date}"
       confirm_deletion: "¿Seguro que desea borrar esta persona?"
       disclaimer: "(*) La información publicada está sujeta a la corrección de las erratas que se puedan detectar"
-      activities_explanation: "Causas de posible incompatibilidad y actividades que proporcionen o puedan proporcionar ingresos económicos"
+      activities_explanation: "Actividades que proporcionen o puedan proporcionar ingresos económicos y causas de posible incompatibilidad"
       no_profile: |
         La publicación del perfil y trayectoria profesional no es una información de publicación
         obligatoria de acuerdo con lo dispuesto en la Ley 19/2013, de 9 de diciembre, de transparencia,
