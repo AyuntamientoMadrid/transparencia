@@ -429,7 +429,7 @@ es:
       skipped: "Omitidos: %{count}"
     assets:
       declarations:
-        imported: "Detectada declaración de actividades para %{person} (%{date})"
+        imported: "Detectada declaración de bienes para %{person} (%{date})"
       real_estate_properties:
         imported: "Patrimonio inmobiliario (%{period}) %{person} - %{kind}, %{type}, %{municipality}, %{share}, %{purchase_date}, %{tax_value}, %{notes}"
       account_deposits:
