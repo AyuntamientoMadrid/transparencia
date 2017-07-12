@@ -459,7 +459,7 @@ es:
     privacy:
       title: "Política de privacidad"
   profile_exporter:
-    personal_code: "Nº Identificador"
+    personal_code: "Num Identificador"
     profiled_at: "Fecha"
     first_name: "Nombre"
     last_name: "Apellidos"
