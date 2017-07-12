@@ -457,6 +457,7 @@ en:
       title: "Privacy Policy"
 
   profile_exporter:
+    personal_code: "Id number"
     profiled_at: "Profiled At"
     first_name: "First name"
     last_name: "Last name"

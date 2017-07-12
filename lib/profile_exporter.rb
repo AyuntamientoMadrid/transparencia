@@ -1,5 +1,6 @@
 class ProfileExporter
   FIELDS = %w{
+    personal_code
     profiled_at
     first_name
     last_name
