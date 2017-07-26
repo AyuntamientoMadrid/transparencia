@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get :directors
       get :temporary_workers
       get :public_workers
+      get :labours
       get :spokespeople
     end
   end

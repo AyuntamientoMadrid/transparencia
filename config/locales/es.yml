@@ -74,6 +74,7 @@ es:
       directors: "Personal directivo"
       temporary_workers: "Personal eventual"
       public_workers: "Funcionarios"
+      labours: "Laborales"
       spokespeople: "Vocales vecinales"
       subventions: "Subvenciones"
       contracts: "Contratos"
@@ -184,6 +185,8 @@ es:
       title: "Personal eventual"
     public_workers:
       title: "Funcionarios"
+    labours:
+      title: "Laborales"
     spokespeople:
       title: "Vocales vecinales"
     profile: "Perfil profesional"

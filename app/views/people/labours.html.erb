@@ -1,0 +1,31 @@
+<% cache [locale_key, @labours_by_name_initial] do %>
+
+  <% provide :title do %><%= t("transparency") %> - <%= t("people.labours.title") %><% end %>
+
+  <ul class="breadcrumbs" aria-label="breadcrumbs">
+    <li>
+      <%= link_to t("home"), root_path %>
+    </li>
+    <li class="unavailable" aria-disabled="true">
+      <%= t("people.labours.title") %>
+    </li>
+  </ul>
+
+  <div class="people">
+    <div class="small-12 column">
+      <h1><%= t("people.labours.title") %></h1>
+
+      <% @labours_by_name_initial.each do |name_initial, labours| %>
+        <h2 class="lead"><%= name_initial %></h2>
+        <ul class="people-list-text">
+          <% labours.each do |labour| %>
+            <li>
+              <h3 class="inline-block"><%= link_to labour.backwards_name, person_path(labour) %></h3> - <%= labour.unit %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+    </div>
+  </div>
+<% end %>

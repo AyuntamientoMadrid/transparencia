@@ -31,6 +31,9 @@
           <%= link_to t("layouts.header.public_workers"), public_workers_people_path, class: ("active" if current_page?(public_workers_people_path)) %>
         </li>
         <li class="inline-block">
+          <%= link_to t("layouts.header.labours"), labours_people_path, class: ("active" if current_page?(labours_people_path)) %>
+        </li>
+        <li class="inline-block">
           <%= link_to t("layouts.header.spokespeople"), spokespeople_people_path, class: ("active" if current_page?(spokespeople_people_path)) %>
         </li>
         <li class="inline-block">

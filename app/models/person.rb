@@ -14,7 +14,7 @@ class Person < ActiveRecord::Base
   has_many :activities_declarations, -> { sort_for_list }, dependent: :destroy
 
   def self.job_levels
-    %W{councillor director temporary_worker public_worker spokesperson}
+    %W{councillor director temporary_worker public_worker spokesperson labour}
   end
 
   def self.orders
@@ -32,6 +32,7 @@ class Person < ActiveRecord::Base
   scope :temporary_workers, -> { where(job_level: 'temporary_worker') }
   scope :public_workers,    -> { where(job_level: 'public_worker') }
   scope :spokespeople,      -> { where(job_level: 'spokesperson') }
+  scope :labours,            -> { where(job_level: 'labour') }
   scope :working,           -> { where(leaving_date: nil) }
   scope :not_working,       -> { where.not(leaving_date: nil).order(:leaving_date) }
 
@@ -87,6 +88,10 @@ class Person < ActiveRecord::Base
 
   def spokesperson?
     job_level == 'spokesperson'
+  end
+
+  def labour?
+    job_level == 'labour'
   end
 
   def studies

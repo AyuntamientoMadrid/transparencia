@@ -29,6 +29,10 @@ class PeopleController < ApplicationController
     @spokespeople_by_name_initial = Person.spokespeople.unhidden.grouped_by_name_initial
   end
 
+  def labours
+    @labours_by_name_initial = Person.labours.unhidden.grouped_by_name_initial
+  end
+
   def show
     @contact = Contact.new(person: @person)
   end

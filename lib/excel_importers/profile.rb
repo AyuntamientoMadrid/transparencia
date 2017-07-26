@@ -8,7 +8,8 @@ module ExcelImporters
       'D' => 'director',
       'E' => 'temporary_worker',
       'F' => 'public_worker',
-      'V' => 'spokesperson'
+      'V' => 'spokesperson',
+      'L' => 'labour'
     }
 
     COUNCILLOR_JOB_LEVEL_CODES = %w(alcalde-sa concejal-de-gobierno concejal-presidente-de-distrito concejal-sin-respons-de-gestion-publica concejal-a-de-gobierno concejal-a-pres-distrito-3-tte-alcadia concejal-a-sin-respons-de-gestion-publi portavoz-grupo-politico primer-teniente-de-alcalde primer-a-teniente-de-alcaldia).freeze
