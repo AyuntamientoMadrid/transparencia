@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin Profile Uploads' do
+xfeature 'Admin Profile Uploads' do
   scenario 'Administrator can show/index past uploads' do
     admin1 = create(:administrator, email: 'admin1@example.com')
     admin2 = create(:administrator, email: 'admin2@example.com')

@@ -3,7 +3,7 @@ require 'excel_importers/profile'
 require 'importers/parties_importer'
 require 'importers/councillors_importer'
 
-describe ExcelImporters::Profile, clean_as_group: true do
+xdescribe ExcelImporters::Profile, clean_as_group: true do
   [
     ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', header_field: 'Fecha'),
     ExcelImporters::Profile.new('./spec/fixtures/files/profiles_html.xls', header_field: 'Fecha'),

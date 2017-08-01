@@ -65,7 +65,7 @@ describe ExcelImporters::Base do
       end
     end
 
-    describe 'cell transformations' do
+    xdescribe 'cell transformations' do
       it 'does not transform integers into floats' do
         year = nil
         importer.each_row do |row|
