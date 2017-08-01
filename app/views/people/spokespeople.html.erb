@@ -20,7 +20,7 @@
         <ul class="people-list-text">
           <% spokespeople.each do |spokesperson| %>
             <li>
-              <h3 class="inline-block"><%= link_to spokesperson.backwards_name, person_path(spokesperson) %></h3> - <%= spokesperson.unit %>
+              <h3 class="inline-block"><%= link_to spokesperson.backwards_name, person_path(spokesperson) %></h3> - <%= spokesperson.role %>
             </li>
           <% end %>
         </ul>

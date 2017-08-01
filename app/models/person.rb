@@ -386,7 +386,8 @@ class Person < ActiveRecord::Base
     return 'D' if director?
     return 'E' if temporary_worker?
     return 'F' if public_worker?
-    'V'
+    return 'L' if labour?
+    return 'V' if spokesperson?
   end
 
   private

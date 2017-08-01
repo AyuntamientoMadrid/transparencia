@@ -20,7 +20,7 @@
         <ul class="people-list-text">
           <% public_workers.each do |public_worker| %>
             <li>
-              <h3 class="inline-block"><%= link_to public_worker.backwards_name, person_path(public_worker) %></h3> - <%= public_worker.unit %>
+              <h3 class="inline-block"><%= link_to public_worker.backwards_name, person_path(public_worker) %></h3> - <%= public_worker.role %>
             </li>
           <% end %>
         </ul>

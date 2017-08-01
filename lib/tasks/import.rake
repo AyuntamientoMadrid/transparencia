@@ -1,5 +1,6 @@
 require 'importers/parties_importer'
 require 'importers/councillors_importer'
+require 'importers/public_workers_importer'
 require 'importers/profiles_importer'
 require 'importers/non_profiles_importer'
 require 'importers/calendars_importer'
@@ -37,6 +38,11 @@ namespace :import do
   task profiles: 'import:councillors' do
     Importers::ProfilesImporter.new('./import-data/profiles.csv').import!
     Importers::NonProfilesImporter.new('./import-data/non-profiles.csv').import!
+  end
+
+  desc "Imports import-data/public_workers.csv into the people table"
+  task public_workers: :environment do
+    Importers::PublicWorkersImporter.new('./import-data/public_workers.csv').import!
   end
 
   desc "Imports import-data/non-profiles.csv into the people table"
