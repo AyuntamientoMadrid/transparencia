@@ -75,7 +75,7 @@ es:
       temporary_workers: "Personal eventual"
       public_workers: "Funcionarios"
       labours: "Laborales"
-      spokespeople: "Vocales vecinales"
+      spokespeople: "Vocales vecinos"
       subventions: "Subvenciones"
       contracts: "Contratos"
       inquiries: "Peticiones de información"
@@ -188,7 +188,7 @@ es:
     labours:
       title: "Laborales"
     spokespeople:
-      title: "Vocales vecinales"
+      title: "Vocales vecinos"
     profile: "Perfil profesional"
     assets_declarations: "Declaración de bienes patrimoniales"
     activities_declarations: "Declaración de actividades y de causas de posible incompatibilidad"
