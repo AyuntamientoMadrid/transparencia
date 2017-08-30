@@ -45,20 +45,23 @@ module ExcelImporters
         @period = period
       end
 
-      def get_person(row)
-        identifier = row.fetch(:identificador)
-        Person.find_by!(personal_code: row.fetch(:identificador)) if identifier.present?
-      end
-
       def get_declaration(person)
         person.activities_declarations.for_period(@period).first!
       end
 
-      def import_row!(row)
-        person = get_person(row)
-        import_person_row!(person, row) if person.present?
+      def import_row!(row, row_index)
+        identifier = row.fetch(:identificador)
+        if identifier.present?
+          person = Person.find_by(personal_code: identifier)
+          if person.present?
+            import_person_row!(person, row)
+          else
+            logger.error("DATA PROBLEM!! No Person found for identifier #{identifier} at row #{row_index}")
+          end
+        else
+          logger.error("DATA PROBLEM!! No identifier found at row #{row_index}")
+        end
       end
-
     end
 
     class Declarations < ActivitiesBaseImporter
@@ -134,7 +137,6 @@ module ExcelImporters
                            person: person.name,
                            start_date: start_date,
                            end_date: end_date))
-
       end
     end
 

@@ -18,7 +18,7 @@ module ExcelImporters
         next if row_index <= headers_row # skip header row
         row_hash = row_to_hash(row, row_index)
         next if row_hash.values.all?(&:blank?)
-        yield(row_hash)
+        yield(row_hash, row_index)
       end && true
     end
 
@@ -28,12 +28,12 @@ module ExcelImporters
         raise("could not find header: #{header}")
     end
 
-    def import_row!(row)
+    def import_row!(row, row_index)
       logger.info(row.inspect)
     end
 
     def import!
-      each_row { |row| import_row!(row) }
+      each_row { |row, row_index| import_row!(row, row_index) }
     end
 
     def import
@@ -124,7 +124,7 @@ module ExcelImporters
         if formatted_val.present?
           formatted_val
         elsif value.is_a?(Float) &&
-           value.round == value
+              value.round == value
           value.round
         elsif value == 'NULL'
           nil

@@ -56,7 +56,7 @@ feature 'Admin Activities Uploads' do
 
     click_button 'Submit'
 
-    expect(page).to have_content "Couldn't find Person"
+    expect(page).to have_content "DATA PROBLEM!! No Person found for identifier 5697 at row 1"
   end
 
   scenario 'Administrator can attempt to upload random files from internet without the app crashing' do

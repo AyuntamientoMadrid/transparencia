@@ -60,18 +60,22 @@ module ExcelImporters
         @period = period
       end
 
-      def get_person(row)
-        identifier = row.fetch(:identificador)
-        Person.find_by!(personal_code: row.fetch(:identificador)) if identifier.present?
-      end
-
       def get_declaration(person)
         person.assets_declarations.for_period(@period).first!
       end
 
-      def import_row!(row)
-        person = get_person(row)
-        import_person_row!(person, row) if person.present?
+      def import_row!(row, row_index)
+        identifier = row.fetch(:identificador)
+        if identifier.present?
+          person = Person.find_by(personal_code: identifier)
+          if person.present?
+            import_person_row!(person, row)
+          else
+            logger.error("DATA PROBLEM!! No Person found for identifier #{identifier} at row #{row_index}")
+          end
+        else
+          logger.error("DATA PROBLEM!! No identifier found at row #{row_index}")
+        end
       end
     end
 
@@ -173,7 +177,6 @@ module ExcelImporters
                            kind: kind,
                            model: model,
                            purchase_date: purchase_date))
-
       end
     end
 
@@ -192,7 +195,6 @@ module ExcelImporters
                            person: person.name,
                            kind: kind,
                            purchase_date: purchase_date))
-
       end
     end
 
@@ -213,7 +215,6 @@ module ExcelImporters
                            kind: kind,
                            amount: amount,
                            comments: comments))
-
       end
     end
 
