@@ -18,7 +18,7 @@ module ExcelImporters
         next if row_index <= headers_row # skip header row
         row_hash = row_to_hash(row, row_index)
         next if row_hash.values.all?(&:blank?)
-        yield(row_hash, row_index)
+        yield(row_hash, row_index + 1)
       end && true
     end
 
