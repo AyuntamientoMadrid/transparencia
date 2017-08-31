@@ -48,7 +48,7 @@ module ExcelImporters
       super
     end
 
-    def import_row!(row)
+    def import_row!(row, row_index)
       person_query = Person.where(personal_code: row[:n_personal])
       job_level = JOB_LEVELS.fetch(row[:tipo_de_vinculacion])
 
