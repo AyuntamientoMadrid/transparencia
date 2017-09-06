@@ -63,7 +63,7 @@ class Person < ActiveRecord::Base
   end
 
   def should_display_declarations?
-    councillor?
+    councillor? || director?
   end
 
   def should_display_calendar?
