@@ -10,7 +10,7 @@ module ExcelImporters
       'F' => 'public_worker',
       'V' => 'spokesperson',
       'L' => 'labour'
-    }
+    }.freeze
 
     COUNCILLOR_JOB_LEVEL_CODES = %w(alcalde-sa concejal-de-gobierno concejal-presidente-de-distrito concejal-sin-respons-de-gestion-publica concejal-a-de-gobierno concejal-a-pres-distrito-3-tte-alcadia concejal-a-sin-respons-de-gestion-publi portavoz-grupo-politico primer-teniente-de-alcalde primer-a-teniente-de-alcaldia).freeze
     TEMP_WORKER_JOB_LEVEL_CODES = %w(administrativo-a apoyo-a-la-secretaria-alcaldia asesor-a-n24 asesor-a-n26 asesor-a-n28 director-a-de-gabinete jefe-a-de-secretaria vocal-asesor vocal-asesor-a).freeze
@@ -48,7 +48,7 @@ module ExcelImporters
       super
     end
 
-    def import_row!(row, row_index)
+    def import_row!(row, _row_index)
       person_query = Person.where(personal_code: row[:n_personal])
       job_level = JOB_LEVELS.fetch(row[:tipo_de_vinculacion])
 
