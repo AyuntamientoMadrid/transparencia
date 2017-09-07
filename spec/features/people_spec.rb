@@ -81,23 +81,29 @@ feature 'People' do
     end
   end
   
-  scenario "show directors's declarations" do   
-    person = create(:person, first_name: 'Bruce', last_name: 'Waine', role: 'Batman', job_level: 'director')
-    create(:assets_declaration, person: person, declaration_date: '2017-09-06', period: 'initial', data: {real_estate_properties: [{'kind' => "Urbano", 'description' => "Batcueva", 'municipality' => "Gotham"}]})
-  
-    visit person_path(person)
+  describe "Show people", clean_as_group: true do
+    let(:person){create(:person, first_name: 'Bruce', last_name: 'Waine', role: 'Batman', job_level: 'director')}
     
-    expect(page).to have_content(person.assets_declarations.first.declaration_date)
-    expect(page).to have_content("Batcueva")
-  end
-  
-  scenario "Show director's activities" do
-    person = create(:person, first_name: 'Tom', last_name: 'Sawyer', role: 'Niño', job_level: 'director')
-    create(:activities_declaration, person: person, declaration_date: '2017-09-06', period: 'initial', data: {public_activities: ['entity' => 'Árbol', 'position' => 'Escalador', 'start_date' => 1.year.ago]})
+    scenario "directors's declarations" do   
+      create(:assets_declaration, person: person, declaration_date: '2017-09-06', period: 'initial', data: {real_estate_properties: [{'kind' => "Urbano", 'description' => "Batcave", 'municipality' => "Gotham"}]})
 
-    visit person_path(person)
-    
-    expect(page).to have_content('Escalador')
+      visit person_path(person)
+
+      expect(page).to have_content(person.assets_declarations.first.declaration_date)
+      expect(page).to have_content("Urbano")
+      expect(page).to have_content("Batcave")
+      expect(page).to have_content("Gotham")
+    end
+
+    scenario "director's activities" do
+      create(:activities_declaration, person: person, declaration_date: '2017-09-07', period: 'initial', data: {public_activities: ['entity' => 'Gotham', 'position' => 'City rescuer', 'start_date' => 1.year.ago]})
+
+      visit person_path(person)
+
+      expect(page).to have_content(person.activities_declarations.first.declaration_date)
+      expect(page).to have_content('Gotham')
+      expect(page).to have_content('City rescuer')
+    end    
   end
 
 end
