@@ -5,6 +5,7 @@ Bienvenidos al repositorio de la nueva página de transparencia de Madrid.
 [![Build Status](https://travis-ci.org/AyuntamientoMadrid/transparencia.svg?branch=master)](https://travis-ci.org/AyuntamientoMadrid/transparencia)
 [![Code Climate](https://codeclimate.com/github/AyuntamientoMadrid/transparencia/badges/gpa.svg)](https://codeclimate.com/github/AyuntamientoMadrid/transparencia)
 [![Dependency Status](https://gemnasium.com/AyuntamientoMadrid/transparencia.svg)](https://gemnasium.com/AyuntamientoMadrid/transparencia)
+[![Coverage Status](https://coveralls.io/repos/github/AyuntamientoMadrid/transparencia/badge.svg?branch=master)](https://coveralls.io/github/AyuntamientoMadrid/transparencia?branch=master)
 
 ## Configuración para desarrollo y tests
 

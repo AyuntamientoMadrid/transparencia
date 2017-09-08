@@ -71,4 +71,5 @@ end
 
 group :test do
   gem 'poltergeist'
+  gem 'coveralls', require: false
 end
