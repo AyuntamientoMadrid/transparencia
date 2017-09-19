@@ -28,6 +28,3 @@
 .DS_Store
 .ruby-gemset
 .byebug_history
-
-#NetBeans files
-nbproject/
