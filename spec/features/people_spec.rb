@@ -80,11 +80,11 @@ feature 'People' do
       expect(page).to_not have_content "Klark Kent"
     end
   end
-  
+
   describe "Show people", clean_as_group: true do
     let(:person){create(:person, first_name: 'Bruce', last_name: 'Waine', role: 'Batman', job_level: 'director')}
-    
-    scenario "directors's declarations" do   
+
+    scenario "directors's declarations" do
       create(:assets_declaration, person: person, declaration_date: '2017-09-06', period: 'initial', data: {real_estate_properties: [{'kind' => "Urbano", 'description' => "Batcave", 'municipality' => "Gotham"}]})
 
       visit person_path(person)
@@ -103,7 +103,18 @@ feature 'People' do
       expect(page).to have_content(person.activities_declarations.first.declaration_date)
       expect(page).to have_content('Gotham')
       expect(page).to have_content('City rescuer')
-    end    
+    end
+
+    scenario "spokesperson's profile" do
+      person = create(:person, first_name: 'Robin', last_name: 'The Boy Wonder', role: 'Robin', job_level: 'spokesperson')
+
+      visit spokespeople_people_path
+
+      click_on "The Boy Wonder, Robin"
+
+      expect(page).to have_content("Professional profile")
+      expect(page).to have_content("Robin The Boy Wonder")
+    end
   end
 
 end
