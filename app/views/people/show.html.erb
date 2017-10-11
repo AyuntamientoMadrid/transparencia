@@ -32,7 +32,7 @@
       <% elsif @person.public_worker? %>
         <%= link_to t("people.public_workers.title"), public_workers_people_path %>
       <% elsif @person.spokesperson? %>
-        <%= link_to t("people.spokespeople.title"), spokespersons_people_path %>
+        <%= link_to t("people.spokespeople.title"), spokespeople_people_path %>
       <% elsif @person.labour? %>
         <%= link_to t("people.labours.title"), labours_people_path %>
       <% end %>
