@@ -39,7 +39,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       expect(prop.kind).to eq('Urbano')
       expect(prop.type).to eq('Pleno dominio')
       expect(prop.share).to eq(50)
-      expect(prop.purchase_date).to eq('25-04-2002')
+      expect(prop.purchase_date).to eq('25/04/2002')
       expect(prop.tax_value).to eq("170.584,90 €")
       expect(prop.notes).to eq('Trastero')
 
@@ -47,7 +47,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       expect(prop.kind).to eq('Urbano')
       expect(prop.type).to eq('Pleno dominio')
       expect(prop.share).to eq(50)
-      expect(prop.purchase_date).to eq('01-04-1990')
+      expect(prop.purchase_date).to eq('04/1990')
       expect(prop.tax_value).to eq("14.194,54 €")
       expect(prop.notes).to be_nil
 
@@ -55,7 +55,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       expect(prop.kind).to eq('Urbano')
       expect(prop.type).to eq('Pleno dominio')
       expect(prop.share).to eq(100)
-      expect(prop.purchase_date).to eq('01-06-1997')
+      expect(prop.purchase_date).to eq('Junio 1997')
       expect(prop.tax_value).to eq("249.255,00 €")
       expect(prop.notes).to be_nil
     end
@@ -77,7 +77,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       expect(prop.kind).to eq('Acciones y participaciones en sociedades')
       expect(prop.description).to eq('Club de golf')
       expect(prop.amount).to eq("24.000,00 €")
-      expect(prop.purchase_date).to eq("27-12-2007")
+      expect(prop.purchase_date).to eq("27/12/2007")
 
       prop = declaration.other_deposits[1]
       expect(prop.kind).to eq('Seguros de vida, planes de pensiones, rentas temporales y vitalicias')
@@ -113,12 +113,12 @@ describe ExcelImporters::Assets, clean_as_group: true do
       prop = declaration.vehicles[1]
       expect(prop.kind).to eq('Automóviles')
       expect(prop.model).to eq('Audi Q5 (Segunda mano)')
-      expect(prop.purchase_date).to eq('01-10-2013')
+      expect(prop.purchase_date).to eq('octubre 2013')
 
       prop = declaration.vehicles[2]
       expect(prop.kind).to eq('Automóviles')
       expect(prop.model).to eq('Volvo XC 60 (segunda mano)')
-      expect(prop.purchase_date).to eq('20-01-2014')
+      expect(prop.purchase_date).to eq('20/01/2014')
     end
 
     it 'Parses other personal properties' do
