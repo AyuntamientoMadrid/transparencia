@@ -11,10 +11,7 @@ module DateHelper
   end
 
   def parse_date(date)
-    date = Date.parse(date) if date.is_a?(String)
-    date.strftime('%d-%m-%Y')
-  rescue
-    date.to_s unless date.nil?
+    date
   end
 
 end
