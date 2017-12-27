@@ -28,3 +28,4 @@
 .DS_Store
 .ruby-gemset
 .byebug_history
+/coverage
