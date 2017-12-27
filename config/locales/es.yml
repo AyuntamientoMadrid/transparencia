@@ -150,6 +150,7 @@ es:
     councillor_code: "Cód. concejal"
     personal_code: "Identificador"
     role: "Cargo"
+    secondary_role: "Sub Cargo"
     unit: "Unidad"
     party: "Afiliación"
     no_party: "Sin afiliación política"

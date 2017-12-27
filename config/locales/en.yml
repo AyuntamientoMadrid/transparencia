@@ -150,6 +150,7 @@ en:
     councillor_code: "Council Code"
     personal_code: "Identifier"
     role: "Role"
+    secondary_role: "Secondary Role"
     unit: "Unit"
     party: "Party"
     no_party: "No assigned party"

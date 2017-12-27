@@ -58,6 +58,7 @@ feature 'People' do
       click_on "Edit"
 
       fill_in :person_unit, with: "Fantastic 4"
+      fill_in :person_secondary_role, with: "Marlon Brando"
       submit_form
 
       visit directors_people_path
@@ -68,6 +69,7 @@ feature 'People' do
       expect(page).to have_content(person.name)
       expect(page).to have_content(person.role)
       expect(page).to have_content(person.unit)
+      expect(page).to have_content(person.secondary_role)
     end
 
     scenario 'Delete' do
