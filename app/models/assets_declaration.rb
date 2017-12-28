@@ -42,6 +42,10 @@ class AssetsDeclaration < ActiveRecord::Base
     parse_data_rows(data, :debts)
   end
 
+  def tax_data
+    parse_data_rows(data, :tax_data)
+  end
+
   def add_real_estate_property(kind, type, description, municipality, share, purchase_date, tax_value, notes)
     self.data ||= {}
     self.data['real_estate_properties'] ||= []
@@ -85,6 +89,12 @@ class AssetsDeclaration < ActiveRecord::Base
     self.data ||= {}
     self.data['debts'] ||= []
     self.data['debts'] << {'kind' => kind, 'amount' => amount, 'comments' => comments}
+  end
+
+  def add_tax_data(tax, fiscal_data, amount, comments)
+    self.data ||= {}
+    self.data['tax_data'] ||= []
+    self.data['tax_data'] << {'tax' => tax, 'fiscal_data' => fiscal_data, 'amount' => amount, 'comments' => comments}
   end
 
 end

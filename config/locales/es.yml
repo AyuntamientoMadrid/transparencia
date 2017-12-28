@@ -426,6 +426,12 @@ es:
       kind: "Clase"
       comments: "Observaciones"
       amount: "Importe"
+    tax_data:
+      title: "7) Información tributaria"
+      tax: "Impuesto"
+      fiscal_data: "Dato fiscal"
+      amount: "Importe"
+      comments: "Observaciones"
   excel_importers:
     base:
       could_not_find_header: "No se pudo encontrar la cabecera '%{header}' en el archivo"
@@ -452,6 +458,8 @@ es:
         imported: "Otros bienes muebles (%{period}) %{person}, %{kind}, %{purchase_date}"
       debts:
         imported: "Deuda (%{period}) %{person}, %{kind}, %{amount}, %{comments}"
+      tax_data:
+        imported: "Dato tributario (%{period}) %{person}, %{tax}, %{fiscal_data}, %{amount}, %{comments}"
     activities:
       declarations:
         imported: "Detectada declaración de actividades para %{person} (%{date})"

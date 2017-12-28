@@ -423,6 +423,12 @@ en:
       kind: "Class"
       comments: "Comments"
       amount: "Amount"
+    tax_data:
+      title: "7) Tax data"
+      tax: "Tax"
+      fiscal_data: "Fiscal data"
+      amount: "Amount"
+      comments: "Comments"
   excel_importers:
     base:
       could_not_find_header: "Could not find header %{header}"

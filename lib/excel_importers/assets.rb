@@ -17,11 +17,11 @@ module ExcelImporters
       real_estate_properties = RealEstateProperties.new(@path_to_file,
                                                         @period,
                                                         logger: @logger,
-                                                        sheet_name: '3. PatrimonioInmobiliario')
+                                                        sheet_name: '3.PatrimonioInmobiliario')
       account_deposits = AccountDeposits.new(@path_to_file,
                                              @period,
                                              logger: @logger,
-                                             sheet_name: '4. DepositosEnCuenta')
+                                             sheet_name: '4.DepositosEnCuenta')
       other_deposits = OtherDeposits.new(@path_to_file,
                                          @period,
                                          logger: @logger,
@@ -29,15 +29,20 @@ module ExcelImporters
       vehicles = Vehicles.new(@path_to_file,
                               @period,
                               logger: @logger,
-                              sheet_name: '6. Vehículos')
+                              sheet_name: '6.Vehículos')
       other_personal_properties = OtherPersonalProperties.new(@path_to_file,
                                                               @period,
                                                               logger: @logger,
-                                                              sheet_name: '7. OtrosBieneMuebles') # !! Biene instead of Bienes
+                                                              sheet_name: '7.OtrosBienesMuebles')
       debts = Debts.new(@path_to_file,
                         @period,
                         logger: @logger,
-                        sheet_name: '8. Deudas')
+                        sheet_name: '8.Deudas')
+
+      tax_data = TaxData.new(@path_to_file,
+                             @period,
+                             logger: @logger,
+                             sheet_name: '9.InformacionTributaria')
 
       ActiveRecord::Base.transaction do
         declarations.import! &&
@@ -47,6 +52,7 @@ module ExcelImporters
           vehicles.import!
           other_personal_properties.import!
           debts.import!
+          tax_data.import!
       end
       true
     rescue => err
@@ -213,6 +219,28 @@ module ExcelImporters
                            period: @period,
                            person: person.name,
                            kind: kind,
+                           amount: amount,
+                           comments: comments))
+      end
+    end
+
+    class TaxData < AssetsBaseImporter
+      def import_person_row!(person, row)
+        declaration = get_declaration(person)
+
+        tax         = row [:impuesto]
+        fiscal_data = row[:dato_fiscal]
+        amount      = row[:importe]
+        comments    = row[:observaciones]
+
+        declaration.add_tax_data(tax, fiscal_data, amount, comments)
+        declaration.save!
+
+        logger.info(I18n.t('excel_importers.assets.tax_data.imported',
+                           period: @period,
+                           person: person.name,
+                           tax: tax,
+                           fiscal_data: fiscal_data,
                            amount: amount,
                            comments: comments))
       end

@@ -208,6 +208,36 @@
           </tbody>
         </table>
 
+        <table>
+          <caption><%= t("assets_declarations.tax_data.title") %></caption>
+          <thead>
+            <tr>
+              <th scope="col" class="th-big"><%= t("assets_declarations.tax_data.tax") %></th>
+              <th scope="col"><%= t("assets_declarations.tax_data.fiscal_data") %></th>
+              <th scope="col"><%= t("assets_declarations.tax_data.comments") %></th>
+              <th scope="col" class="th-small"><%= t("assets_declarations.tax_data.amount") %>&nbsp;(&euro;)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if declaration.tax_data.any? %>
+              <% declaration.tax_data.each do |tax_data| %>
+                <tr>
+                  <td><%= tax_data.tax %></td>
+                  <td><%= tax_data.fiscal_data %></td>
+                  <td><%= tax_data.comments %></td>
+                  <td><%= tax_data.amount %></td>
+                </tr>
+              <% end %>
+            <% else %>
+              <tr>
+                <td colspan="3">
+                  <%= t("shared.no_data") %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
       </div>
     <% end %>
   </div>
