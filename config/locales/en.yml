@@ -455,6 +455,8 @@ en:
         imported: "Other personal properties (%{period}) %{person}, %{kind}, %{purchase_date}"
       debts:
         imported: "Debt (%{period}) %{person}, %{kind}, %{amount}, %{comments}"
+      tax_data:
+        imported: "Tax datum (%{period}) %{person}, %{tax}, %{fiscal_data}, %{amount}, %{comments}"
     activities:
       declarations:
         imported: "Activity declaration for %{person} (%{date})"

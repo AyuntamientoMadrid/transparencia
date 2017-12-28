@@ -87,7 +87,10 @@ feature 'People' do
     let(:person){create(:person, first_name: 'Bruce', last_name: 'Waine', role: 'Batman', job_level: 'director')}
 
     scenario "directors's declarations" do
-      create(:assets_declaration, person: person, declaration_date: '2017-09-06', period: 'initial', data: {real_estate_properties: [{'kind' => "Urbano", 'description' => "Batcave", 'municipality' => "Gotham"}]})
+      create(:assets_declaration, person: person, declaration_date: '2017-09-06', period: 'initial',
+                                  data: {real_estate_properties: [{'kind' => "Urbano",
+                                                                   'description' => "Batcave",
+                                                                   'municipality' => "Gotham"}]})
 
       visit person_path(person)
 
@@ -97,8 +100,26 @@ feature 'People' do
       expect(page).to have_content("Gotham")
     end
 
+    scenario "director's tax information" do
+      create(:assets_declaration, person: person, declaration_date: '2017-09-06', period: 'initial',
+                                  data: {tax_data: [{'tax' => "Impuesto sobre la Renta de las Personas Físicas",
+                                                     'fiscal_data' => "Base imponible general",
+                                                     'amount' => "600,00 €"}]})
+
+      visit person_path(person)
+
+      expect(page).to have_content(t("assets_declarations.tax_data.title"))
+      expect(page).to have_content("Impuesto sobre la Renta de las Personas Físicas")
+      expect(page).to have_content("Base imponible general")
+      expect(page).to have_content("600,00 €")
+
+    end
+
     scenario "director's activities" do
-      create(:activities_declaration, person: person, declaration_date: '2017-09-07', period: 'initial', data: {public_activities: ['entity' => 'Gotham', 'position' => 'City rescuer', 'start_date' => 1.year.ago]})
+      create(:activities_declaration, person: person, declaration_date: '2017-09-07', period: 'initial',
+                                      data: {public_activities: ['entity' => 'Gotham',
+                                                                 'position' => 'City rescuer',
+                                                                 'start_date' => 1.year.ago]})
 
       visit person_path(person)
 
