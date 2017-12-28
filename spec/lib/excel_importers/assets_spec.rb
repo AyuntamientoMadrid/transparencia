@@ -22,7 +22,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       prop = declaration.real_estate_properties[0]
       expect(prop.kind).to eq('Urbano')
       expect(prop.type).to be_nil
-      expect(prop.share).to eq(5)
+      expect(prop.share).to eq('5')
       expect(prop.purchase_date).to be_nil
       expect(prop.tax_value).to eq("4.081,78 €")
       expect(prop.notes).to eq('Apartamento')
@@ -30,7 +30,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       prop = declaration.real_estate_properties[1]
       expect(prop.kind).to eq('Urbano')
       expect(prop.type).to be_nil
-      expect(prop.share).to eq(50)
+      expect(prop.share).to eq('50')
       expect(prop.purchase_date).to eq('1978')
       expect(prop.tax_value).to eq("En curso")
       expect(prop.notes).to eq('Parking')
@@ -38,7 +38,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       prop = declaration.real_estate_properties[2]
       expect(prop.kind).to eq('Urbano')
       expect(prop.type).to eq('Pleno dominio')
-      expect(prop.share).to eq(50)
+      expect(prop.share).to eq('50')
       expect(prop.purchase_date).to eq('25/04/2002')
       expect(prop.tax_value).to eq("170.584,90 €")
       expect(prop.notes).to eq('Trastero')
@@ -46,7 +46,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       prop = declaration.real_estate_properties[3]
       expect(prop.kind).to eq('Urbano')
       expect(prop.type).to eq('Pleno dominio')
-      expect(prop.share).to eq(50)
+      expect(prop.share).to eq('50')
       expect(prop.purchase_date).to eq('04/1990')
       expect(prop.tax_value).to eq("14.194,54 €")
       expect(prop.notes).to be_nil
@@ -54,7 +54,7 @@ describe ExcelImporters::Assets, clean_as_group: true do
       prop = declaration.real_estate_properties[4]
       expect(prop.kind).to eq('Urbano')
       expect(prop.type).to eq('Pleno dominio')
-      expect(prop.share).to eq(100)
+      expect(prop.share).to eq('100')
       expect(prop.purchase_date).to eq('Junio 1997')
       expect(prop.tax_value).to eq("249.255,00 €")
       expect(prop.notes).to be_nil
