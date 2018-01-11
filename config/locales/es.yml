@@ -19,6 +19,8 @@ es:
     people:
       index:
         title: "Personas ocultadas y restauradas"
+      headers:
+        actions: "Acciones"
     profile_uploads:
       index:
         title: 'Histórico de subidas'

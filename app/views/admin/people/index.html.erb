@@ -11,7 +11,7 @@
       <th><%= Person.human_attribute_name(:unhidden_at) %></th>
       <th><%= Person.human_attribute_name(:unhidden_by) %></th>
       <th><%= Person.human_attribute_name(:unhidden_reason) %></th>
-      <th></th>
+      <th><%= t("admin.people.headers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -19,22 +19,22 @@
       <tr id="<%= dom_id(person) %>">
         <td><%= person.backwards_name %></td>
         <td><%= person.role %></td>
-        <td><%= person.hidden_at %></td>
-        <td><%= person.hidden_by.email %></td>
-        <td><%= person.hidden_reason %></td>
-        <td><%= person.unhidden_at %></td>
-        <td><%= person.unhidden_by.try(:email) %></td>
-        <td><%= person.unhidden_reason %></td>
+        <td><%= person.hidden? ? person.hidden_at : nil %></td>
+        <td><%= person.hidden? ? person.hidden_by.email : nil %></td>
+        <td><%= person.hidden? ? person.hidden_reason : nil %></td>
+        <td><%= person.unhidden? ? person.unhidden_at : nil %></td>
+        <td><%= person.unhidden? ? person.unhidden_by.email : nil %></td>
+        <td><%= person.unhidden? ? person.unhidden_reason : nil %></td>
         <td>
           <% if person.hidden? %>
             <%= link_to t("shared.unhide"),
                         '#',
-                        data: {toggle: "##{dom_id(person)}_unhide_form"},
+                        data: { toggle: "##{dom_id(person)}_unhide_form" },
                         class: "small button radius info" %>
           <% else %>
             <%= link_to t("shared.hide"),
                         '#',
-                        data: {toggle: "##{dom_id(person)}_hide_form"},
+                        data: { toggle: "##{dom_id(person)}_hide_form" },
                         class: "small button radius info" %>
           <% end %>
         </td>

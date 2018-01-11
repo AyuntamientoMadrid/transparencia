@@ -7,10 +7,10 @@ class Person < ActiveRecord::Base
   include ParseDataRows
 
   belongs_to :party
-  belongs_to :hidden_by, class_name: 'Administrator'
+  belongs_to :hidden_by,   class_name: 'Administrator'
   belongs_to :unhidden_by, class_name: 'Administrator'
 
-  has_many :assets_declarations, -> { sort_for_list }, dependent: :destroy
+  has_many :assets_declarations,     -> { sort_for_list }, dependent: :destroy
   has_many :activities_declarations, -> { sort_for_list }, dependent: :destroy
 
   def self.job_levels
@@ -21,23 +21,23 @@ class Person < ActiveRecord::Base
     %w{party_name area name_initial}
   end
 
-  validates :first_name,   presence: true
-  validates :last_name,   presence: true
-  validates :role,   presence: true
-  validates :job_level, presence: true
-  validates :job_level, inclusion: { in: Person.job_levels }
+  validates :first_name, presence: true
+  validates :last_name,  presence: true
+  validates :role,       presence: true
+  validates :job_level,  presence: true
+  validates :job_level,  inclusion: { in: Person.job_levels }
 
   scope :councillors,       -> { where(job_level: 'councillor') }
   scope :directors,         -> { where(job_level: 'director') }
   scope :temporary_workers, -> { where(job_level: 'temporary_worker') }
   scope :public_workers,    -> { where(job_level: 'public_worker') }
   scope :spokespeople,      -> { where(job_level: 'spokesperson') }
-  scope :labours,            -> { where(job_level: 'labour') }
+  scope :labours,           -> { where(job_level: 'labour') }
   scope :working,           -> { where(leaving_date: nil) }
   scope :not_working,       -> { where.not(leaving_date: nil).order(:leaving_date) }
 
   scope :unhidden, -> { where('people.hidden_at IS NULL OR (people.unhidden_at IS NOT NULL AND people.unhidden_at > people.hidden_at)') }
-  scope :hidden, -> { where('people.hidden_at IS NOT NULL AND (people.unhidden_at IS NULL OR people.unhidden_at < people.hidden_at)') }
+  scope :hidden,   -> { where('people.hidden_at IS NOT NULL AND (people.unhidden_at IS NULL OR people.unhidden_at < people.hidden_at)') }
 
   after_initialize :initialize_profile
   before_validation :calculate_sorting_name
@@ -139,7 +139,7 @@ class Person < ActiveRecord::Base
   end
 
   def languages_attributes=(attributes)
-    profile['languages']= clean_attributes attributes
+    profile['languages'] = clean_attributes attributes
   end
 
   def public_jobs
@@ -147,7 +147,7 @@ class Person < ActiveRecord::Base
   end
 
   def public_jobs_attributes=(attributes)
-    profile['public_jobs']= clean_attributes attributes
+    profile['public_jobs'] = clean_attributes attributes
   end
 
   def private_jobs
@@ -173,7 +173,7 @@ class Person < ActiveRecord::Base
   end
 
   def career_comment=(comment)
-    profile['career_comment']= comment
+    profile['career_comment'] = comment
   end
 
   def public_jobs_level
@@ -181,7 +181,7 @@ class Person < ActiveRecord::Base
   end
 
   def public_jobs_level=(level)
-    profile['public_jobs_level']= level
+    profile['public_jobs_level'] = level
   end
 
   def public_jobs_body
@@ -189,7 +189,7 @@ class Person < ActiveRecord::Base
   end
 
   def public_jobs_body=(body)
-    profile['public_jobs_body']= body
+    profile['public_jobs_body'] = body
   end
 
   def public_jobs_start_year
@@ -197,7 +197,7 @@ class Person < ActiveRecord::Base
   end
 
   def public_jobs_start_year=(start_year)
-    profile['public_jobs_start_year']= start_year
+    profile['public_jobs_start_year'] = start_year
   end
 
   def political_posts
@@ -205,7 +205,7 @@ class Person < ActiveRecord::Base
   end
 
   def political_posts_attributes=(attributes)
-    profile['political_posts']= clean_attributes attributes
+    profile['political_posts'] = clean_attributes attributes
   end
 
   def political_posts_comment
@@ -213,7 +213,7 @@ class Person < ActiveRecord::Base
   end
 
   def political_posts_comment=(comment)
-    profile['political_posts_comment']= comment
+    profile['political_posts_comment'] = comment
   end
 
   def publications
@@ -221,7 +221,7 @@ class Person < ActiveRecord::Base
   end
 
   def publications=(pub)
-    profile['publications']=pub
+    profile['publications'] = pub
   end
 
   def special_mentions
@@ -229,7 +229,7 @@ class Person < ActiveRecord::Base
   end
 
   def special_mentions=(mentions)
-    profile['special_mentions']= mentions
+    profile['special_mentions'] = mentions
   end
 
   def teaching_activity
@@ -237,7 +237,7 @@ class Person < ActiveRecord::Base
   end
 
   def teaching_activity=(activity)
-    profile['teaching_activity']=activity
+    profile['teaching_activity'] = activity
   end
 
   def other
@@ -245,7 +245,7 @@ class Person < ActiveRecord::Base
   end
 
   def other=(o)
-    profile['other']= o
+    profile['other'] = o
   end
 
   def add_study(description, entity, start_year, end_year)
@@ -315,12 +315,15 @@ class Person < ActiveRecord::Base
     Hash[self.includes(:party)
              .order(leaving_date: :desc, councillor_order: :asc)
              .group_by(&:party)
-             .sort_by{|party, v| sorted_party_ids.index(party.id)}
+             .sort_by{ |party, v| sorted_party_ids.index(party.id) }
     ]
   end
 
   def hide(hidden_by, hidden_reason, hidden_at = DateTime.current)
-    attrs = { hidden_at: hidden_at,
+    attrs = { unhidden_at: nil,
+              unhidden_by_id: nil,
+              hidden_at: hidden_at,
+              unhidden_reason: nil,
               hidden_by_id: hidden_by.id,
               hidden_reason: hidden_reason }
     attrs[:leaving_date] = hidden_at if councillor?
@@ -328,8 +331,10 @@ class Person < ActiveRecord::Base
   end
 
   def unhide(unhidden_by, unhidden_reason, unhidden_at = DateTime.current)
-    self.update(unhidden_at: unhidden_at,
+    self.update(hidden_at: nil,
+                hidden_by_id: nil,
                 leaving_date: nil,
+                unhidden_at: unhidden_at,
                 unhidden_by_id: unhidden_by.id,
                 unhidden_reason: unhidden_reason)
   end
@@ -399,7 +404,7 @@ class Person < ActiveRecord::Base
     def add_item(collection, description, entity, start_year, end_year)
       return if description.blank?
       self.profile[collection] ||= []
-      self.profile[collection] << {description: description, entity: entity, start_year: start_year, end_year: end_year}
+      self.profile[collection] << { description: description, entity: entity, start_year: start_year, end_year: end_year }
     end
 
     def clean_attributes(attributes)
@@ -411,9 +416,7 @@ class Person < ActiveRecord::Base
     end
 
     def refresh_party_councillors_count
-      if party.present?
-        party.refresh_councillors_count
-      end
+      party.refresh_councillors_count if party.present?
     end
 
 end

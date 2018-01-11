@@ -19,6 +19,8 @@ en:
     people:
       index:
         title: "Hidden and Unhidden people"
+      headers:
+        actions: "Actions"
     profile_uploads:
       index:
         title: 'Upload history'

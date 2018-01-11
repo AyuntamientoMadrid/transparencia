@@ -53,7 +53,6 @@ feature 'Admin/People' do
     visit admin_people_path
 
     within("#person_#{person.id}") do
-      expect(page).to have_content 'A reason for hiding'
       expect(page).to have_content 'A reason for unhiding'
       expect(page).to have_content '2016-03-13'
       expect(page).to have_link 'Hide'
@@ -123,7 +122,6 @@ feature 'Admin/People' do
     visit admin_people_path
 
     within("#person_#{councillor.id}") do
-      expect(page).to have_content 'A reason for hiding'
       expect(page).to have_content 'A reason for unhiding'
       expect(page).to have_content '2016-03-13'
       expect(page).to have_link 'Hide'
