@@ -111,7 +111,7 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(
         :first_name, :last_name, :job_level, :area, :councillor_code, :personal_code,
-        :twitter, :facebook, :role, :unit, :party_id,
+        :twitter, :facebook, :role, :secondary_role, :unit, :party_id,
         :studies_comment, :courses_comment, :career_comment, :political_posts_comment,
         :public_jobs_level, :public_jobs_body, :public_jobs_start_year,
         :publications, :teaching_activity, :special_mentions, :other,
