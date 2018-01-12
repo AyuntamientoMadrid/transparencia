@@ -72,6 +72,21 @@ feature 'People' do
       expect(page).to have_content(person.secondary_role)
     end
 
+    scenario "Update 'secondary_role' attribute" do
+      person = create(:person, first_name: "Vlad", last_name: "Tepes", role: "Voivode of Wallachia", secondary_role: "Military leader")
+
+      visit person_path(person)
+      click_on 'Edit'
+
+      fill_in(:person_secondary_role, with: 'National hero of Romania')
+      submit_form
+
+      expect(page).to have_content(person.name)
+      expect(page).to have_content(person.role)
+      expect(page).to have_content('National hero of Romania')
+      expect(page).to_not have_content('Military leader')
+    end
+
     scenario 'Delete' do
       person = create(:person, first_name: "Klark", last_name: "Kent", role: "Tank")
 
