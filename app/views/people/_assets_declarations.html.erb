@@ -97,7 +97,12 @@
         </table>
 
         <table>
-          <caption><%= t("assets_declarations.other_deposits.title") %></caption>
+          <% if ['2015','2016'].include?(declaration.declaration_date.year.to_s) %>
+            <% other_deposits_title = t("assets_declarations.other_deposits.old_title") %>
+          <% else %>
+            <% other_deposits_title = t("assets_declarations.other_deposits.title") %>
+          <% end %>
+          <caption><%= other_deposits_title %></caption>
           <thead>
             <tr>
               <th scope="col" class="th-big"><%= t('assets_declarations.other_deposits.kind') %></th>

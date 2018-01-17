@@ -409,7 +409,8 @@ es:
       entity: "Entidad de depósito"
       balance: "Saldo medio anual o valor en euros"
     other_deposits:
-      title: "3) Otros depósitos en cuenta corriente, de ahorro y otros tipos de imposiciones en cuenta"
+      old_title: "3) Otros depósitos en cuenta corriente, de ahorro y otros tipos de imposiciones en cuenta"
+      title: "3) Otro Patrimonio Mobiliario"
       kind: "Clase"
       description: "Descripción"
       amount: "Número, cuantía o valor en euros"
