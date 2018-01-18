@@ -103,7 +103,7 @@ module ExcelImporters
         description    = row[:titulo_de_adquisicion]
         municipality   = row[:municipio]
         share          = row[:participacion].to_s.gsub(".", ",")
-        purchase_date  = row[:fecha_de_adquisicion]
+        purchase_date  = row[:fecha_de_adquisicion] || row[:fecha_de_adquisicion_o_suscripcion]
         tax_value      = row[:valor_catastral]
         notes          = row[:observaciones]
 
