@@ -11,7 +11,7 @@ module Importers
           kind           = row[:clase]
           description    = row[:descripcion]
           amount         = row[:numero_cuantia_o_valor_en_euros]
-          purchase_date  = row[:fecha_de_adquisicion]
+          purchase_date  = row[:fecha_de_adquisicion] || row[:fecha_de_adquisicion_o_suscripcion]
 
           puts "#{@period} - Importing other deposit for #{person.name} (#{kind}, #{description}, #{amount})"
           declaration.add_other_deposit(kind, description, amount, purchase_date)

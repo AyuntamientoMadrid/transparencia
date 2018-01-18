@@ -172,7 +172,7 @@ module ExcelImporters
 
         kind           = row[:clase]
         model          = row[:marca_y_modelo]
-        purchase_date  = row[:fecha_de_adquisicion]
+        purchase_date  = row[:fecha_de_adquisicion] || row[:fecha_de_adquisicion_o_suscripcion]
 
         declaration.add_vehicle(kind, model, purchase_date)
         declaration.save!
@@ -191,7 +191,7 @@ module ExcelImporters
         declaration = get_declaration(person)
 
         kind           = row[:clase]
-        purchase_date  = row[:fecha_de_adquisicion]
+        purchase_date  = row[:fecha_de_adquisicion] || row[:fecha_de_adquisicion_o_suscripcion]
 
         declaration.add_other_personal_property(kind, purchase_date)
         declaration.save!
