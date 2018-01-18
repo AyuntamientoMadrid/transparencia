@@ -151,7 +151,7 @@ module ExcelImporters
         kind           = row[:clase]
         description    = row[:descripcion]
         amount         = row[:numero_cuantia_o_valor_en_euros]
-        purchase_date  = row[:fecha_de_adquisicion_o_suscripcion]
+        purchase_date  = row[:fecha_de_adquisicion] || row[:fecha_de_adquisicion_o_suscripcion]
 
         declaration.add_other_deposit(kind, description, amount, purchase_date)
         declaration.save!
