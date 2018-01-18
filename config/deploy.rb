@@ -1,4 +1,4 @@
-lock '3.4.0'
+lock '3.4.1'
 
 def deploysecret(key)
   @deploy_secrets_yml ||= YAML.load_file('config/deploy-secrets.yml')[fetch(:stage).to_s]
