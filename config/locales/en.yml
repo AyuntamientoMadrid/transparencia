@@ -406,6 +406,7 @@ en:
       entity: "Entity"
       balance: "Average annual balance or value in euros"
     other_deposits:
+      old_title: "3) Other deposits in checking, savings accounts and other types of deposits"
       title: "3) Other account deposits"
       kind: "Class"
       description: "Description"
