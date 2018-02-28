@@ -27,10 +27,10 @@
         <li class="inline-block">
           <%= link_to t("layouts.header.temporary_workers"), temporary_workers_people_path, class: ("active" if current_page?(temporary_workers_people_path)) %>
         </li>
+        <li class="inline-block">
+          <%= link_to t("layouts.header.public_workers"), public_workers_people_path, class: ("active" if current_page?(public_workers_people_path)) %>
+        </li>
         <% unless Rails.env.production? %>
-          <li class="inline-block">
-            <%= link_to t("layouts.header.public_workers"), public_workers_people_path, class: ("active" if current_page?(public_workers_people_path)) %>
-          </li>
           <li class="inline-block">
             <%= link_to t("layouts.header.labours"), labours_people_path, class: ("active" if current_page?(labours_people_path)) %>
           </li>
