@@ -75,7 +75,7 @@ es:
       councillors: "Concejales/as"
       directors: "Personal directivo"
       temporary_workers: "Personal eventual"
-      public_workers: "Funcionarios"
+      public_workers: "Personal funcionario"
       labours: "Laborales"
       spokespeople: "Vocales vecinos"
       subventions: "Subvenciones"
@@ -187,7 +187,7 @@ es:
     temporary_workers:
       title: "Personal eventual"
     public_workers:
-      title: "Funcionarios"
+      title: "Personal funcionario"
     labours:
       title: "Laborales"
     spokespeople:
