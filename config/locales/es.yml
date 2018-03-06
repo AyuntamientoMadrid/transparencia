@@ -170,6 +170,7 @@ es:
         tras la previa y expresa autorización de cada una de las personas a las que se refiere.
         En el supuesto de que la información no esté disponible puede deberse, bien a que la persona
         no ha facilitado la información, o bien que no ha prestado su consentimiento para la publicación.
+      no_declaration: "La información se publicará una vez que sea facilitada por la persona titular del órgano directivo."
     edit:
       title: "Editar persona"
     new:

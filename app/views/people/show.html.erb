@@ -144,9 +144,9 @@
       <% end %>
 
       <% if @person.should_display_declarations? %>
-        <%= render 'assets_declarations' %>
+        <div id="assets_declarations"><%= render 'assets_declarations' %></div>
 
-        <%= render 'activities_declarations' %>
+        <div id="activities_declarations"><%= render 'activities_declarations' %></div>
       <% end %>
 
       <p><%= t('people.show.disclaimer') %></p>

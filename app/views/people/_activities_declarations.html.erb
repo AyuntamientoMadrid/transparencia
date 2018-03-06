@@ -2,7 +2,11 @@
   <a name="activities_declarations" data-magellan-destination="activities_declarations"></a>
   <h2 class="lead"><%= t("people.activities_declarations") %></h2>
 
-  <p><%= t("people.show.activities_explanation") %><p>
+  <% if @activities_declarations.empty? %>
+    <p><%= t("people.show.no_declaration") %></p>
+  <% else %>
+    <p><%= t("people.show.activities_explanation") %></p>
+  <% end %>
 
   <ul class="tabs" data-tab>
     <% @activities_declarations.each_with_index do |declaration, index| %>

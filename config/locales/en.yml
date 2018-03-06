@@ -166,6 +166,7 @@ en:
       no_profile: |
         Publication of profile and professional background is not mandatory as per law 19/2013, dic. 9th.
         That way, this information is published after explicit authorization of the person it refers to.
+      no_declaration: "The information will be published once the owner provides it."
     edit:
       title: "Edit person"
     new:

@@ -128,6 +128,9 @@ feature 'People' do
       expect(page).to have_content("Base imponible general")
       expect(page).to have_content("600,00 €")
 
+      within("#activities_declarations") do
+        expect(page).to have_content("The information will be published once the owner provides it.")
+      end
     end
 
     scenario "director's activities" do
@@ -141,6 +144,22 @@ feature 'People' do
       expect(page).to have_content(person.activities_declarations.first.declaration_date)
       expect(page).to have_content('Gotham')
       expect(page).to have_content('City rescuer')
+
+      within("#assets_declarations") do
+        expect(page).to have_content("The information will be published once the owner provides it.")
+      end
+    end
+
+    scenario "director with neither activity nor asset declarations" do
+      visit person_path(person)
+
+      within("#assets_declarations") do
+        expect(page).to have_content("The information will be published once the owner provides it.")
+      end
+
+      within("#activities_declarations") do
+        expect(page).to have_content("The information will be published once the owner provides it.")
+      end
     end
 
     scenario "spokesperson's profile" do

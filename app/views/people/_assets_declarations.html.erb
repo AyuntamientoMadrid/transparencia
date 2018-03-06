@@ -2,6 +2,10 @@
   <a name="assets_declarations" data-magellan-destination="assets_declarations"></a>
   <h2 class="lead"><%= t("people.assets_declarations") %></h2>
 
+  <% if @assets_declarations.empty? %>
+    <p><%= t("people.show.no_declaration") %></p>
+  <% end %>
+
   <ul class="tabs" data-tab>
     <% @assets_declarations.each_with_index do |declaration, index| %>
       <% active = index == @assets_declarations.length - 1 %>
