@@ -34,10 +34,10 @@
           <li class="inline-block">
             <%= link_to t("layouts.header.labours"), labours_people_path, class: ("active" if current_page?(labours_people_path)) %>
           </li>
-          <li class="inline-block">
-            <%= link_to t("layouts.header.spokespeople"), spokespeople_people_path, class: ("active" if current_page?(spokespeople_people_path)) %>
-          </li>
         <% end %>
+        <li class="inline-block">
+          <%= link_to t("layouts.header.spokespeople"), spokespeople_people_path, class: ("active" if current_page?(spokespeople_people_path)) %>
+        </li>
         <li class="inline-block">
         <%= link_to "https://agendas.madrid.es/", target: "_blank", title: "(se abre en ventana nueva)" do %>
             <%=  t("layouts.header.calendars") %>
