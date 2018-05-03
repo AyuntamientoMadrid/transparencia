@@ -43,12 +43,44 @@ feature 'People' do
       submit_form
 
       visit temporary_workers_people_path
-      expect(page).to have_content "Freeman, Gordon"
+
+      expect(page).to have_content "Gordon Freeman"
 
       person = Person.last
       visit person_path(person)
       expect(page).to have_content "Gordon Freeman"
       expect(page).to have_content "Level 3 Research Associate"
+    end
+
+    scenario 'Create with attached image' do
+      visit new_person_path
+      fill_in :person_first_name, with: "Gordon"
+      fill_in :person_last_name, with: "Freeman"
+      select  "Councillor", from: 'person_job_level'
+      fill_in :person_role, with: "Level 3 Research Associate"
+      page.attach_file("person_portrait", Rails.root + 'app/assets/images/people_example.jpg')
+
+      submit_form
+
+      visit person_path(Person.last.id)
+
+      expect(page).to have_xpath("//img[contains(@src, \"people_example.jpg\")]")
+
+    end
+
+    scenario 'Create without attached image' do
+      visit new_person_path
+      fill_in :person_first_name, with: "Gordon"
+      fill_in :person_last_name, with: "Freeman"
+      select  "Councillor", from: 'person_job_level'
+      fill_in :person_role, with: "Level 3 Research Associate"
+
+      submit_form
+
+      visit person_path(Person.last.id)
+
+      expect(page).to have_xpath("//img[contains(@alt, \"\")]")
+
     end
 
     scenario 'Update' do
@@ -62,7 +94,8 @@ feature 'People' do
       submit_form
 
       visit directors_people_path
-      expect(page).to have_content person.backwards_name
+
+      expect(page).to have_content "Red Richards"
       expect(page).to have_content person.unit
 
       visit person_path(person)
@@ -85,6 +118,26 @@ feature 'People' do
       expect(page).to have_content(person.role)
       expect(page).to have_content('National hero of Romania')
       expect(page).to_not have_content('Military leader')
+    end
+
+    scenario "Update 'portrait' attached image" do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "councillor")
+
+      visit person_path(person)
+      click_on "Edit"
+
+      page.attach_file("person_portrait", Rails.root + 'app/assets/images/people_example.jpg')
+
+      submit_form
+
+      visit councillors_people_path
+
+      expect(page).to have_xpath("//img[contains(@src, \"people_example.jpg\")]")
+
+      visit person_path(person.id)
+
+      expect(page).to have_xpath("//img[contains(@src, \"people_example.jpg\")]")
+
     end
 
     scenario 'Delete' do
@@ -167,7 +220,7 @@ feature 'People' do
 
       visit spokespeople_people_path
 
-      click_on "The Boy Wonder, Robin"
+      click_on "Robin The Boy Wonder"
 
       expect(page).to have_content("Professional profile")
       expect(page).to have_content("Robin The Boy Wonder")
