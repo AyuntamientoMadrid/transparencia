@@ -6,6 +6,9 @@ class Person < ActiveRecord::Base
 
   include ParseDataRows
 
+  has_attached_file :portrait, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "people/:id/portrait.jpg"
+  validates_attachment_content_type :portrait, content_type: %r{\Aimage\/.*\z}
+
   belongs_to :party
   belongs_to :hidden_by,   class_name: 'Administrator'
   belongs_to :unhidden_by, class_name: 'Administrator'

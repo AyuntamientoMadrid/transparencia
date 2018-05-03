@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601215806) do
+ActiveRecord::Schema.define(version: 20180503095318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,12 +131,12 @@ ActiveRecord::Schema.define(version: 20170601215806) do
     t.string   "email"
     t.string   "role"
     t.text     "functions"
-    t.string   "diary"
-    t.integer  "councillor_code"
-    t.string   "slug"
     t.json     "profile"
     t.string   "twitter"
     t.string   "facebook"
+    t.string   "diary"
+    t.integer  "councillor_code"
+    t.string   "slug"
     t.integer  "personal_code"
     t.datetime "profiled_at"
     t.string   "unit"
@@ -163,6 +163,10 @@ ActiveRecord::Schema.define(version: 20170601215806) do
     t.datetime "unhidden_at"
     t.integer  "unhidden_by_id"
     t.string   "unhidden_reason"
+    t.string   "portrait_file_name"
+    t.string   "portrait_content_type"
+    t.integer  "portrait_file_size"
+    t.datetime "portrait_updated_at"
   end
 
   add_index "people", ["admin_first_name"], name: "index_people_on_admin_first_name", using: :btree
