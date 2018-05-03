@@ -1,6 +1,8 @@
-<% if person.councillor? %>
-  <div class="people-photo"><%= profile_picture(person) %></div>
-<% end %>
+<div class="people-photo">
+  <figure>
+    <%= image_tag person.portrait.url(:medium), alt: '' %>
+  </figure>
+</div>
 
 <ul class="side-nav">
 

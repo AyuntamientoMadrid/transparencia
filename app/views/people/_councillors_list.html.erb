@@ -4,7 +4,7 @@
       <%= link_to councillor do %>
         <div class="people-photo">
           <figure>
-            <%= profile_picture(councillor) %>
+            <%= image_tag councillor.portrait.url(:medium) %>
             <span class="people-affiliation"><%= councillor.party.name %></span>
           </figure>
         </div>

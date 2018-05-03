@@ -20,7 +20,15 @@
         <ul class="people-list-text">
           <% spokespeople.each do |spokesperson| %>
             <li>
-              <h3 class="inline-block"><%= link_to spokesperson.backwards_name, person_path(spokesperson) %></h3> - <%= spokesperson.role %>
+              <%= link_to spokesperson do %>
+                <div class="people-photo">
+                  <figure>
+                    <%= image_tag spokesperson.portrait.url(:medium) %>
+                  </figure>
+                </div>
+                <h3><%= spokesperson.name %></h3>
+              <% end %>
+              <p><%= spokesperson.role %></p>
             </li>
           <% end %>
         </ul>
