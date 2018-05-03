@@ -15,7 +15,18 @@ form_helpers = ->
     $this.parents($this.data('delete-parent')).remove()
     false
 
-  42
+  $('#person_portrait').on 'change', (event) ->
+    files = event.target.files
+    image = files[0]
+    reader = new FileReader
+
+    reader.onload = (file) ->
+      img = new Image
+      img.src = file.target.result
+      $('#image_preview').html img
+      return
+
+    reader.readAsDataURL image
 
 $(document).ready(form_helpers)
 $(document).on('page:load', form_helpers)

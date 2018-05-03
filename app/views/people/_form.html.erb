@@ -61,17 +61,32 @@
       <%= f.text_field :area, label: t('people.area') %>
     </div>
 
-    <div class="small-6 column">
+    <div class="small-3 column">
       <%= f.text_field :unit, label: t('people.unit') %>
     </div>
 
     <div class="small-3 column">
+      <%= f.file_field :portrait %>
+    </div>
+
+    <div class="small-3 column end">
+      <div id="image_preview" style="height: 100px;width: 100px; margin-bottom: 30px">
+        <%= image_tag f.object.portrait.url(:thumb) %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="small-6 column">
       <%= f.text_field :role, label: t('people.role') %>
     </div>
 
-    <div class="small-12 column">
+    <div class="small-6 column">
       <%= f.text_field :secondary_role, label: t('people.secondary_role') %>
     </div>
+
   </div>
 
   <div class="row">
