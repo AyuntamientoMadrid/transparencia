@@ -23,3 +23,6 @@ en:
   time:
     formats:
       datetime: "%Y-%m-%d %H:%M:%S"
+  date:
+    formats:
+      default: "%Y-%m-%d"

@@ -8,6 +8,7 @@ es:
   final: 'final'
   admin:
     menu:
+      hidden_people: Personas ocultadas
       title: "Administración"
       profile_uploads: "Fichero de perfiles"
       assets_uploads: "Fichero de bienes"
@@ -134,6 +135,8 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    updated_at: "Fecha de actualizacion"
+    personal_data: "Datos personales"
     working: "Concejales en ejercicio"
     not_working: "Concejales que han causado baja"
     calendar:
@@ -171,8 +174,6 @@ es:
         En el supuesto de que la información no esté disponible puede deberse, bien a que la persona
         no ha facilitado la información, o bien que no ha prestado su consentimiento para la publicación.
       no_declaration: "La información se publicará una vez que sea facilitada por la persona titular del órgano directivo."
-    edit:
-      title: "Editar persona"
     new:
       title: "Nueva persona"
     notice:
@@ -619,6 +620,7 @@ es:
     unhide: "Restaurar"
     target_blank: "(se abre en ventana nueva)"
     no_data: "Esta sección carece de datos."
+    must_fill: "Debe rellenar este campo."
     "true": "Sí"
     "false": "No"
   activerecord:
@@ -661,6 +663,9 @@ es:
         file_format: "Tipo de fichero"
         translated_successful: "Importación completada con éxito"
       person:
+        party: 'Afiliación'
+        first_name: "Nombre"
+        last_name: "Apellidos"
         backwards_name: "Nombre"
         role: "Cargo"
         hidden_at: "Fecha de ocultación"
@@ -669,6 +674,7 @@ es:
         unhidden_at: "Fecha de restauración"
         unhidden_by: "Restaurado por"
         unhidden_reason: "Razón de restauración"
+        updated_at: "Fecha de actualización"
         calendar_url: "Url de agenda"
       activities_declaration:
         declaration_date: "Fecha de la declaración"

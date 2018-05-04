@@ -14,6 +14,7 @@ en:
       activities_uploads: "Activities uploads"
       close_session: "Close session"
       people: "People"
+      hidden_people: "Hidden people"
     dashboard:
       title: "Administration"
     people:
@@ -134,6 +135,8 @@ en:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    updated_at: "Updated at"
+    personal_data: "Personal data"
     working: "Working"
     not_working: "Not working"
     calendar:
@@ -167,8 +170,6 @@ en:
         Publication of profile and professional background is not mandatory as per law 19/2013, dic. 9th.
         That way, this information is published after explicit authorization of the person it refers to.
       no_declaration: "The information will be published once the owner provides it."
-    edit:
-      title: "Edit person"
     new:
       title: "Create person"
     notice:
@@ -617,6 +618,7 @@ en:
     delete: "Delete"
     target_blank: "(opens in new window)"
     no_data: "This section has no data."
+    must_fill: "You must fill this field."
     "true": "Yes"
     "false": "No"
   activerecord:
@@ -659,7 +661,8 @@ en:
         file_format: "File format"
         translated_successful: "No errors while importing"
       person:
-        backwards_name: "Nombre"
+        party: 'Party'
+        backwards_name: "Name"
         role: "Role"
         hidden_at: "Hidden At"
         hidden_by: "Hidden By"
@@ -667,6 +670,7 @@ en:
         unhidden_at: "Unhidden at"
         unhidden_by: "Restaurado por"
         unhidden_reason: "Unhidden reason"
+        updated_at: "Updated at"
         calendar_url: "Calendar url"
       activities_declaration:
         declaration_date: "Declaration date"
