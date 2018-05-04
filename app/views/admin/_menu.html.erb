@@ -25,11 +25,17 @@
       <% end %>
     </li>
 
-
-    <li class="<%= 'active' if controller_name == 'people' %>">
+    <li class="<%= 'active' if controller_name == 'people' and action_name == 'index' %>">
       <%= link_to admin_people_path do %>
         <i class="icon-user"></i>
         <%= t('admin.menu.people') %>
+      <% end %>
+    </li>
+
+    <li class="<%= 'active' if controller_name == 'people' and action_name == 'hidden_people'  %>">
+      <%= link_to hidden_people_admin_people_path do %>
+        <i class="icon-user"></i>
+        <%= t('admin.menu.hidden_people') %>
       <% end %>
     </li>
 

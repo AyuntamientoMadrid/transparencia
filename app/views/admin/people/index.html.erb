@@ -1,57 +1,41 @@
-<h1><%= t('admin.people.index.title') %></h1>
+<h1><%= t('admin.menu.people') %></h1>
+
+<p class="text-center">
+  <%= link_to t('people.new.title'), new_admin_person_path, class: 'button radius ' %>
+</p>
 
 <table>
   <thead>
     <tr>
       <th><%= Person.human_attribute_name(:backwards_name) %></th>
       <th><%= Person.human_attribute_name(:role) %></th>
-      <th><%= Person.human_attribute_name(:hidden_at) %></th>
-      <th><%= Person.human_attribute_name(:hidden_by) %></th>
-      <th><%= Person.human_attribute_name(:hidden_reason) %></th>
       <th><%= Person.human_attribute_name(:unhidden_at) %></th>
       <th><%= Person.human_attribute_name(:unhidden_by) %></th>
       <th><%= Person.human_attribute_name(:unhidden_reason) %></th>
+      <th><%= Person.human_attribute_name(:updated_at) %></th>
       <th><%= t("admin.people.headers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @people.each do |person| %>
       <tr id="<%= dom_id(person) %>">
-        <td><%= person.backwards_name %></td>
+        <td><%= link_to person.backwards_name, person_path(person) %></td>
         <td><%= person.role %></td>
-        <td><%= person.hidden? ? person.hidden_at : nil %></td>
-        <td><%= person.hidden? ? person.hidden_by.email : nil %></td>
-        <td><%= person.hidden? ? person.hidden_reason : nil %></td>
-        <td><%= person.unhidden? ? person.unhidden_at : nil %></td>
-        <td><%= person.unhidden? ? person.unhidden_by.email : nil %></td>
-        <td><%= person.unhidden? ? person.unhidden_reason : nil %></td>
+        <td><%= l(person.unhidden_at.to_date) if person.unhidden_at %></td>
+        <td><%= person.unhidden_by.email if person.unhidden_by %></td>
+        <td><%= person.unhidden_reason %></td>
+        <td><%= l(person.updated_at.to_date) if person.updated_at %></td>
         <td>
-          <% if person.hidden? %>
-            <%= link_to t("shared.unhide"),
-                        '#',
-                        data: { toggle: "##{dom_id(person)}_unhide_form" },
-                        class: "small button radius info" %>
-          <% else %>
-            <%= link_to t("shared.hide"),
-                        '#',
-                        data: { toggle: "##{dom_id(person)}_hide_form" },
-                        class: "small button radius info" %>
-          <% end %>
+          <%= link_to t("shared.hide"), '#', data: {toggle: "##{dom_id(person)}_hide_form"}, class: "tiny button radius info" %>
+          <%= link_to t("shared.edit"), edit_admin_person_path(person), class: "tiny button radius" %>
+          <%= link_to t("shared.delete"), admin_person_path(person), method: :delete, data: {confirm: t("people.show.confirm_deletion")}, class: "tiny button radius alert" %>
         </td>
       </tr>
-      <% if person.hidden? %>
-        <tr id="<%= dom_id(person) %>_unhide_form" style="display: none;">
-          <td colspan=9>
-            <%= render 'people/unhide_form', person: person %>
-          </td>
-        </tr>
-      <% else %>
-        <tr id="<%= dom_id(person) %>_hide_form" style="display: none;">
-          <td colspan=9>
-            <%= render 'people/hide_form', person: person %>
-          </td>
-        </tr>
-      <% end %>
+      <tr id="<%= dom_id(person) %>_hide_form" style="display: none;">
+        <td colspan=9>
+          <%= render 'hide_form', person: person %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
