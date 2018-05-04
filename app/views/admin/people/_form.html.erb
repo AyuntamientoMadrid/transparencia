@@ -1,12 +1,10 @@
 <div class="row">
   <div class="small-3 column">
-    <%= f.text_field :first_name, label: t('people.first_name'), required: '' %>
-    <small class="error" data-error-message><%= t('shared.must_fill') %></small>
-
+    <%= f.text_field :first_name, label: t('people.first_name') %>
   </div>
+
   <div class="small-3 column">
-    <%= f.text_field :last_name, label: t('people.last_name'), required: '' %>
-    <small class="error" data-error-message><%= t('shared.must_fill') %></small>
+    <%= f.text_field :last_name, label: t('people.last_name') %>
   </div>
 
   <div class="small-2 column">
@@ -24,8 +22,7 @@
   <div class="small-4 column">
     <%= f.select :job_level,
                  people_job_level_options_for_select(@person.job_level),
-                 label: t('people.job_level'), required: '' %>
-    <small class="error" data-error-message><%= t('shared.must_fill') %></small>
+                 label: t('people.job_level') %>
   </div>
 
   <div class="small-4 column">
@@ -48,8 +45,7 @@
   </div>
 
   <div class="small-3 column">
-    <%= f.text_field :role, label: t('people.role'), required: '' %>
-    <small class="error" data-error-message><%= t('shared.must_fill') %></small>
+    <%= f.text_field :role, label: t('people.role') %>
   </div>
 
   <div class="small-3 column">
