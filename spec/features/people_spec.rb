@@ -35,7 +35,7 @@ feature 'People' do
     end
 
     scenario 'Create' do
-      visit new_person_path
+      visit new_admin_person_path
       fill_in :person_first_name, with: "Gordon"
       fill_in :person_last_name, with: "Freeman"
       select  "Temporary worker", from: 'person_job_level'
@@ -53,7 +53,7 @@ feature 'People' do
     end
 
     scenario 'Create with attached image' do
-      visit new_person_path
+      visit new_admin_person_path
       fill_in :person_first_name, with: "Gordon"
       fill_in :person_last_name, with: "Freeman"
       select  "Councillor", from: 'person_job_level'
@@ -69,7 +69,7 @@ feature 'People' do
     end
 
     scenario 'Create without attached image' do
-      visit new_person_path
+      visit new_admin_person_path
       fill_in :person_first_name, with: "Gordon"
       fill_in :person_last_name, with: "Freeman"
       select  "Councillor", from: 'person_job_level'
@@ -108,11 +108,16 @@ feature 'People' do
     scenario "Update 'secondary_role' attribute" do
       person = create(:person, first_name: "Vlad", last_name: "Tepes", role: "Voivode of Wallachia", secondary_role: "Military leader")
 
-      visit person_path(person)
-      click_on 'Edit'
+      visit admin_people_path
+
+      within "#person_#{person.id}" do
+        click_on "Edit"
+      end
 
       fill_in(:person_secondary_role, with: 'National hero of Romania')
       submit_form
+
+      visit person_path(person)
 
       expect(page).to have_content(person.name)
       expect(page).to have_content(person.role)
@@ -143,8 +148,11 @@ feature 'People' do
     scenario 'Delete' do
       person = create(:person, first_name: "Klark", last_name: "Kent", role: "Tank")
 
-      visit person_path(person)
-      click_on "Delete"
+      visit admin_people_path
+
+      within "#person_#{person.id}" do
+        click_on "Delete"
+      end
 
       visit directors_people_path
       expect(page).to_not have_content "Klark Kent"
