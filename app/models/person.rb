@@ -6,6 +6,8 @@ class Person < ActiveRecord::Base
 
   include ParseDataRows
 
+  self.record_timestamps = false
+
   has_attached_file :portrait, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "people/:id/portrait.jpg"
   validates_attachment_content_type :portrait, content_type: %r{\Aimage\/.*\z}
 
@@ -15,6 +17,9 @@ class Person < ActiveRecord::Base
 
   has_many :assets_declarations,     -> { sort_for_list }, dependent: :destroy
   has_many :activities_declarations, -> { sort_for_list }, dependent: :destroy
+
+  scope :unhidden, -> { where('people.hidden_at IS NULL OR (people.unhidden_at IS NOT NULL AND people.unhidden_at > people.hidden_at)') }
+  scope :hidden,   -> { where('people.hidden_at IS NOT NULL AND (people.unhidden_at IS NULL OR people.unhidden_at < people.hidden_at)') }
 
   def self.job_levels
     %W{councillor director temporary_worker public_worker spokesperson labour}

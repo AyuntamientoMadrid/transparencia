@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :departments, only: [:show]
   resources :objectives, only: [:show, :edit, :update]
   resources :pages
-  resources :people do
+  resources :people, only: [:index, :show] do
     member do
       post :contact
       put :hide
@@ -41,7 +41,11 @@ Rails.application.routes.draw do
     resources :profile_uploads, only: [:new, :create, :show, :index]
     resources :assets_uploads, only: [:new, :create, :show, :index]
     resources :activities_uploads, only: [:new, :create, :show, :index]
-    resources :people, only: [:index]
+    resources :people, except: :show do
+      get :hidden_people, on: :collection
+      put :hide
+      put :unhide
+    end
   end
 
   # static pages

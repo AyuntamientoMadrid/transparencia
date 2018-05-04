@@ -1,7 +1,5 @@
 class PeopleController < ApplicationController
 
-  before_action :authorize_administrators, only: [:new, :create, :edit, :update, :destroy, :hide, :unhide]
-  before_action :load_parties, only: [:new, :create, :edit, :update, :destroy]
   before_action :load_person_and_declarations, only: [:show, :contact]
 
   def index
@@ -49,53 +47,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  def new
-    @person = Person.new
-  end
-
-  def create
-    @person = Person.new(person_params)
-    if @person.save
-      redirect_to person_path(@person), notice: I18n.t("people.notice.created")
-    else
-      render :new
-    end
-  end
-
-  def edit
-    @person = Person.friendly.find(params[:id])
-  end
-
-  def update
-    @person = Person.friendly.find(params[:id])
-    if @person.update(person_params)
-      redirect_to person_path(@person), notice: I18n.t('people.notice.updated')
-    else
-      render :edit
-    end
-  end
-
-  def hide
-    @person = Person.friendly.find(params[:id])
-    hidden_at = Date.parse(person_params[:hidden_at]) rescue DateTime.current
-    @person.hide(current_administrator, person_params[:hidden_reason], hidden_at)
-    redirect_to person_path(@person), notice: I18n.t('people.notice.hidden')
-  end
-
-  def unhide
-    @person = Person.friendly.find(params[:id])
-    unhidden_at = Date.parse(person_params[:unhidden_at]) rescue DateTime.current
-    @person.unhide(current_administrator, person_params[:unhidden_reason], unhidden_at)
-    redirect_to person_path(@person), notice: I18n.t('people.notice.unhidden')
-  end
-
-  def destroy
-    @person = Person.friendly.find(params[:id])
-    @person.destroy
-    path = @person.councillor? ? councillors_people_path : directors_people_path
-    redirect_to path, notice: I18n.t("people.notice.deleted")
-  end
-
   private
     def contact_params
       params.require(:contact).permit(:name, :email, :body)
@@ -106,29 +57,6 @@ class PeopleController < ApplicationController
       authorize_administrators if (@person.hidden? && !@person.councillor?)
       @assets_declarations = @person.assets_declarations.order(:declaration_date)
       @activities_declarations = @person.activities_declarations.order(:declaration_date)
-    end
-
-    def person_params
-      params.require(:person).permit(
-        :first_name, :last_name, :job_level, :area, :councillor_code, :personal_code,
-        :twitter, :facebook, :role, :secondary_role, :unit, :party_id,
-        :studies_comment, :courses_comment, :career_comment, :political_posts_comment,
-        :public_jobs_level, :public_jobs_body, :public_jobs_start_year,
-        :publications, :teaching_activity, :special_mentions, :other,
-        :hidden_at, :hidden_reason,
-        :unhidden_at, :unhidden_reason,
-        :calendar_url, :portrait,
-        studies_attributes: [:description, :entity, :start_year, :end_year],
-        courses_attributes: [:description, :entity, :start_year, :end_year],
-        private_jobs_attributes: [:description, :entity, :start_year, :end_year],
-        public_jobs_attributes: [:description, :entity, :start_year, :end_year],
-        political_posts_attributes: [:description, :entity, :start_year, :end_year],
-        languages_attributes: [:name, :level]
-      )
-    end
-
-    def load_parties
-      @parties = Party.all.order(:name)
     end
 
     def full_feature?
