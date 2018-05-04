@@ -1,0 +1,13 @@
+<ul class="tabs" data-tab>
+  <li class="tab-title active">
+    <a href="#main_form">
+      <%= t('people.personal_data') %>
+    </a>
+  </li>
+</ul>
+
+<div class="tabs-content">
+  <div id="main_form" class="small-12 column content active" aria-hidden="false" >
+    <%= render 'form', f: f %>
+  </div>
+</div>

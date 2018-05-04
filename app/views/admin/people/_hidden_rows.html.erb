@@ -1,0 +1,38 @@
+<%= form_for :person, html: {style: "display: none"} do |f| %>
+  <table><tbody id="studies-row">
+    <%= f.fields_for "studies_attributes[{id}]", empty_study do |fs| %>
+      <%= render 'form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="courses-row">
+    <%= f.fields_for "courses_attributes[{id}]", empty_course do |fs| %>
+      <%= render 'form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="languages-row">
+    <%= f.fields_for "languages_attributes[{id}]", empty_language do |fs| %>
+      <%= render 'languages_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="public-jobs-row">
+    <%= f.fields_for "public_jobs_attributes[{id}]", empty_public_job do |fs| %>
+      <%= render 'form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="private-jobs-row">
+    <%= f.fields_for "private_jobs_attributes[{id}]", empty_private_job do |fs| %>
+      <%= render 'form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+  <table><tbody id="political-posts-row">
+    <%= f.fields_for "political_posts_attributes[{id}]", empty_political_post do |fs| %>
+      <%= render 'form_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+<% end %>

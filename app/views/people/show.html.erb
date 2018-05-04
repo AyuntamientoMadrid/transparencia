@@ -1,21 +1,3 @@
-<% provide :title do %>
-  <%= t("transparency") %> -
-  <% if @person.councillor? %>
-    <%= t("people.councillors.title") %>
-  <% elsif @person.director? %>
-    <%= t("people.directors.title") %>
-  <% elsif @person.temporary_worker? %>
-    <%= t("people.temporary_workers.title") %>
-  <% elsif @person.public_worker? %>
-    <%= t("people.public_workers.title") %>
-  <% elsif @person.spokesperson? %>
-    <%= t("people.spokespeople.title") %>
-  <% elsif @person.labour? %>
-    <%= t("people.labours.title") %>
-  <% end %>
-  - <%= @person.name %>
-<% end %>
-
 <% cache [locale_key, @person, @person.party, administrator_signed_in?] do %>
 
   <ul class="breadcrumbs" aria-label="breadcrumbs">
@@ -23,19 +5,7 @@
       <%= link_to t("home"), root_path %>
     </li>
     <li>
-      <% if @person.councillor? %>
-        <%= link_to t("people.councillors.title"), councillors_people_path %>
-      <% elsif @person.director? %>
-        <%= link_to t("people.directors.title"), directors_people_path %>
-      <% elsif @person.temporary_worker? %>
-        <%= link_to t("people.temporary_workers.title"), temporary_workers_people_path %>
-      <% elsif @person.public_worker? %>
-        <%= link_to t("people.public_workers.title"), public_workers_people_path %>
-      <% elsif @person.spokesperson? %>
-        <%= link_to t("people.spokespeople.title"), spokespeople_people_path %>
-      <% elsif @person.labour? %>
-        <%= link_to t("people.labours.title"), labours_people_path %>
-      <% end %>
+      <%= breadcrumb_person_title_link(@person) %>
     </li>
     <li class="unavailable" aria-disabled="true">
       <%= @person.name %>
@@ -111,26 +81,7 @@
       <% if administrator_signed_in? %>
         <div class="row">
           <div class="small-12 columns">
-            <%= link_to t("shared.edit"), edit_person_path(@person), class: "small button radius" %>
-            <%= link_to t("shared.delete"), person_path(@person), method: :delete, data: {confirm: t("people.show.confirm_deletion")}, class: "small button radius alert" %>
-            <% if @person.hidden? %>
-              <%= link_to t("shared.unhide"),
-                          '#',
-                          data: {toggle: "##{dom_id(@person)}_unhide_form"},
-                          class: "small button radius info" %>
-              <div id="<%= dom_id(@person) %>_unhide_form" style="display: none;">
-                <%= render 'unhide_form', person: @person %>
-              </div>
-
-            <% else %>
-              <%= link_to t("shared.hide"),
-                          '#',
-                          data: {toggle: "##{dom_id(@person)}_hide_form"},
-                          class: "small button radius info" %>
-              <div id="<%= dom_id(@person) %>_hide_form" style="display: none;">
-                <%= render 'hide_form', person: @person %>
-              </div>
-            <% end %>
+            <%= link_to t("shared.edit"), edit_admin_person_path(@person), class: "small button radius" %>
           </div>
         </div>
       <% end %>

@@ -1,0 +1,288 @@
+<div class="row">
+  <div class="small-3 column">
+    <%= f.text_field :first_name, label: t('people.first_name'), required: '' %>
+    <small class="error" data-error-message><%= t('shared.must_fill') %></small>
+
+  </div>
+  <div class="small-3 column">
+    <%= f.text_field :last_name, label: t('people.last_name'), required: '' %>
+    <small class="error" data-error-message><%= t('shared.must_fill') %></small>
+  </div>
+
+  <div class="small-2 column">
+    <%= f.file_field :portrait %>
+  </div>
+
+  <div class="small-4 column end">
+    <div id="image_preview" style="height: 100px;width: 100px; margin-bottom: 30px">
+      <%= image_tag f.object.portrait.url(:thumb) %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-4 column">
+    <%= f.select :job_level,
+                 people_job_level_options_for_select(@person.job_level),
+                 label: t('people.job_level'), required: '' %>
+    <small class="error" data-error-message><%= t('shared.must_fill') %></small>
+  </div>
+
+  <div class="small-4 column">
+    <%= f.collection_select :party_id, @parties, :id, :name, include_blank: true, label: t('people.party') %>
+  </div>
+
+  <div class="small-4 column end">
+    <% updated_at = f.object.updated_at.nil? ? '' : f.object.updated_at.strftime("%Y-%m-%d") %>
+    <%= f.text_field :updated_at, value: updated_at ,label: t('people.updated_at'), type: 'date' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-3 column">
+    <%= f.text_field :area, label: t('people.area') %>
+  </div>
+
+  <div class="small-3 column">
+    <%= f.text_field :unit, label: t('people.unit') %>
+  </div>
+
+  <div class="small-3 column">
+    <%= f.text_field :role, label: t('people.role'), required: '' %>
+    <small class="error" data-error-message><%= t('shared.must_fill') %></small>
+  </div>
+
+  <div class="small-3 column">
+    <%= f.text_field :secondary_role, label: t('people.secondary_role') %>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="small-3 column">
+    <%= f.text_field :personal_code, label: t('people.personal_code') %>
+  </div>
+
+  <div class="small-3 column">
+    <%= f.text_field :councillor_code, label: t('people.councillor_code') %>
+  </div>
+
+  <div class="small-3 column">
+    <%= f.text_field :facebook %>
+  </div>
+
+  <div class="small-3 column end">
+    <%= f.text_field :twitter %>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="small-12 column">
+    <%= f.text_field :calendar_url %>
+  </div>
+</div>
+
+<h2><%= t("people.profile") %></h2>
+
+<table>
+  <caption><%= t("people.studies.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.studies.description") %></th>
+      <th scope="col" class="th-big"><%= t("people.studies.entity") %></th>
+      <th scope="col" class="th-small"><%= t("people.studies.start_year") %></th>
+      <th scope="col" class="th-small"><%= t("people.studies.end_year") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="studies">
+    <% if @person.studies.present?  %>
+      <%= f.fields_for :studies, @person.studies do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% else %>
+      <%= f.fields_for "studies_attributes[0]", empty_study do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5">
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+    <tr><td colspan="5">
+      <%= f.text_area :studies_comment, label: t('people.studies.comment'), rows: 3 %>
+    </td></tr>
+  </tfoot>
+</table>
+
+<table>
+  <caption><%= t("people.courses.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.courses.description") %></th>
+      <th scope="col" class="th-big"><%= t("people.courses.entity") %></th>
+      <th scope="col" class="th-small"><%= t("people.courses.start_year") %></th>
+      <th scope="col" class="th-small"><%= t("people.courses.end_year") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="courses">
+    <% if @person.courses.present? %>
+      <%= f.fields_for :courses, @person.courses do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% else %>
+      <%= f.fields_for "courses_attributes[0]", empty_course do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5">
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+    <tr><td colspan="5">
+      <%= f.text_area :courses_comment, label: t('people.courses.comment'), rows: 3 %>
+    </td></tr>
+  </tfoot>
+</table>
+
+<table>
+  <caption><%= t("people.languages.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.languages.name") %></th>
+      <th scope="col" class="th-small"><%= t("people.languages.level") %></th>
+      <th scope="col" class="th-small"></th>
+    </tr>
+  </thead>
+  <tbody id="languages">
+    <% if @person.languages.present? %>
+      <%= f.fields_for :languages, @person.languages do |fs| %>
+        <%= render 'languages_row', f: fs %>
+      <% end %>
+    <% else %>
+      <%= f.fields_for "languages_attributes[0]", empty_language do |fs| %>
+        <%= render 'languages_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3">
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#languages", add_from: "#languages-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>
+
+<h3><%= t("people.career") %></h3>
+
+<table>
+  <caption><%= t("people.public_jobs.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.public_jobs.description") %></th>
+      <th scope="col" class="th-big"><%= t("people.public_jobs.entity") %></th>
+      <th scope="col" class="th-small"><%= t("people.public_jobs.start_year") %></th>
+      <th scope="col" class="th-small"><%= t("people.public_jobs.end_year") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="public-jobs">
+    <% if @person.public_jobs.present? %>
+      <%= f.fields_for :public_jobs, @person.public_jobs do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% else %>
+      <%= f.fields_for "public_jobs_attributes[0]", empty_public_job do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5">
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#public-jobs", add_from: "#public-jobs-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+  </td></tr></tfoot>
+</table>
+
+<table>
+  <caption><%= t("people.private_jobs.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.private_jobs.description") %></th>
+      <th scope="col" class="th-big"><%= t("people.private_jobs.entity") %></th>
+      <th scope="col" class="th-small"><%= t("people.private_jobs.start_year") %></th>
+      <th scope="col" class="th-small"><%= t("people.private_jobs.end_year") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="private-jobs">
+    <% if @person.private_jobs.present? %>
+      <%= f.fields_for :private_jobs, @person.private_jobs do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% else %>
+      <%= f.fields_for "private_jobs_attributes[0]", empty_private_job do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot><tr><td colspan="5">
+    <%= link_to "#", class: "right small button radius success", data: {add_to: "#private-jobs", add_from: "#private-jobs-row"} do %>
+      <%= t('shared.add') %>
+    <% end %>
+  </td></tr></tfoot>
+</table>
+
+<%= f.text_area :career_comment, label: t("people.career_comment"), rows: 3 %>
+
+<table>
+  <caption><%= t("people.political_posts.title") %></caption>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("people.political_posts.description") %></th>
+      <th scope="col" class="th-big"><%= t("people.political_posts.entity") %></th>
+      <th scope="col" class="th-small"><%= t("people.political_posts.start_year") %></th>
+      <th scope="col" class="th-small"><%= t("people.political_posts.end_year") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="political-posts">
+    <% if @person.political_posts.present? %>
+      <%= f.fields_for :political_posts, @person.political_posts do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% else %>
+      <%= f.fields_for "political_posts_attributes[0]", empty_private_job do |fs| %>
+        <%= render 'form_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5">
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#political-posts", add_from: "#political-posts-row"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+    <tr><td colspan="5">
+      <%= f.text_area :political_posts_comment, label: t("people.political_posts.comment"), rows: 3 %>
+    </td></tr>
+  </tfoot>
+</table>
+
+<%= f.text_area :publications, rows: 3, label: t("people.publications") %>
+<%= f.text_area :teaching_activity, rows: 3, label: t("people.teaching_activity") %>
+<%= f.text_area :special_mentions, rows: 3, label: t("people.special_mentions") %>
+<%= f.text_area :other, rows: 3, label: t("people.other") %>
+
+<%= f.submit(class: "button radius", value: t("shared.submit")) %>

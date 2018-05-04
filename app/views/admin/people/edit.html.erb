@@ -1,0 +1,5 @@
+<%= render 'admin/people/hidden_rows'%>
+
+<%= form_for @person, url: admin_person_path(@person), html: { multipart: true, 'data-abide' => '' } do |f| %>
+  <%= render 'admin/people/main_form', f: f %>
+<% end %>
