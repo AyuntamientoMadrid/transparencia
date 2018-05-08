@@ -135,6 +135,8 @@ es:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    declaration_date: "Fecha de la declaración"
+    period: "Periodo"
     updated_at: "Fecha de actualizacion"
     personal_data: "Datos personales"
     working: "Concejales en ejercicio"

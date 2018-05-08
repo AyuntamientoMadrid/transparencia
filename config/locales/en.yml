@@ -135,6 +135,8 @@ en:
     blog: "Blog"
     youtube: "YouTube"
   people:
+    declaration_date: "Declaration date"
+    period: "Period"
     updated_at: "Updated at"
     personal_data: "Personal data"
     working: "Working"
@@ -672,6 +674,8 @@ en:
         unhidden_reason: "Unhidden reason"
         updated_at: "Updated at"
         calendar_url: "Calendar url"
+        first_name: "First name"
+        last_name: "Last name"
       activities_declaration:
         declaration_date: "Declaration date"
       assets_declaration:
