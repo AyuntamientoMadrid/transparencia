@@ -59,7 +59,7 @@ feature 'People' do
       visit new_admin_person_path
       fill_in :person_first_name, with: "Gordon"
       fill_in :person_last_name, with: "Freeman"
-      select  "Councillor", from: 'person_job_level'
+      select  "Directive", from: 'person_job_level'
       fill_in :person_role, with: "Level 3 Research Associate"
       page.attach_file("person_portrait", Rails.root + 'app/assets/images/people_example.jpg')
 
