@@ -12,19 +12,15 @@ class Admin::PeopleController < Admin::BaseController
 
   def new
     @person = Person.new
+    @person.activities_declarations.build
   end
 
   def create
-    created = false
-    Person.transaction do
-      short_person_params = person_params
-      short_person_params.delete(:activities_declarations_attributes)
-      person = Person.create!(short_person_params)
-      add_new_activities_declaration(person_params, person)
-      created = true
-    end
-
-    if created
+    short_person_params = person_params
+    short_person_params.delete(:activities_declarations_attributes)
+    @person = Person.new(short_person_params)
+    if @person.save & add_new_activities_declaration(person_params, @person)
+      @person.activities_declarations.build
       redirect_to admin_people_path, notice: I18n.t("people.notice.created")
     else
       render :new
@@ -33,17 +29,14 @@ class Admin::PeopleController < Admin::BaseController
 
   def edit
     @person = Person.friendly.find(params[:id])
+    @person.activities_declarations.build
   end
 
   def update
-    person = Person.friendly.find(params[:id])
-    updated = false
-    Person.transaction do
-      updated_person_params = add_new_activities_declaration(person_params, person)
-      person.update!(updated_person_params)
-      updated = true
-    end
-    if updated
+    @person = Person.friendly.find(params[:id])
+    local_person_params = person_params
+    if add_new_activities_declaration(local_person_params, @person) & @person.update(local_person_params)
+      @person.activities_declarations.build
       redirect_to admin_people_path, notice: I18n.t('people.notice.updated')
     else
       render :edit
@@ -94,13 +87,17 @@ class Admin::PeopleController < Admin::BaseController
     end
 
     def add_new_activities_declaration(data, person)
-      if data[:activities_declarations_attributes]['0']["declaration_date"].present?
-        activities_declaration = ActivitiesDeclaration.new(person_id: person.id)
-        data[:activities_declarations_attributes]['0'].delete('id')
-        activities_declaration.update!(data[:activities_declarations_attributes]['0'])
-      end
+      data[:activities_declarations_attributes]['0'].delete('id')
+      person.activities_declarations.build(data[:activities_declarations_attributes]['0'])
+      declaration = person.activities_declarations.last
       data[:activities_declarations_attributes].delete('0')
-      data
+      output = true
+      if person.activities_declarations.last.complete_values.compact != [""]
+        output = declaration.save
+      else
+        person.activities_declarations.last.destroy
+      end
+      output
     end
 
     def load_parties

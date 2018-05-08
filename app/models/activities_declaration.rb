@@ -2,6 +2,8 @@ class ActivitiesDeclaration < ActiveRecord::Base
   include DateHelper
   include ParseDataRows
 
+  after_initialize :initialize_data
+
   scope :for_year, -> (year) { where ["declaration_date >= ? and declaration_date <= ?", Date.new(year,1,1), Date.new(year,12,31)] }
   scope :for_period, -> (period) { where(period: period) }
   scope :sort_for_list, -> { order("(CASE WHEN period = 'initial' THEN 0 WHEN period = 'final' THEN 2 ELSE 1 END) ASC, declaration_date ASC") }
@@ -20,6 +22,11 @@ class ActivitiesDeclaration < ActiveRecord::Base
 
   def public_activities
     parse_data_rows(data, :public_activities)
+  end
+
+  def public_activities_attributes=(attributes)
+    initialize_data
+    data['public_activities'] = clean_attributes attributes
   end
 
   def private_activities
@@ -63,5 +70,20 @@ class ActivitiesDeclaration < ActiveRecord::Base
       'end_date' => parse_date(end_date)
     }
   end
+
+  def complete_values
+    local_attributes = attributes.delete_if{|k,v| ['id', 'person_id'].include? k}
+    local_attributes.values.map{|val| val.is_a?(Hash) ? val.values.flatten.map(&:values) : val}.flatten
+  end
+
+  private
+
+    def initialize_data
+      self.data ||= {"public_activities" => []}
+    end
+
+    def clean_attributes(attributes)
+      attributes.values.select{ |a| a.values.any?(&:present?) }
+    end
 
 end
