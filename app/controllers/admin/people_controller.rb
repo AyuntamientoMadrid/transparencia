@@ -15,7 +15,16 @@ class Admin::PeopleController < Admin::BaseController
   end
 
   def create
-    if Person.create(person_params)
+    created = false
+    Person.transaction do
+      short_person_params = person_params
+      short_person_params.delete(:activities_declarations_attributes)
+      person = Person.create!(short_person_params)
+      add_new_activities_declaration(person_params, person)
+      created = true
+    end
+
+    if created
       redirect_to admin_people_path, notice: I18n.t("people.notice.created")
     else
       render :new
@@ -27,9 +36,14 @@ class Admin::PeopleController < Admin::BaseController
   end
 
   def update
-    @person = Person.friendly.find(params[:id])
-
-    if @person.update(person_params)
+    person = Person.friendly.find(params[:id])
+    updated = false
+    Person.transaction do
+      updated_person_params = add_new_activities_declaration(person_params, person)
+      person.update!(updated_person_params)
+      updated = true
+    end
+    if updated
       redirect_to admin_people_path, notice: I18n.t('people.notice.updated')
     else
       render :edit
@@ -71,8 +85,22 @@ class Admin::PeopleController < Admin::BaseController
         private_jobs_attributes: %i(description entity start_year end_year),
         public_jobs_attributes: %i(description entity start_year end_year),
         political_posts_attributes: %i(description entity start_year end_year),
-        languages_attributes: %i(name level)
+        languages_attributes: %i(name level),
+        activities_declarations_attributes: [
+          :id, :declaration_date, :period,
+          public_activities_attributes: %i(entity position start_date end_date)
+        ]
       )
+    end
+
+    def add_new_activities_declaration(data, person)
+      if data[:activities_declarations_attributes]['0']["declaration_date"].present?
+        activities_declaration = ActivitiesDeclaration.new(person_id: person.id)
+        data[:activities_declarations_attributes]['0'].delete('id')
+        activities_declaration.update!(data[:activities_declarations_attributes]['0'])
+      end
+      data[:activities_declarations_attributes].delete('0')
+      data
     end
 
     def load_parties
