@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="small-3 column">
+    <%= declaration.text_field :declaration_date, label: t('people.declaration_date'), type: 'date' %>
+  </div>
+  <div class="small-3 column">
+    <%= declaration.text_field :period, label: t('people.period') %>
+  </div>
+
+  <div class="small-6 column end">
+  </div>
+</div>
+
+<h2><%= t("activities_declarations.public_activities.title") %></h2>
+<table id="public_activities">
+  <thead>
+    <tr>
+      <th scope="col"><%= t("activities_declarations.public_activities.entity") %></th>
+      <th scope="col" class="th-big"><%= t("activities_declarations.public_activities.position") %></th>
+      <th scope="col" class="th-small"><%= t("activities_declarations.public_activities.start_date") %></th>
+      <th scope="col" class="th-small"><%= t("activities_declarations.public_activities.end_date") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="public-activities-<%= i %>">
+    <% public_activities_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "public_activities_attributes[#{j}]", d do |fs| %>
+        <%= render 'public_activities_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5" id="public-activities-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#public-activities-#{i}", add_from: "#public-activity-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>

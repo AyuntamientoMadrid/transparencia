@@ -1,5 +1,9 @@
 <%= render 'admin/people/hidden_rows'%>
 
-<%= form_for @person, url: admin_people_path, html: { multipart: true, 'data-abide' => '' } do |f| %>
+<% (@person.activities_declarations.map(&:id) << 0).each  do |id| %>
+  <%= render 'admin/people/hidden_activity_declaration_rows', i: id %>
+<% end %>
+
+<%= form_for @person, url: admin_people_path, html: { multipart: true } do |f| %>
   <%= render 'admin/people/main_form', f: f %>
 <% end %>

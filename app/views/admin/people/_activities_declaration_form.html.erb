@@ -1,0 +1,25 @@
+<% declarations = f.object.activities_declarations %>
+
+<ul class="tabs" data-tab role="tablist">
+  <% declarations.each do |declaration| %>
+    <% i = declaration.id || 0  %>
+    <li class="tab-title <%= 'active' if i == ( declarations.first.id || 0 ) %>" role="presentation">
+      <a href="#activity_declaration_<%= i %>">
+        <%= declaration.declaration_date || t('shared.add')  %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<div class="tabs-content" data-tab>
+  <% declarations.each do |declaration| %>
+    <% i = declaration.id || 0  %>
+    <div id="activity_declaration_<%= i %>" class="small-12 column content <%= 'active' if i == ( declarations.first.id || 0 ) %>" aria-hidden="<%=  (i == ( declarations.first.id || 0 )) ? 'false' : 'true' %>" >
+      <%= f.fields_for "activities_declarations_attributes[#{i}]", declaration do |d| %>
+        <%= render 'activity_declaration_form', declaration: d, i: i %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%= f.submit(class: "button radius", value: t("shared.submit")) %>
