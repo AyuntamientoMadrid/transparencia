@@ -82,7 +82,8 @@ class Admin::PeopleController < Admin::BaseController
         activities_declarations_attributes: [
           :id, :declaration_date, :period,
           public_activities_attributes: %i(entity position start_date end_date),
-          private_activities_attributes: %i(kind description entity position start_date end_date)
+          private_activities_attributes: %i(kind description entity position start_date end_date),
+          other_activities_attributes: %i(description start_date end_date)
        ]
       )
     end

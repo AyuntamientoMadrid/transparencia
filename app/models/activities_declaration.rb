@@ -40,6 +40,11 @@ class ActivitiesDeclaration < ActiveRecord::Base
     parse_data_rows(data, :other_activities)
   end
 
+  def other_activities_attributes=(attributes)
+    initialize_data
+    data['other_activities'] = clean_attributes attributes
+  end
+
   def add_public_activity(entity, position, start_date, end_date)
     self.data ||= {}
     self.data['public_activities'] ||= []
@@ -83,7 +88,8 @@ class ActivitiesDeclaration < ActiveRecord::Base
 
     def initialize_data
       self.data ||= {"public_activities" => [],
-                     "private_activities" => []}
+                     "private_activities" => [],
+                     "other_activities" => []}
     end
 
     def clean_attributes(attributes)
