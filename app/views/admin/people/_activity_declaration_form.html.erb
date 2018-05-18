@@ -65,3 +65,29 @@
     </td></tr>
   </tfoot>
 </table>
+
+<h2><%= t("activities_declarations.other_activities.title") %></h2>
+<table id="other_activities">
+  <thead>
+    <tr>
+      <th scope="col" class="th-big"><%= t("activities_declarations.other_activities.description") %></th>
+      <th scope="col" class="th-small"><%= t("activities_declarations.other_activities.start_date") %></th>
+      <th scope="col" class="th-small"><%= t("activities_declarations.other_activities.end_date") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="other-activities-<%= i %>">
+    <% other_activities_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "other_activities_attributes[#{j}]", d do |fs| %>
+        <%= render 'other_activities_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5" " id="other-activities-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#other-activities-#{i}", add_from: "#other-activity-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>

@@ -10,5 +10,11 @@
       <%= render 'private_activities_row', f: fs %>
     <% end %>
   </tbody></table>
+
+  <table><tbody id="other-activity-row-<%= i %>">
+    <%= f.fields_for "[other_activities_attributes][{id}]", empty_other_activity do |fs| %>
+      <%= render 'other_activities_row', f: fs %>
+    <% end %>
+  </tbody></table>
 <% end %>
 

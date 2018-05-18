@@ -1,0 +1,6 @@
+<tr>
+  <td><%= f.text_field :description, label: false, id: nil %></td>
+  <td><%= f.text_field :start_date, label: false, id: nil, type: 'date' %></td>
+  <td><%= f.text_field :end_date, label: false, id: nil, type: 'date' %></td>
+  <td class="text-center"><%= link_to t('shared.delete'), '#', class: "delete", data: {delete_parent: "tr" } %></td>
+</tr>
