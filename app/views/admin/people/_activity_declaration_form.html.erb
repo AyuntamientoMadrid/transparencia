@@ -36,3 +36,32 @@
     </td></tr>
   </tfoot>
 </table>
+
+<h2><%= t("activities_declarations.private_activities.title") %></h2>
+<table id="private_activities">
+  <thead>
+    <tr>
+      <th scope="col" class="th-big"><%= t("activities_declarations.private_activities.kind") %></th>
+      <th scope="col" class="th-big"><%= t("activities_declarations.private_activities.description") %></th>
+      <th scope="col" class="th-big"><%= t("activities_declarations.private_activities.entity") %></th>
+      <th scope="col" class="th-big"><%= t("activities_declarations.private_activities.post") %></th>
+      <th scope="col" class="th-small"><%= t("activities_declarations.private_activities.start_date") %></th>
+      <th scope="col" class="th-small"><%= t("activities_declarations.private_activities.end_date") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="private-activities-<%= i %>">
+    <% private_activities_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "private_activities_attributes[#{j}]", d do |fs| %>
+        <%= render 'private_activities_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="7" id="private-activities-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#private-activities-#{i}", add_from: "#private-activity-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>

@@ -4,5 +4,11 @@
       <%= render 'public_activities_row', f: fs %>
     <% end %>
   </tbody></table>
+
+  <table><tbody id="private-activity-row-<%= i %>">
+    <%= f.fields_for "[private_activities_attributes][{id}]", empty_private_activity do |fs| %>
+      <%= render 'private_activities_row', f: fs %>
+    <% end %>
+  </tbody></table>
 <% end %>
 
