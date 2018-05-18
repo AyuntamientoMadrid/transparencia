@@ -12,8 +12,18 @@ module Admin
       list.empty? ? [empty_public_activity] : list
     end
 
+    def private_activities_list(declaration)
+      list = declaration.private_activities
+      list.empty? ? [empty_private_activity] : list
+    end
+
     def empty_public_activity
       OpenStruct.new(entity: nil, position: nil, start_date: nil, end_date: nil)
+    end
+
+    def empty_private_activity
+      OpenStruct.new(kind: nil, description: nil, entity: nil,
+                     position: nil, start_date: nil, end_date: nil)
     end
 
     def empty_study
