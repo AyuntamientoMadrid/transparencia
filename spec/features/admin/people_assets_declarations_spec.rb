@@ -234,6 +234,7 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content "purchase_date_0"
       expect(page).to have_content "tax_value_0"
       expect(page).to have_content "notes_0"
+    end
 
   end
 

@@ -107,6 +107,10 @@ class AssetsDeclaration < ActiveRecord::Base
     local_attributes.values.map{|val| val.is_a?(Hash) ? val.values.flatten.map(&:values) : val}.flatten
   end
 
+  def account_deposits_attributes=(attributes)
+    data['account_deposits'] = clean_attributes attributes
+  end
+
   private
 
     def initialize_data
