@@ -41,3 +41,29 @@
     </td></tr>
   </tfoot>
 </table>
+
+<h2><%= t("assets_declarations.account_deposits.title") %></h2>
+<table id='account_deposits'>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("assets_declarations.account_deposits.kind") %></th>
+      <th scope="col" class="th-big"><%= t("assets_declarations.account_deposits.entity") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.account_deposits.balance") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="account-deposits-<%= i %>">
+    <% account_deposits_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "account_deposits_attributes[#{j}]", d do |fs| %>
+        <%= render 'account_deposits_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5" id="account-deposit-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#account-deposits-#{i}", add_from: "#account-deposit-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>

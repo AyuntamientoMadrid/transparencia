@@ -1,0 +1,6 @@
+<tr>
+  <td><%= f.text_field :kind, label: false, id: nil %></td>
+  <td><%= f.text_field :banking_entity, label: false, id: nil %></td>
+  <td><%= f.text_field :balance, label: false, id: nil %></td>
+  <td class="text-center"><%= link_to t('shared.delete'), '#', class: "delete", data: {delete_parent: "tr" } %></td>
+</tr>

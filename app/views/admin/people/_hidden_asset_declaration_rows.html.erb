@@ -5,4 +5,10 @@
     <% end %>
   </tbody></table>
 
+  <table><tbody id="account-deposit-row-<%= i %>">
+    <%= f.fields_for "[account_deposits_attributes][{id}]", empty_account_deposit do |fs| %>
+      <%= render 'account_deposits_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
 <% end %>
