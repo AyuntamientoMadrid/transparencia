@@ -15,3 +15,15 @@
     <% end %>
   <% end %>
 <% end %>
+
+<% if person.assets_declarations.map{|q| q.errors.any?}.flatten.any? %>
+  <%= t('people.assets_declarations') %><br />
+  <% person.assets_declarations.each do |declaration| %>
+    <% if declaration.errors.any? %>
+      <%= assets_declarations_tab_name(declaration) %><br />
+      <% declaration.errors.full_messages.uniq.each do |error_message| %>
+        <%= error_message %><br />
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

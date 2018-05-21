@@ -1,0 +1,43 @@
+<%= declaration.hidden_field :id, value: i %>
+<div class="row">
+  <div class="small-3 column ">
+    <%= declaration.text_field :declaration_date, label: t('people.declaration_date'), type: 'date' %>
+  </div>
+  <div class="small-3 column">
+    <%= declaration.text_field :period, label: t('people.period') %>
+  </div>
+
+  <div class="small-6 column end">
+  </div>
+</div>
+
+<h2><%= t("assets_declarations.real_estate_properties.title") %></h2>
+<table id='real_estate_properties'>
+  <thead>
+    <tr>
+      <th scope="col" class="th-big"><%= t("assets_declarations.real_estate_properties.kind") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.real_estate_properties.type") %></th>
+      <th scope="col" class="th-big"><%= t("assets_declarations.real_estate_properties.description") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.real_estate_properties.municipality") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.real_estate_properties.share") %></th>
+      <th scope="col" ><%= t("assets_declarations.real_estate_properties.purchase_date") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.real_estate_properties.tax_value") %></th>
+      <th scope="col" class="th-big"><%= t("assets_declarations.real_estate_properties.notes") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="real-estate-properties-<%= i %>">
+    <% real_estate_properties_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "real_estate_properties_attributes[#{j}]", d do |fs| %>
+        <%= render 'real_estate_properties_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="9" id="real-state-properties-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#real-estate-properties-#{i}", add_from: "#real-estate-property-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>

@@ -6,6 +6,10 @@
   <%= render 'admin/people/hidden_activity_declaration_rows', i: id %>
 <% end %>
 
+<% (@person.assets_declarations.map(&:id) << 0).each  do |id| %>
+  <%= render 'admin/people/hidden_asset_declaration_rows', i: id %>
+<% end %>
+
 <%= form_for @person, url: admin_person_path(@person), html: { multipart: true } do |f| %>
   <%= render 'admin/people/main_form', f: f %>
 <% end %>

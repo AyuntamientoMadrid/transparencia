@@ -9,6 +9,11 @@
       <%= t('people.activities_declarations') %>
     </a>
   </li>
+  <li class="tab-title ">
+    <a href="#assets_declarations">
+      <%= t('people.assets_declarations') %>
+    </a>
+  </li>
 </ul>
 
 <div class="tabs-content">
@@ -18,5 +23,9 @@
 
   <div id="activities_declarations" class="small-12 column content" aria-hidden="true" >
     <%= render 'activities_declaration_form', f: f %>
+  </div>
+
+  <div id="assets_declarations" class="small-12 column content" aria-hidden="true" >
+    <%= render 'assets_declaration_form', f: f  %>
   </div>
 </div>

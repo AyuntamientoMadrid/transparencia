@@ -1,0 +1,8 @@
+<%= form_for "person[assets_declarations_attributes[#{i}]]", html: {style: "display: none"} do |f| %>
+  <table><tbody id="real-estate-property-row-<%= i %>">
+    <%= f.fields_for "[real_estate_properties_attributes][{id}]", empty_real_estate_property do |fs| %>
+      <%= render 'real_estate_properties_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
+<% end %>
