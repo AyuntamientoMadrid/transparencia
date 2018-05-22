@@ -11,4 +11,10 @@
     <% end %>
   </tbody></table>
 
+  <table><tbody id="other-deposit-row-<%= i %>">
+    <%= f.fields_for "[other_deposits_attributes][{id}]", empty_other_deposit do |fs| %>
+      <%= render 'other_deposits_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
 <% end %>

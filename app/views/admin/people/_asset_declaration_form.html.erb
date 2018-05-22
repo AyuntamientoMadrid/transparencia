@@ -67,3 +67,31 @@
     </td></tr>
   </tfoot>
 </table>
+
+
+<h2><%= t("assets_declarations.other_deposits.title") %></h2>
+<table id='other_deposits'>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("assets_declarations.other_deposits.kind") %></th>
+      <th scope="col" class="th-big"><%= t("assets_declarations.other_deposits.description") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.other_deposits.amount") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.other_deposits.purchase_date") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="other-deposits-<%= i %>">
+    <% other_deposits_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "other_deposits_attributes[#{j}]", d do |fs| %>
+        <%= render 'other_deposits_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5" id="other-deposit-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#other-deposits-#{i}", add_from: "#other-deposit-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>
