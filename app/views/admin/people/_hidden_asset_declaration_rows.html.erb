@@ -29,4 +29,10 @@
     <% end %>
   </tbody></table>
 
+  <table><tbody id="debt-row-<%= i %>">
+    <%= f.fields_for "[debts_attributes][{id}]", empty_debt do |fs| %>
+      <%= render 'debts_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
 <% end %>
