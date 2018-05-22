@@ -53,6 +53,11 @@ module Admin
       list.empty? ? [empty_debt] : list
     end
 
+    def tax_data_list(declaration)
+      list = declaration.tax_data
+      list.empty? ? [empty_tax_data] : list
+    end
+
     def other_personal_properties_list(declaration)
       list = declaration.other_personal_properties
       list.empty? ? [empty_other_personal_property] : list
@@ -120,9 +125,13 @@ module Admin
       OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil)
     end
 
-  def empty_debt
-    OpenStruct.new(kind: nil, amount: nil, comments: nil)
-  end
+    def empty_debt
+      OpenStruct.new(kind: nil, amount: nil, comments: nil)
+    end
+
+    def empty_tax_data
+      OpenStruct.new(tax: nil, fiscal_data: nil, amount: nil, comments: nil)
+    end
 
   end
 end

@@ -100,7 +100,8 @@ class Admin::PeopleController < Admin::BaseController
           other_deposits_attributes: %i(kind description amount purchase_date),
           vehicles_attributes: %i(kind model purchase_date),
           other_personal_properties_attributes: %i(kind purchase_date),
-          debts_attributes: %i(kind amount comments)
+          debts_attributes: %i(kind amount comments),
+          tax_data_attributes: %i(tax fiscal_data amount comments)
         ]
       )
     end

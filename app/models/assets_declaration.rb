@@ -127,6 +127,10 @@ class AssetsDeclaration < ActiveRecord::Base
     data['debts'] = clean_attributes attributes
   end
 
+  def tax_data_attributes=(attributes)
+    data['tax_data'] = clean_attributes attributes
+  end
+
   private
 
     def initialize_data
