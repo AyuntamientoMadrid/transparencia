@@ -173,3 +173,29 @@
   </tfoot>
 </table>
 
+<h2><%= t("assets_declarations.tax_data.title") %></h2>
+<table id='tax_data'>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("assets_declarations.tax_data.tax") %></th>
+      <th scope="col" class="th-big"><%= t("assets_declarations.tax_data.fiscal_data") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.tax_data.amount") %></th>
+      <th scope="col" class="th-big"><%= t("assets_declarations.tax_data.comments") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="tax-data-<%= i %>">
+    <% tax_data_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "tax_data_attributes[#{j}]", d do |fs| %>
+        <%= render 'tax_data_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5" id="tax-data-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#tax-data-#{i}", add_from: "#tax-data-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>

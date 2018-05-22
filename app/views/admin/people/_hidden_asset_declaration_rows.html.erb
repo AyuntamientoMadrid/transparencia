@@ -35,4 +35,10 @@
     <% end %>
   </tbody></table>
 
+  <table><tbody id="tax-data-row-<%= i %>">
+    <%= f.fields_for "[tax_data_attributes][{id}]", empty_tax_data do |fs| %>
+      <%= render 'tax_data_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
 <% end %>
