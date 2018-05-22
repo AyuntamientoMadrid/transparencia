@@ -48,6 +48,11 @@ module Admin
       list.empty? ? [empty_vehicle] : list
     end
 
+    def debts_list(declaration)
+      list = declaration.debts
+      list.empty? ? [empty_debt] : list
+    end
+
     def other_personal_properties_list(declaration)
       list = declaration.other_personal_properties
       list.empty? ? [empty_other_personal_property] : list
@@ -114,6 +119,10 @@ module Admin
     def empty_political_post
       OpenStruct.new(description: nil, entity: nil, start_year: nil, end_year: nil)
     end
+
+  def empty_debt
+    OpenStruct.new(kind: nil, amount: nil, comments: nil)
+  end
 
   end
 end
