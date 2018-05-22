@@ -43,6 +43,15 @@ module Admin
       list.empty? ? [empty_other_deposit] : list
     end
 
+    def vehicles_list(declaration)
+      list = declaration.vehicles
+      list.empty? ? [empty_vehicle] : list
+    end
+
+    def empty_vehicle
+      OpenStruct.new(kind: nil, model: nil, purchase_date: nil)
+    end
+
     def empty_account_deposit
       OpenStruct.new(kind: nil, banking_entity: nil, balance: nil)
     end

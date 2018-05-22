@@ -97,7 +97,8 @@ class Admin::PeopleController < Admin::BaseController
           :id, :declaration_date, :period,
           real_estate_properties_attributes: %i(kind type description municipality share purchase_date tax_value notes),
           account_deposits_attributes: %i(kind banking_entity balance),
-          other_deposits_attributes: %i(kind description amount purchase_date)
+          other_deposits_attributes: %i(kind description amount purchase_date),
+          vehicles_attributes: %i(kind model purchase_date)
         ]
       )
     end
