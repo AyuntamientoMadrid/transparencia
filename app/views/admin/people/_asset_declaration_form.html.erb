@@ -121,3 +121,29 @@
     </td></tr>
   </tfoot>
 </table>
+
+<h2><%= t("assets_declarations.other_personal_properties.title") %></h2>
+<table id='other_personal_properties'>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("assets_declarations.other_personal_properties.kind") %></th>
+      <th scope="col" class="th-big"><%= t("assets_declarations.other_personal_properties.purchase_date") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="other-personal-properties-<%= i %>">
+    <% other_personal_properties_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "other_personal_properties_attributes[#{j}]", d do |fs| %>
+        <%= render 'other_personal_properties_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5" id="other-personal-property-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#other-personal-properties-#{i}", add_from: "#other-personal-property-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>
+

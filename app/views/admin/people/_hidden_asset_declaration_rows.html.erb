@@ -23,4 +23,10 @@
     <% end %>
   </tbody></table>
 
+  <table><tbody id="other-personal-property-row-<%= i %>">
+    <%= f.fields_for "[other_personal_properties_attributes][{id}]", empty_other_personal_property do |fs| %>
+      <%= render 'other_personal_properties_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
 <% end %>
