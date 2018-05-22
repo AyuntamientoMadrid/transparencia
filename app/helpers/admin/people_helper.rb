@@ -48,6 +48,19 @@ module Admin
       list.empty? ? [empty_vehicle] : list
     end
 
+    def other_personal_properties_list(declaration)
+      list = declaration.other_personal_properties
+      list.empty? ? [empty_other_personal_property] : list
+    end
+
+    def other_personal_properties
+      parse_data_rows(data, :other_personal_properties)
+    end
+
+    def empty_other_personal_property
+      OpenStruct.new(kind: nil, purchase_date: nil)
+    end
+
     def empty_vehicle
       OpenStruct.new(kind: nil, model: nil, purchase_date: nil)
     end

@@ -119,6 +119,10 @@ class AssetsDeclaration < ActiveRecord::Base
     data['vehicles'] = clean_attributes attributes
   end
 
+  def other_personal_properties_attributes=(attributes)
+    data['other_personal_properties'] = clean_attributes attributes
+  end
+
   private
 
     def initialize_data
