@@ -95,3 +95,29 @@
     </td></tr>
   </tfoot>
 </table>
+
+<h2><%= t("assets_declarations.vehicles.title") %></h2>
+<table id='vehicles'>
+  <thead>
+    <tr>
+      <th scope="col"><%= t("assets_declarations.vehicles.kind") %></th>
+      <th scope="col" class="th-big"><%= t("assets_declarations.vehicles.model") %></th>
+      <th scope="col" class="th-small"><%= t("assets_declarations.vehicles.purchase_date") %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="vehicles-<%= i %>">
+    <% vehicles_list(declaration.object).each_with_index do |d, j| %>
+      <%= declaration.fields_for "vehicles_attributes[#{j}]", d do |fs| %>
+        <%= render 'vehicles_row', f: fs %>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="5" id="vehicle-add" >
+      <%= link_to "#", class: "right small button radius success", data: {add_to: "#vehicles-#{i}", add_from: "#vehicle-row-#{i}"} do %>
+        <%= t('shared.add') %>
+      <% end %>
+    </td></tr>
+  </tfoot>
+</table>

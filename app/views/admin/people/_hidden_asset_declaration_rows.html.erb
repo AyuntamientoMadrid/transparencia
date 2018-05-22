@@ -17,4 +17,10 @@
     <% end %>
   </tbody></table>
 
+  <table><tbody id="vehicle-row-<%= i %>">
+    <%= f.fields_for "[vehicles_attributes][{id}]", empty_vehicle do |fs| %>
+      <%= render 'vehicles_row', f: fs %>
+    <% end %>
+  </tbody></table>
+
 <% end %>
