@@ -38,6 +38,11 @@ module Admin
       list.empty? ? [empty_account_deposit] : list
     end
 
+    def other_deposits_list(declaration)
+      list = declaration.other_deposits
+      list.empty? ? [empty_other_deposit] : list
+    end
+
     def empty_account_deposit
       OpenStruct.new(kind: nil, banking_entity: nil, balance: nil)
     end
@@ -45,6 +50,10 @@ module Admin
     def empty_real_estate_property
       OpenStruct.new(kind: nil, type: nil, description: nil, municipality: nil,
                      share: nil, purchase_date: nil, tax_value: nil, notes: nil)
+    end
+
+    def empty_other_deposit
+      OpenStruct.new(kind: nil, description: nil, amount: nil, purchase_date: nil)
     end
 
     def empty_other_activity

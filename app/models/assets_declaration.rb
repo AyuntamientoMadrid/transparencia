@@ -111,6 +111,10 @@ class AssetsDeclaration < ActiveRecord::Base
     data['account_deposits'] = clean_attributes attributes
   end
 
+  def other_deposits_attributes=(attributes)
+    data['other_deposits'] = clean_attributes attributes
+  end
+
   private
 
     def initialize_data
