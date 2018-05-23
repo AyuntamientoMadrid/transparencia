@@ -384,6 +384,7 @@ en:
       position: "Position or category"
       start_date: "Start date"
       end_date: "End date"
+      post: "Post"
     other_activities:
       title: "3) Other activities which might not be compatible"
       description: "Description"

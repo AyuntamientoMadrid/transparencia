@@ -387,6 +387,7 @@ es:
       position: "Cargo o categoría"
       start_date: "Fecha inicio"
       end_date: "Fecha cese"
+      post: "Puesto"
     other_activities:
       title: "3) Otras actividades y/o supuestos de posible incompatibilidad"
       description: "Descripción"
