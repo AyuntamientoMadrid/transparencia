@@ -18,6 +18,8 @@ class Person < ActiveRecord::Base
   has_many :assets_declarations,     -> { sort_for_list }, dependent: :destroy
   has_many :activities_declarations, -> { sort_for_list }, dependent: :destroy
 
+  validates :first_name, :last_name, :role, presence: true
+
   accepts_nested_attributes_for :activities_declarations
 
   scope :unhidden, -> { where('people.hidden_at IS NULL OR (people.unhidden_at IS NOT NULL AND people.unhidden_at > people.hidden_at)') }

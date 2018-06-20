@@ -2,15 +2,13 @@ class ActivitiesDeclaration < ActiveRecord::Base
   include DateHelper
   include ParseDataRows
 
-  after_initialize :initialize_data
-
   scope :for_year, -> (year) { where ["declaration_date >= ? and declaration_date <= ?", Date.new(year,1,1), Date.new(year,12,31)] }
   scope :for_period, -> (period) { where(period: period) }
   scope :sort_for_list, -> { order("(CASE WHEN period = 'initial' THEN 0 WHEN period = 'final' THEN 2 ELSE 1 END) ASC, declaration_date ASC") }
 
   belongs_to :person, touch: true
 
-  validates :declaration_date, presence: true
+  validates :declaration_date, presence: :true
 
   def initial?
     period == 'initial'
@@ -84,6 +82,12 @@ class ActivitiesDeclaration < ActiveRecord::Base
 
     def clean_attributes(attributes)
       attributes.values.select{ |a| a.values.any?(&:present?) }
+    end
+
+    def deep_data_declaration_date
+      if declaration_date.blank? && complete_values.compact.map(&:blank?).include?(false)
+        errors.add(:declaration_date, t("errors.messages.blank"))
+      end
     end
 
 end

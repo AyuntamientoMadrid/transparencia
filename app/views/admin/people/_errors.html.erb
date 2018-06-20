@@ -1,0 +1,17 @@
+<% if person.errors.any? %>
+  <% person.errors.full_messages.uniq.each do |error_message| %>
+    <%= error_message %><br />
+  <% end %>
+<% end %>
+
+<% if person.activities_declarations.map{|q| q.errors.any?}.flatten.any? %>
+  <%= t('people.activities_declarations') %><br />
+  <% person.activities_declarations.each do |declaration| %>
+    <% if declaration.errors.any? %>
+      <%= activities_declarations_tab_name(declaration) %><br />
+      <% declaration.errors.full_messages.uniq.each do |error_message| %>
+        <%= error_message %><br />
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

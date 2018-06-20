@@ -1,13 +1,15 @@
 module Admin
   module PeopleHelper
 
+    def activities_declarations_tab_name(declaration)
+      declaration.declaration_date ||
+        declaration.changes['declaration_date'].try(:first) ||
+        t('shared.add')
+    end
+
     def public_activities_list(declaration)
       list = declaration.public_activities
       list.empty? ? [empty_public_activity] : list
-    end
-
-    def activities_declarations_list
-      @person.activities_declarations.all << @person.activities_declarations.build
     end
 
     def empty_public_activity
