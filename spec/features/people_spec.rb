@@ -74,7 +74,10 @@ feature 'People' do
                                                                   'entity' => 'entity_01',
                                                                   'position' => 'post_01',
                                                                   'start_date' => 2.years.ago,
-                                                                  'end_date' => 3.years.ago]})
+                                                                  'end_date' => 3.years.ago],
+                                             other_activities: ['description' => 'description_02',
+                                                                'start_date' => 4.years.ago,
+                                                                'end_date' => 5.years.ago]})
 
       visit person_path(person)
 
@@ -86,6 +89,7 @@ feature 'People' do
       expect(page).to have_content('description_01')
       expect(page).to have_content('entity_01')
       expect(page).to have_content('post_01')
+      expect(page).to have_content('description_02')
 
       within("#assets_declarations") do
         expect(page).to have_content("The information will be published once the owner provides it.")

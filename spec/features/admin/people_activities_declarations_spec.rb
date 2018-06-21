@@ -63,6 +63,34 @@ feature 'Admin/People/AssetsDeclarations' do
         fill_in element[:name], with: '01/02/2018'
       end
 
+      within '#private_activities' do
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_1'
+
+        element = all(:css, "input[name*='[description]']").first
+        fill_in element[:name], with: 'description_1'
+
+        element = all(:css, "input[name*='[entity]']").first
+        fill_in element[:name], with: 'entity_1'
+
+        element = all(:css, "input[name*='[position]']").first
+        fill_in element[:name], with: 'position_1'
+
+        element = all(:css, "input[name*='[start_date]']").first
+        fill_in element[:name], with: '01/03/2018'
+      end
+
+      within '#other_activities' do
+        element = all(:css, "input[name*='[description]']").first
+        fill_in element[:name], with: 'description_2'
+
+        element = all(:css, "input[name*='[start_date]']").first
+        fill_in element[:name], with: '01/04/2018'
+
+        element = all(:css, "input[name*='[end_date]']").first
+        fill_in element[:name], with: '01/05/2018'
+      end
+
       click_button 'Submit'
 
       click_link "Freeman, Gordon"
@@ -76,6 +104,16 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content "position_0"
       expect(page).to have_content "01/01/2018"
       expect(page).to have_content "01/02/2018"
+
+      expect(page).to have_content 'kind_1'
+      expect(page).to have_content 'description_1'
+      expect(page).to have_content 'entity_1'
+      expect(page).to have_content 'position_1'
+      expect(page).to have_content '01/03/2018'
+
+      expect(page).to have_content 'description_2'
+      expect(page).to have_content "01/04/2018"
+      expect(page).to have_content "01/05/2018"
     end
   end
 
@@ -181,6 +219,212 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content "post_2"
       expect(page).to have_content "02/01/2018"
       expect(page).to have_content "02/02/2018"
+    end
+
+    scenario 'Update, add activity declarations with 2 private activities', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Activities declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '01/01/2018'
+
+      within '#private_activities' do
+
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_1'
+
+        element = all(:css, "input[name*='[description]']").first
+        fill_in element[:name], with: 'description_1'
+
+        element = all(:css, "input[name*='[entity]']").first
+        fill_in element[:name], with: 'entity_1'
+
+        element = all(:css, "input[name*='[position]']").first
+        fill_in element[:name], with: 'position_1'
+
+        element = all(:css, "input[name*='[start_date]']").first
+        fill_in element[:name], with: '01/02/2018'
+
+        element = all(:css, "input[name*='[end_date]']").first
+        fill_in element[:name], with: '01/03/2018'
+      end
+
+      within '#private-activities-add' do
+        click_link 'Add'
+      end
+
+      within '#private_activities' do
+        element = all(:css, "input[name*='[kind]']").last
+        fill_in element[:name], with: 'kind_2'
+
+        element = all(:css, "input[name*='[description]']").last
+        fill_in element[:name], with: 'description_2'
+      end
+
+      within '#activities_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'description_1'
+      expect(page).to have_content 'entity_1'
+      expect(page).to have_content 'position_1'
+      expect(page).to have_content '01/02/2018'
+      expect(page).to have_content '01/03/2018'
+
+      expect(page).to have_content 'kind_2'
+      expect(page).to have_content 'description_2'
+
+    end
+
+    scenario 'Update, edit activity declarations (private)', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+      declaration = ActivitiesDeclaration.create(person_id: person.id,
+                                                 declaration_date: '01/01/2018',
+                                                 period: 'position_1')
+      declaration.add_private_activity('Private', 'Very Private', 'Entity', 'position', '1/1/2016', '1/1/2017')
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Activities declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '02/01/2018'
+
+      within '#private_activities' do
+
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_1'
+
+        element = all(:css, "input[name*='[description]']").first
+        fill_in element[:name], with: 'description_1'
+
+        element = all(:css, "input[name*='[entity]']").first
+        fill_in element[:name], with: 'entity_1'
+
+        element = all(:css, "input[name*='[position]']").first
+        fill_in element[:name], with: 'position_1'
+
+        element = all(:css, "input[name*='[start_date]']").first
+        fill_in element[:name], with: '01/02/2018'
+
+        element = all(:css, "input[name*='[end_date]']").first
+        fill_in element[:name], with: '01/03/2018'
+      end
+
+      within '#activities_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content "kind_1"
+      expect(page).to have_content "description_1"
+      expect(page).to have_content "entity_1"
+      expect(page).to have_content "position_1"
+      expect(page).to have_content "01/02/2018"
+      expect(page).to have_content "01/03/2018"
+    end
+
+    scenario 'Update, add activity declarations with 2 other activities', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Activities declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '01/01/2018'
+
+      within '#other_activities' do
+
+        element = all(:css, "input[name*='[description]']").first
+        fill_in element[:name], with: 'description_1'
+
+        element = all(:css, "input[name*='[start_date]']").first
+        fill_in element[:name], with: '01/02/2018'
+
+        element = all(:css, "input[name*='[end_date]']").first
+        fill_in element[:name], with: '01/03/2018'
+      end
+
+      within '#other-activities-add' do
+        click_link 'Add'
+      end
+
+      within '#other_activities' do
+        element = all(:css, "input[name*='[description]']").last
+        fill_in element[:name], with: 'description_2'
+      end
+
+      within '#activities_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'description_1'
+      expect(page).to have_content '01/02/2018'
+      expect(page).to have_content '01/03/2018'
+
+      expect(page).to have_content 'description_2'
+    end
+
+    scenario 'Update, edit activity declarations (other)', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+      declaration = ActivitiesDeclaration.create(person_id: person.id,
+                                                 declaration_date: '01/01/2018',
+                                                 period: 'position_1')
+      declaration.add_other_activity('Other', '1/2/2016', '1/3/2017')
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Activities declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '02/01/2018'
+
+      within '#other_activities' do
+
+        element = all(:css, "input[name*='[description]']").first
+        fill_in element[:name], with: 'description_2'
+
+        element = all(:css, "input[name*='[start_date]']").first
+        fill_in element[:name], with: '01/04/2018'
+
+        element = all(:css, "input[name*='[end_date]']").first
+        fill_in element[:name], with: '01/05/2018'
+      end
+
+      within '#activities_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content "description_2"
+      expect(page).to have_content "01/04/2018"
+      expect(page).to have_content "01/05/2018"
     end
 
   end
