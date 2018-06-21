@@ -154,7 +154,7 @@ feature 'Admin/People' do
       visit new_admin_person_path
       fill_in :person_first_name, with: "Gordon"
       fill_in :person_last_name, with: "Freeman"
-      select "Councillor", from: :person_job_level
+      select "Directive", from: :person_job_level
       fill_in :person_role, with: "Level 3 Research Associate"
 
       click_link 'Activities declarations'
@@ -162,10 +162,9 @@ feature 'Admin/People' do
       element = all(:css, "input[name*='[declaration_date]']").first
       fill_in element[:name], with: '01/01/2018'
 
-      element = all(:css, "input[name*='[period]']").first
-      fill_in element[:name], with: 'period_1'
-
-      click_button 'Submit'
+      within '#activities_declarations' do
+        click_button 'Submit'
+      end
 
       click_link "Freeman, Gordon"
 
@@ -179,11 +178,14 @@ feature 'Admin/People' do
     scenario 'Show errors on empty form (without assets and activities)', :js do
       visit new_admin_person_path
 
+      select "Councillor", from: 'person_job_level'
+
       click_button 'Submit'
 
       expect(page).to have_content("First name can't be blank")
       expect(page).to have_content("Last name can't be blank")
       expect(page).to have_content("Role can't be blank")
+      expect(page).to have_content("Party can't be blank")
     end
 
     scenario 'Show errors on empty form (with assets and activities)', :js do
@@ -203,7 +205,7 @@ feature 'Admin/People' do
       visit new_admin_person_path
       fill_in :person_first_name, with: "Gordon"
       fill_in :person_last_name, with: "Freeman"
-      select  "Councillor", from: 'person_job_level'
+      select  "Directive", from: 'person_job_level'
       fill_in :person_role, with: "Level 3 Research Associate"
 
       click_link 'Activities declarations'

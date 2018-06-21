@@ -19,6 +19,7 @@ class Person < ActiveRecord::Base
   has_many :activities_declarations, -> { sort_for_list }, dependent: :destroy
 
   validates :first_name, :last_name, :role, presence: true
+  validates :party, presence: true, if: :councillor?
 
   accepts_nested_attributes_for :activities_declarations
 

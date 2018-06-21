@@ -2,7 +2,7 @@
 
 <%= render 'admin/people/hidden_rows'%>
 
-<% @person.activities_declarations.map(&:id).each  do |id| %>
+<% (@person.activities_declarations.map(&:id) << 0).each  do |id| %>
   <%= render 'admin/people/hidden_activity_declaration_rows', i: id %>
 <% end %>
 
