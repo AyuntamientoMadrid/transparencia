@@ -40,7 +40,10 @@ feature 'People' do
       fill_in :person_last_name, with: "Freeman"
       select  "Temporary worker", from: 'person_job_level'
       fill_in :person_role, with: "Level 3 Research Associate"
-      submit_form
+
+      within '#main_form' do
+        click_button 'Submit'
+      end
 
       visit temporary_workers_people_path
 
@@ -60,7 +63,9 @@ feature 'People' do
       fill_in :person_role, with: "Level 3 Research Associate"
       page.attach_file("person_portrait", Rails.root + 'app/assets/images/people_example.jpg')
 
-      submit_form
+      within '#main_form' do
+        click_button 'Submit'
+      end
 
       visit person_path(Person.last.id)
 
@@ -75,7 +80,9 @@ feature 'People' do
       select  "Councillor", from: 'person_job_level'
       fill_in :person_role, with: "Level 3 Research Associate"
 
-      submit_form
+      within '#main_form' do
+        click_button 'Submit'
+      end
 
       visit person_path(Person.last.id)
 
@@ -91,7 +98,9 @@ feature 'People' do
 
       fill_in :person_unit, with: "Fantastic 4"
       fill_in :person_secondary_role, with: "Marlon Brando"
-      submit_form
+      within '#main_form' do
+        click_button 'Submit'
+      end
 
       visit directors_people_path
 
@@ -115,7 +124,9 @@ feature 'People' do
       end
 
       fill_in(:person_secondary_role, with: 'National hero of Romania')
-      submit_form
+      within '#main_form' do
+        click_button 'Submit'
+      end
 
       visit person_path(person)
 
@@ -133,7 +144,9 @@ feature 'People' do
 
       page.attach_file("person_portrait", Rails.root + 'app/assets/images/people_example.jpg')
 
-      submit_form
+      within '#main_form' do
+        click_button 'Submit'
+      end
 
       visit councillors_people_path
 

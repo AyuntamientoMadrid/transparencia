@@ -154,7 +154,7 @@ feature 'Admin People' do
 
       click_button 'Submit'
 
-      expect(page).to have_content("You must fill this field.", count: 3)
+      expect(page).to have_content("can't be blank", count: 3)
     end
 
     scenario 'Update' do
