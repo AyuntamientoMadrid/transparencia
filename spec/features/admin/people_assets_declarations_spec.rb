@@ -102,6 +102,17 @@ feature 'Admin/People/AssetsDeclarations' do
         fill_in element[:name], with: 'purchase_date_1'
       end
 
+      within '#vehicles' do
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_3'
+
+        element = all(:css, "input[name*='[model]']").first
+        fill_in element[:name], with: 'model_0'
+
+        element = all(:css, "input[name*='[purchase_date]']").first
+        fill_in element[:name], with: '01/07/2018'
+      end
+
       click_button 'Submit'
 
       click_link "Freeman, Gordon"
@@ -128,6 +139,10 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content 'description_1'
       expect(page).to have_content 'amount_1'
       expect(page).to have_content 'purchase_date_1'
+
+      expect(page).to have_content 'kind_3'
+      expect(page).to have_content 'model_0'
+      expect(page).to have_content '01/07/2018'
     end
   end
 
@@ -467,6 +482,94 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content 'description_1'
       expect(page).to have_content 'amount_1'
       expect(page).to have_content 'purchase_date_1'
+    end
+
+    scenario 'Update, add assets declarations with 2 vehicles', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Assets declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '01/01/2018'
+
+      within '#vehicles' do
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_0'
+
+        element = all(:css, "input[name*='[model]']").first
+        fill_in element[:name], with: 'model_0'
+
+        element = all(:css, "input[name*='[purchase_date]']").first
+        fill_in element[:name], with: '01/07/2018'
+      end
+
+      within '#vehicle-add' do
+        click_link 'Add'
+      end
+
+      within '#vehicles' do
+        element = all(:css, "input[name*='[kind]']").last
+        fill_in element[:name], with: 'kind_1'
+      end
+
+      within '#assets_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'kind_0'
+      expect(page).to have_content 'model_0'
+      expect(page).to have_content '01/07/2018'
+
+      expect(page).to have_content 'kind_1'
+
+    end
+
+    scenario 'Update, edit assets declarations (vehicles)', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+      declaration = AssetsDeclaration.create(person_id: person.id,
+                                             declaration_date: '01/01/2018',
+                                             period: 'position_1')
+      declaration.add_vehicle('Other', '1/2/2016', '1/3/2017')
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Assets declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '02/01/2018'
+
+      within '#vehicles' do
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_3'
+
+        element = all(:css, "input[name*='[model]']").first
+        fill_in element[:name], with: 'model_0'
+
+        element = all(:css, "input[name*='[purchase_date]']").first
+        fill_in element[:name], with: '01/07/2018'
+      end
+
+      within '#assets_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'kind_3'
+      expect(page).to have_content 'model_0'
+      expect(page).to have_content '01/07/2018'
     end
   end
 
