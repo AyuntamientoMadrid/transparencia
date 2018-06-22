@@ -22,6 +22,7 @@ class Person < ActiveRecord::Base
   validates :party, presence: true, if: :councillor?
 
   accepts_nested_attributes_for :activities_declarations
+  accepts_nested_attributes_for :assets_declarations
 
   scope :unhidden, -> { where('people.hidden_at IS NULL OR (people.unhidden_at IS NOT NULL AND people.unhidden_at > people.hidden_at)') }
   scope :hidden,   -> { where('people.hidden_at IS NOT NULL AND (people.unhidden_at IS NULL OR people.unhidden_at < people.hidden_at)') }

@@ -46,6 +46,11 @@ class AssetsDeclaration < ActiveRecord::Base
     parse_data_rows(data, :tax_data)
   end
 
+  def real_estate_properties_attributes=(attributes)
+    initialize_data
+    data['real_estate_properties'] = clean_attributes attributes
+  end
+
   def add_real_estate_property(kind, type, description, municipality, share, purchase_date, tax_value, notes)
     self.data ||= {}
     self.data['real_estate_properties'] ||= []
@@ -96,5 +101,25 @@ class AssetsDeclaration < ActiveRecord::Base
     self.data['tax_data'] ||= []
     self.data['tax_data'] << {'tax' => tax, 'fiscal_data' => fiscal_data, 'amount' => amount, 'comments' => comments}
   end
+
+  def complete_values
+    local_attributes = attributes.delete_if{ |k,_| ['id', 'person_id'].include? k }
+    local_attributes.values.map{|val| val.is_a?(Hash) ? val.values.flatten.map(&:values) : val}.flatten
+  end
+
+  private
+
+    def initialize_data
+      self.data ||= {"real_estate_properties" => []}
+    end
+
+    def clean_attributes(attributes)
+      attributes.values.select{ |a| a.values.any?(&:present?) }
+    end
+
+    def deep_data_declaration_date
+      return unless declaration_date.blank? && complete_values.compact.map(&:blank?).include?(false)
+      errors.add(:declaration_date, t("errors.messages.blank"))
+    end
 
 end

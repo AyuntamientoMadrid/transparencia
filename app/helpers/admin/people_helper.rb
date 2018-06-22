@@ -1,7 +1,18 @@
 module Admin
   module PeopleHelper
 
+    def real_estate_properties_list(declaration)
+      list = declaration.real_estate_properties
+      list.empty? ? [empty_real_estate_property] : list
+    end
+
     def activities_declarations_tab_name(declaration)
+      declaration.declaration_date ||
+        declaration.changes['declaration_date'].try(:first) ||
+        t('shared.add')
+    end
+
+    def assets_declarations_tab_name(declaration)
       declaration.declaration_date ||
         declaration.changes['declaration_date'].try(:first) ||
         t('shared.add')
@@ -20,6 +31,11 @@ module Admin
     def other_activities_list(declaration)
       list = declaration.other_activities
       list.empty? ? [empty_other_activity] : list
+    end
+
+    def empty_real_estate_property
+      OpenStruct.new(kind: nil, type: nil, description: nil, municipality: nil,
+                     share: nil, purchase_date: nil, tax_value: nil, notes: nil)
     end
 
     def empty_other_activity
