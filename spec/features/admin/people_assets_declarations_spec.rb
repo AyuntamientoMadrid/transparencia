@@ -132,6 +132,20 @@ feature 'Admin/People/AssetsDeclarations' do
         fill_in element[:name], with: 'comments_0'
       end
 
+      within '#tax_data' do
+        element = all(:css, "input[name*='[tax]']").first
+        fill_in element[:name], with: 'tax_0'
+
+        element = all(:css, "input[name*='[fiscal_data]']").first
+        fill_in element[:name], with: 'fiscal_data_0'
+
+        element = all(:css, "input[name*='[amount]']").first
+        fill_in element[:name], with: 'amount_4'
+
+        element = all(:css, "input[name*='[comments]']").first
+        fill_in element[:name], with: 'comments_4'
+      end
+
       click_button 'Submit'
 
       click_link "Freeman, Gordon"
@@ -169,6 +183,11 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content 'kind_5'
       expect(page).to have_content '100000'
       expect(page).to have_content 'comments_0'
+
+      expect(page).to have_content 'tax_0'
+      expect(page).to have_content 'fiscal_data_0'
+      expect(page).to have_content 'amount_4'
+      expect(page).to have_content 'comments_4'
     end
   end
 
@@ -766,6 +785,101 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content 'comments_0'
     end
 
+    scenario 'Update, add assets declarations with 2 tax datum', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Assets declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '01/01/2018'
+
+      within '#tax_data' do
+        element = all(:css, "input[name*='[tax]']").first
+        fill_in element[:name], with: 'tax_0'
+
+        element = all(:css, "input[name*='[fiscal_data]']").first
+        fill_in element[:name], with: 'fiscal_data_0'
+
+        element = all(:css, "input[name*='[amount]']").first
+        fill_in element[:name], with: 'amount_4'
+
+        element = all(:css, "input[name*='[comments]']").first
+        fill_in element[:name], with: 'comments_4'
+      end
+
+      within '#tax-data-add' do
+        click_link 'Add'
+      end
+
+      within '#tax_data' do
+        element = all(:css, "input[name*='[tax]']").last
+        fill_in element[:name], with: 'tax_1'
+      end
+
+      within '#assets_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'tax_0'
+      expect(page).to have_content 'fiscal_data_0'
+      expect(page).to have_content 'amount_4'
+      expect(page).to have_content 'comments_4'
+
+      expect(page).to have_content 'tax_1'
+
+    end
+
+    scenario 'Update, edit assets declarations (tax data)', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+      declaration = AssetsDeclaration.create(person_id: person.id,
+                                             declaration_date: '01/01/2018',
+                                             period: 'position_1')
+      declaration.add_tax_data('tax_0', 'fiscal_data_0', 'amount_4','comments_4')
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Assets declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '02/01/2018'
+
+      within '#tax_data' do
+        element = all(:css, "input[name*='[tax]']").first
+        fill_in element[:name], with: 'tax_0'
+
+        element = all(:css, "input[name*='[fiscal_data]']").first
+        fill_in element[:name], with: 'fiscal_data_0'
+
+        element = all(:css, "input[name*='[amount]']").first
+        fill_in element[:name], with: 'amount_4'
+
+        element = all(:css, "input[name*='[comments]']").first
+        fill_in element[:name], with: 'comments_4'
+      end
+
+      within '#assets_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'tax_0'
+      expect(page).to have_content 'fiscal_data_0'
+      expect(page).to have_content 'amount_4'
+      expect(page).to have_content 'comments_4'
+    end
   end
 
   context "Errors" do
