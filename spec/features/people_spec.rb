@@ -32,7 +32,7 @@ feature 'People' do
   describe "Show", clean_as_group: true do
     let(:person){create(:person, first_name: 'Bruce', last_name: 'Waine', role: 'Batman', job_level: 'director')}
 
-    scenario "directors's declarations" do
+    scenario "declarations" do
       create(:assets_declaration, person: person, declaration_date: '2017-09-06', period: 'initial',
                                   data: {real_estate_properties: [{'kind' => "Urbano",
                                                                    'description' => "Batcave",
@@ -46,7 +46,7 @@ feature 'People' do
       expect(page).to have_content("Gotham")
     end
 
-    scenario "director's tax information" do
+    scenario "tax information" do
       create(:assets_declaration, person: person, declaration_date: '2017-09-06', period: 'initial',
                                   data: {tax_data: [{'tax' => "Impuesto sobre la Renta de las Personas Físicas",
                                                      'fiscal_data' => "Base imponible general",
@@ -64,17 +64,28 @@ feature 'People' do
       end
     end
 
-    scenario "director's activities" do
+    scenario "activities declarations" do
       create(:activities_declaration, person: person, declaration_date: '2017-09-07', period: 'initial',
                                       data: {public_activities: ['entity' => 'Gotham',
                                                                  'position' => 'City rescuer',
-                                                                 'start_date' => 1.year.ago]})
+                                                                 'start_date' => 1.year.ago],
+                                             private_activities: ['kind' => 'kind_01',
+                                                                  'description' => 'description_01',
+                                                                  'entity' => 'entity_01',
+                                                                  'position' => 'post_01',
+                                                                  'start_date' => 2.years.ago,
+                                                                  'end_date' => 3.years.ago]})
 
       visit person_path(person)
 
       expect(page).to have_content(person.activities_declarations.first.declaration_date)
       expect(page).to have_content('Gotham')
       expect(page).to have_content('City rescuer')
+
+      expect(page).to have_content('kind_01')
+      expect(page).to have_content('description_01')
+      expect(page).to have_content('entity_01')
+      expect(page).to have_content('post_01')
 
       within("#assets_declarations") do
         expect(page).to have_content("The information will be published once the owner provides it.")
