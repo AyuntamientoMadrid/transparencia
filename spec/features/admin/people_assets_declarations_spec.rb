@@ -113,6 +113,14 @@ feature 'Admin/People/AssetsDeclarations' do
         fill_in element[:name], with: '01/07/2018'
       end
 
+      within '#other_personal_properties' do
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_4'
+
+        element = all(:css, "input[name*='[purchase_date]']").first
+        fill_in element[:name], with: '01/08/2018'
+      end
+
       click_button 'Submit'
 
       click_link "Freeman, Gordon"
@@ -143,6 +151,9 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content 'kind_3'
       expect(page).to have_content 'model_0'
       expect(page).to have_content '01/07/2018'
+
+      expect(page).to have_content 'kind_4'
+      expect(page).to have_content '01/08/2018'
     end
   end
 
@@ -571,6 +582,87 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content 'model_0'
       expect(page).to have_content '01/07/2018'
     end
+
+    scenario 'Update, add assets declarations with 2 other_personal properties', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Assets declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '01/01/2018'
+
+      within '#other_personal_properties' do
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_0'
+
+        element = all(:css, "input[name*='[purchase_date]']").first
+        fill_in element[:name], with: '01/07/2018'
+      end
+
+      within '#other-personal-property-add' do
+        click_link 'Add'
+      end
+
+      within '#other_personal_properties' do
+        element = all(:css, "input[name*='[kind]']").last
+        fill_in element[:name], with: 'kind_1'
+      end
+
+      within '#assets_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'kind_0'
+      expect(page).to have_content '01/07/2018'
+
+      expect(page).to have_content 'kind_1'
+
+    end
+
+    scenario 'Update, edit assets declarations (vehicles)', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+      declaration = AssetsDeclaration.create(person_id: person.id,
+                                             declaration_date: '01/01/2018',
+                                             period: 'position_1')
+      declaration.add_other_personal_property('Other', '1/3/2017')
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Assets declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '02/01/2018'
+
+      within '#other_personal_properties' do
+        element = all(:css, "input[name*='[kind]']").first
+        fill_in element[:name], with: 'kind_3'
+
+        element = all(:css, "input[name*='[purchase_date]']").first
+        fill_in element[:name], with: '01/07/2018'
+      end
+
+      within '#assets_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'kind_3'
+      expect(page).to have_content '01/07/2018'
+    end
+
   end
 
   context "Errors" do
