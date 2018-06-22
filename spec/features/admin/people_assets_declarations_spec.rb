@@ -77,6 +77,17 @@ feature 'Admin/People/AssetsDeclarations' do
 
       end
 
+      within '#account_deposits' do
+        element = all(:css, "input[name*='[kind']").first
+        fill_in element[:name], with: 'kind_1'
+
+        element = all(:css, "input[name*='[banking_entity]']").first
+        fill_in element[:name], with: 'banking_entity_0'
+
+        element = all(:css, "input[name*='[balance]']").first
+        fill_in element[:name], with: 'balance_0'
+      end
+
       click_button 'Submit'
 
       click_link "Freeman, Gordon"
@@ -95,6 +106,9 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content "tax_value_0"
       expect(page).to have_content "notes_0"
 
+      expect(page).to have_content "kind_1"
+      expect(page).to have_content "banking_entity_0"
+      expect(page).to have_content "balance_0"
     end
   end
 
@@ -234,6 +248,100 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content "purchase_date_0"
       expect(page).to have_content "tax_value_0"
       expect(page).to have_content "notes_0"
+    end
+
+    scenario 'Update, add assets declarations with 2 account deposits', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Assets declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '01/01/2018'
+
+      within '#account_deposits' do
+        element = all(:css, "input[name*='[kind']").first
+        fill_in element[:name], with: 'kind_1'
+
+        element = all(:css, "input[name*='[banking_entity]']").first
+        fill_in element[:name], with: 'banking_entity_0'
+
+        element = all(:css, "input[name*='[balance]']").first
+        fill_in element[:name], with: 'balance_0'
+      end
+
+      within '#account-deposit-add' do
+        click_link 'Add'
+      end
+
+      within '#account_deposits' do
+        element = all(:css, "input[name*='[kind']").last
+        fill_in element[:name], with: 'kind_2'
+
+        element = all(:css, "input[name*='[banking_entity]']").last
+        fill_in element[:name], with: 'banking_entity_1'
+
+        element = all(:css, "input[name*='[balance]']").last
+        fill_in element[:name], with: 'balance_1'
+      end
+
+      within '#assets_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+
+      expect(page).to have_content 'kind_1'
+      expect(page).to have_content 'banking_entity_0'
+      expect(page).to have_content 'balance_0'
+      expect(page).to have_content 'kind_2'
+      expect(page).to have_content 'banking_entity_1'
+      expect(page).to have_content 'balance_1'
+
+    end
+
+    scenario 'Update, edit assets declarations (account deposits)', :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+      declaration = AssetsDeclaration.create(person_id: person.id,
+                                             declaration_date: '01/01/2018',
+                                             period: 'position_1')
+      declaration.add_account_deposit('kind_0', 'banking_entity_0', 'balance_0')
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        click_on "Edit"
+      end
+
+      click_link 'Assets declarations'
+
+      element = all(:css, "input[name*='[declaration_date]']").first
+      fill_in element[:name], with: '02/01/2018'
+
+      within '#account_deposits' do
+        element = all(:css, "input[name*='[kind']").first
+        fill_in element[:name], with: 'kind_1'
+
+        element = all(:css, "input[name*='[banking_entity]']").first
+        fill_in element[:name], with: 'banking_entity_1'
+
+        element = all(:css, "input[name*='[balance]']").first
+        fill_in element[:name], with: 'balance_1'
+      end
+
+      within '#assets_declarations' do
+        click_button 'Submit'
+      end
+
+      click_link "Richards, Red"
+      expect(page).to have_content 'kind_1'
+      expect(page).to have_content 'banking_entity_1'
+      expect(page).to have_content 'balance_1'
     end
 
   end
