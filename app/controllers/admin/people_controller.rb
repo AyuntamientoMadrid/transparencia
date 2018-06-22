@@ -50,14 +50,14 @@ class Admin::PeopleController < Admin::BaseController
 
   def hide
     @person = Person.friendly.find(params[:person_id])
-    hidden_at = Date.parse(person_params[:hidden_at]) rescue DateTime.current
+    hidden_at = person_params[:hidden_at].nil? ? DateTime.current : Date.parse(person_params[:hidden_at])
     @person.hide(current_administrator, person_params[:hidden_reason], hidden_at)
     redirect_to admin_people_path(@person), notice: I18n.t('people.notice.hidden')
   end
 
   def unhide
     @person = Person.friendly.find(params[:person_id])
-    unhidden_at = Date.parse(person_params[:unhidden_at]) rescue DateTime.current
+    unhidden_at = person_params[:unhidden_at].nil? ? DateTime.current : Date.parse(person_params[:unhidden_at])
     @person.unhide(current_administrator, person_params[:unhidden_reason], unhidden_at)
     redirect_to admin_people_path(@person), notice: I18n.t('people.notice.unhidden')
   end
@@ -84,7 +84,7 @@ class Admin::PeopleController < Admin::BaseController
           public_activities_attributes: %i(entity position start_date end_date),
           private_activities_attributes: %i(kind description entity position start_date end_date),
           other_activities_attributes: %i(description start_date end_date)
-       ]
+        ]
       )
     end
 

@@ -6,7 +6,7 @@ feature 'Admin/People/AssetsDeclarations' do
   let!(:councillor) { create(:person, job_level: :councillor) }
   let!(:administrator) { create(:administrator) }
 
-  before(:each) { login_as administrator }
+  before { login_as administrator }
 
   feature "Create" do
 
@@ -182,7 +182,7 @@ feature 'Admin/People/AssetsDeclarations' do
       declaration = ActivitiesDeclaration.create(person_id: person.id,
                                                  declaration_date: '01/01/2018',
                                                  period: 'position_1')
-      declaration.add_public_activity('entity_0','post_0','01/02/2018','01/03/2018')
+      declaration.add_public_activity('entity_0', 'post_0', '01/02/2018', '01/03/2018')
 
       visit admin_people_path
 

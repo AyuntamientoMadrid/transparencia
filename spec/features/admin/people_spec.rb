@@ -238,7 +238,11 @@ feature 'Admin/People' do
       end
 
       scenario "Update 'secondary_role' attribute" do
-        person = create(:person, first_name: "Vlad", last_name: "Tepes", role: "Voivode of Wallachia", secondary_role: "Military leader", job_level: "director")
+        person = create(:person, first_name: "Vlad",
+                                 last_name: "Tepes",
+                                 role: "Voivode of Wallachia",
+                                 secondary_role: "Military leader",
+                                 job_level: "director")
 
         visit admin_people_path
 

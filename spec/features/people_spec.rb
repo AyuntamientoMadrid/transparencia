@@ -109,7 +109,7 @@ feature 'People' do
     end
 
     scenario "spokesperson's profile" do
-      person = create(:person, first_name: 'Robin', last_name: 'The Boy Wonder', role: 'Robin', job_level: 'spokesperson')
+      create(:person, first_name: 'Robin', last_name: 'The Boy Wonder', role: 'Robin', job_level: 'spokesperson')
 
       visit spokespeople_people_path
 

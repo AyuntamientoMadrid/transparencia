@@ -80,7 +80,7 @@ class ActivitiesDeclaration < ActiveRecord::Base
   end
 
   def complete_values
-    local_attributes = attributes.delete_if{|k,v| ['id', 'person_id'].include? k}
+    local_attributes = attributes.delete_if{ |k,_| ['id', 'person_id'].include? k }
     local_attributes.values.map{|val| val.is_a?(Hash) ? val.values.flatten.map(&:values) : val}.flatten
   end
 
@@ -97,9 +97,8 @@ class ActivitiesDeclaration < ActiveRecord::Base
     end
 
     def deep_data_declaration_date
-      if declaration_date.blank? && complete_values.compact.map(&:blank?).include?(false)
-        errors.add(:declaration_date, t("errors.messages.blank"))
-      end
+      return unless declaration_date.blank? && complete_values.compact.map(&:blank?).include?(false)
+      errors.add(:declaration_date, t("errors.messages.blank"))
     end
 
 end
