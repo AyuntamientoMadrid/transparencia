@@ -23,7 +23,7 @@
               <%= link_to spokesperson do %>
                 <div class="people-photo">
                   <figure>
-                    <%= image_tag spokesperson.portrait.url(:medium) %>
+                    <%= profile_picture(spokesperson) %>
                   </figure>
                 </div>
                 <h3><%= spokesperson.name %></h3>

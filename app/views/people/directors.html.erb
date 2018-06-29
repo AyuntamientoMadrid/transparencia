@@ -23,7 +23,7 @@
               <%= link_to director do %>
                 <div class="people-photo">
                   <figure>
-                    <%= image_tag director.portrait.url(:medium) %>
+                    <%= profile_picture(director) %>
                     <span class="people-affiliation"><%= director.party.name %></span>
                   </figure>
                 </div>

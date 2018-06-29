@@ -23,7 +23,7 @@
               <%= link_to worker do %>
                 <div class="people-photo">
                   <figure>
-                    <%= image_tag worker.portrait.url(:medium) %>
+                    <%= profile_picture(worker) %>
                   </figure>
                 </div>
                 <h3><%= worker.name %></h3>
