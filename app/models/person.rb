@@ -8,8 +8,15 @@ class Person < ActiveRecord::Base
 
   self.record_timestamps = false
 
-  has_attached_file :portrait, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "people/:id/portrait.jpg"
+  has_attached_file :portrait,
+                    styles: { medium: "300x300>", thumb: "100x100>" },
+                    url: "/people/:friendly.jpg",
+                    use_timestamp: false
   validates_attachment_content_type :portrait, content_type: %r{\Aimage\/.*\z}
+
+  Paperclip.interpolates :friendly do |attachment, style|
+    attachment.instance.friendly_id
+  end
 
   belongs_to :party
   belongs_to :hidden_by,   class_name: 'Administrator'
