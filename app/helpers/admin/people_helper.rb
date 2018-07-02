@@ -9,13 +9,13 @@ module Admin
     def activities_declarations_tab_name(declaration)
       declaration.declaration_date ||
         declaration.changes['declaration_date'].try(:first) ||
-        t('shared.add')
+        t('activities_declarations.add')
     end
 
     def assets_declarations_tab_name(declaration)
       declaration.declaration_date ||
         declaration.changes['declaration_date'].try(:first) ||
-        t('shared.add')
+        t('assets_declarations.add')
     end
 
     def public_activities_list(declaration)

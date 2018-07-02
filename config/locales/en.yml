@@ -366,6 +366,7 @@ en:
     form:
       save: Save
   activities_declarations:
+    add: "Add activity declaration"
     initial: "Initial"
     yearly: "Yearly %{year}"
     final: "Final"
@@ -391,6 +392,7 @@ en:
       start_date: "Start date"
       end_date: "End date"
   assets_declarations:
+    add: "Add asset declaration"
     initial: "Initial"
     yearly: "Yearly %{year}"
     final: "Final"
