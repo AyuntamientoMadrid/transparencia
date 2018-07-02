@@ -1,5 +1,5 @@
 <% if person.errors.any? %>
-  <% person.errors.full_messages.uniq.each do |error_message| %>
+  <% person.errors.full_messages.each do |error_message| %>
     <%= error_message %><br />
   <% end %>
 <% end %>
@@ -9,7 +9,7 @@
   <% person.activities_declarations.each do |declaration| %>
     <% if declaration.errors.any? %>
       <%= activities_declarations_tab_name(declaration) %><br />
-      <% declaration.errors.full_messages.uniq.each do |error_message| %>
+      <% declaration.errors.full_messages.each do |error_message| %>
         <%= error_message %><br />
       <% end %>
     <% end %>
@@ -21,7 +21,7 @@
   <% person.assets_declarations.each do |declaration| %>
     <% if declaration.errors.any? %>
       <%= assets_declarations_tab_name(declaration) %><br />
-      <% declaration.errors.full_messages.uniq.each do |error_message| %>
+      <% declaration.errors.full_messages.each do |error_message| %>
         <%= error_message %><br />
       <% end %>
     <% end %>

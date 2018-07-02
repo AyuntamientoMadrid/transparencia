@@ -25,9 +25,6 @@ class Person < ActiveRecord::Base
   has_many :assets_declarations,     -> { sort_for_list }, dependent: :destroy
   has_many :activities_declarations, -> { sort_for_list }, dependent: :destroy
 
-  validates :first_name, :last_name, :role, presence: true
-  validates :party, presence: true, if: :councillor?
-
   accepts_nested_attributes_for :activities_declarations
   accepts_nested_attributes_for :assets_declarations
 
@@ -46,6 +43,7 @@ class Person < ActiveRecord::Base
   validates :last_name,  presence: true
   validates :role,       presence: true
   validates :job_level,  presence: true
+  validates :party,      presence: true, if: :councillor?
   validates :job_level,  inclusion: { in: Person.job_levels }
 
   scope :councillors,       -> { where(job_level: 'councillor') }
