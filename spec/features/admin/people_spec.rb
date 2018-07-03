@@ -186,7 +186,7 @@ feature 'Admin/People' do
 
         visit person_path(Person.last.id)
 
-        expect(page).to have_xpath("//img[contains(@src, \"people_example.jpg\")]")
+        expect(page).to have_xpath("//img[contains(@src, \"gordon-freeman.jpg\")]")
 
       end
 
@@ -277,11 +277,11 @@ feature 'Admin/People' do
 
         visit councillors_people_path
 
-        expect(page).to have_xpath("//img[contains(@src, \"people_example.jpg\")]")
+        expect(page).to have_xpath("//img[contains(@src, \"red-richards.jpg\")]")
 
         visit person_path(person.id)
 
-        expect(page).to have_xpath("//img[contains(@src, \"people_example.jpg\")]")
+        expect(page).to have_xpath("//img[contains(@src, \"red-richards.jpg\")]")
 
       end
     end
