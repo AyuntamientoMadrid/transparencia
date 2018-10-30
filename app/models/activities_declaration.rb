@@ -8,7 +8,7 @@ class ActivitiesDeclaration < ActiveRecord::Base
 
   belongs_to :person, touch: true
 
-  validates :declaration_date, presence: :true
+  validates :declaration_date, presence: true
 
   def initial?
     period == 'initial'
