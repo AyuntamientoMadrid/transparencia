@@ -70,7 +70,12 @@ class Admin::PeopleController < Admin::BaseController
 
   def unhide
     @person = Person.friendly.find(params[:person_id])
-    unhidden_at = person_params[:unhidden_at].nil? ? DateTime.current : Date.parse(person_params[:unhidden_at])
+    unhidden_at = if person_params[:unhidden_at].present?
+                    Date.parse(person_params[:unhidden_at])
+                  else
+                    DateTime.current
+                  end
+
     @person.unhide(current_administrator, person_params[:unhidden_reason], unhidden_at)
     redirect_to admin_people_path(@person), notice: I18n.t('people.notice.unhidden')
   end

@@ -139,6 +139,21 @@ feature 'Admin/People' do
       end
     end
 
+    scenario "Unhide leaving a blank date", :js do
+      person.hide(administrator, 'A reason for hiding', Date.new(2016,1,1))
+
+      visit hidden_people_admin_people_path
+
+      within("#person_#{person.id}") { click_link "Unhide" }
+      within("#person_#{person.id}_unhide_form") { click_button "Submit" }
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        expect(page).to have_content(I18n.localize(Date.current))
+      end
+    end
+
   end
 
   context 'Person' do
