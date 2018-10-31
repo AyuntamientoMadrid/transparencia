@@ -628,6 +628,7 @@ es:
     must_fill: "Debe rellenar este campo."
     "true": "Sí"
     "false": "No"
+    errors: "Se han producido los siguientes errores:"
   activerecord:
     attributes:
       administrator:

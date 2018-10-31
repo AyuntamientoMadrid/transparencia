@@ -626,6 +626,7 @@ en:
     must_fill: "You must fill this field."
     "true": "Yes"
     "false": "No"
+    errors: "The following errors occurred:"
   activerecord:
     attributes:
       administrator:
