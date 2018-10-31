@@ -8,120 +8,122 @@ feature 'Admin/People' do
 
   before(:each) { login_as administrator }
 
-  scenario 'Hiding a normal user and unhiding', :js do
-    visit admin_people_path
+  feature "Hide and unhide" do
+    scenario 'Hiding a normal user and unhiding', :js do
+      visit admin_people_path
 
-    within("#person_#{person.id}") do
-      click_link 'Hide'
-    end
+      within("#person_#{person.id}") do
+        click_link 'Hide'
+      end
 
-    within("#person_#{person.id}_hide_form") do
-      fill_in(:person_hidden_reason, with: 'A reason for hiding')
-      fill_in(:person_hidden_at, with: '1/1/2016')
-      click_button 'Submit'
-    end
+      within("#person_#{person.id}_hide_form") do
+        fill_in(:person_hidden_reason, with: 'A reason for hiding')
+        fill_in(:person_hidden_at, with: '1/1/2016')
+        click_button 'Submit'
+      end
 
-    expect(page).to have_content 'Person hidden successfully'
+      expect(page).to have_content 'Person hidden successfully'
 
-    visit hidden_people_admin_people_path
+      visit hidden_people_admin_people_path
 
-    within("#person_#{person.id}") do
-      expect(page).to have_content 'A reason for hiding'
-      expect(page).to have_content '2016-01-01'
-      click_link 'Unhide'
-    end
+      within("#person_#{person.id}") do
+        expect(page).to have_content 'A reason for hiding'
+        expect(page).to have_content '2016-01-01'
+        click_link 'Unhide'
+      end
 
-    within("#person_#{person.id}_unhide_form") do
-      fill_in(:person_unhidden_reason, with: 'A reason for unhiding')
-      fill_in(:person_unhidden_at, with: '13/03/2016')
-      click_button 'Submit'
-    end
+      within("#person_#{person.id}_unhide_form") do
+        fill_in(:person_unhidden_reason, with: 'A reason for unhiding')
+        fill_in(:person_unhidden_at, with: '13/03/2016')
+        click_button 'Submit'
+      end
 
-    expect(page).to have_content 'Person unhidden successfully'
-    expect(page).to have_link 'Hide'
-  end
-
-  scenario 'Unhiding a hidden user and hiding', :js do
-
-    person.hide(administrator, 'A reason for hiding', Date.new(2016,1,1))
-
-    visit hidden_people_admin_people_path
-
-    within("#person_#{person.id}") do
-      expect(page).to have_content 'A reason for hiding'
-      expect(page).to have_content '2016-01-01'
-      click_link 'Unhide'
-    end
-
-    within("#person_#{person.id}_unhide_form") do
-      fill_in(:person_unhidden_reason, with: 'A reason for unhiding')
-      fill_in(:person_unhidden_at, with: '13/03/2016')
-      click_button 'Submit'
-    end
-
-    expect(page).to have_content 'Person unhidden successfully'
-    expect(page).to have_link 'Hide'
-
-    visit admin_people_path
-
-    within("#person_#{person.id}") do
+      expect(page).to have_content 'Person unhidden successfully'
       expect(page).to have_link 'Hide'
     end
 
-  end
+    scenario 'Unhiding a hidden user and hiding', :js do
 
-  scenario 'Users can be hidden and restored more than once', :js do
-    councillor.hide(administrator, 'A reason for hiding', Date.new(2016,1,1))
+      person.hide(administrator, 'A reason for hiding', Date.new(2016,1,1))
 
-    visit hidden_people_admin_people_path
+      visit hidden_people_admin_people_path
 
-    within("#person_#{councillor.id}") do
-      expect(page).to have_content(councillor.backwards_name)
-      expect(page).to have_content('A reason for hiding')
-      expect(page).to have_content('2016-01-01')
-      expect(page).to have_link('Unhide')
-      click_link 'Unhide'
+      within("#person_#{person.id}") do
+        expect(page).to have_content 'A reason for hiding'
+        expect(page).to have_content '2016-01-01'
+        click_link 'Unhide'
+      end
+
+      within("#person_#{person.id}_unhide_form") do
+        fill_in(:person_unhidden_reason, with: 'A reason for unhiding')
+        fill_in(:person_unhidden_at, with: '13/03/2016')
+        click_button 'Submit'
+      end
+
+      expect(page).to have_content 'Person unhidden successfully'
+      expect(page).to have_link 'Hide'
+
+      visit admin_people_path
+
+      within("#person_#{person.id}") do
+        expect(page).to have_link 'Hide'
+      end
+
     end
 
-    within("#person_#{councillor.id}_unhide_form") do
-      fill_in(:person_unhidden_reason, with: 'A reason for unhiding')
-      fill_in(:person_unhidden_at, with: '13/03/2016')
-      click_button 'Submit'
-    end
+    scenario 'Users can be hidden and restored more than once', :js do
+      councillor.hide(administrator, 'A reason for hiding', Date.new(2016,1,1))
 
-    expect(page).to have_content('Person unhidden successfully')
-    within("#person_#{councillor.id}") do
-      expect(page).to have_content(councillor.backwards_name)
-      expect(page).to have_link('Hide')
-      click_link 'Hide'
-    end
+      visit hidden_people_admin_people_path
 
-    within("#person_#{councillor.id}_hide_form") do
-      fill_in(:person_hidden_reason, with: 'Another reason for hiding')
-      fill_in(:person_hidden_at, with: '12/01/2018')
-      click_button 'Submit'
-    end
+      within("#person_#{councillor.id}") do
+        expect(page).to have_content(councillor.backwards_name)
+        expect(page).to have_content('A reason for hiding')
+        expect(page).to have_content('2016-01-01')
+        expect(page).to have_link('Unhide')
+        click_link 'Unhide'
+      end
 
-    expect(page).to have_content('Person hidden successfully')
+      within("#person_#{councillor.id}_unhide_form") do
+        fill_in(:person_unhidden_reason, with: 'A reason for unhiding')
+        fill_in(:person_unhidden_at, with: '13/03/2016')
+        click_button 'Submit'
+      end
 
-    visit hidden_people_admin_people_path
-    within("#person_#{councillor.id}") do
-      expect(page).to have_content(councillor.backwards_name)
-      expect(page).to have_content('Another reason for hiding')
-      expect(page).to have_link('Unhide')
-      click_link 'Unhide'
-    end
+      expect(page).to have_content('Person unhidden successfully')
+      within("#person_#{councillor.id}") do
+        expect(page).to have_content(councillor.backwards_name)
+        expect(page).to have_link('Hide')
+        click_link 'Hide'
+      end
 
-    within("#person_#{councillor.id}_unhide_form") do
-      fill_in(:person_unhidden_reason, with: 'Yet another reason for unhiding')
-      fill_in(:person_unhidden_at, with: '13/01/2018')
-      click_button 'Submit'
-    end
+      within("#person_#{councillor.id}_hide_form") do
+        fill_in(:person_hidden_reason, with: 'Another reason for hiding')
+        fill_in(:person_hidden_at, with: '12/01/2018')
+        click_button 'Submit'
+      end
 
-    expect(page).to have_content('Person unhidden successfully')
-    within("#person_#{councillor.id}") do
-      expect(page).to have_content(councillor.backwards_name)
-      expect(page).to have_link('Hide')
+      expect(page).to have_content('Person hidden successfully')
+
+      visit hidden_people_admin_people_path
+      within("#person_#{councillor.id}") do
+        expect(page).to have_content(councillor.backwards_name)
+        expect(page).to have_content('Another reason for hiding')
+        expect(page).to have_link('Unhide')
+        click_link 'Unhide'
+      end
+
+      within("#person_#{councillor.id}_unhide_form") do
+        fill_in(:person_unhidden_reason, with: 'Yet another reason for unhiding')
+        fill_in(:person_unhidden_at, with: '13/01/2018')
+        click_button 'Submit'
+      end
+
+      expect(page).to have_content('Person unhidden successfully')
+      within("#person_#{councillor.id}") do
+        expect(page).to have_content(councillor.backwards_name)
+        expect(page).to have_link('Hide')
+      end
     end
 
   end
