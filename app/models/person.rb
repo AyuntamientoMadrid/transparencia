@@ -10,7 +10,7 @@ class Person < ActiveRecord::Base
 
   has_attached_file :portrait,
                     styles: { medium: "300x300>", thumb: "100x100>" },
-                    url: "/people/:friendly.:extension",
+                    url: "/system/:class/:style/:friendly.:extension",
                     use_timestamp: false
   validates_attachment_content_type :portrait, content_type: %r{\Aimage\/.*\z}
 
