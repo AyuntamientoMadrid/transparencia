@@ -89,6 +89,36 @@ body.admin {
   .select-order {
     min-width: rem-calc(160);
   }
+
+  .row {
+
+    &.expanded {
+      max-width: none;
+    }
+  }
+
+  .tabs {
+    border-bottom: 1px solid $border;
+    margin-bottom: $line-height !important;
+
+    .tab-title > a {
+      font-size: $small-font-size;
+      padding: rem-calc(12);
+    }
+
+    dd > a,
+    .tab-title > a {
+      background: #fafafa;
+      border-top-left-radius: rem-calc(6);
+      border-top-right-radius: rem-calc(6);
+      margin-right: rem-calc(6);
+    }
+
+    dd.active > a,
+    .tab-title.active > a {
+      background: $brand;
+    }
+  }
 }
 
 .for-print-only {
@@ -99,10 +129,12 @@ body.admin {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .admin-sidebar {
-  margin-top: rem-calc(24);
+  background: #fafafa;
 
   @media (min-width: $small-breakpoint) {
+    border-right: 1px solid $border;
     margin-left: rem-calc(-20);
+    min-height: rem-calc(1000);
   }
 
   a {
@@ -153,6 +185,10 @@ body.admin {
       line-height: rem-calc(48);
       padding-left: rem-calc(12);
       vertical-align: top;
+
+      &.logout {
+        color: #f00;
+      }
 
       &:hover {
         color: $link-hover;

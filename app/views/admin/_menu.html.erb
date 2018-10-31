@@ -40,7 +40,7 @@
     </li>
 
     <li>
-      <%= link_to destroy_administrator_session_path, method: 'delete' do %>
+      <%= link_to destroy_administrator_session_path, class: "logout", method: 'delete' do %>
         <i class="icon-x"></i>
         <%= t('admin.menu.close_session') %>
       <% end %>
