@@ -58,7 +58,12 @@ class Admin::PeopleController < Admin::BaseController
 
   def hide
     @person = Person.friendly.find(params[:person_id])
-    hidden_at = person_params[:hidden_at].nil? ? DateTime.current : Date.parse(person_params[:hidden_at])
+    hidden_at = if person_params[:hidden_at].present?
+                  Date.parse(person_params[:hidden_at])
+                else
+                  DateTime.current
+                end
+
     @person.hide(current_administrator, person_params[:hidden_reason], hidden_at)
     redirect_to admin_people_path(@person), notice: I18n.t('people.notice.hidden')
   end

@@ -126,6 +126,19 @@ feature 'Admin/People' do
       end
     end
 
+    scenario "Hide leaving a blank date", :js do
+      visit admin_people_path
+
+      within("#person_#{person.id}") { click_link "Hide" }
+      within("#person_#{person.id}_hide_form") { click_button "Submit" }
+
+      visit hidden_people_admin_people_path
+
+      within("#person_#{person.id}") do
+        expect(page).to have_content(I18n.localize(Date.current))
+      end
+    end
+
   end
 
   context 'Person' do
