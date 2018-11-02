@@ -120,4 +120,17 @@ feature 'People' do
     end
   end
 
+  feature "Directors" do
+    let(:director) { create(:director, first_name: "Reed", last_name: "Richards") }
+
+    scenario "with no party" do
+      director.update(party: nil)
+
+      visit directors_people_path
+
+      expect(page).to have_content "Reed Richards"
+      expect(page).to have_content "No assigned party"
+    end
+  end
+
 end
