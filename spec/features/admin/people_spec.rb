@@ -154,6 +154,29 @@ feature 'Admin/People' do
       end
     end
 
+    scenario "Hide and unhide links in the show action", :js do
+      visit person_path(person)
+      click_link 'Hide'
+
+      within("#person_#{person.id}_hide_form") do
+        fill_in(:person_hidden_reason, with: 'A reason for hiding')
+        fill_in(:person_hidden_at, with: '1/1/2016')
+        click_button 'Submit'
+      end
+
+      expect(page).to have_content 'Person hidden successfully'
+
+      visit person_path(person)
+      click_link 'Unhide'
+
+      within("#person_#{person.id}_unhide_form") do
+        fill_in(:person_unhidden_reason, with: 'A reason for unhiding')
+        fill_in(:person_unhidden_at, with: '13/03/2016')
+        click_button 'Submit'
+      end
+
+      expect(page).to have_content 'Person unhidden successfully'
+    end
   end
 
   context 'Person' do
