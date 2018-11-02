@@ -215,6 +215,7 @@ feature 'Admin/People/AssetsDeclarations' do
 
       click_link "Richards, Red"
 
+      expect(page).to have_content "Yearly 2018", count: 1
       expect(page).to have_content "entity_2"
       expect(page).to have_content "post_2"
       expect(page).to have_content "02/01/2018"
