@@ -93,17 +93,13 @@
       <th scope="col"></th>
     </tr>
   </thead>
+
   <tbody id="studies">
-    <% if @person.studies.present?  %>
-      <%= f.fields_for :studies, @person.studies do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
-    <% else %>
-      <%= f.fields_for "studies_attributes[0]", empty_study do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
+    <%= f.fields_for :studies, @person.studies do |fs| %>
+      <%= render 'form_row', f: fs %>
     <% end %>
   </tbody>
+
   <tfoot>
     <tr><td colspan="5">
       <%= link_to "#", class: "right small button radius success", data: {add_to: "#studies", add_from: "#studies-row"} do %>
@@ -127,17 +123,13 @@
       <th scope="col"></th>
     </tr>
   </thead>
+
   <tbody id="courses">
-    <% if @person.courses.present? %>
-      <%= f.fields_for :courses, @person.courses do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
-    <% else %>
-      <%= f.fields_for "courses_attributes[0]", empty_course do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
+    <%= f.fields_for :courses, @person.courses do |fs| %>
+      <%= render 'form_row', f: fs %>
     <% end %>
   </tbody>
+
   <tfoot>
     <tr><td colspan="5">
       <%= link_to "#", class: "right small button radius success", data: {add_to: "#courses", add_from: "#courses-row"} do %>
@@ -159,17 +151,13 @@
       <th scope="col" class="th-small"></th>
     </tr>
   </thead>
+
   <tbody id="languages">
-    <% if @person.languages.present? %>
-      <%= f.fields_for :languages, @person.languages do |fs| %>
-        <%= render 'languages_row', f: fs %>
-      <% end %>
-    <% else %>
-      <%= f.fields_for "languages_attributes[0]", empty_language do |fs| %>
-        <%= render 'languages_row', f: fs %>
-      <% end %>
+    <%= f.fields_for :languages, @person.languages do |fs| %>
+      <%= render 'languages_row', f: fs %>
     <% end %>
   </tbody>
+
   <tfoot>
     <tr><td colspan="3">
       <%= link_to "#", class: "right small button radius success", data: {add_to: "#languages", add_from: "#languages-row"} do %>
@@ -192,17 +180,13 @@
       <th scope="col"></th>
     </tr>
   </thead>
+
   <tbody id="public-jobs">
-    <% if @person.public_jobs.present? %>
-      <%= f.fields_for :public_jobs, @person.public_jobs do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
-    <% else %>
-      <%= f.fields_for "public_jobs_attributes[0]", empty_public_job do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
+    <%= f.fields_for :public_jobs, @person.public_jobs do |fs| %>
+      <%= render 'form_row', f: fs %>
     <% end %>
   </tbody>
+
   <tfoot>
     <tr><td colspan="5">
       <%= link_to "#", class: "right small button radius success", data: {add_to: "#public-jobs", add_from: "#public-jobs-row"} do %>
@@ -222,17 +206,13 @@
       <th scope="col"></th>
     </tr>
   </thead>
+
   <tbody id="private-jobs">
-    <% if @person.private_jobs.present? %>
-      <%= f.fields_for :private_jobs, @person.private_jobs do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
-    <% else %>
-      <%= f.fields_for "private_jobs_attributes[0]", empty_private_job do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
+    <%= f.fields_for :private_jobs, @person.private_jobs do |fs| %>
+      <%= render 'form_row', f: fs %>
     <% end %>
   </tbody>
+
   <tfoot><tr><td colspan="5">
     <%= link_to "#", class: "right small button radius success", data: {add_to: "#private-jobs", add_from: "#private-jobs-row"} do %>
       <%= t('shared.add') %>
@@ -253,17 +233,13 @@
       <th scope="col"></th>
     </tr>
   </thead>
+
   <tbody id="political-posts">
-    <% if @person.political_posts.present? %>
-      <%= f.fields_for :political_posts, @person.political_posts do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
-    <% else %>
-      <%= f.fields_for "political_posts_attributes[0]", empty_private_job do |fs| %>
-        <%= render 'form_row', f: fs %>
-      <% end %>
+    <%= f.fields_for :political_posts, @person.political_posts do |fs| %>
+      <%= render 'form_row', f: fs %>
     <% end %>
   </tbody>
+
   <tfoot>
     <tr><td colspan="5">
       <%= link_to "#", class: "right small button radius success", data: {add_to: "#political-posts", add_from: "#political-posts-row"} do %>
