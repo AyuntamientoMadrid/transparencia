@@ -316,6 +316,35 @@ feature 'Admin/People' do
       end
     end
 
+    scenario "Update deleting all existing studies", :js do
+      study = {
+        entity:       "Universal Masters Association",
+        description:  "Master of the Universe",
+        start_year:   3.years.ago.year,
+        end_year:     1.year.ago.year
+      }
+      person = create(:person, profile: { studies: [study] })
+
+      visit edit_admin_person_path(person)
+      within("#studies") { click_link "Delete" }
+      submit_form
+
+      visit person_path(person)
+      expect(page).not_to have_content(study[:description])
+    end
+
+    scenario "Update deleting all existing languages", :js do
+      language = { name:  "Universal", level: "Native" }
+      person = create(:person, profile: { languages: [language] })
+
+      visit edit_admin_person_path(person)
+      within("#languages") { click_link "Delete" }
+      submit_form
+
+      visit person_path(person)
+      expect(page).not_to have_content(language[:name])
+    end
+
     scenario 'Delete' do
       person = create(:person, first_name: "Klark", last_name: "Kent", role: "Tank")
 
