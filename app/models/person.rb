@@ -9,7 +9,7 @@ class Person < ActiveRecord::Base
   self.record_timestamps = false
 
   has_attached_file :portrait,
-                    styles: { medium: "300x300>", thumb: "100x100>" },
+                    styles: { medium: "245x245>", thumb: "100x100>" },
                     url: "/system/:class/:style/:friendly.:extension",
                     use_timestamp: false
   validates_attachment_content_type :portrait, content_type: %r{\Aimage\/.*\z}
