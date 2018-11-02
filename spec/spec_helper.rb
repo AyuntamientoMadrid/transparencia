@@ -25,29 +25,13 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do |example|
-    unless example.metadata[:clean_as_group]
-      DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
-      DatabaseCleaner.start
-    end
+    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
+    DatabaseCleaner.start
     I18n.default_locale = :en
   end
 
   config.after(:each) do |example|
-    unless example.metadata[:clean_as_group]
-      DatabaseCleaner.clean
-    end
-  end
-
-  config.before(:all) do |example|
-    if self.class.metadata[:clean_as_group]
-      DatabaseCleaner.clean
-    end
-  end
-
-  config.after(:all) do |example|
-    if self.class.metadata[:clean_as_group]
-      DatabaseCleaner.clean
-    end
+    DatabaseCleaner.clean
   end
 
 end

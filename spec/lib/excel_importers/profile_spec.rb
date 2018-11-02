@@ -3,14 +3,14 @@ require 'excel_importers/profile'
 require 'importers/parties_importer'
 require 'importers/councillors_importer'
 
-xdescribe ExcelImporters::Profile, clean_as_group: true do
+xdescribe ExcelImporters::Profile do
   [
     ExcelImporters::Profile.new('./spec/fixtures/files/profiles.xls', header_field: 'Fecha'),
     ExcelImporters::Profile.new('./spec/fixtures/files/profiles_html.xls', header_field: 'Fecha'),
   ].each do |importer|
 
-    describe '#import!', clean_as_group: true do
-      before(:all) do
+    describe '#import!' do
+      before do
         Importers::PartiesImporter.new('./import-data/parties.csv').import!
         Importers::CouncillorsImporter.new('./import-data/councillors.csv').import!
         importer.import

@@ -29,7 +29,7 @@ feature 'People' do
     expect(body).to include("hello")
   end
 
-  describe "Show", clean_as_group: true do
+  describe "Show" do
     let(:person){create(:person, first_name: 'Bruce', last_name: 'Waine', role: 'Batman', job_level: 'director')}
 
     scenario "declarations" do

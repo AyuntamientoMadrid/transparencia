@@ -3,11 +3,11 @@ require 'excel_importers/assets'
 require 'importers/parties_importer'
 require 'importers/councillors_importer'
 
-describe ExcelImporters::Assets, clean_as_group: true do
-  describe '#import', clean_as_group: true do
+describe ExcelImporters::Assets do
+  describe '#import' do
     let(:declaration) { Person.where(personal_code: 64385).first.assets_declarations.first }
 
-    before(:all) do
+    before do
       Importers::PartiesImporter.new('./import-data/parties.csv').import!
       Importers::CouncillorsImporter.new('./spec/fixtures/files/councillors.csv').import!
       ExcelImporters::Assets.new('./spec/fixtures/files/assets.xls', 'inicial').import
