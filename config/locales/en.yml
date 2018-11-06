@@ -680,6 +680,8 @@ en:
         calendar_url: "Calendar url"
         first_name: "First name"
         last_name: "Last name"
+        starting_date: "Starting date"
+        leaving_date: "Leaving date"
       activities_declaration:
         declaration_date: "Declaration date"
       assets_declaration:

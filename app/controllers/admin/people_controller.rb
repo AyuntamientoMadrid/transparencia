@@ -89,7 +89,7 @@ class Admin::PeopleController < Admin::BaseController
         :studies_comment, :courses_comment, :career_comment, :political_posts_comment,
         :public_jobs_level, :public_jobs_body, :public_jobs_start_year,
         :publications, :teaching_activity, :special_mentions, :other,
-        :hidden_at, :hidden_reason, :updated_at,
+        :hidden_at, :hidden_reason, :updated_at, :starting_date, :leaving_date,
         :unhidden_at, :unhidden_reason, :calendar_url, :portrait,
         studies_attributes: %i(description entity start_year end_year),
         courses_attributes: %i(description entity start_year end_year),

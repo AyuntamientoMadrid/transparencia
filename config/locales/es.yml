@@ -682,6 +682,8 @@ es:
         unhidden_reason: "Razón de restauración"
         updated_at: "Fecha de actualización"
         calendar_url: "Url de agenda"
+        starting_date: "Fecha de incorporación"
+        leaving_date: "Fecha de cese"
       activities_declaration:
         declaration_date: "Fecha de la declaración"
       assets_declaration:

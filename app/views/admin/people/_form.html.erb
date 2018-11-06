@@ -36,6 +36,20 @@
 </div>
 
 <div class="row">
+  <div class="small-4 column">
+    <%= f.text_field :calendar_url %>
+  </div>
+
+  <div class="small-4 column">
+    <%= f.text_field :starting_date, type: "date" %>
+  </div>
+
+  <div class="small-4 column">
+    <%= f.text_field :leaving_date, type: "date" %>
+  </div>
+</div>
+
+<div class="row">
   <div class="small-3 column">
     <%= f.text_field :area, label: t('people.area') %>
   </div>
@@ -72,12 +86,6 @@
     <%= f.text_field :twitter %>
   </div>
 
-</div>
-
-<div class="row">
-  <div class="small-12 column">
-    <%= f.text_field :calendar_url %>
-  </div>
 </div>
 
 <h2><%= t("people.profile") %></h2>
