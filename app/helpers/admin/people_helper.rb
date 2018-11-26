@@ -7,15 +7,19 @@ module Admin
     end
 
     def activities_declarations_tab_name(declaration)
-      declaration.declaration_date ||
-        declaration.changes['declaration_date'].try(:first) ||
+      if declaration.declaration_date
+        declaration_name(declaration, i18n_namespace: "activities_declarations")
+      else
         t('activities_declarations.add')
+      end
     end
 
     def assets_declarations_tab_name(declaration)
-      declaration.declaration_date ||
-        declaration.changes['declaration_date'].try(:first) ||
+      if declaration.declaration_date
+        declaration_name(declaration, i18n_namespace: "assets_declarations")
+      else
         t('assets_declarations.add')
+      end
     end
 
     def public_activities_list(declaration)

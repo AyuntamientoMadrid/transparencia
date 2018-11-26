@@ -5,7 +5,7 @@
     <% i = declaration.id || 0  %>
     <li class="tab-title <%= 'active' if i == ( declarations.first.id || 0 ) %>" role="presentation">
       <a href="#asset_declaration_<%= i %>">
-        <%= declaration.declaration_date || t('shared.add') %>
+        <%= assets_declarations_tab_name(declaration) %>
       </a>
     </li>
   <% end %>

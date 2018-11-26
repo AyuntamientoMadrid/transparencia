@@ -880,6 +880,24 @@ feature 'Admin/People/AssetsDeclarations' do
       expect(page).to have_content 'amount_4'
       expect(page).to have_content 'comments_4'
     end
+
+    scenario "Create an initial declaration", :js do
+      person = create(:person, first_name: "Red", last_name: "Richards", role: "Elastic Man", job_level: "director")
+
+      visit edit_admin_person_path(person)
+
+      click_link "Assets declarations"
+      fill_in "Declaration date", with: "01/01/2018"
+      fill_in "Period", with: "Inicial"
+      click_button "Submit"
+
+      visit edit_admin_person_path(person)
+      click_link "Assets declarations"
+
+      within("#assets_declarations .tabs") do
+        expect(page).to have_content "Initial"
+      end
+    end
   end
 
   context "Errors" do
