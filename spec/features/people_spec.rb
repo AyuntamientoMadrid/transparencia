@@ -96,6 +96,36 @@ feature 'People' do
       end
     end
 
+    context "Spanish locale" do
+      scenario "Activities declarations", :js do
+        create(:activities_declaration,
+               person: person,
+               declaration_date: "2017-09-07",
+               period: "initial",
+               data: { public_activities: ["entity" => "Gotham"] }
+              )
+
+        create(:activities_declaration,
+               person: person,
+               declaration_date: "2018-09-07",
+               period: "2018",
+               data: { public_activities: ["entity" => "Metropolis"] }
+              )
+
+        visit person_path(person, locale: "es")
+
+        click_link "Inicial"
+
+        expect(page).to have_content("Gotham")
+        expect(page).not_to have_content("Metropolis")
+
+        click_link "Anual 2018"
+
+        expect(page).not_to have_content("Gotham")
+        expect(page).to have_content("Metropolis")
+      end
+    end
+
     scenario "director with neither activity nor asset declarations" do
       visit person_path(person)
 
