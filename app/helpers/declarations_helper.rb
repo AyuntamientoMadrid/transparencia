@@ -11,4 +11,13 @@ module DeclarationsHelper
     initial.merge(years).merge(final)
   end
 
+  def declaration_name(declaration, i18n_namespace:)
+    if declaration.initial?
+      t("#{i18n_namespace}.initial", year: declaration.declaration_date.year)
+    elsif declaration.final?
+      t("#{i18n_namespace}.final", year: declaration.declaration_date.year)
+    else
+      t("#{i18n_namespace}.yearly", year: declaration.declaration_date.year)
+    end
+  end
 end

@@ -11,13 +11,7 @@
       <% active = index == @assets_declarations.length - 1 %>
       <li class="tab-title <%= 'active' if active %>">
         <a href="#assets_declaration_<%= iso_date(declaration.declaration_date) %>">
-          <% if declaration.initial? %>
-            <%= t('assets_declarations.initial', year: declaration.declaration_date.year) %>
-          <% elsif declaration.final? %>
-            <%= t('assets_declarations.final', year: declaration.declaration_date.year) %>
-          <% else %>
-            <%= t('assets_declarations.yearly', year: declaration.declaration_date.year) %>
-          <% end %>
+          <%= declaration_name(declaration, i18n_namespace: "assets_declarations") %>
         </a>
       </li>
     <% end %>
