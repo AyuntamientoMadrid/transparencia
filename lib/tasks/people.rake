@@ -13,6 +13,7 @@ namespace :people do
 
       if File.exists?(image_path)
         person.update(portrait: File.new(image_path))
+        person.touch
       else
         puts "No existing image available for #{person.name}; skipping"
       end

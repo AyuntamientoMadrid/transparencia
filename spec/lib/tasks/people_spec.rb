@@ -22,6 +22,10 @@ describe "People tasks" do
 
         expect(person.portrait).to be_present
       end
+
+      it "updates the person" do
+        expect { run_rake_task }.to change { person.reload.updated_at }
+      end
     end
 
     context "Non-existing image" do
