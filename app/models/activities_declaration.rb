@@ -11,7 +11,7 @@ class ActivitiesDeclaration < ActiveRecord::Base
   validates :declaration_date, presence: true
 
   def initial?
-    period == 'initial'
+    %w[initial inicial].include?(period.downcase)
   end
 
   def final?
