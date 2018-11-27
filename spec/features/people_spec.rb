@@ -143,7 +143,7 @@ feature 'People' do
 
       visit spokespeople_people_path
 
-      click_on "Robin The Boy Wonder"
+      click_on "The Boy Wonder, Robin"
 
       expect(page).to have_content("Professional profile")
       expect(page).to have_content("Robin The Boy Wonder")
@@ -151,15 +151,14 @@ feature 'People' do
   end
 
   feature "Directors" do
-    let(:director) { create(:director, first_name: "Reed", last_name: "Richards") }
+    let(:director) { create(:director, first_name: "Red", last_name: "Richards") }
 
     scenario "with no party" do
       director.update(party: nil)
 
       visit directors_people_path
 
-      expect(page).to have_content "Reed Richards"
-      expect(page).to have_content "No assigned party"
+      expect(page).to have_content "Richards, Red"
     end
   end
 

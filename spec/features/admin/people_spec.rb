@@ -196,7 +196,7 @@ feature 'Admin/People' do
         end
 
         visit temporary_workers_people_path
-        expect(page).to have_content "Gordon Freeman"
+        expect(page).to have_content "Freeman, Gordon"
 
         person = Person.last
         visit person_path(person)
@@ -217,7 +217,7 @@ feature 'Admin/People' do
 
         visit temporary_workers_people_path
 
-        expect(page).to have_content "Gordon Freeman"
+        expect(page).to have_content "Freeman, Gordon"
 
         person = Person.last
         visit person_path(person)
@@ -280,7 +280,7 @@ feature 'Admin/People' do
         end
 
         visit directors_people_path
-        expect(page).to have_content "Red Richards"
+        expect(page).to have_content "Richards, Red"
         expect(page).to have_content person.unit
 
         visit person_path(person)
