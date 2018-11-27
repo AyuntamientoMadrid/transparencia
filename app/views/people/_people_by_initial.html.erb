@@ -1,0 +1,21 @@
+<% people_by_initial.each do |name_initial, people| %>
+  <h2 class="lead"><%= name_initial %></h2>
+  <ul class="people-list-text">
+    <% people.each do |person| %>
+      <li>
+        <%= link_to person do %>
+          <div class="people-photo">
+            <figure>
+              <%= profile_picture(person) %>
+              <% if person.director? %>
+                <span class="people-affiliation"><%= person.party_name %></span>
+              <% end %>
+            </figure>
+          </div>
+          <h3><%= person.name %></h3>
+        <% end %>
+        <p><%= person.role %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

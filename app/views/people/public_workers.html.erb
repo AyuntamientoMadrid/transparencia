@@ -14,26 +14,7 @@
   <div class="people">
     <div class="small-12 column">
       <h1><%= t("people.public_workers.title") %></h1>
-
-      <% @public_workers_by_name_initial.each do |name_initial, public_workers| %>
-        <h2 class="lead"><%= name_initial %></h2>
-        <ul class="people-list-text">
-          <% public_workers.each do |public_worker| %>
-            <li>
-              <%= link_to public_worker do %>
-                <div class="people-photo">
-                  <figure>
-                    <%= profile_picture(public_worker) %>
-                  </figure>
-                </div>
-                <h3><%= public_worker.name %></h3>
-              <% end %>
-              <p><%= public_worker.role %></p>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-
+      <%= render "people_by_initial", people_by_initial: @public_workers_by_name_initial %>
     </div>
   </div>
 <% end %>
