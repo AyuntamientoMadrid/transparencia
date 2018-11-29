@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503095318) do
+ActiveRecord::Schema.define(version: 20181129114743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(version: 20180503095318) do
   enable_extension "pg_trgm"
 
   create_table "activities_declarations", force: :cascade do |t|
-    t.integer "person_id"
-    t.date    "declaration_date"
-    t.json    "data"
-    t.string  "period"
+    t.integer  "person_id"
+    t.date     "declaration_date"
+    t.json     "data"
+    t.string   "period"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "administrators", force: :cascade do |t|
@@ -48,10 +50,12 @@ ActiveRecord::Schema.define(version: 20180503095318) do
   end
 
   create_table "assets_declarations", force: :cascade do |t|
-    t.integer "person_id"
-    t.date    "declaration_date"
-    t.json    "data"
-    t.string  "period"
+    t.integer  "person_id"
+    t.date     "declaration_date"
+    t.json     "data"
+    t.string   "period"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contracts", force: :cascade do |t|

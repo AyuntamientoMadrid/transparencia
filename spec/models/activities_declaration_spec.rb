@@ -61,4 +61,9 @@ describe ActivitiesDeclaration do
     end
   end
 
+  it "expires the cache when updated" do
+    declaration = create(:activities_declaration)
+
+    expect { declaration.update(declaration_date: 1.day.ago) }.to change { declaration.cache_key }
+  end
 end
