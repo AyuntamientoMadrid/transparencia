@@ -52,4 +52,15 @@ describe Person do
 
   end
 
+  describe ".grouped_by_party" do
+    it "orders councillors from the same party by councillor code" do
+      party = create(:party)
+      first_councillor = create(:person, councillor_code: 1, party: party)
+      councillor_without_code = create(:person, councillor_code: nil, party: party)
+      third_councillor = create(:person, councillor_code: 3, party: party)
+      second_councillor = create(:person, councillor_code: 2, party: party)
+
+      expect(Person.grouped_by_party[party]).to eq [first_councillor, second_councillor, third_councillor, councillor_without_code]
+    end
+  end
 end

@@ -332,7 +332,7 @@ class Person < ActiveRecord::Base
   def self.grouped_by_party
     sorted_party_ids = Party.all.order(councillors_count: :desc).pluck(:id)
     Hash[self.includes(:party)
-             .order(leaving_date: :desc, councillor_order: :asc)
+             .order(leaving_date: :desc, councillor_code: :asc)
              .group_by(&:party)
              .sort_by{ |party, v| sorted_party_ids.index(party.id) }
     ]
