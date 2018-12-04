@@ -11,6 +11,7 @@ class Person < ActiveRecord::Base
   has_attached_file :portrait,
                     styles: { medium: "245x245>", thumb: "100x100>" },
                     url: "/system/:class/:style/:friendly.:extension",
+                    default_url: "/missing.png",
                     use_timestamp: false
   validates_attachment_content_type :portrait, content_type: %r{\Aimage\/.*\z}
 
